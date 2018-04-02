@@ -546,9 +546,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-03-28T06:32:09Z",
-    "updated_at": "2018-03-28T06:37:42Z",
+    "updated_at": "2018-03-30T00:28:48Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "@martinthomson gave me the impression somewhere that new base64 usage should use the base64url.\r\n\r\nhttps://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.9 doesn't, which makes me worry browsers would use https://infra.spec.whatwg.org/#forgiving-base64 here leading to the interoperability issues already anticipated by that section."
@@ -650,9 +650,9 @@
 
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 7,
     "created_at": "2018-03-28T05:11:38Z",
-    "updated_at": "2018-03-29T22:24:55Z",
+    "updated_at": "2018-03-30T07:36:11Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "I noticed the structured headers proposal strictly ignores UTF-8, because it's not used much. The recommendation is to use the binary format instead.\r\n\r\nI thought that [RFC8187](https://tools.ietf.org/html/rfc8187) was fairly good for this.\r\n\r\nI can see structured-headers to be a super useful generic way to describe new standard and proprietary headers, but ignoring UTF-8 means we're limited in what categories of data probably unsafe for the purpose of a header.\r\n\r\nIs there a possibility to merge the syntax of RFC8187? It's true that it might not be used as much in practice, but it might expand the potential use-cases. Furthermore, as an implementor I don't have to worry about what someone might encode. The binary format doesn't quite cut it, because it doens't provide a hint as to how a generic client might decode it.  "
@@ -2097,17 +2097,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 4,
+    "comments": 6,
     "created_at": "2018-03-16T14:59:39Z",
-    "updated_at": "2018-03-30T00:01:28Z",
-    "closed_at": null,
+    "updated_at": "2018-03-30T05:41:14Z",
+    "closed_at": "2018-03-30T05:41:10Z",
     "author_association": "MEMBER",
     "body": "The spec currently cites both FETCH and the W3C CORS spec for CORS. One should be sufficient."
   },
@@ -2695,9 +2695,9 @@
 
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 7,
     "created_at": "2018-03-05T23:22:05Z",
-    "updated_at": "2018-03-28T07:05:43Z",
+    "updated_at": "2018-03-30T00:48:16Z",
     "closed_at": null,
     "author_association": "OWNER",
     "body": "Kari points out [on list](https://www.w3.org/mid/20180305184510.66F8B4792D@welho-filter2.welho.com):\r\n\r\n3. [Parsing Text into Structured Headers](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-3)\r\n\r\n~~~\r\nGiven an ASCII string input_string that represents the chosen\r\nheader's field-value, return the parsed header value.  When\r\ngenerating input_string, parsers MUST combine all instances of the\r\ntarget header field into one comma-separated field-value, as per\r\n[RFC7230], Section 3.2.2; this assures that the header is processed\r\ncorrectly.\r\n\r\nNote that in the case of lists, parameterised lists and dictionaries,\r\nthis has the effect of coalescing all of the values for that field.\r\nHowever, for singular items, parsing will fail if more than instance\r\nof that header field is present.\r\n~~~\r\n\r\nI think that this is not true for a String, if header field is mailformed\r\nenough.\r\n\r\nConsider following\r\n\r\n~~~\r\nFoo: \"xxss\r\nFoo: xxxx\"\r\n~~~\r\n\r\nThis gives\r\n\r\n> Foo: \"xxss,xxxx\"\r\n\r\nThis passes\r\n\r\n[4.7.1.  Parsing a String from Text](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.7.1)\r\n\r\n[4.7.  Strings](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.7)\r\n\r\n~~~\r\n string    = DQUOTE 0*1024(char) DQUOTE\r\n char      = unescaped / escape ( DQUOTE / \"\\\" )\r\n unescaped = %x20-21 / %x23-5B / %x5D-7E\r\n escape    = \"\\\"\r\n~~~\r\n\r\nComma is allowed here as unescaped.\r\n\r\nOther singular items does not allow comma, so combining causes parse error."
@@ -7075,9 +7075,9 @@
 
     ],
     "milestone": null,
-    "comments": 4,
+    "comments": 5,
     "created_at": "2017-11-28T02:01:35Z",
-    "updated_at": "2018-03-28T08:25:51Z",
+    "updated_at": "2018-03-30T00:47:13Z",
     "closed_at": null,
     "author_association": "OWNER",
     "body": "The current draft puts specific size limits on each type (e.g., lengths of strings, number of items in an array).\r\n\r\nThe rationale for including (generous) limits is that header authors often don't specify any limits, which puts implementations in an awkward position of deciding how much is \"too much\", leading to interoperability problems.\r\n\r\nIdeally each header author would define their own limits, tighter limits where necessary, making these a catch-all. \r\n\r\nWith that said, two questions:\r\n\r\n1)  Should we have such limits?\r\n\r\n2) If so, are the current limits correct? "
