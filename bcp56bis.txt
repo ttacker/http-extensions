@@ -534,7 +534,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    might conflict with existing resources, and constrain implementation
    and deployment.
 
-   In other words, applications that use HTTP MUST NOT associate
+   In other words, applications that use HTTP shouldn't associate
    application semantics with specific URL paths on arbitrary servers.
    Doing so inappropriately conflates the identity of the resource (its
    URL) with the capabilities that resource supports, bringing about
@@ -569,10 +569,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    about that particular deployment, potentially including links to
    other relevant resources.
 
-   Applications that use HTTP SHOULD allow an arbitrary URL to be used
-   as that entry point.  For example, rather than specifying "the
-   initial document is at "/foo/v1", they should allow a deployment to
-   use any URL as the entry point for the application.
+   Applications that use HTTP are encouraged to allow an arbitrary URL
+   to be used as that entry point.  For example, rather than specifying
+   "the initial document is at "/foo/v1", they should allow a deployment
+   to use any URL as the entry point for the application.
 
    In cases where doing so is impractical (e.g., it is not possible to
    convey a whole URL, but only a hostname) standard applications that
@@ -580,7 +580,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 4.4.2.  URL Schemes
 
-   Applications that use HTTP will typically use the "http" and/or
+   Applications that use HTTP will typically employ the "http" and/or
    "https" URL schemes. "https" is preferred to provide authentication,
    integrity and confidentiality, as well as mitigate pervasive
    monitoring attacks [RFC7258].
@@ -650,7 +650,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Using a port other than the default has privacy implications (i.e.,
    the protocol can now be distinguished from other traffic), as well as
    operability concerns (as some networks might block or otherwise
-   interfere with it).  Privacy implications SHOULD be documented in
+   interfere with it).  Privacy implications should be documented in
    Security Considerations.
 
    See [RFC7605] for further guidance.
