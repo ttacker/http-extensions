@@ -101,7 +101,7 @@ Table of Contents
      4.12. Co-Existing with Other Applications . . . . . . . . . . .  17
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  18
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  20
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  22
@@ -529,6 +529,11 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    interoperate with the application.  Applications MAY encourage the
    implementation of such features, though.
 
+   If an application using HTTP has browser compatibility as a goal,
+   client interaction ought to be defined in terms of [FETCH], since
+   that is the abstraction that browsers use for HTTP; it enforces many
+   of these best practices.
+
 4.4.  HTTP URLs
 
    In HTTP, URLs are opaque identifiers under the control of the server.
@@ -549,11 +554,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Instead, applications that use HTTP are encouraged to ensure that
    URLs are discovered at runtime, allowing HTTP-based services to
    describe their own capabilities.  One way to do this is to use typed
-   links [RFC8288] to convey the URIs that are in use, as well as the
-   semantics of the resources that they identify.  See Section 4.2 for
-   details.
-
-
 
 
 
@@ -561,6 +561,10 @@ Nottingham               Expires October 4, 2018               [Page 10]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   links [RFC8288] to convey the URIs that are in use, as well as the
+   semantics of the resources that they identify.  See Section 4.2 for
+   details.
 
 4.4.1.  Initial URL Discovery
 
@@ -607,10 +611,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
       "Location" response header), it can be difficult to assure that
       the new scheme is used consistently.
 
-   o  The resources identified by the new scheme will still be available
-      using "http" and/or "https" URLs.  Those URLs can "leak" into use,
-      which can present security and operability issues.  For example,
-
 
 
 Nottingham               Expires October 4, 2018               [Page 11]
@@ -618,6 +618,9 @@ Nottingham               Expires October 4, 2018               [Page 11]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
+   o  The resources identified by the new scheme will still be available
+      using "http" and/or "https" URLs.  Those URLs can "leak" into use,
+      which can present security and operability issues.  For example,
       using a new scheme to assure that requests don't get sent to a
       "normal" Web site is likely to fail.
 
@@ -662,9 +665,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    New HTTP methods are rare; they are required to be registered with
    IETF Review (see [RFC7232]), and are also required to be _generic_.
-   That means that they need to be potentially applicable to all
-   resources, not just those of one application.
-
 
 
 
@@ -673,6 +673,9 @@ Nottingham               Expires October 4, 2018               [Page 12]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   That means that they need to be potentially applicable to all
+   resources, not just those of one application.
 
    While historically some applications (e.g., [RFC4791]) have defined
    non-generic methods, [RFC7231] now forbids this.
@@ -719,9 +722,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    Finally, note that while HTTP allows GET requests to have a body
    syntactically, this is done only to allow parsers to be generic; as
-   per [RFC7231], Section 4.3.1, a body on a GET has no meaning, and
-   will be either ignored or rejected by generic HTTP software.  As a
-
 
 
 
@@ -730,6 +730,8 @@ Nottingham               Expires October 4, 2018               [Page 13]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
+   per [RFC7231], Section 4.3.1, a body on a GET has no meaning, and
+   will be either ignored or rejected by generic HTTP software.  As a
    result, applications that use HTTP SHOULD NOT define GET to have any
    sde effects upon their resources.
 
@@ -776,8 +778,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    proxy is interposed, the client might encounter a "407 Proxy
    Authentication Required" response; or, if the server is rate limiting
    the client, it might receive a "429 Too Many Requests" response.
-
-
 
 
 
@@ -935,17 +935,17 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    document.  External resources are numerous; e.g.,
    https://www.owasp.org/index.php/OWASP_Guide_Project [4].
 
+   If an application using HTTP has browser compatibility as a goal,
+   client interaction ought to be defined in terms of [FETCH], since
+   that is the abstraction that browsers use for HTTP; it enforces many
+   of these best practices.
+
 4.12.  Co-Existing with Other Applications
 
    Because the origin [RFC6454] is how many HTTP capabilities are
    scoped, applications also need to consider how deployments might
    interact with other applications (including Web browsing) on the same
    origin.
-
-   For example, if Cookies [RFC6265] are used to carry application
-   state, they will be sent with all requests to the origin by default,
-   unless scoped by path, and the application might receive cookies from
-
 
 
 
@@ -954,6 +954,9 @@ Nottingham               Expires October 4, 2018               [Page 17]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
+   For example, if Cookies [RFC6265] are used to carry application
+   state, they will be sent with all requests to the origin by default,
+   unless scoped by path, and the application might receive cookies from
    other applications on the origin.  This can lead to security issues,
    as well as collisions in cookie name.
 
@@ -996,9 +999,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    result that they do not benefit from patches and other security
    improvements incorporated upstream.
 
-7.  References
-
-
 
 
 
@@ -1009,6 +1009,8 @@ Nottingham               Expires October 4, 2018               [Page 18]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+7.  References
 
 7.1.  Normative References
 
@@ -1055,8 +1057,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Protocol (HTTP/1.1): Conditional Requests", RFC 7232,
               DOI 10.17487/RFC7232, June 2014,
               <https://www.rfc-editor.org/info/rfc7232>.
-
-
 
 
 
