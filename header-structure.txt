@@ -632,13 +632,16 @@ Internet-Draft         Structured Headers for HTTP            April 2018
        (but not including) the first character that is not in DIGIT,
        "-", and ".".
 
-   3.  If input_number contains ".", parse it as a floating point number
+   3.  If any character of input_number after the first is "-", fail
+       parsing.
+
+   4.  If input_number contains ".", parse it as a floating point number
        and let output_number be the result.
 
-   4.  Otherwise, parse input_number as an integer and let output_number
+   5.  Otherwise, parse input_number as an integer and let output_number
        be the result.
 
-   5.  Return output_number.
+   6.  Return output_number.
 
 4.6.  Floats
 
@@ -651,9 +654,6 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    digits between the integer and fractional part, with at least one
    required on each side, along with an optional "-" indicating negative
    numbers.
-
-
-
 
 
 
