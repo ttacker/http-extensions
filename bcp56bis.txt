@@ -305,7 +305,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    Therefore, applications that use HTTP MUST NOT re-define, refine or
    overlay the semantics of defined protocol elements.  Instead, they
-   SHOULD focus their specifications on protocol elements that are
+   should focus their specifications on protocol elements that are
    specific to that application; namely their HTTP resources.
 
    See Section 4.2 for details.
@@ -402,21 +402,16 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    do so (e.g., a particular feature is called out).
 
    Applications using HTTP MAY specify a minimum version to be supported
-   (HTTP/1.1 is suggested), and MUST NOT specify a maximum version.
+   (HTTP/1.1 is suggested), and MUST NOT specify a maximum version, to
+   preserve the protocol's ability to evolve.
 
    Likewise, applications need not specify what HTTP mechanisms - such
    as redirection, caching, authentication, proxy authentication, and so
-   on - are to be supported.  Full featured support for HTTP SHOULD be
-   taken for granted in servers and clients, and the application's
-   function SHOULD degrade gracefully if they are not (although this
-   might be achieved by informing the user that their task cannot be
-   completed).
-
-   For example, an application can specify that it uses HTTP like this:
+   on - are to be supported.  For example, an application can specify
+   that it uses HTTP like this:
 
    Foo Application uses HTTP [RFC7230]. Implementations MUST support
-   HTTP/1.1, and MAY support later versions. Support for common HTTP
-   mechanisms such as redirection and caching are assumed.
+   HTTP/1.1, and MAY support later versions.
 
    When specifying examples of protocol interactions, applications
    SHOULD document both the request and response messages, with full
@@ -436,11 +431,16 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 4.2.  Defining HTTP Resources
 
-   HTTP Applications SHOULD focus on defining the following application-
-   specific protocol elements:
+   Applications that use HTTP should focus on defining the following
+   application-specific protocol elements:
 
    o  Media types [RFC6838], often based upon a format convention such
       as JSON [RFC8259],
+
+   o  HTTP header fields, as per Section 4.7, and
+
+   o  The behaviour of resources, as identified by link relations
+      [RFC8288].
 
 
 
@@ -449,11 +449,6 @@ Nottingham               Expires October 4, 2018                [Page 8]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   o  HTTP header fields, as per Section 4.7, and
-
-   o  The behaviour of resources, as identified by link relations
-      [RFC8288].
 
    By composing these protocol elements, an application can define a set
    of resources, identified by link relations, that implement specified
@@ -489,14 +484,19 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    HTTP does not mandate some behaviours that have nevertheless become
    very common; if these are not explicitly specified by applications
-   using HTTP, there may be confusing or interoperability problems.
-   This section lists common examples of this, and recommends default
-   handling for them.
+   using HTTP, there may be confusion and interoperability problems.
+   This section recommends default handling for these mechanisms.
 
    o  Redirect handling - applications using HTTP SHOULD specify that
       3xx redirect status codes be followed automatically.  See
       [RFC7231], Section 6.4.
 
+   o  Redirect methods - applications using HTTP SHOULD specify that 301
+      and 302 redirect status codes rewrite the POST method to GET.  See
+      [RFC7231], Section 6.4.
+
+   o  Cookies - Applications using HTTP MUST explicitly reference the
+      Cookie specification [RFC6265] if they are required.
 
 
 
@@ -506,20 +506,18 @@ Nottingham               Expires October 4, 2018                [Page 9]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   o  Redirect methods - applications using HTTP SHOULD specify that 301
-      and 302 redirect status codes rewrite the POST method to GET.  See
-      [RFC7231], Section 6.4.
-
-   o  Cookies - Applications using HTTP MUST explicitly reference the
-      Cookie specification [RFC6265] if they are required.
-
    o  Certificates - Applications using HTTP MUST specify that TLS
       certificates are to be checked according to [RFC2818] when HTTPS
       is used.
 
-   In general, applications using HTTP SHOULD align their usage as
+   In general, applications using HTTP ought to align their usage as
    closely as possible with Web browsers, to avoid interoperability
    issues when they are used.  See Section 4.11.
+
+   If an application using HTTP has browser compatibility as a goal,
+   client interaction ought to be defined in terms of [FETCH], since
+   that is the abstraction that browsers use for HTTP; it enforces many
+   of these best practices.
 
    Applications using HTTP MUST NOT require HTTP features that are
    usually negotiated to be supported.  For example, requiring that
@@ -528,11 +526,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Section 5.3.4) means that otherwise conformant clients cannot
    interoperate with the application.  Applications MAY encourage the
    implementation of such features, though.
-
-   If an application using HTTP has browser compatibility as a goal,
-   client interaction ought to be defined in terms of [FETCH], since
-   that is the abstraction that browsers use for HTTP; it enforces many
-   of these best practices.
 
 4.4.  HTTP URLs
 
@@ -554,6 +547,13 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Instead, applications that use HTTP are encouraged to ensure that
    URLs are discovered at runtime, allowing HTTP-based services to
    describe their own capabilities.  One way to do this is to use typed
+   links [RFC8288] to convey the URIs that are in use, as well as the
+   semantics of the resources that they identify.  See Section 4.2 for
+   details.
+
+
+
+
 
 
 
@@ -561,10 +561,6 @@ Nottingham               Expires October 4, 2018               [Page 10]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   links [RFC8288] to convey the URIs that are in use, as well as the
-   semantics of the resources that they identify.  See Section 4.2 for
-   details.
 
 4.4.1.  Initial URL Discovery
 
@@ -611,6 +607,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
       "Location" response header), it can be difficult to assure that
       the new scheme is used consistently.
 
+   o  The resources identified by the new scheme will still be available
+      using "http" and/or "https" URLs.  Those URLs can "leak" into use,
+      which can present security and operability issues.  For example,
+
 
 
 Nottingham               Expires October 4, 2018               [Page 11]
@@ -618,9 +618,6 @@ Nottingham               Expires October 4, 2018               [Page 11]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   o  The resources identified by the new scheme will still be available
-      using "http" and/or "https" URLs.  Those URLs can "leak" into use,
-      which can present security and operability issues.  For example,
       using a new scheme to assure that requests don't get sent to a
       "normal" Web site is likely to fail.
 
@@ -665,6 +662,9 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    New HTTP methods are rare; they are required to be registered with
    IETF Review (see [RFC7232]), and are also required to be _generic_.
+   That means that they need to be potentially applicable to all
+   resources, not just those of one application.
+
 
 
 
@@ -673,9 +673,6 @@ Nottingham               Expires October 4, 2018               [Page 12]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   That means that they need to be potentially applicable to all
-   resources, not just those of one application.
 
    While historically some applications (e.g., [RFC4791]) have defined
    non-generic methods, [RFC7231] now forbids this.
@@ -722,6 +719,9 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    Finally, note that while HTTP allows GET requests to have a body
    syntactically, this is done only to allow parsers to be generic; as
+   per [RFC7231], Section 4.3.1, a body on a GET has no meaning, and
+   will be either ignored or rejected by generic HTTP software.  As a
+
 
 
 
@@ -730,8 +730,6 @@ Nottingham               Expires October 4, 2018               [Page 13]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   per [RFC7231], Section 4.3.1, a body on a GET has no meaning, and
-   will be either ignored or rejected by generic HTTP software.  As a
    result, applications that use HTTP SHOULD NOT define GET to have any
    sde effects upon their resources.
 
@@ -778,6 +776,8 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    proxy is interposed, the client might encounter a "407 Proxy
    Authentication Required" response; or, if the server is rate limiting
    the client, it might receive a "429 Too Many Requests" response.
+
+
 
 
 
