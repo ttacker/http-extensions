@@ -141,7 +141,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
    GET /foo HTTP/1.1
    Host: www.example.com
-   Accept-Language: en;q=1.0, fr;q=0.5
+   Accept-Language: en;q=0.5, fr;q=1.0
 
    HTTP/1.1 200 OK
    Content-Type: text/html
@@ -180,7 +180,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
    GET /foo HTTP/1.1
    Host: www.example.com
-   Accept-Language: en;q=1.0, fr;q=0.5
+   Accept-Language: en;q=0.5, fr;q=1.0
 
    HTTP/1.1 200 OK
    Content-Type: text/html
