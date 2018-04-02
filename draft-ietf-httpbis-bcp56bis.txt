@@ -101,7 +101,7 @@ Table of Contents
      4.12. Co-Existing with Other Applications . . . . . . . . . . .  17
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  18
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  20
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  22
@@ -787,11 +787,12 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    Since the list of HTTP status codes can be added to, it's safer to
-   refer to it directly, and point out that clients SHOULD be able to
-   handle all applicable protocol elements gracefully (i.e., falling
-   back to the generic "n00" semantics of a given status code; e.g.,
-   "499" can be safely handled as "400" by clients that don't recognise
-   it).
+   specify behaviours in terms of general response classes (e.g.,
+   "successful response" for 2xx; "client error" for 4xx and "server
+   error" for 5xx), pointing out that clients SHOULD be able to handle
+   all applicable protocol elements gracefully (i.e., falling back to
+   the generic "n00" semantics of a given status code; e.g., "499" can
+   be safely handled as "400" by clients that don't recognise it).
 
 4.7.  HTTP Header Fields
 
@@ -809,9 +810,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    o  It is not possible to include their content in the message body
       (usually because a format does not allow it).
-
-   If none of these motivations apply, using a header field is NOT
-   RECOMMENDED.
 
    New header fields MUST be registered, as per [RFC7231] and [RFC3864].
 
@@ -834,6 +832,8 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    that the "Location" header has a special meaning in a certain
    context.
 
+   If an application defines a request header field that might be used
+   by a server to change the response's headers or body, authors should
 
 
 
@@ -842,8 +842,6 @@ Nottingham               Expires October 4, 2018               [Page 15]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   If an application defines a request header field that might be used
-   by a server to change the response's headers or body, authors should
    point out that this has implications for caching; in general, such
    resources need to either make their responses uncacheable (e.g., with
    the "no-store" cache-control directive defined in [RFC7234],
@@ -852,10 +850,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    See Section 4.9 for requirements regarding header fields that carry
    application state (e.g,. Cookie).
-
-   Applications that use already-defined HTTP header fields MUST NOT
-   modify their semantics or syntax, unless the definition of that
-   header field explicitly allows it (e.g., with an extension field).
 
 4.8.  Defining Message Payloads
 
@@ -890,6 +884,12 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Applications that use HTTP MAY use HTTP authentication [RFC7235] to
    identify clients.  The Basic authentication scheme [RFC7617] MUST NOT
    be used unless the underlying transport is authenticated, integrity-
+   protected and confidential (e.g., as provided the "HTTPS" URL scheme,
+   or another using TLS).  The Digest scheme [RFC7616] MUST NOT be used
+   unless the underlying transport is similarly secure, or the chosen
+   hash algorithm is not "MD5".
+
+
 
 
 
@@ -897,11 +897,6 @@ Nottingham               Expires October 4, 2018               [Page 16]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   protected and confidential (e.g., as provided the "HTTPS" URL scheme,
-   or another using TLS).  The Digest scheme [RFC7616] MUST NOT be used
-   unless the underlying transport is similarly secure, or the chosen
-   hash algorithm is not "MD5".
 
    When used, it is important to carefully specify the scoping and use
    of authentication; if the application exposes sensitive data or
@@ -947,6 +942,11 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    interact with other applications (including Web browsing) on the same
    origin.
 
+   For example, if Cookies [RFC6265] are used to carry application
+   state, they will be sent with all requests to the origin by default,
+   unless scoped by path, and the application might receive cookies from
+
+
 
 
 Nottingham               Expires October 4, 2018               [Page 17]
@@ -954,9 +954,6 @@ Nottingham               Expires October 4, 2018               [Page 17]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   For example, if Cookies [RFC6265] are used to carry application
-   state, they will be sent with all requests to the origin by default,
-   unless scoped by path, and the application might receive cookies from
    other applications on the origin.  This can lead to security issues,
    as well as collisions in cookie name.
 
@@ -999,6 +996,9 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    result that they do not benefit from patches and other security
    improvements incorporated upstream.
 
+7.  References
+
+
 
 
 
@@ -1009,8 +1009,6 @@ Nottingham               Expires October 4, 2018               [Page 18]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-7.  References
 
 7.1.  Normative References
 
@@ -1057,6 +1055,8 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Protocol (HTTP/1.1): Conditional Requests", RFC 7232,
               DOI 10.17487/RFC7232, June 2014,
               <https://www.rfc-editor.org/info/rfc7232>.
+
+
 
 
 
