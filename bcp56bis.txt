@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                            March 30, 2018
+Internet-Draft                                             April 2, 2018
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: October 1, 2018
+Expires: October 4, 2018
 
 
                    On the use of HTTP as a Substrate
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 1, 2018.
+   This Internet-Draft will expire on October 4, 2018.
 
 
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Nottingham               Expires October 1, 2018                [Page 1]
+Nottingham               Expires October 4, 2018                [Page 1]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham               Expires October 1, 2018                [Page 2]
+Nottingham               Expires October 4, 2018                [Page 2]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 1.  Introduction
@@ -165,9 +165,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018                [Page 3]
+Nottingham               Expires October 4, 2018                [Page 3]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    o  How can the maximum value be extracted from the use of HTTP?
@@ -221,9 +221,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018                [Page 4]
+Nottingham               Expires October 4, 2018                [Page 4]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    An application might not be _using HTTP_ according to this
@@ -277,9 +277,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018                [Page 5]
+Nottingham               Expires October 4, 2018                [Page 5]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    A `POST` request MUST result in a `201 Created` response.
@@ -333,9 +333,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018                [Page 6]
+Nottingham               Expires October 4, 2018                [Page 6]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    "mix" different applications on the same server, and offers a natural
@@ -389,9 +389,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018                [Page 7]
+Nottingham               Expires October 4, 2018                [Page 7]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 4.1.  Specifying the Use of HTTP
@@ -445,9 +445,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018                [Page 8]
+Nottingham               Expires October 4, 2018                [Page 8]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    o  HTTP header fields, as per Section 4.7, and
@@ -501,9 +501,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018                [Page 9]
+Nottingham               Expires October 4, 2018                [Page 9]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    o  Redirect methods - applications using HTTP SHOULD specify that 301
@@ -557,9 +557,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 10]
+Nottingham               Expires October 4, 2018               [Page 10]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 4.4.1.  Initial URL Discovery
@@ -613,9 +613,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 11]
+Nottingham               Expires October 4, 2018               [Page 11]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
       using a new scheme to assure that requests don't get sent to a
@@ -669,9 +669,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 12]
+Nottingham               Expires October 4, 2018               [Page 12]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    While historically some applications (e.g., [RFC4791]) have defined
@@ -725,9 +725,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 13]
+Nottingham               Expires October 4, 2018               [Page 13]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    Authentication Required" response; or, if the server is rate limiting
@@ -781,9 +781,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 14]
+Nottingham               Expires October 4, 2018               [Page 14]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    that the "Location" header has a special meaning in a certain
@@ -837,9 +837,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 15]
+Nottingham               Expires October 4, 2018               [Page 15]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 4.10.  Client Authentication
@@ -893,9 +893,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 16]
+Nottingham               Expires October 4, 2018               [Page 16]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    For example, if Cookies [RFC6265] are used to carry application
@@ -949,9 +949,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 17]
+Nottingham               Expires October 4, 2018               [Page 17]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 7.  References
@@ -1005,9 +1005,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 18]
+Nottingham               Expires October 4, 2018               [Page 18]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
@@ -1061,9 +1061,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 19]
+Nottingham               Expires October 4, 2018               [Page 19]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    [RFC0854]  Postel, J. and J. Reynolds, "Telnet Protocol
@@ -1117,9 +1117,9 @@ Internet-Draft      On the use of HTTP as a Substrate         March 2018
 
 
 
-Nottingham               Expires October 1, 2018               [Page 20]
+Nottingham               Expires October 4, 2018               [Page 20]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
@@ -1173,9 +1173,9 @@ Appendix A.  Changes from RFC 3205
 
 
 
-Nottingham               Expires October 1, 2018               [Page 21]
+Nottingham               Expires October 4, 2018               [Page 21]
 
-Internet-Draft      On the use of HTTP as a Substrate         March 2018
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    document is substantially different.  As a result, the changes are
@@ -1229,4 +1229,4 @@ Author's Address
 
 
 
-Nottingham               Expires October 1, 2018               [Page 22]
+Nottingham               Expires October 4, 2018               [Page 22]

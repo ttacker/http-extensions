@@ -5,7 +5,7 @@
 HTTP Working Group                                                K. Oku
 Internet-Draft                                                    Fastly
 Intended status: Experimental                              M. Nottingham
-Expires: October 1, 2018                                  March 30, 2018
+Expires: October 4, 2018                                   April 2, 2018
 
 
                         Cache Digests for HTTP/2
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 1, 2018.
+   This Internet-Draft will expire on October 4, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 1]
+Oku & Nottingham         Expires October 4, 2018                [Page 1]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 2]
+Oku & Nottingham         Expires October 4, 2018                [Page 2]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    performance, it is sometimes counterproductive because the client
@@ -165,9 +165,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 3]
+Oku & Nottingham         Expires October 4, 2018                [Page 3]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    o  *COMPLETE* (0x2): When set, indicates that the currently valid set
@@ -221,9 +221,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 4]
+Oku & Nottingham         Expires October 4, 2018                [Page 4]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    since the beginning of the connection or the last RESET flag on a
@@ -277,9 +277,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 5]
+Oku & Nottingham         Expires October 4, 2018                [Page 5]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    and the fingerprint's hash.  The XOR operation means that secondary
@@ -333,9 +333,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 6]
+Oku & Nottingham         Expires October 4, 2018                [Page 6]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
         3.   While "position_start" < "position_end":
@@ -389,9 +389,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 7]
+Oku & Nottingham         Expires October 4, 2018                [Page 7]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    o  "ETag" a string corresponding to the entity-tag [RFC7232] of a
@@ -445,9 +445,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 8]
+Oku & Nottingham         Expires October 4, 2018                [Page 8]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    o  "f", an integer indicating the number of output bits
@@ -501,9 +501,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018                [Page 9]
+Oku & Nottingham         Expires October 4, 2018                [Page 9]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    3.  Return "key"
@@ -557,9 +557,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 10]
+Oku & Nottingham         Expires October 4, 2018               [Page 10]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    o  If a given URL and ETag has no match in any current CACHE_DIGEST,
@@ -613,9 +613,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 11]
+Oku & Nottingham         Expires October 4, 2018               [Page 11]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    6.   Let "fingerprint" be the return value of Section 2.1.4 with
@@ -669,9 +669,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 12]
+Oku & Nottingham         Expires October 4, 2018               [Page 12]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    SHOULD send the SETTINGS parameter immediately after the connection
@@ -725,9 +725,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 13]
+Oku & Nottingham         Expires October 4, 2018               [Page 13]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    This document registers the following entry in the HTTP/2 Settings
@@ -781,9 +781,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 14]
+Oku & Nottingham         Expires October 4, 2018               [Page 14]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    [RFC6234]  Eastlake 3rd, D. and T. Hansen, "US Secure Hash Algorithms
@@ -837,9 +837,9 @@ Internet-Draft          Cache Digests for HTTP/2              March 2018
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 15]
+Oku & Nottingham         Expires October 4, 2018               [Page 15]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
@@ -893,9 +893,9 @@ Appendix A.  Encoding the CACHE_DIGEST frame as an HTTP Header
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 16]
+Oku & Nottingham         Expires October 4, 2018               [Page 16]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
    A Cache-Digest request header is defined as a list construct of
@@ -949,9 +949,9 @@ C.2.  Since draft-ietf-httpbis-cache-digest-02
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 17]
+Oku & Nottingham         Expires October 4, 2018               [Page 17]
 
-Internet-Draft          Cache Digests for HTTP/2              March 2018
+Internet-Draft          Cache Digests for HTTP/2              April 2018
 
 
 C.3.  Since draft-ietf-httpbis-cache-digest-01
@@ -1005,4 +1005,4 @@ Authors' Addresses
 
 
 
-Oku & Nottingham         Expires October 1, 2018               [Page 18]
+Oku & Nottingham         Expires October 4, 2018               [Page 18]
