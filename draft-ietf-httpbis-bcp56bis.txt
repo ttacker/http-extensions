@@ -105,7 +105,7 @@ Table of Contents
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  20
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  20
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  22
-     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  25
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  24
 
 
 
@@ -720,7 +720,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Finally, note that while HTTP allows GET requests to have a body
    syntactically, this is done only to allow parsers to be generic; as
    per [RFC7231], Section 4.3.1, a body on a GET has no meaning, and
-   will be either ignored or rejected by generic HTTP software.  As a
+   will be either ignored or rejected by generic HTTP software.
 
 
 
@@ -729,9 +729,6 @@ Nottingham               Expires October 5, 2018               [Page 13]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   result, applications that use HTTP SHOULD NOT define GET to have any
-   side effects upon their resources.
 
 4.6.  HTTP Status Codes
 
@@ -777,7 +774,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Authentication Required" response; or, if the server is rate limiting
    the client, it might receive a "429 Too Many Requests" response.
 
-
+   Since the list of HTTP status codes can be added to, it's safer to
+   specify behaviours in terms of general response classes (e.g.,
+   "successful response" for 2xx; "client error" for 4xx and "server
+   error" for 5xx), pointing out that clients SHOULD be able to handle
 
 
 
@@ -786,10 +786,6 @@ Nottingham               Expires October 5, 2018               [Page 14]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   Since the list of HTTP status codes can be added to, it's safer to
-   specify behaviours in terms of general response classes (e.g.,
-   "successful response" for 2xx; "client error" for 4xx and "server
-   error" for 5xx), pointing out that clients SHOULD be able to handle
    all applicable protocol elements gracefully (i.e., falling back to
    the generic "n00" semantics of a given status code; e.g., "499" can
    be safely handled as "400" by clients that don't recognise it).
@@ -832,8 +828,12 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    that the "Location" header has a special meaning in a certain
    context.
 
+   See Section 4.9 for the interaction between headers and HTTP caching;
+   in particular, request headers that are used to "select" a response
+   have impact there, and need to be carefully considered.
 
-
+   See Section 4.10 for considerations regarding header fields that
+   carry application state (e.g,.  Cookie).
 
 
 
@@ -841,13 +841,6 @@ Nottingham               Expires October 5, 2018               [Page 15]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   See Section 4.9 for the interaction between headers and HTTP caching;
-   in particular, request headers that are used to "select" a response
-   have impact there, and need to be carefully considered.
-
-   See Section 4.10 for considerations regarding header fields that
-   carry application state (e.g,.  Cookie).
 
 4.8.  Defining Message Payloads
 
@@ -891,17 +884,19 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    heuristic is not under control of the application, it is generally
    preferable to set an explicit freshness lifetime.
 
+   If caching of a response is not desired, the appropriate response
+   directive is "Cache-Control: no-store".  This only need be sent in
+   situations where the response might be cached; see [RFC7234],
+   Section 3.
+
+
+
 
 
 Nottingham               Expires October 5, 2018               [Page 16]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   If caching of a response is not desired, the appropriate response
-   directive is "Cache-Control: no-store".  This only need be sent in
-   situations where the response might be cached; see [RFC7234],
-   Section 3.
 
    If an application defines a request header field that might be used
    by a server to change the response's headers or body, authors should
@@ -946,6 +941,11 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    identify clients.  The Basic authentication scheme [RFC7617] MUST NOT
    be used unless the underlying transport is authenticated, integrity-
    protected and confidential (e.g., as provided the "HTTPS" URL scheme,
+   or another using TLS).  The Digest scheme [RFC7616] MUST NOT be used
+   unless the underlying transport is similarly secure, or the chosen
+   hash algorithm is not "MD5".
+
+
 
 
 
@@ -953,10 +953,6 @@ Nottingham               Expires October 5, 2018               [Page 17]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   or another using TLS).  The Digest scheme [RFC7616] MUST NOT be used
-   unless the underlying transport is similarly secure, or the chosen
-   hash algorithm is not "MD5".
 
    When used, it is important to carefully specify the scoping and use
    of authentication; if the application exposes sensitive data or
@@ -1001,6 +997,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
       included in a HTML frame from another origin, thereby enabling
       "clickjacking"
 
+   o  Using Referrer-Policy [W3C.CR-referrer-policy-20170126] to prevent
+      sensitive data in URLs from being leaked in the Referer request
+      header
+
 
 
 
@@ -1009,10 +1009,6 @@ Nottingham               Expires October 5, 2018               [Page 18]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   o  Using Referrer-Policy [W3C.CR-referrer-policy-20170126] to prevent
-      sensitive data in URLs from being leaked in the Referer request
-      header
 
    o  Using the 'HttpOnly' flag on Cookies to assure that cookies are
       not exposed to browser scripting languages [RFC6265]
@@ -1058,6 +1054,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Modern Web browsers constrain the ability of content from one origin
    to access resources from another, to avoid leaking private
    information.  As a result, applications that wish to expose cross-
+   origin data to browsers will need to implement the CORS protocol; see
+   [FETCH].
+
+
 
 
 
@@ -1065,9 +1065,6 @@ Nottingham               Expires October 5, 2018               [Page 19]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   origin data to browsers will need to implement the CORS protocol; see
-   [FETCH].
 
 5.  IANA Considerations
 
@@ -1113,6 +1110,9 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC3864, September 2004,
               <https://www.rfc-editor.org/info/rfc3864>.
 
+   [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
+              DOI 10.17487/RFC6454, December 2011,
+              <https://www.rfc-editor.org/info/rfc6454>.
 
 
 
@@ -1121,10 +1121,6 @@ Nottingham               Expires October 5, 2018               [Page 20]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
-              DOI 10.17487/RFC6454, December 2011,
-              <https://www.rfc-editor.org/info/rfc6454>.
 
    [RFC6648]  Saint-Andre, P., Crocker, D., and M. Nottingham,
               "Deprecating the "X-" Prefix and Similar Constructs in
@@ -1167,6 +1163,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC7235, June 2014,
               <https://www.rfc-editor.org/info/rfc7235>.
 
+   [RFC7301]  Friedl, S., Popov, A., Langley, A., and E. Stephan,
+              "Transport Layer Security (TLS) Application-Layer Protocol
+              Negotiation Extension", RFC 7301, DOI 10.17487/RFC7301,
+              July 2014, <https://www.rfc-editor.org/info/rfc7301>.
 
 
 
@@ -1177,11 +1177,6 @@ Nottingham               Expires October 5, 2018               [Page 21]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   [RFC7301]  Friedl, S., Popov, A., Langley, A., and E. Stephan,
-              "Transport Layer Security (TLS) Application-Layer Protocol
-              Negotiation Extension", RFC 7301, DOI 10.17487/RFC7301,
-              July 2014, <https://www.rfc-editor.org/info/rfc7301>.
 
    [RFC7320]  Nottingham, M., "URI Design and Ownership", BCP 190,
               RFC 7320, DOI 10.17487/RFC7320, July 2014,
@@ -1224,6 +1219,11 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               RFC 2821, DOI 10.17487/RFC2821, April 2001,
               <https://www.rfc-editor.org/info/rfc2821>.
 
+   [RFC3205]  Moore, K., "On the use of HTTP as a Substrate", BCP 56,
+              RFC 3205, DOI 10.17487/RFC3205, February 2002,
+              <https://www.rfc-editor.org/info/rfc3205>.
+
+
 
 
 
@@ -1233,10 +1233,6 @@ Nottingham               Expires October 5, 2018               [Page 22]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   [RFC3205]  Moore, K., "On the use of HTTP as a Substrate", BCP 56,
-              RFC 3205, DOI 10.17487/RFC3205, February 2002,
-              <https://www.rfc-editor.org/info/rfc3205>.
 
    [RFC4367]  Rosenberg, J., Ed. and IAB, "What's in a Name: False
               Assumptions about DNS Names", RFC 4367,
@@ -1282,6 +1278,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May
               2014, <https://www.rfc-editor.org/info/rfc7258>.
 
+   [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
+              and Registration Procedures for URI Schemes", BCP 35,
+              RFC 7595, DOI 10.17487/RFC7595, June 2015,
+              <https://www.rfc-editor.org/info/rfc7595>.
 
 
 
@@ -1289,11 +1289,6 @@ Nottingham               Expires October 5, 2018               [Page 23]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
-              and Registration Procedures for URI Schemes", BCP 35,
-              RFC 7595, DOI 10.17487/RFC7595, June 2015,
-              <https://www.rfc-editor.org/info/rfc7595>.
 
    [RFC7605]  Touch, J., "Recommendations on Using Assigned Transport
               Port Numbers", BCP 165, RFC 7605, DOI 10.17487/RFC7605,
@@ -1338,6 +1333,11 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               xml-20081126, November 2008,
               <http://www.w3.org/TR/2008/REC-xml-20081126>.
 
+7.3.  URIs
+
+   [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
+
+   [2] http://httpwg.github.io/
 
 
 
@@ -1345,12 +1345,6 @@ Nottingham               Expires October 5, 2018               [Page 24]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-7.3.  URIs
-
-   [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
-
-   [2] http://httpwg.github.io/
 
    [3] https://github.com/httpwg/http-extensions/labels/bcp56bis
 
@@ -1368,6 +1362,12 @@ Author's Address
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
+
+
+
+
+
+
 
 
 
