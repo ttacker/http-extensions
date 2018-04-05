@@ -105,7 +105,7 @@ Table of Contents
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  20
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  20
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  22
-     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  25
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  24
 
 
 
@@ -991,17 +991,17 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    o  Using Strict Transport Security [RFC6797] to assure that HTTPS is
       used
 
-   o  Using Content-Security-Policy [W3C.WD-CSP3-20160913] to constrain
-      the capabilities of content, thereby mitigating Cross-Site
-      Scripting attacks (which are possible if client-provided data is
-      exposed in any part of a response in the application)
+   o  Using Content-Security-Policy [CSP] to constrain the capabilities
+      of content, thereby mitigating Cross-Site Scripting attacks (which
+      are possible if client-provided data is exposed in any part of a
+      response in the application)
 
    o  Using X-Frame-Options [RFC7034] to prevent content from being
       included in a HTML frame from another origin, thereby enabling
       "clickjacking"
 
-
-
+   o  Using Referrer-Policy [REFERRER-POLICY] to prevent sensitive data
+      in URLs from being leaked in the Referer request header
 
 
 
@@ -1009,10 +1009,6 @@ Nottingham               Expires October 7, 2018               [Page 18]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   o  Using Referrer-Policy [W3C.CR-referrer-policy-20170126] to prevent
-      sensitive data in URLs from being leaked in the Referer request
-      header
 
    o  Using the 'HttpOnly' flag on Cookies to assure that cookies are
       not exposed to browser scripting languages [RFC6265]
@@ -1058,6 +1054,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Modern Web browsers constrain the ability of content from one origin
    to access resources from another, to avoid leaking private
    information.  As a result, applications that wish to expose cross-
+   origin data to browsers will need to implement the CORS protocol; see
+   [FETCH].
+
+
 
 
 
@@ -1065,9 +1065,6 @@ Nottingham               Expires October 7, 2018               [Page 19]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   origin data to browsers will need to implement the CORS protocol; see
-   [FETCH].
 
 5.  IANA Considerations
 
@@ -1113,6 +1110,9 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC3864, September 2004,
               <https://www.rfc-editor.org/info/rfc3864>.
 
+   [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
+              DOI 10.17487/RFC6454, December 2011,
+              <https://www.rfc-editor.org/info/rfc6454>.
 
 
 
@@ -1121,10 +1121,6 @@ Nottingham               Expires October 7, 2018               [Page 20]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
-              DOI 10.17487/RFC6454, December 2011,
-              <https://www.rfc-editor.org/info/rfc6454>.
 
    [RFC6648]  Saint-Andre, P., Crocker, D., and M. Nottingham,
               "Deprecating the "X-" Prefix and Similar Constructs in
@@ -1167,6 +1163,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC7235, June 2014,
               <https://www.rfc-editor.org/info/rfc7235>.
 
+   [RFC7301]  Friedl, S., Popov, A., Langley, A., and E. Stephan,
+              "Transport Layer Security (TLS) Application-Layer Protocol
+              Negotiation Extension", RFC 7301, DOI 10.17487/RFC7301,
+              July 2014, <https://www.rfc-editor.org/info/rfc7301>.
 
 
 
@@ -1177,11 +1177,6 @@ Nottingham               Expires October 7, 2018               [Page 21]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   [RFC7301]  Friedl, S., Popov, A., Langley, A., and E. Stephan,
-              "Transport Layer Security (TLS) Application-Layer Protocol
-              Negotiation Extension", RFC 7301, DOI 10.17487/RFC7301,
-              July 2014, <https://www.rfc-editor.org/info/rfc7301>.
 
    [RFC7320]  Nottingham, M., "URI Design and Ownership", BCP 190,
               RFC 7320, DOI 10.17487/RFC7320, July 2014,
@@ -1202,11 +1197,21 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 7.2.  Informative References
 
+   [CSP]      West, M., "Content Security Policy Level 3", World Wide
+              Web Consortium WD WD-CSP3-20160913, September 2016,
+              <https://www.w3.org/TR/2016/WD-CSP3-20160913>.
+
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
               <https://fetch.spec.whatwg.org>.
 
    [HTML5]    WHATWG, "HTML - Living Standard", n.d.,
               <https://html.spec.whatwg.org>.
+
+   [REFERRER-POLICY]
+              Eisinger, J. and E. Stark, "Referrer Policy", World Wide
+              Web Consortium CR CR-referrer-policy-20170126, January
+              2017,
+              <https://www.w3.org/TR/2017/CR-referrer-policy-20170126>.
 
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
               RFC 793, DOI 10.17487/RFC0793, September 1981,
@@ -1220,11 +1225,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               STD 9, RFC 959, DOI 10.17487/RFC0959, October 1985,
               <https://www.rfc-editor.org/info/rfc959>.
 
-   [RFC2821]  Klensin, J., Ed., "Simple Mail Transfer Protocol",
-              RFC 2821, DOI 10.17487/RFC2821, April 2001,
-              <https://www.rfc-editor.org/info/rfc2821>.
-
-
 
 
 
@@ -1233,6 +1233,10 @@ Nottingham               Expires October 7, 2018               [Page 22]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   [RFC2821]  Klensin, J., Ed., "Simple Mail Transfer Protocol",
+              RFC 2821, DOI 10.17487/RFC2821, April 2001,
+              <https://www.rfc-editor.org/info/rfc2821>.
 
    [RFC3205]  Moore, K., "On the use of HTTP as a Substrate", BCP 56,
               RFC 3205, DOI 10.17487/RFC3205, February 2002,
@@ -1278,10 +1282,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <https://www.rfc-editor.org/info/rfc7049>.
 
-   [RFC7258]  Farrell, S. and H. Tschofenig, "Pervasive Monitoring Is an
-              Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May
-              2014, <https://www.rfc-editor.org/info/rfc7258>.
-
 
 
 
@@ -1289,6 +1289,10 @@ Nottingham               Expires October 7, 2018               [Page 23]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   [RFC7258]  Farrell, S. and H. Tschofenig, "Pervasive Monitoring Is an
+              Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May
+              2014, <https://www.rfc-editor.org/info/rfc7258>.
 
    [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
               and Registration Procedures for URI Schemes", BCP 35,
@@ -1321,30 +1325,11 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               CR-secure-contexts-20160915, September 2016,
               <https://www.w3.org/TR/2016/CR-secure-contexts-20160915>.
 
-   [W3C.CR-referrer-policy-20170126]
-              Eisinger, J. and E. Stark, "Referrer Policy", World Wide
-              Web Consortium CR CR-referrer-policy-20170126, January
-              2017,
-              <https://www.w3.org/TR/2017/CR-referrer-policy-20170126>.
-
-   [W3C.WD-CSP3-20160913]
-              West, M., "Content Security Policy Level 3", World Wide
-              Web Consortium WD WD-CSP3-20160913, September 2016,
-              <https://www.w3.org/TR/2016/WD-CSP3-20160913>.
-
    [XML]      Bray, T., Paoli, J., Sperberg-McQueen, M., Maler, E., and
               F. Yergeau, "Extensible Markup Language (XML) 1.0 (Fifth
               Edition)", World Wide Web Consortium Recommendation REC-
               xml-20081126, November 2008,
               <http://www.w3.org/TR/2008/REC-xml-20081126>.
-
-
-
-
-Nottingham               Expires October 7, 2018               [Page 24]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
 7.3.  URIs
 
@@ -1353,6 +1338,13 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [2] http://httpwg.github.io/
 
    [3] https://github.com/httpwg/http-extensions/labels/bcp56bis
+
+
+
+Nottingham               Expires October 7, 2018               [Page 24]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
 
 Appendix A.  Changes from RFC 3205
 
@@ -1368,6 +1360,14 @@ Author's Address
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
+
+
+
+
+
+
+
+
 
 
 
