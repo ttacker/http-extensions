@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                             April 7, 2018
+Internet-Draft                                             April 8, 2018
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: October 9, 2018
+Expires: October 10, 2018
 
 
                    On the use of HTTP as a Substrate
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 9, 2018.
+   This Internet-Draft will expire on October 10, 2018.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham               Expires October 9, 2018                [Page 1]
+Nottingham              Expires October 10, 2018                [Page 1]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham               Expires October 9, 2018                [Page 2]
+Nottingham              Expires October 10, 2018                [Page 2]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -154,18 +154,18 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    different deployment requirements will be accommodated, and how
    clients will evolve with the API.
 
-   At the same time, the Internet community has a tradition of protocol
-   reuse (e.g., Telnet [RFC0854] as a substrate for FTP [RFC0959] and
-   SMTP [RFC2821]), but less experience using HTTP as a substrate.
-   Because HTTP is extensible in many ways, a number of questions arise,
-   such as:
+   At the same time, the IETF has a tradition of protocol reuse (e.g.,
+   [TELNET] as a substrate for [FTP] and [SMTP]; HTTP as a substrate for
+   [IPP] and [RESTCONF]).  Because HTTP is extensible in many ways, a
+   number of questions arise, such as:
 
    o  Should an application using HTTP define a new URL scheme?  Use new
       ports?
 
 
 
-Nottingham               Expires October 9, 2018                [Page 3]
+
+Nottingham              Expires October 10, 2018                [Page 3]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -203,7 +203,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 2.  Is HTTP Being Used?
 
    Different applications have different goals when using HTTP.  In this
-   document, we say an application is _using HTTP_ when any of the
+   document, we say an application is "using HTTP" when any of the
    following conditions are true:
 
    o  The transport port in use is 80 or 443,
@@ -216,26 +216,26 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    o  The IANA registries defined for HTTP are updated or modified.
 
    When an application is using HTTP, all of the requirements of the
-   HTTP protocol suite (including but not limited to [RFC7230],
+   HTTP protocol suite are in force (including but not limited to
 
 
 
 
-Nottingham               Expires October 9, 2018                [Page 4]
+Nottingham              Expires October 10, 2018                [Page 4]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   [RFC7231], [RFC7232], [RFC7233], [RFC7234], [RFC7235] and [RFC7540])
-   are in force.
+   [RFC7230], [RFC7231], [RFC7232], [RFC7233], [RFC7234], [RFC7235] and
+   [RFC7540]).
 
-   An application might not be _using HTTP_ according to this
-   definition, but still relying upon the HTTP specifications in some
-   manner.  For example, an application might wish to avoid re-
-   specifying parts of the message format, but change others; or, it
-   might want to use a different set of methods.
+   An application might not be using HTTP according to this definition,
+   but still relying upon the HTTP specifications in some manner.  For
+   example, an application might wish to avoid re-specifying parts of
+   the message format, but change others; or, it might want to use a
+   different set of methods.
 
-   Such applications are referred to as _protocols based upon HTTP_ in
+   Such applications are referred to as "protocols based upon HTTP" in
    this document.  These have more freedom to modify protocol operation,
    but are also likely to lose at least a portion of the benefits
    outlined above, as most HTTP implementations won't be easily
@@ -277,7 +277,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018                [Page 5]
+Nottingham              Expires October 10, 2018                [Page 5]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -291,11 +291,11 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    status code might differ in a real deployment.  If the client does
    not anticipate this, the application's deployment is brittle.
 
-   Much of the value of HTTP is in its _generic semantics_ - that is,
-   the protocol elements defined by HTTP are potentially applicable to
-   every resource, not specific to a particular context.  Application-
-   specific semantics are expressed in the payload; mostly, in the body,
-   but also in header fields.
+   Much of the value of HTTP is in its generic semantics - that is, the
+   protocol elements defined by HTTP are potentially applicable to every
+   resource, not specific to a particular context.  Application-specific
+   semantics are expressed in the payload; mostly, in the body, but also
+   in header fields.
 
    This allows a HTTP message to be examined by generic HTTP software
    (e.g., HTTP servers, intermediaries, client implementations), and its
@@ -333,7 +333,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018                [Page 6]
+Nottingham              Expires October 10, 2018                [Page 6]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -370,7 +370,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    deployment and age, HTTP's complexity can cause interoperability
    problems that could be avoided by using a simpler substrate (e.g.,
    WebSockets [RFC6455], if browser support is necessary, or TCP
-   [RFC0793] if not), or making the application be _based upon HTTP_,
+   [RFC0793] if not), or making the application be based upon HTTP,
    instead of using it (as defined in Section 2).
 
    Applications that use HTTP are encouraged to accommodate the various
@@ -389,7 +389,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018                [Page 7]
+Nottingham              Expires October 10, 2018                [Page 7]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -445,7 +445,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018                [Page 8]
+Nottingham              Expires October 10, 2018                [Page 8]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -501,7 +501,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018                [Page 9]
+Nottingham              Expires October 10, 2018                [Page 9]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -557,7 +557,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 10]
+Nottingham              Expires October 10, 2018               [Page 10]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -613,7 +613,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 11]
+Nottingham              Expires October 10, 2018               [Page 11]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -669,7 +669,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 12]
+Nottingham              Expires October 10, 2018               [Page 12]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -725,7 +725,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 13]
+Nottingham              Expires October 10, 2018               [Page 13]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -781,7 +781,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 14]
+Nottingham              Expires October 10, 2018               [Page 14]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -837,13 +837,13 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 15]
+Nottingham              Expires October 10, 2018               [Page 15]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    See Section 4.10 for considerations regarding header fields that
-   carry application state (e.g,.  Cookie).
+   carry application state (e.g., Cookie).
 
 4.8.  Defining Message Payloads
 
@@ -893,7 +893,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 16]
+Nottingham              Expires October 10, 2018               [Page 16]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -949,7 +949,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 17]
+Nottingham              Expires October 10, 2018               [Page 17]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1005,7 +1005,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 18]
+Nottingham              Expires October 10, 2018               [Page 18]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1061,7 +1061,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 19]
+Nottingham              Expires October 10, 2018               [Page 19]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1117,7 +1117,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 20]
+Nottingham              Expires October 10, 2018               [Page 20]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1173,7 +1173,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham               Expires October 9, 2018               [Page 21]
+Nottingham              Expires October 10, 2018               [Page 21]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1224,15 +1224,27 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
               <https://fetch.spec.whatwg.org>.
 
-   [HTML5]    WHATWG, "HTML - Living Standard", n.d.,
-              <https://html.spec.whatwg.org>.
 
 
 
-Nottingham               Expires October 9, 2018               [Page 22]
+
+
+Nottingham              Expires October 10, 2018               [Page 22]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   [FTP]      Postel, J. and J. Reynolds, "File Transfer Protocol",
+              STD 9, RFC 959, DOI 10.17487/RFC0959, October 1985,
+              <https://www.rfc-editor.org/info/rfc959>.
+
+   [HTML5]    WHATWG, "HTML - Living Standard", n.d.,
+              <https://html.spec.whatwg.org>.
+
+   [IPP]      Sweet, M. and I. McDonald, "Internet Printing
+              Protocol/1.1: Model and Semantics", RFC 8011,
+              DOI 10.17487/RFC8011, January 2017,
+              <https://www.rfc-editor.org/info/rfc8011>.
 
    [REFERRER-POLICY]
               Eisinger, J. and E. Stark, "Referrer Policy", World Wide
@@ -1240,21 +1252,14 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               2017,
               <https://www.w3.org/TR/2017/CR-referrer-policy-20170126>.
 
+   [RESTCONF]
+              Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
+              Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
+              <https://www.rfc-editor.org/info/rfc8040>.
+
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
               RFC 793, DOI 10.17487/RFC0793, September 1981,
               <https://www.rfc-editor.org/info/rfc793>.
-
-   [RFC0854]  Postel, J. and J. Reynolds, "Telnet Protocol
-              Specification", STD 8, RFC 854, DOI 10.17487/RFC0854, May
-              1983, <https://www.rfc-editor.org/info/rfc854>.
-
-   [RFC0959]  Postel, J. and J. Reynolds, "File Transfer Protocol",
-              STD 9, RFC 959, DOI 10.17487/RFC0959, October 1985,
-              <https://www.rfc-editor.org/info/rfc959>.
-
-   [RFC2821]  Klensin, J., Ed., "Simple Mail Transfer Protocol",
-              RFC 2821, DOI 10.17487/RFC2821, April 2001,
-              <https://www.rfc-editor.org/info/rfc2821>.
 
    [RFC3205]  Moore, K., "On the use of HTTP as a Substrate", BCP 56,
               RFC 3205, DOI 10.17487/RFC3205, February 2002,
@@ -1275,6 +1280,16 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC5785, April 2010,
               <https://www.rfc-editor.org/info/rfc5785>.
 
+
+
+
+
+
+Nottingham              Expires October 10, 2018               [Page 23]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [RFC5861]  Nottingham, M., "HTTP Cache-Control Extensions for Stale
               Content", RFC 5861, DOI 10.17487/RFC5861, May 2010,
               <https://www.rfc-editor.org/info/rfc5861>.
@@ -1282,13 +1297,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
               DOI 10.17487/RFC6265, April 2011,
               <https://www.rfc-editor.org/info/rfc6265>.
-
-
-
-Nottingham               Expires October 9, 2018               [Page 23]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [RFC6455]  Fette, I. and A. Melnikov, "The WebSocket Protocol",
               RFC 6455, DOI 10.17487/RFC6455, December 2011,
@@ -1329,22 +1337,32 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/info/rfc8259>.
 
+
+
+
+
+Nottingham              Expires October 10, 2018               [Page 24]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [SECCTXT]  West, M., "Secure Contexts", World Wide Web Consortium CR
               CR-secure-contexts-20160915, September 2016,
               <https://www.w3.org/TR/2016/CR-secure-contexts-20160915>.
+
+   [SMTP]     Klensin, J., Ed., "Simple Mail Transfer Protocol",
+              RFC 2821, DOI 10.17487/RFC2821, April 2001,
+              <https://www.rfc-editor.org/info/rfc2821>.
+
+   [TELNET]   Postel, J. and J. Reynolds, "Telnet Protocol
+              Specification", STD 8, RFC 854, DOI 10.17487/RFC0854, May
+              1983, <https://www.rfc-editor.org/info/rfc854>.
 
    [XML]      Bray, T., Paoli, J., Sperberg-McQueen, M., Maler, E., and
               F. Yergeau, "Extensible Markup Language (XML) 1.0 (Fifth
               Edition)", World Wide Web Consortium Recommendation REC-
               xml-20081126, November 2008,
               <http://www.w3.org/TR/2008/REC-xml-20081126>.
-
-
-
-Nottingham               Expires October 9, 2018               [Page 24]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
 7.3.  URIs
 
@@ -1379,22 +1397,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Nottingham               Expires October 9, 2018               [Page 25]
+Nottingham              Expires October 10, 2018               [Page 25]
