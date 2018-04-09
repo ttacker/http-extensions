@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                             April 8, 2018
+Internet-Draft                                             April 9, 2018
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: October 10, 2018
+Expires: October 11, 2018
 
 
                    On the use of HTTP as a Substrate
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 10, 2018.
+   This Internet-Draft will expire on October 11, 2018.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham              Expires October 10, 2018                [Page 1]
+Nottingham              Expires October 11, 2018                [Page 1]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -97,25 +97,25 @@ Table of Contents
      4.8.  Defining Message Payloads . . . . . . . . . . . . . . . .  16
      4.9.  HTTP Caching  . . . . . . . . . . . . . . . . . . . . . .  16
      4.10. Application State . . . . . . . . . . . . . . . . . . . .  17
-     4.11. Client Authentication . . . . . . . . . . . . . . . . . .  17
+     4.11. Client Authentication . . . . . . . . . . . . . . . . . .  18
      4.12. Co-Existing with Web Browsing . . . . . . . . . . . . . .  18
-     4.13. Application Boundaries  . . . . . . . . . . . . . . . . .  19
+     4.13. Application Boundaries  . . . . . . . . . . . . . . . . .  20
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  20
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  20
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  21
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  21
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .  22
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .  23
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  25
 
 
 
-Nottingham              Expires October 10, 2018                [Page 2]
+Nottingham              Expires October 11, 2018                [Page 2]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
    Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  25
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  25
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  26
 
 1.  Introduction
 
@@ -165,7 +165,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018                [Page 3]
+Nottingham              Expires October 11, 2018                [Page 3]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -221,7 +221,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018                [Page 4]
+Nottingham              Expires October 11, 2018                [Page 4]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -277,7 +277,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018                [Page 5]
+Nottingham              Expires October 11, 2018                [Page 5]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -333,7 +333,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018                [Page 6]
+Nottingham              Expires October 11, 2018                [Page 6]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -389,7 +389,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018                [Page 7]
+Nottingham              Expires October 11, 2018                [Page 7]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -445,7 +445,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018                [Page 8]
+Nottingham              Expires October 11, 2018                [Page 8]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -501,7 +501,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018                [Page 9]
+Nottingham              Expires October 11, 2018                [Page 9]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -557,7 +557,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018               [Page 10]
+Nottingham              Expires October 11, 2018               [Page 10]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -613,7 +613,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018               [Page 11]
+Nottingham              Expires October 11, 2018               [Page 11]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -669,7 +669,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018               [Page 12]
+Nottingham              Expires October 11, 2018               [Page 12]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -725,7 +725,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018               [Page 13]
+Nottingham              Expires October 11, 2018               [Page 13]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -781,7 +781,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018               [Page 14]
+Nottingham              Expires October 11, 2018               [Page 14]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -837,7 +837,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 10, 2018               [Page 15]
+Nottingham              Expires October 11, 2018               [Page 15]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -881,6 +881,33 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    both transfer bandwidth and latency for large responses; see
    [RFC7232].
 
+   If an application defines a request header field that might be used
+   by a server to change the response's headers or body, authors should
+   point out that this has implications for caching; in general, such
+   resources need to either make their responses uncacheable (e.g., with
+   the "no-store" cache-control directive defined in [RFC7234],
+   Section 5.2.2.3) or consistently send the Vary response header
+   ([RFC7231], Section 7.1.4).
+
+   For example, this response:
+
+
+
+Nottingham              Expires October 11, 2018               [Page 16]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
+   HTTP/1.1 200 OK
+   Content-Type: application/example+xml
+   Cache-Control: max-age=60
+   ETag: "sa0f8wf20fs0f"
+   Vary: Accept-Encoding
+
+   can be stored for 60 seconds by both private and shared caches, can
+   be revalidated with If-None-Match, and varies on the Accept-Encoding
+   request header field.
+
    In some situations, responses without explicit cache directives
    (e.g., Cache-Control or Expires) will be stored and served using a
    heuristic freshness lifetime; see [RFC7234], Section 4.2.2.  As the
@@ -890,25 +917,15 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    If caching of a response is not desired, the appropriate response
    directive is "Cache-Control: no-store".  This only need be sent in
    situations where the response might be cached; see [RFC7234],
-
-
-
-Nottingham              Expires October 10, 2018               [Page 16]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
-
    Section 3.  Note that "Cache-Control: no-cache" allows a response to
    be stored, just not reused by a cache; it does not prevent caching
    (despite its name).
 
-   If an application defines a request header field that might be used
-   by a server to change the response's headers or body, authors should
-   point out that this has implications for caching; in general, such
-   resources need to either make their responses uncacheable (e.g., with
-   the "no-store" cache-control directive defined in [RFC7234],
-   Section 5.2.2.3) or consistently send the Vary response header
-   ([RFC7231], Section 7.1.4).
+   For example, this response cannot be stored or reused by a cache:
+
+   HTTP/1.1 200 OK
+   Content-Type: application/example+xml
+   Cache-Control: no-store
 
    When an application has a need to express a lifetime that's separate
    from the freshness lifetime, this should be expressed separately,
@@ -929,6 +946,14 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    When used, it is important to carefully specify the scoping and use
    of cookies; if the application exposes sensitive data or capabilities
+
+
+
+Nottingham              Expires October 11, 2018               [Page 17]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    (e.g., by acting as an ambient authority), exploits are possible.
    Mitigations include using a request-specific token to assure the
    intent of the client.
@@ -946,14 +971,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    be used unless the underlying transport is authenticated, integrity-
    protected and confidential (e.g., as provided the "HTTPS" URL scheme,
    or another using TLS).  The Digest scheme [RFC7616] MUST NOT be used
-
-
-
-Nottingham              Expires October 10, 2018               [Page 17]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
-
    unless the underlying transport is similarly secure, or the chosen
    hash algorithm is not "MD5".
 
@@ -985,6 +1002,14 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    This is only a small sample of the kinds of issues that applications
    using HTTP must consider.  Generally, the best approach is to
+
+
+
+Nottingham              Expires October 11, 2018               [Page 18]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    consider the application _as_ a Web application, and to follow best
    practices for their secure development.
 
@@ -1001,14 +1026,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    o  Using Content-Security-Policy [CSP] to constrain the capabilities
       of active content (such as HTML [HTML5]), thereby mitigating
       Cross-Site Scripting attacks
-
-
-
-
-Nottingham              Expires October 10, 2018               [Page 18]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    o  Using Referrer-Policy [REFERRER-POLICY] to prevent sensitive data
       in URLs from being leaked in the Referer request header
@@ -1041,6 +1058,14 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    [content]
 
+
+
+
+Nottingham              Expires October 11, 2018               [Page 19]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    If an application using HTTP has browser compatibility as a goal,
    client interaction ought to be defined in terms of [FETCH], since
    that is the abstraction that browsers use for HTTP; it enforces many
@@ -1058,13 +1083,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    unless scoped by path, and the application might receive cookies from
    other applications on the origin.  This can lead to security issues,
    as well as collision in cookie names.
-
-
-
-Nottingham              Expires October 10, 2018               [Page 19]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    One solution to these issues is to require a dedicated hostname for
    the application, so that it has a unique origin.  However, it is
@@ -1096,6 +1114,14 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Section 4.10 discusses the impact of using stateful mechanisms in the
    protocol as ambient authority, and suggests a mitigation.
 
+
+
+
+Nottingham              Expires October 11, 2018               [Page 20]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    Section 4.4.2 requires support for 'https' URLs, and discourages the
    use of 'http' URLs, to provide authentication, integrity and
    confidentiality, as well as mitigate pervasive monitoring attacks.
@@ -1112,15 +1138,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    "fork" from their parent HTTP implementations, with the possible
    result that they do not benefit from patches and other security
    improvements incorporated upstream.
-
-
-
-
-
-Nottingham              Expires October 10, 2018               [Page 20]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
 7.  References
 
@@ -1150,6 +1167,17 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC6648, June 2012,
               <https://www.rfc-editor.org/info/rfc6648>.
 
+
+
+
+
+
+
+Nottingham              Expires October 11, 2018               [Page 21]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [RFC6838]  Freed, N., Klensin, J., and T. Hansen, "Media Type
               Specifications and Registration Procedures", BCP 13,
               RFC 6838, DOI 10.17487/RFC6838, January 2013,
@@ -1169,14 +1197,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Protocol (HTTP/1.1): Conditional Requests", RFC 7232,
               DOI 10.17487/RFC7232, June 2014,
               <https://www.rfc-editor.org/info/rfc7232>.
-
-
-
-
-Nottingham              Expires October 10, 2018               [Page 21]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
               "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
@@ -1207,6 +1227,13 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC7540, May 2015,
               <https://www.rfc-editor.org/info/rfc7540>.
 
+
+
+Nottingham              Expires October 11, 2018               [Page 22]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -1223,16 +1250,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
               <https://fetch.spec.whatwg.org>.
-
-
-
-
-
-
-Nottingham              Expires October 10, 2018               [Page 22]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [FTP]      Postel, J. and J. Reynolds, "File Transfer Protocol",
               STD 9, RFC 959, DOI 10.17487/RFC0959, October 1985,
@@ -1265,6 +1282,14 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               RFC 3205, DOI 10.17487/RFC3205, February 2002,
               <https://www.rfc-editor.org/info/rfc3205>.
 
+
+
+
+Nottingham              Expires October 11, 2018               [Page 23]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [RFC4367]  Rosenberg, J., Ed. and IAB, "What's in a Name: False
               Assumptions about DNS Names", RFC 4367,
               DOI 10.17487/RFC4367, February 2006,
@@ -1279,16 +1304,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Uniform Resource Identifiers (URIs)", RFC 5785,
               DOI 10.17487/RFC5785, April 2010,
               <https://www.rfc-editor.org/info/rfc5785>.
-
-
-
-
-
-
-Nottingham              Expires October 10, 2018               [Page 23]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [RFC5861]  Nottingham, M., "HTTP Cache-Control Extensions for Stale
               Content", RFC 5861, DOI 10.17487/RFC5861, May 2010,
@@ -1324,6 +1339,13 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC7616, September 2015,
               <https://www.rfc-editor.org/info/rfc7616>.
 
+
+
+Nottingham              Expires October 11, 2018               [Page 24]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [RFC7617]  Reschke, J., "The 'Basic' HTTP Authentication Scheme",
               RFC 7617, DOI 10.17487/RFC7617, September 2015,
               <https://www.rfc-editor.org/info/rfc7617>.
@@ -1336,15 +1358,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/info/rfc8259>.
-
-
-
-
-
-Nottingham              Expires October 10, 2018               [Page 24]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [SECCTXT]  West, M., "Secure Contexts", World Wide Web Consortium CR
               CR-secure-contexts-20160915, September 2016,
@@ -1380,6 +1393,15 @@ Appendix A.  Changes from RFC 3205
    document is substantially different.  As a result, the changes are
    too numerous to list individually.
 
+
+
+
+
+Nottingham              Expires October 11, 2018               [Page 25]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
 Author's Address
 
    Mark Nottingham
@@ -1397,4 +1419,38 @@ Author's Address
 
 
 
-Nottingham              Expires October 10, 2018               [Page 25]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nottingham              Expires October 11, 2018               [Page 26]
