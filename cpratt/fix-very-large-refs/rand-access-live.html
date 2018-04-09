@@ -321,7 +321,7 @@ Content-Range: bytes 0-1234567/*
    unsatisfied-range   = "*/" complete-length
 
    complete-length     = 1*DIGIT
-</pre></div><div id="rfc.section.2.2.p.4"><p>Specifically, last-byte-pos is required in byte-range. So in order to preserve interoperability with existing HTTP clients, servers, proxies, and caches, this document proposes a mechanism for a client to indicate support for handling an indeterminate-length byte-range response, and a mechanism for a server to indicate if/when it's providing a indeterminate-length response.</p></div><div id="rfc.section.2.2.p.5" class="avoidbreakafter"><p>A client can indicate support for handling indeterminate-length byte-range responses by providing a very large Value for the last-byte-pos in the byte-range request. For example, a client can perform a byte-range GET request of the form:</p></div><div id="rfc.figure.u.5"><pre class="text2">
+</pre></div><div id="rfc.section.2.2.p.4"><p>Specifically, last-byte-pos is required in byte-range. So in order to preserve interoperability with existing HTTP clients, servers, proxies, and caches, this document proposes a mechanism for a client to indicate support for handling an indeterminate-length byte-range response, and a mechanism for a server to indicate if/when it's providing a indeterminate-length response.</p></div><div id="rfc.section.2.2.p.5" class="avoidbreakafter"><p>A client can indicate support for handling indeterminate-length byte-range responses by providing a very large value for the last-byte-pos in the byte-range request. For example, a client can perform a byte-range GET request of the form:</p></div><div id="rfc.figure.u.5"><pre class="text2">
 GET /resource HTTP/1.1
 Host: example.com
 Range: bytes=1230000-999999999999

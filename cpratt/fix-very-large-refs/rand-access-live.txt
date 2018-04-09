@@ -270,7 +270,7 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
    providing a indeterminate-length response.
 
    A client can indicate support for handling indeterminate-length byte-
-   range responses by providing a very large Value for the last-byte-pos
+   range responses by providing a very large value for the last-byte-pos
    in the byte-range request.  For example, a client can perform a byte-
    range GET request of the form:
 
