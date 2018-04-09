@@ -97,7 +97,7 @@ Table of Contents
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  18
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  18
      A.1.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  18
-     A.2.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  18
+     A.2.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  19
      A.3.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  19
      A.4.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  19
      A.5.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  19
@@ -309,8 +309,9 @@ Internet-Draft         Structured Headers for HTTP            April 2018
 
    Note that in the case of lists, parameterised lists and dictionaries,
    this has the effect of coalescing all of the values for that field.
-   However, for singular items, parsing will fail if more than instance
-   of that header field is present.
+   However, for singular items, parsing will fail if more than one
+   instance of that header field is present, unless the header fields
+   combine into a syntactically valid String.
 
    If parsing fails - including when calling another algorithm - the
    entire header field's value MUST be discarded.  This is intentionally
@@ -325,7 +326,6 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    This section defines the abstract value types that can be composed
    into Structured Headers, along with the textual HTTP serialisations
    of them.
-
 
 
 
@@ -919,6 +919,11 @@ Internet-Draft         Structured Headers for HTTP            April 2018
 
    TBD
 
+   It is possible for parties with the ability to inject new HTTP header
+   fields to change the meaning of structured headers.  In some
+   circumstances, this will cause parsing to fail, but it is not
+   possible to reliably fail in all such circumstances.
+
 7.  References
 
 7.1.  Normative References
@@ -941,11 +946,6 @@ Internet-Draft         Structured Headers for HTTP            April 2018
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
 
-   [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
-              Protocol (HTTP/1.1): Message Syntax and Routing",
-              RFC 7230, DOI 10.17487/RFC7230, June 2014,
-              <https://www.rfc-editor.org/info/rfc7230>.
-
 
 
 
@@ -953,6 +953,11 @@ Nottingham & Kamp       Expires October 11, 2018               [Page 17]
 
 Internet-Draft         Structured Headers for HTTP            April 2018
 
+
+   [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
+              Protocol (HTTP/1.1): Message Syntax and Routing",
+              RFC 7230, DOI 10.17487/RFC7230, June 2014,
+              <https://www.rfc-editor.org/info/rfc7230>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -996,11 +1001,6 @@ A.1.  Since draft-ietf-httpbis-header-structure-04
 
    o  Remove identifiers from item.
 
-A.2.  Since draft-ietf-httpbis-header-structure-03
-
-   o  Strengthen language around failure handling.
-
-
 
 
 
@@ -1009,6 +1009,10 @@ Nottingham & Kamp       Expires October 11, 2018               [Page 18]
 
 Internet-Draft         Structured Headers for HTTP            April 2018
 
+
+A.2.  Since draft-ietf-httpbis-header-structure-03
+
+   o  Strengthen language around failure handling.
 
 A.3.  Since draft-ietf-httpbis-header-structure-02
 
@@ -1052,6 +1056,16 @@ Authors' Addresses
    URI:   https://www.mnot.net/
 
 
+
+
+
+
+
+Nottingham & Kamp       Expires October 11, 2018               [Page 19]
+
+Internet-Draft         Structured Headers for HTTP            April 2018
+
+
    Poul-Henning Kamp
    The Varnish Cache Project
 
@@ -1061,4 +1075,46 @@ Authors' Addresses
 
 
 
-Nottingham & Kamp       Expires October 11, 2018               [Page 19]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nottingham & Kamp       Expires October 11, 2018               [Page 20]
