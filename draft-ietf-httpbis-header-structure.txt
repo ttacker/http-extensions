@@ -34,6 +34,9 @@ Note to Readers
    https://github.com/httpwg/http-extensions/labels/header-structure
    [3].
 
+   Tests for implementations are collected at https://github.com/httpwg/
+   structured-header-tests [4].
+
 Status of This Memo
 
    This Internet-Draft is submitted in full conformance with the
@@ -46,10 +49,7 @@ Status of This Memo
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
-   time.  It is inappropriate to use Internet-Drafts as reference
-   material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 12, 2018.
 
 
 
@@ -57,6 +57,11 @@ Nottingham & Kamp       Expires October 12, 2018                [Page 1]
 
 Internet-Draft         Structured Headers for HTTP            April 2018
 
+
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on October 12, 2018.
 
 Copyright Notice
 
@@ -96,16 +101,11 @@ Table of Contents
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  18
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  18
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  18
-     A.1.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  18
+     A.1.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  19
      A.2.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  19
      A.3.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  19
      A.4.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  19
      A.5.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  19
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  19
-
-
-
-
 
 
 
@@ -113,6 +113,8 @@ Nottingham & Kamp       Expires October 12, 2018                [Page 2]
 
 Internet-Draft         Structured Headers for HTTP            April 2018
 
+
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  19
 
 1.  Introduction
 
@@ -157,8 +159,6 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    Those abstract types can be serialised into textual headers - such as
    those used in HTTP/1 and HTTP/2 - using the algorithms described in
    Section 3.
-
-
 
 
 
@@ -970,7 +970,7 @@ Internet-Draft         Structured Headers for HTTP            April 2018
               ISBN 978-0-7381-5752-8, August 2008,
               <http://ieeexplore.ieee.org/document/4610935/>.
 
-              See also http://grouper.ieee.org/groups/754/ [4].
+              See also http://grouper.ieee.org/groups/754/ [5].
 
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
@@ -995,11 +995,11 @@ Internet-Draft         Structured Headers for HTTP            April 2018
 
    [3] https://github.com/httpwg/http-extensions/labels/header-structure
 
+   [4] https://github.com/httpwg/structured-header-tests
+
 Appendix A.  Changes
 
-A.1.  Since draft-ietf-httpbis-header-structure-04
 
-   o  Remove identifiers from item.
 
 
 
@@ -1009,6 +1009,10 @@ Nottingham & Kamp       Expires October 12, 2018               [Page 18]
 
 Internet-Draft         Structured Headers for HTTP            April 2018
 
+
+A.1.  Since draft-ietf-httpbis-header-structure-04
+
+   o  Remove identifiers from item.
 
 A.2.  Since draft-ietf-httpbis-header-structure-03
 
@@ -1054,10 +1058,6 @@ Authors' Addresses
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
-
-
-
-
 
 
 
