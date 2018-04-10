@@ -88,24 +88,24 @@ Table of Contents
        3.1.1.  Confirming Selected DPR . . . . . . . . . . . . . . .   7
      3.2.  The Width Header Field  . . . . . . . . . . . . . . . . .   7
      3.3.  The Viewport-Width Header Field . . . . . . . . . . . . .   7
-     3.4.  The Save-Data Header Field  . . . . . . . . . . . . . . .   8
    4.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . .   8
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
-     6.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .  10
-     6.2.  Accept-CH-Lifetime  . . . . . . . . . . . . . . . . . . .  10
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   9
+     6.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .   9
+     6.2.  Accept-CH-Lifetime  . . . . . . . . . . . . . . . . . . .   9
      6.3.  Content-DPR . . . . . . . . . . . . . . . . . . . . . . .  10
      6.4.  DPR . . . . . . . . . . . . . . . . . . . . . . . . . . .  10
-     6.5.  Save-Data . . . . . . . . . . . . . . . . . . . . . . . .  10
-     6.6.  Viewport-Width  . . . . . . . . . . . . . . . . . . . . .  11
-     6.7.  Width . . . . . . . . . . . . . . . . . . . . . . . . . .  11
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
+     6.5.  Viewport-Width  . . . . . . . . . . . . . . . . . . . . .  10
+     6.6.  Width . . . . . . . . . . . . . . . . . . . . . . . . . .  10
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  12
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
-   Appendix A.  Interaction with Key Response Header Field . . . . .  13
-   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  13
-     B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Appendix A.  Interaction with Key Response Header Field . . . . .  12
+   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  12
+     B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  12
+     B.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  13
+     B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  13
 
 
 
@@ -114,14 +114,12 @@ Grigorik                Expires October 12, 2018                [Page 2]
 Internet-Draft              HTTP Client Hints                 April 2018
 
 
-     B.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  13
-     B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  13
      B.4.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  13
-     B.5.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  14
-     B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  14
-     B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  14
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  14
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  14
+     B.5.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  13
+     B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  13
+     B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  13
 
 1.  Introduction
 
@@ -165,6 +163,8 @@ Internet-Draft              HTTP Client Hints                 April 2018
 
 
 
+
+
 Grigorik                Expires October 12, 2018                [Page 3]
 
 Internet-Draft              HTTP Client Hints                 April 2018
@@ -201,10 +201,10 @@ Internet-Draft              HTTP Client Hints                 April 2018
    delegation policies that control access of third parties to same
    fields.
 
-   Implementers should be aware of the passive fingerprinting and
-   network information disclosure implications when implementing support
-   for Client Hints, and follow the considerations outlined in "Security
-   Considerations" section of this document.
+   Implementers should be aware of the passive fingerprinting
+   implications when implementing support for Client Hints, and follow
+   the considerations outlined in "Security Considerations" section of
+   this document.
 
 2.2.  Server Processing of Client Hints
 
@@ -397,26 +397,6 @@ Internet-Draft              HTTP Client Hints                 April 2018
    If Viewport-Width occurs in a message more than once, the last value
    overrides all previous occurrences.
 
-3.4.  The Save-Data Header Field
-
-   The "Save-Data" request header field consists of one or more tokens
-   that indicate client's preference for reduced data usage, due to high
-   transfer costs, slow connection speeds, or other reasons.
-
-     Save-Data = sd-token *( OWS ";" OWS [sd-token] )
-     sd-token = token
-
-   This document defines the "on" sd-token value, which is used as a
-   signal indicating explicit user opt-in into a reduced data usage mode
-   on the client, and when communicated to origins allows them to
-   deliver alternate content honoring such preference - e.g. smaller
-   image and video resources, alternate markup, and so on.  New token
-   and extension token values can be defined by updates to this
-   specification.
-
-   If Save-Data occurs in a message more than once, the last value
-   overrides all previous occurrences.
-
 4.  Examples
 
    For example, given the following request header fields:
@@ -442,14 +422,6 @@ Internet-Draft              HTTP Client Hints                 April 2018
    The Content-DPR response header field indicates to the client that
    the server has selected resource with DPR ratio of 1.0.  The client
    can use this information to perform additional processing on the
-
-
-
-Grigorik                Expires October 12, 2018                [Page 8]
-
-Internet-Draft              HTTP Client Hints                 April 2018
-
-
    resource - for example, calculate the appropriate intrinsic size of
    the image resource such that it is displayed at the correct
    resolution.
@@ -470,6 +442,14 @@ Internet-Draft              HTTP Client Hints                 April 2018
    field values that can be expressed, or restricting them to an
    enumerated range where the advertised value is close but is not an
    exact representation of the current value, can improve privacy and
+
+
+
+Grigorik                Expires October 12, 2018                [Page 8]
+
+Internet-Draft              HTTP Client Hints                 April 2018
+
+
    reduce risk of linkability by ensuring that the same value is sent by
    multiple users.  However, such precautions can still be insufficient
    for some types of data, especially data that can change over time.
@@ -485,8 +465,8 @@ Internet-Draft              HTTP Client Hints                 April 2018
    o  Implementers MAY provide user choice mechanisms so that users may
       balance privacy concerns with bandwidth limitations.  However,
       implementers should also be aware that explaining the privacy
-      implications of passive fingerprinting or network information
-      disclosure to users may be challenging.
+      implications of passive fingerprinting to users may be
+      challenging.
    o  Implementations specific to certain use cases or threat models MAY
       avoid transmitting some or all of Client Hints header fields.  For
       example, avoid transmission of header fields that can carry higher
@@ -496,22 +476,12 @@ Internet-Draft              HTTP Client Hints                 April 2018
    clear persisted opt-in preferences when site data, browsing history,
    browsing cache, or similar, are cleared.
 
-
-
-
-
-
-Grigorik                Expires October 12, 2018                [Page 9]
-
-Internet-Draft              HTTP Client Hints                 April 2018
-
-
 6.  IANA Considerations
 
-   This document defines the "Accept-CH", "DPR", "Save-Data", "Viewport-
-   Width", and "Width" HTTP request fields, "Accept-CH", "Accept-CH-
-   Lifetime", and "Content-DPR" HTTP response field, and registers them
-   in the Permanent Message Header Fields registry.
+   This document defines the "Accept-CH", "DPR", "Viewport-Width", and
+   "Width" HTTP request fields, "Accept-CH", "Accept-CH-Lifetime", and
+   "Content-DPR" HTTP response field, and registers them in the
+   Permanent Message Header Fields registry.
 
 6.1.  Accept-CH
 
@@ -528,6 +498,14 @@ Internet-Draft              HTTP Client Hints                 April 2018
    o  Applicable protocol: HTTP
    o  Status: standard
    o  Author/Change controller: IETF
+
+
+
+Grigorik                Expires October 12, 2018                [Page 9]
+
+Internet-Draft              HTTP Client Hints                 April 2018
+
+
    o  Specification document(s): Section 2.2.2 of this document
    o  Related information: for Client Hints
 
@@ -549,24 +527,7 @@ Internet-Draft              HTTP Client Hints                 April 2018
    o  Specification document(s): Section 3.1 of this document
    o  Related information: for Client Hints
 
-6.5.  Save-Data
-
-   o  Header field name: Save-Data
-   o  Applicable protocol: HTTP
-   o  Status: standard
-
-
-
-Grigorik                Expires October 12, 2018               [Page 10]
-
-Internet-Draft              HTTP Client Hints                 April 2018
-
-
-   o  Author/Change controller: IETF
-   o  Specification document(s): Section 3.4 of this document
-   o  Related information: for Client Hints
-
-6.6.  Viewport-Width
+6.5.  Viewport-Width
 
    o  Header field name: Viewport-Width
    o  Applicable protocol: HTTP
@@ -575,7 +536,7 @@ Internet-Draft              HTTP Client Hints                 April 2018
    o  Specification document(s): Section 3.3 of this document
    o  Related information: for Client Hints
 
-6.7.  Width
+6.6.  Width
 
    o  Header field name: Width
    o  Applicable protocol: HTTP
@@ -593,6 +554,14 @@ Internet-Draft              HTTP Client Hints                 April 2018
               W3C Recommendation REC-CSS2-20110607, June 2011,
               <http://www.w3.org/TR/2011/REC-CSS2-20110607>.
 
+
+
+
+Grigorik                Expires October 12, 2018               [Page 10]
+
+Internet-Draft              HTTP Client Hints                 April 2018
+
+
    [CSSVAL]   Atkins, T. and E. Etemad, "CSS Values and Units Module
               Level 3", World Wide Web Consortium CR CR-css-values-
               3-20160929, September 2016,
@@ -608,15 +577,6 @@ Internet-Draft              HTTP Client Hints                 April 2018
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
-
-
-
-
-
-Grigorik                Expires October 12, 2018               [Page 11]
-
-Internet-Draft              HTTP Client Hints                 April 2018
-
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
@@ -646,6 +606,18 @@ Internet-Draft              HTTP Client Hints                 April 2018
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
+
+
+
+
+
+
+
+Grigorik                Expires October 12, 2018               [Page 11]
+
+Internet-Draft              HTTP Client Hints                 April 2018
+
+
 7.2.  Informative References
 
    [KEY]      Fielding, R. and M. Nottingham, "The Key HTTP Response
@@ -663,16 +635,6 @@ Internet-Draft              HTTP Client Hints                 April 2018
    [2] http://httpwg.github.io/
 
    [3] https://github.com/httpwg/http-extensions/labels/client-hints
-
-
-
-
-
-
-Grigorik                Expires October 12, 2018               [Page 12]
-
-Internet-Draft              HTTP Client Hints                 April 2018
-
 
 Appendix A.  Interaction with Key Response Header Field
 
@@ -702,6 +664,16 @@ B.1.  Since -00
       list.
    o  Issue 153 (NetInfo API citation) added normative reference.
 
+
+
+
+
+
+Grigorik                Expires October 12, 2018               [Page 12]
+
+Internet-Draft              HTTP Client Hints                 April 2018
+
+
 B.2.  Since -01
 
    o  Issue 200: Moved Key reference to informative.
@@ -722,14 +694,6 @@ B.4.  Since -03
    o  Issue 308: Editorial cleanup
    o  Issue 306: Define Accept-CH-Lifetime
 
-
-
-
-Grigorik                Expires October 12, 2018               [Page 13]
-
-Internet-Draft              HTTP Client Hints                 April 2018
-
-
 B.5.  Since -04
 
    o  Issue 361: Removed Downlink
@@ -742,7 +706,7 @@ B.6.  Since -05
 
 B.7.  Since -06
 
-   o  None
+   o  Issue 524: Save-Data is now defined by NetInfo spec, dropping
 
 Acknowledgements
 
@@ -761,24 +725,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Grigorik                Expires October 12, 2018               [Page 14]
+Grigorik                Expires October 12, 2018               [Page 13]
