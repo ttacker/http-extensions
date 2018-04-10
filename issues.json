@@ -54,7 +54,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-04-09T21:17:44Z",
-    "updated_at": "2018-04-09T21:17:45Z",
+    "updated_at": "2018-04-10T03:11:24Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -95,18 +95,60 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 329793151,
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/6265bis",
+        "name": "6265bis",
+        "color": "fbca04",
+        "default": false
+      }
     ],
     "state": "open",
     "locked": false,
-    "assignee": null,
+    "assignee": {
+      "login": "mikewest",
+      "id": 1497,
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1497?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mikewest",
+      "html_url": "https://github.com/mikewest",
+      "followers_url": "https://api.github.com/users/mikewest/followers",
+      "following_url": "https://api.github.com/users/mikewest/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mikewest/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mikewest/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mikewest/subscriptions",
+      "organizations_url": "https://api.github.com/users/mikewest/orgs",
+      "repos_url": "https://api.github.com/users/mikewest/repos",
+      "events_url": "https://api.github.com/users/mikewest/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mikewest/received_events",
+      "type": "User",
+      "site_admin": false
+    },
     "assignees": [
-
+      {
+        "login": "mikewest",
+        "id": 1497,
+        "avatar_url": "https://avatars0.githubusercontent.com/u/1497?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/mikewest",
+        "html_url": "https://github.com/mikewest",
+        "followers_url": "https://api.github.com/users/mikewest/followers",
+        "following_url": "https://api.github.com/users/mikewest/following{/other_user}",
+        "gists_url": "https://api.github.com/users/mikewest/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/mikewest/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/mikewest/subscriptions",
+        "organizations_url": "https://api.github.com/users/mikewest/orgs",
+        "repos_url": "https://api.github.com/users/mikewest/repos",
+        "events_url": "https://api.github.com/users/mikewest/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/mikewest/received_events",
+        "type": "User",
+        "site_admin": false
+      }
     ],
     "milestone": null,
     "comments": 1,
     "created_at": "2018-04-09T18:59:39Z",
-    "updated_at": "2018-04-09T19:00:09Z",
+    "updated_at": "2018-04-09T23:47:35Z",
     "closed_at": null,
     "author_association": "FIRST_TIME_CONTRIBUTOR",
     "pull_request": {
@@ -147,7 +189,13 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 553003307,
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/rand-access-live",
+        "name": "rand-access-live",
+        "color": "fbca04",
+        "default": false
+      }
     ],
     "state": "open",
     "locked": false,
@@ -192,9 +240,9 @@
       }
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-04-09T09:16:28Z",
-    "updated_at": "2018-04-09T18:05:47Z",
+    "updated_at": "2018-04-10T00:49:41Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -246,7 +294,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-04-09T07:33:42Z",
-    "updated_at": "2018-04-09T07:40:30Z",
+    "updated_at": "2018-04-09T23:41:54Z",
     "closed_at": "2018-04-09T07:40:30Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -751,9 +799,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-04-06T19:41:30Z",
-    "updated_at": "2018-04-06T19:41:30Z",
+    "updated_at": "2018-04-10T05:25:05Z",
     "closed_at": null,
     "author_association": "OWNER",
     "body": "I think FOH (foo over http), has a tendency to encourage \"when x happens, use http code xxx\"... the draft talks about not minting new xxx, but doesn't explore why specifying xxx is an iffy idea.\r\n\r\nyou can really only control what the server emits.. and even then it might be in conflict with some other possible return codes.. but the client needs to be prepared to deal with anything because the server might not be a FOH server.\r\n\r\nto generalize - a received error code isn't a strong signal of what actually happened.\r\n"
@@ -968,7 +1016,7 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-04-03T13:12:30Z",
-    "updated_at": "2018-04-03T15:36:32Z",
+    "updated_at": "2018-04-09T23:42:14Z",
     "closed_at": "2018-04-03T15:36:31Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -1823,7 +1871,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-29T16:26:32Z",
-    "updated_at": "2018-04-03T21:59:36Z",
+    "updated_at": "2018-04-09T23:42:47Z",
     "closed_at": "2018-04-03T21:59:36Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -1911,7 +1959,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-28T17:56:09Z",
-    "updated_at": "2018-03-29T22:23:48Z",
+    "updated_at": "2018-04-09T23:42:53Z",
     "closed_at": "2018-03-29T22:23:48Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -1999,7 +2047,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-03-28T17:43:06Z",
-    "updated_at": "2018-03-29T22:38:45Z",
+    "updated_at": "2018-04-09T23:42:59Z",
     "closed_at": "2018-03-29T22:38:44Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -2107,17 +2155,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 4,
     "created_at": "2018-03-28T06:32:09Z",
-    "updated_at": "2018-04-03T06:09:16Z",
-    "closed_at": null,
+    "updated_at": "2018-04-10T01:10:33Z",
+    "closed_at": "2018-04-10T01:10:33Z",
     "author_association": "NONE",
     "body": "@martinthomson gave me the impression somewhere that new base64 usage should use the base64url.\r\n\r\nhttps://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.9 doesn't, which makes me worry browsers would use https://infra.spec.whatwg.org/#forgiving-base64 here leading to the interoperability issues already anticipated by that section."
   },
@@ -3097,9 +3145,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2018-03-20T16:32:15Z",
-    "updated_at": "2018-04-09T20:25:15Z",
+    "updated_at": "2018-04-10T00:51:35Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "ORIGIN removed the need for DNS lookups for servers, and IP connectivity.  Servers can look for bad DNS records or BGP hijacking to detect attacks without ORIGIN, but now those techniques don't work.  In particular, key compromise is a concern; misissuance is perhaps less of a concern.\r\n\r\nSecondary certificates makes the entire situation worse.\r\n\r\nIn particular, it means that you can get a standalone certificate for the victim.  Previously, with coalescing, you would need to have a certificate that has both your own origin and the victim's origin, so that would be visible in a CT log.\r\n\r\nSubcerts can help with this (they have much shorter lifetimes)."
@@ -3187,7 +3235,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-03-19T14:39:45Z",
-    "updated_at": "2018-03-27T03:06:36Z",
+    "updated_at": "2018-04-09T23:43:18Z",
     "closed_at": "2018-03-27T03:06:32Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -3298,7 +3346,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-18T13:28:26Z",
-    "updated_at": "2018-03-19T08:32:23Z",
+    "updated_at": "2018-04-09T23:43:25Z",
     "closed_at": "2018-03-19T08:32:23Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -3350,7 +3398,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-18T13:00:52Z",
-    "updated_at": "2018-03-19T08:31:42Z",
+    "updated_at": "2018-04-09T23:43:31Z",
     "closed_at": "2018-03-19T08:31:42Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -3551,7 +3599,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-17T13:19:23Z",
-    "updated_at": "2018-03-17T13:21:16Z",
+    "updated_at": "2018-04-09T23:43:37Z",
     "closed_at": "2018-03-17T13:21:16Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -3609,7 +3657,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-16T15:03:49Z",
-    "updated_at": "2018-03-16T15:06:40Z",
+    "updated_at": "2018-04-09T23:43:43Z",
     "closed_at": "2018-03-16T15:06:40Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -3726,7 +3774,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-16T14:57:34Z",
-    "updated_at": "2018-03-16T15:08:01Z",
+    "updated_at": "2018-04-09T23:43:49Z",
     "closed_at": "2018-03-16T15:08:01Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -3784,7 +3832,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-16T14:54:24Z",
-    "updated_at": "2018-03-16T15:07:20Z",
+    "updated_at": "2018-04-09T23:43:58Z",
     "closed_at": "2018-03-16T15:07:20Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -3937,7 +3985,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-16T14:40:08Z",
-    "updated_at": "2018-03-30T00:23:57Z",
+    "updated_at": "2018-04-09T23:44:12Z",
     "closed_at": "2018-03-30T00:23:57Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -3995,7 +4043,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-16T14:31:43Z",
-    "updated_at": "2018-03-16T15:07:01Z",
+    "updated_at": "2018-04-09T23:44:20Z",
     "closed_at": "2018-03-16T15:07:01Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -4053,7 +4101,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-16T14:27:49Z",
-    "updated_at": "2018-03-16T15:06:07Z",
+    "updated_at": "2018-04-09T23:44:27Z",
     "closed_at": "2018-03-16T15:06:07Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -4256,7 +4304,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -4265,8 +4313,8 @@
     "milestone": null,
     "comments": 10,
     "created_at": "2018-03-05T23:22:05Z",
-    "updated_at": "2018-04-09T06:26:23Z",
-    "closed_at": null,
+    "updated_at": "2018-04-09T23:32:16Z",
+    "closed_at": "2018-04-09T23:32:16Z",
     "author_association": "OWNER",
     "body": "Kari points out [on list](https://www.w3.org/mid/20180305184510.66F8B4792D@welho-filter2.welho.com):\r\n\r\n3. [Parsing Text into Structured Headers](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-3)\r\n\r\n~~~\r\nGiven an ASCII string input_string that represents the chosen\r\nheader's field-value, return the parsed header value.  When\r\ngenerating input_string, parsers MUST combine all instances of the\r\ntarget header field into one comma-separated field-value, as per\r\n[RFC7230], Section 3.2.2; this assures that the header is processed\r\ncorrectly.\r\n\r\nNote that in the case of lists, parameterised lists and dictionaries,\r\nthis has the effect of coalescing all of the values for that field.\r\nHowever, for singular items, parsing will fail if more than instance\r\nof that header field is present.\r\n~~~\r\n\r\nI think that this is not true for a String, if header field is mailformed\r\nenough.\r\n\r\nConsider following\r\n\r\n~~~\r\nFoo: \"xxss\r\nFoo: xxxx\"\r\n~~~\r\n\r\nThis gives\r\n\r\n> Foo: \"xxss,xxxx\"\r\n\r\nThis passes\r\n\r\n[4.7.1.  Parsing a String from Text](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.7.1)\r\n\r\n[4.7.  Strings](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.7)\r\n\r\n~~~\r\n string    = DQUOTE 0*1024(char) DQUOTE\r\n char      = unescaped / escape ( DQUOTE / \"\\\" )\r\n unescaped = %x20-21 / %x23-5B / %x5D-7E\r\n escape    = \"\\\"\r\n~~~\r\n\r\nComma is allowed here as unescaped.\r\n\r\nOther singular items does not allow comma, so combining causes parse error."
   },
@@ -4581,7 +4629,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-02-27T06:56:29Z",
-    "updated_at": "2018-03-01T04:41:10Z",
+    "updated_at": "2018-04-09T23:44:50Z",
     "closed_at": "2018-03-01T04:41:10Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -4639,7 +4687,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-02-27T06:52:04Z",
-    "updated_at": "2018-03-01T04:40:36Z",
+    "updated_at": "2018-04-09T23:44:57Z",
     "closed_at": "2018-03-01T04:40:36Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -5110,7 +5158,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-02-12T13:44:00Z",
-    "updated_at": "2018-02-22T08:39:44Z",
+    "updated_at": "2018-04-09T23:45:07Z",
     "closed_at": "2018-02-22T08:39:44Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -5262,7 +5310,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-02-12T13:36:55Z",
-    "updated_at": "2018-03-27T00:49:48Z",
+    "updated_at": "2018-04-09T23:45:14Z",
     "closed_at": "2018-03-27T00:49:48Z",
     "author_association": "MEMBER",
     "pull_request": {
@@ -8643,9 +8691,9 @@
 
     ],
     "milestone": null,
-    "comments": 8,
+    "comments": 9,
     "created_at": "2017-11-28T02:01:35Z",
-    "updated_at": "2018-04-02T23:32:42Z",
+    "updated_at": "2018-04-10T03:50:07Z",
     "closed_at": null,
     "author_association": "OWNER",
     "body": "The current draft puts specific size limits on each type (e.g., lengths of strings, number of items in an array).\r\n\r\nThe rationale for including (generous) limits is that header authors often don't specify any limits, which puts implementations in an awkward position of deciding how much is \"too much\", leading to interoperability problems.\r\n\r\nIdeally each header author would define their own limits, tighter limits where necessary, making these a catch-all. \r\n\r\nWith that said, two questions:\r\n\r\n1)  Should we have such limits?\r\n\r\n2) If so, are the current limits correct? "
