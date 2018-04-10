@@ -865,7 +865,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    clients, and/or a single client making the same request repeatedly.
    In general, if it is safe to reuse something, consider assigning a
    freshness lifetime; cache implementations take active measures to
-   expire content intelligently when they are out of space, so "it will
+   remove content intelligently when they are out of space, so "it will
    fill up the cache" is not a valid concern.
 
    Understand that stale responses (e.g., one with "Cache-Control: max-
