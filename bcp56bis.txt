@@ -105,7 +105,7 @@ Table of Contents
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  21
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  21
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  23
-     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  25
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  26
 
 
 
@@ -788,10 +788,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 4.7.  HTTP Header Fields
 
-   Applications that use HTTP MAY define new HTTP header fields.  See
-   [RFC7231], Section 8.3.1 for guidelines to consider when minting new
-   header fields.
-
+   Applications that use HTTP MAY define new HTTP header fields.
    Typically, using HTTP header fields is appropriate in a few different
    situations:
 
@@ -805,6 +802,12 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
       (usually because a format does not allow it).
 
    New header fields MUST be registered, as per [RFC7231] and [RFC3864].
+
+   See [RFC7231], Section 8.3.1 for guidelines to consider when minting
+   new header fields.  [I-D.ietf-httpbis-header-structure] provides a
+   common structure for new header fields, and avoids many issues in
+   their parsing and handling; it is RECOMMENDED that new header fields
+   use it.
 
    It is RECOMMENDED that header field names be short (even when HTTP/2
    header compression is in effect, there is an overhead) but
@@ -831,9 +834,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    See Section 4.10 for considerations regarding header fields that
    carry application state (e.g., Cookie).
-
-
-
 
 
 
@@ -1267,6 +1267,11 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [HTML5]    WHATWG, "HTML - Living Standard", n.d.,
               <https://html.spec.whatwg.org>.
 
+   [I-D.ietf-httpbis-header-structure]
+              Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
+              draft-ietf-httpbis-header-structure-04 (work in progress),
+              March 2018.
+
    [IPP]      Sweet, M. and I. McDonald, "Internet Printing
               Protocol/1.1: Model and Semantics", RFC 8011,
               DOI 10.17487/RFC8011, January 2017,
@@ -1278,17 +1283,17 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               2017,
               <https://www.w3.org/TR/2017/CR-referrer-policy-20170126>.
 
-   [RESTCONF]
-              Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
-              Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
-              <https://www.rfc-editor.org/info/rfc8040>.
-
 
 
 Nottingham              Expires October 12, 2018               [Page 23]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   [RESTCONF]
+              Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
+              Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
+              <https://www.rfc-editor.org/info/rfc8040>.
 
    [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
               RFC 793, DOI 10.17487/RFC0793, September 1981,
@@ -1333,11 +1338,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May
               2014, <https://www.rfc-editor.org/info/rfc7258>.
 
-   [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
-              and Registration Procedures for URI Schemes", BCP 35,
-              RFC 7595, DOI 10.17487/RFC7595, June 2015,
-              <https://www.rfc-editor.org/info/rfc7595>.
-
 
 
 
@@ -1345,6 +1345,11 @@ Nottingham              Expires October 12, 2018               [Page 24]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
+              and Registration Procedures for URI Schemes", BCP 35,
+              RFC 7595, DOI 10.17487/RFC7595, June 2015,
+              <https://www.rfc-editor.org/info/rfc7595>.
 
    [RFC7605]  Touch, J., "Recommendations on Using Assigned Transport
               Port Numbers", BCP 165, RFC 7605, DOI 10.17487/RFC7605,
@@ -1386,13 +1391,8 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               xml-20081126, November 2008,
               <http://www.w3.org/TR/2008/REC-xml-20081126>.
 
-7.3.  URIs
 
-   [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
-   [2] http://httpwg.github.io/
-
-   [3] https://github.com/httpwg/http-extensions/labels/bcp56bis
 
 
 
@@ -1401,6 +1401,14 @@ Nottingham              Expires October 12, 2018               [Page 25]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+7.3.  URIs
+
+   [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
+
+   [2] http://httpwg.github.io/
+
+   [3] https://github.com/httpwg/http-extensions/labels/bcp56bis
 
 Appendix A.  Changes from RFC 3205
 
@@ -1416,14 +1424,6 @@ Author's Address
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
-
-
-
-
-
-
-
-
 
 
 
