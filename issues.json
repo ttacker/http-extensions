@@ -129,7 +129,7 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-04-10T08:02:51Z",
-    "updated_at": "2018-04-11T01:46:08Z",
+    "updated_at": "2018-04-11T18:04:50Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -243,7 +243,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "mikewest",
@@ -288,9 +288,9 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-04-09T18:59:39Z",
-    "updated_at": "2018-04-10T19:18:57Z",
-    "closed_at": null,
-    "author_association": "FIRST_TIME_CONTRIBUTOR",
+    "updated_at": "2018-04-11T06:43:19Z",
+    "closed_at": "2018-04-11T06:43:19Z",
+    "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/574",
       "html_url": "https://github.com/httpwg/http-extensions/pull/574",
@@ -2302,9 +2302,9 @@
 
     ],
     "milestone": null,
-    "comments": 9,
+    "comments": 10,
     "created_at": "2018-03-28T06:32:09Z",
-    "updated_at": "2018-04-11T02:53:13Z",
+    "updated_at": "2018-04-11T03:33:04Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "@martinthomson gave me the impression somewhere that new base64 usage should use the base64url.\r\n\r\nhttps://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.9 doesn't, which makes me worry browsers would use https://infra.spec.whatwg.org/#forgiving-base64 here leading to the interoperability issues already anticipated by that section."
@@ -11992,7 +11992,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -12001,8 +12001,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2017-09-01T16:40:44Z",
-    "updated_at": "2018-04-09T19:06:07Z",
-    "closed_at": null,
+    "updated_at": "2018-04-11T06:43:21Z",
+    "closed_at": "2018-04-11T06:43:21Z",
     "author_association": "NONE",
     "body": "https://bugs.chromium.org/p/chromium/issues/detail?id=635882\r\n\r\nSection 3.1 of the spec states that \"SameSite\" alone (without an attribute value) is a valid token: https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00#section-3.1\r\n\r\nSection 4.1 https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00#section-4.1 states \r\n\r\n   1.  If \"cookie-av\"'s \"attribute-value\" is not a case-insensitive\r\n       match for \"Strict\" or \"Lax\", ignore the \"cookie-av\"."
   },
