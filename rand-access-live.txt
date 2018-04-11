@@ -289,7 +289,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
    where the last-byte-pos in the Request is much larger than the last-
    byte-pos returned in response to an open-ended byte-range HEAD
-   request, as described above.
+   request, as described above, and much larger than the expected
+   maximum size of the representation.  See Section 5 for range value
+   considerations.
 
    In response, a server may indicate that it is supplying a
    continuously aggregating ("live") response by supplying the client
@@ -327,8 +329,6 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
        HTTP/1.1 206 Partial Content
        Content-Range: bytes 1230000-1234567/*
 
-   from the server to indicate that the response will start at byte
-   1230000 and end at byte 1234567 and will not include any aggregated
 
 
 
@@ -338,6 +338,8 @@ Pratt, et al.           Expires September 2, 2018               [Page 6]
 Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
+   from the server to indicate that the response will start at byte
+   1230000 and end at byte 1234567 and will not include any aggregated
    content.  This is the response expected from a typical HTTP server -
    one that doesn't support byte-range requests on aggregating content.
 
@@ -384,8 +386,6 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
        206 Partial Content
        Content-Range: bytes 1234567-999999999999/*
-
-
 
 
 
