@@ -161,7 +161,7 @@ Internet-Draft  Cookies: HTTP State Management Mechanism      April 2018
      A.1.  draft-ietf-httpbis-rfc6265bis-00  . . . . . . . . . . . .  48
      A.2.  draft-ietf-httpbis-rfc6265bis-01  . . . . . . . . . . . .  48
      A.3.  draft-ietf-httpbis-rfc6265bis-02  . . . . . . . . . . . .  48
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  49
+     A.4.  draft-ietf-httpbis-rfc6265bis-03  . . . . . . . . . . . .  49
 
 
 
@@ -170,6 +170,7 @@ Barth & West            Expires October 13, 2018                [Page 3]
 Internet-Draft  Cookies: HTTP State Management Mechanism      April 2018
 
 
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  49
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  49
 
 1.  Introduction
@@ -217,7 +218,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism      April 2018
    more liberal cookie processing algorithm provided in Section 5 does
    not recommend all of the syntactic and semantic variations in use
    today.  Where some existing software differs from the recommended
-
 
 
 
@@ -754,8 +754,8 @@ Internet-Draft  Cookies: HTTP State Management Mechanism      April 2018
    be sent along with "same-site" requests.  If the value is "Lax", the
    cookie will be sent with same-site requests, and with "cross-site"
    top-level navigations, as described in Section 5.3.7.1.  If the
-   "SameSite" attribute's value is neither of these, the cookie will be
-   ignored.
+   "SameSite" attribute's value is neither of these, the attribute will
+   be ignored.
 
 4.1.3.  Cookie Name Prefixes
 
@@ -2625,7 +2625,7 @@ Internet-Draft  Cookies: HTTP State Management Mechanism      April 2018
 
    [14] https://github.com/httpwg/http-extensions/issues/302
 
-
+   [15] https://github.com/httpwg/http-extensions/issues/389
 
 
 
@@ -2706,6 +2706,11 @@ Internet-Draft  Cookies: HTTP State Management Mechanism      April 2018
          makes sense: https://github.com/httpwg/http-extensions/
          issues/302 [14]
 
+A.4.  draft-ietf-httpbis-rfc6265bis-03
+
+   o  Clarified handling of invalid SameSite values:
+      https://github.com/httpwg/http-extensions/issues/389 [15]
+
 Acknowledgements
 
    This document is a minor update of RFC 6265, adding small features,
@@ -2725,11 +2730,6 @@ Authors' Addresses
 
    Email: mkwst@google.com
    URI:   https://mikewest.org/
-
-
-
-
-
 
 
 
