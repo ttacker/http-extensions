@@ -120,7 +120,9 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 1.  Introduction
 
    HTTP [RFC7230] is often used as a substrate for other application
-   protocols.  This is done for a variety of reasons, including:
+   protocols; this is sometimes referred to as creating "HTTP-based
+   APIs", or just "HTTP APIs", although the latter is ambiguous.  This
+   is done for a variety of reasons, including:
 
    o  familiarity by implementers, specifiers, administrators,
       developers and users,
@@ -141,7 +143,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    In many cases, these protocols are ad hoc; they are intended for only
    deployment on the server side, and consumption by a limited set of
    clients.  A body of practices and tools has arisen around defining
-   such "HTTP APIs" that favours these conditions.
+   HTTP-based APIs that favours these conditions.
 
    However, when such a protocol is standarised, it is typically
    deployed on multiple servers, implemented a number of times, and
@@ -149,9 +151,9 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    brings a different set of concerns, and tools and practices intended
    for a single-server deployment might not be suitable.
 
-   In particular, standards-defined HTTP APIs need to more carefully
-   consider how extensibility and evolution will be handled, how
-   different deployment requirements will be accommodated, and how
+   In particular, standards-defined HTTP-based APIs need to more
+   carefully consider how extensibility and evolution will be handled,
+   how different deployment requirements will be accommodated, and how
    clients will evolve with the API.
 
    At the same time, the IETF has a tradition of protocol reuse (e.g.,
@@ -159,8 +161,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [IPP] and [RESTCONF]).  Because HTTP is extensible in many ways, a
    number of questions arise, such as:
 
-   o  Should an application using HTTP define a new URL scheme?  Use new
-      ports?
 
 
 
@@ -169,6 +169,9 @@ Nottingham              Expires October 13, 2018                [Page 3]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   o  Should an application using HTTP define a new URL scheme?  Use new
+      ports?
 
    o  Should it use standard HTTP methods and status codes, or define
       new ones?
@@ -215,9 +218,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    o  The IANA registries defined for HTTP are updated or modified.
 
-   When an application is using HTTP, all of the requirements of the
-   HTTP protocol suite are in force (including but not limited to
-
 
 
 
@@ -226,6 +226,8 @@ Nottingham              Expires October 13, 2018                [Page 4]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
+   When an application is using HTTP, all of the requirements of the
+   HTTP protocol suite are in force (including but not limited to
    [RFC7230], [RFC7231], [RFC7232], [RFC7233], [RFC7234], [RFC7235] and
    [RFC7540]).
 
@@ -272,8 +274,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    be "201 Created", when in fact there are a number of reasons why the
    status code might differ in a real deployment.  If the client does
    not anticipate this, the application's deployment is brittle.
-
-
 
 
 
