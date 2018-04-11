@@ -289,9 +289,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
    where the last-byte-pos in the Request is much larger than the last-
    byte-pos returned in response to an open-ended byte-range HEAD
-   request, as described above.  The client should provide a value much
-   larger than the expected maximum size of the representation.  See
-   Section 5 for range value considerations.
+   request, as described above, and much larger than the expected
+   maximum size of the representation.  See Section 5 for range value
+   considerations.
 
    In response, a server may indicate that it is supplying a
    continuously aggregating ("live") response by supplying the client
