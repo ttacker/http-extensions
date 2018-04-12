@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                                April 9, 2018
+Updates: 7234 (if approved)                               April 12, 2018
 Intended status: Standards Track
-Expires: October 11, 2018
+Expires: October 14, 2018
 
 
                       HTTP Representation Variants
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 11, 2018.
+   This Internet-Draft will expire on October 14, 2018.
 
 
 
-Nottingham              Expires October 11, 2018                [Page 1]
+Nottingham              Expires October 14, 2018                [Page 1]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham              Expires October 11, 2018                [Page 2]
+Nottingham              Expires October 14, 2018                [Page 2]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -165,7 +165,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018                [Page 3]
+Nottingham              Expires October 14, 2018                [Page 3]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -173,10 +173,10 @@ Internet-Draft        HTTP Representation Variants            April 2018
    cache or by forwarding the request towards the origin - by following
    the algorithm defined in Section 4.
 
-   Its companion the Variant-Key response header field (Section 3)
-   indicates which representation was selected, so that it can be
-   reliably reused in the future.  When this specification is in use,
-   the example above might become:
+   Its companion Variant-Key response header field (Section 3) indicates
+   the applicable key(s) that the response is associated with, so that
+   it can be reliably reused in the future.  When this specification is
+   in use, the example above might become:
 
    GET /foo HTTP/1.1
    Host: www.example.com
@@ -221,7 +221,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018                [Page 4]
+Nottingham              Expires October 14, 2018                [Page 4]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -277,7 +277,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018                [Page 5]
+Nottingham              Expires October 14, 2018                [Page 5]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -328,12 +328,12 @@ Internet-Draft        HTTP Representation Variants            April 2018
 3.  The "Variant-Key" HTTP Header Field
 
    The Variant-Key HTTP response header field is used to indicate the
-   value(s) from the Variants header field that identify the
+   values from the Variants header field that identify the
    representation it occurs within.
 
 
 
-Nottingham              Expires October 11, 2018                [Page 6]
+Nottingham              Expires October 14, 2018                [Page 6]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -363,7 +363,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Variants: Content-Encoding;gzip;br, Content-Language;en ;fr
    Variant-Key: gzip;identity, fr
 
-   Indicates that this response can be used for requests whose Content-
+   indicates that this response can be used for requests whose Content-
    Encoding algorithm selects "gzip" or "identity", as long as the
    Content-Language algorithm selects "fr" - perhaps because there is no
    gzip-compressed French representation.
@@ -389,7 +389,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018                [Page 7]
+Nottingham              Expires October 14, 2018                [Page 7]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -405,8 +405,8 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
        3.  append items to variant-keys.
 
-   5.  Return result of running Compute Possible Keys (Section 4.1) on
-       variant-keys, an empty string and an empty list.
+   5.  Return the result of running Compute Possible Keys (Section 4.1)
+       on variant-keys, an empty string and an empty list.
 
 4.  Cache Behaviour
 
@@ -445,7 +445,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018                [Page 8]
+Nottingham              Expires October 14, 2018                [Page 8]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -501,7 +501,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018                [Page 9]
+Nottingham              Expires October 14, 2018                [Page 9]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -557,7 +557,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018               [Page 10]
+Nottingham              Expires October 14, 2018               [Page 10]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -613,7 +613,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018               [Page 11]
+Nottingham              Expires October 14, 2018               [Page 11]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -669,7 +669,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018               [Page 12]
+Nottingham              Expires October 14, 2018               [Page 12]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -725,7 +725,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018               [Page 13]
+Nottingham              Expires October 14, 2018               [Page 13]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -781,7 +781,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018               [Page 14]
+Nottingham              Expires October 14, 2018               [Page 14]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -837,7 +837,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018               [Page 15]
+Nottingham              Expires October 14, 2018               [Page 15]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -893,7 +893,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 
 
-Nottingham              Expires October 11, 2018               [Page 16]
+Nottingham              Expires October 14, 2018               [Page 16]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -949,7 +949,7 @@ A.1.  Accept
 
 
 
-Nottingham              Expires October 11, 2018               [Page 17]
+Nottingham              Expires October 14, 2018               [Page 17]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -1005,7 +1005,7 @@ A.3.  Accept-Language
 
 
 
-Nottingham              Expires October 11, 2018               [Page 18]
+Nottingham              Expires October 14, 2018               [Page 18]
 
 Internet-Draft        HTTP Representation Variants            April 2018
 
@@ -1061,4 +1061,4 @@ Author's Address
 
 
 
-Nottingham              Expires October 11, 2018               [Page 19]
+Nottingham              Expires October 14, 2018               [Page 19]
