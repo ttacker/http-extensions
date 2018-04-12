@@ -84,7 +84,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "craigpratt",
@@ -127,10 +127,10 @@
       }
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 4,
     "created_at": "2018-04-10T08:02:51Z",
-    "updated_at": "2018-04-11T18:04:50Z",
-    "closed_at": null,
+    "updated_at": "2018-04-11T20:25:20Z",
+    "closed_at": "2018-04-11T20:25:00Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/576",
@@ -288,7 +288,7 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-04-09T18:59:39Z",
-    "updated_at": "2018-04-11T06:43:19Z",
+    "updated_at": "2018-04-11T18:34:16Z",
     "closed_at": "2018-04-11T06:43:19Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -492,7 +492,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-04-09T06:27:47Z",
-    "updated_at": "2018-04-09T06:27:56Z",
+    "updated_at": "2018-04-12T00:45:49Z",
     "closed_at": null,
     "author_association": "OWNER",
     "pull_request": {
@@ -645,7 +645,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -654,8 +654,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-04-07T08:18:52Z",
-    "updated_at": "2018-04-07T08:18:52Z",
-    "closed_at": null,
+    "updated_at": "2018-04-12T00:21:58Z",
+    "closed_at": "2018-04-12T00:21:58Z",
     "author_association": "OWNER",
     "body": "TAG feedback: this needs to be strengthened:\r\n\r\n> “https” is preferred to provide authentication, integrity and confidentiality, as well as mitigate pervasive monitoring attacks"
   },
@@ -697,7 +697,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -706,8 +706,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-04-07T08:06:26Z",
-    "updated_at": "2018-04-07T08:06:26Z",
-    "closed_at": null,
+    "updated_at": "2018-04-11T23:39:30Z",
+    "closed_at": "2018-04-11T23:39:30Z",
     "author_association": "OWNER",
     "body": "Explain the pitfalls of OPTIONS."
   },
@@ -932,17 +932,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-04-06T19:41:30Z",
-    "updated_at": "2018-04-10T05:25:05Z",
-    "closed_at": null,
+    "updated_at": "2018-04-11T23:24:12Z",
+    "closed_at": "2018-04-11T23:24:12Z",
     "author_association": "OWNER",
     "body": "I think FOH (foo over http), has a tendency to encourage \"when x happens, use http code xxx\"... the draft talks about not minting new xxx, but doesn't explore why specifying xxx is an iffy idea.\r\n\r\nyou can really only control what the server emits.. and even then it might be in conflict with some other possible return codes.. but the client needs to be prepared to deal with anything because the server might not be a FOH server.\r\n\r\nto generalize - a received error code isn't a strong signal of what actually happened.\r\n"
   },
@@ -1257,17 +1257,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-04-03T09:46:52Z",
-    "updated_at": "2018-04-05T06:41:31Z",
-    "closed_at": null,
+    "updated_at": "2018-04-12T00:20:18Z",
+    "closed_at": "2018-04-12T00:20:18Z",
     "author_association": "OWNER",
     "body": "- mention that message bodes are removed\r\n- when redirects are handled, request header forwarding is... interesting"
   },
@@ -13092,9 +13092,9 @@
       }
     ],
     "milestone": null,
-    "comments": 46,
+    "comments": 51,
     "created_at": "2017-07-19T15:46:03Z",
-    "updated_at": "2018-04-10T16:21:01Z",
+    "updated_at": "2018-04-12T00:23:16Z",
     "closed_at": "2018-01-25T07:49:38Z",
     "author_association": "NONE",
     "body": "Based on https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/QHI3sio6--Q/v_zWX1O6AAAJ I have a couple of questions about the impact of `Accept-CH-Lifetime` as currently defined in https://tools.ietf.org/html/draft-ietf-httpbis-client-hints-04#section-2.2.2\r\n\r\nThe main risk, touched upon in the [Security Considerations](https://tools.ietf.org/html/draft-ietf-httpbis-client-hints-04#section-5) section, is the fact that providers of cross-origin subresources (e.g. images) loaded from pages with `Accept-CH` headers will start receiving fingerprinting-prone information about the configuration of a connecting client. Note that it will expose more information than what was available to these parties in the past because subresources such as images cannot use client-side logic to access information sent in Client Hints. A related issue is that based on the sets of headers sent in such subresource requests, the subresource owner might be able to identify the referring site even if it sets a Referrer Policy to prevent disclosing its URL or origin. For example, requests from a large site which sets `Referrer-Policy: no-referrer; Accept-CH: DPR` will be distinguishable from requests from sites with `Accept-CH: DPR, Viewport-Width` and from those without client hints. Depending on the chosen set of hints this can in practice uniquely identify the origin visited by the user.\r\n\r\nThe introduction of `Accept-CH-Lifetime` will extend this problem to all resources on a given origin -- if one page sets the header, then subresource requests from all pages in that origin will start carrying hint information. This can be undesirable for the user because it can disclose information about the visited origin and broadcasts fingerprintable information to all parties from which the given origin loads subresources.\r\n\r\nIt seems like this should be mitigated, possibly by one of the following:\r\n- (Preferably) Not broadcasting client hints on cross-origin subresource loads.\r\n- Obeying Referrer Policy and omitting hints if the referring page attempts to restrict data which is sent in the `Referer` header. Similarly, hints should probably also be stripped on HTTPS -> HTTP transitions."
