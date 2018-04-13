@@ -5,10 +5,10 @@
 HTTP Working Group                                             M. Bishop
 Internet-Draft                                                    Akamai
 Intended status: Standards Track                             N. Sullivan
-Expires: October 14, 2018                                     Cloudflare
+Expires: October 15, 2018                                     Cloudflare
                                                               M. Thomson
                                                                  Mozilla
-                                                          April 12, 2018
+                                                          April 13, 2018
 
 
              Secondary Certificate Authentication in HTTP/2
@@ -16,27 +16,10 @@ Expires: October 14, 2018                                     Cloudflare
 
 Abstract
 
-   TLS provides fundamental mutual authentication services for HTTP,
-   supporting up to one server certificate and up to one client
-   certificate associated to the session to prove client and server
-   identities as necessary.  This draft provides mechanisms for
-   providing additional such certificates at the HTTP layer when these
-   constraints are not sufficient.
-
-   Many HTTP servers host content from several origins.  HTTP/2 permits
-   clients to reuse an existing HTTP connection to a server provided
-   that the secondary origin is also in the certificate provided during
-   the TLS handshake.
-
-   In many cases, servers will wish to maintain separate certificates
-   for different origins but still desire the benefits of a shared HTTP
-   connection.  Similarly, servers may require clients to present
-   authentication, but have different requirements based on the content
-   the client is attempting to access.
-
-   This document describes how TLS exported authenticators can be used
-   to provide proof of ownership of additional certificates to the HTTP
-   layer to support both scenarios.
+   A use of TLS Exported Authenticators is described which enables
+   HTTP/2 clients and servers to offer additional certificate-based
+   credentials after the connection is established.  The means by which
+   these credentials are used with requests is defined.
 
 Note to Readers
 
@@ -47,16 +30,6 @@ Note to Readers
    Working Group information can be found at http://httpwg.github.io/
    [2]; source code and issues list for this draft can be found at
    https://github.com/httpwg/http-extensions/labels/secondary-certs [3].
-
-
-
-
-
-
-Bishop, et al.          Expires October 14, 2018                [Page 1]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
 
 Status of This Memo
 
@@ -73,7 +46,17 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 14, 2018.
+   This Internet-Draft will expire on October 15, 2018.
+
+
+
+
+
+
+Bishop, et al.          Expires October 15, 2018                [Page 1]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
 Copyright Notice
 
@@ -93,7 +76,7 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
-     1.1.  Server Certificate Authentication . . . . . . . . . . . .   4
+     1.1.  Server Certificate Authentication . . . . . . . . . . . .   3
      1.2.  Client Certificate Authentication . . . . . . . . . . . .   4
        1.2.1.  HTTP/1.1 using TLS 1.2 and previous . . . . . . . . .   5
        1.2.2.  HTTP/1.1 using TLS 1.3  . . . . . . . . . . . . . . .   6
@@ -103,38 +86,38 @@ Table of Contents
    2.  Discovering Additional Certificates at the HTTP/2 Layer . . .   8
      2.1.  Indicating support for HTTP-layer certificate
            authentication  . . . . . . . . . . . . . . . . . . . . .   8
-     2.2.  Making certificates or requests available . . . . . . . .   9
+     2.2.  Making certificates or requests available . . . . . . . .   8
      2.3.  Requiring certificate authentication  . . . . . . . . . .   9
    3.  Certificates Frames for HTTP/2  . . . . . . . . . . . . . . .  11
+     3.1.  The CERTIFICATE_NEEDED frame  . . . . . . . . . . . . . .  11
+     3.2.  The USE_CERTIFICATE Frame . . . . . . . . . . . . . . . .  12
+     3.3.  The CERTIFICATE_REQUEST Frame . . . . . . . . . . . . . .  13
+       3.3.1.  Exported Authenticator Request Characteristics  . . .  13
+     3.4.  The CERTIFICATE Frame . . . . . . . . . . . . . . . . . .  14
+       3.4.1.  Exported Authenticator Characteristics  . . . . . . .  15
+   4.  Indicating failures during HTTP-Layer Certificate
+       Authentication  . . . . . . . . . . . . . . . . . . . . . . .  15
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
+     5.1.  Impersonation . . . . . . . . . . . . . . . . . . . . . .  16
+     5.2.  Fingerprinting  . . . . . . . . . . . . . . . . . . . . .  17
+     5.3.  Denial of Service . . . . . . . . . . . . . . . . . . . .  17
+     5.4.  Confusion About State . . . . . . . . . . . . . . . . . .  17
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
+     6.1.  HTTP/2 SETTINGS_HTTP_CERT_AUTH Setting  . . . . . . . . .  18
+     6.2.  New HTTP/2 Frames . . . . . . . . . . . . . . . . . . . .  18
+     6.3.  New HTTP/2 Error Codes  . . . . . . . . . . . . . . . . .  19
 
 
 
-Bishop, et al.          Expires October 14, 2018                [Page 2]
+Bishop, et al.          Expires October 15, 2018                [Page 2]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
 
-     3.1.  The CERTIFICATE_NEEDED frame  . . . . . . . . . . . . . .  11
-     3.2.  The USE_CERTIFICATE Frame . . . . . . . . . . . . . . . .  12
-     3.3.  The CERTIFICATE_REQUEST Frame . . . . . . . . . . . . . .  13
-       3.3.1.  Exported Authenticator Request Characteristics  . . .  14
-     3.4.  The CERTIFICATE Frame . . . . . . . . . . . . . . . . . .  14
-       3.4.1.  Exported Authenticator Characteristics  . . . . . . .  15
-   4.  Indicating failures during HTTP-Layer Certificate
-       Authentication  . . . . . . . . . . . . . . . . . . . . . . .  16
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
-     5.1.  Impersonation . . . . . . . . . . . . . . . . . . . . . .  17
-     5.2.  Fingerprinting  . . . . . . . . . . . . . . . . . . . . .  17
-     5.3.  Denial of Service . . . . . . . . . . . . . . . . . . . .  17
-     5.4.  Confusion About State . . . . . . . . . . . . . . . . . .  18
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
-     6.1.  HTTP/2 SETTINGS_HTTP_CERT_AUTH Setting  . . . . . . . . .  18
-     6.2.  New HTTP/2 Frames . . . . . . . . . . . . . . . . . . . .  19
-     6.3.  New HTTP/2 Error Codes  . . . . . . . . . . . . . . . . .  19
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  20
-     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  21
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  20
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  21
      A.1.  Since draft-ietf-httpbis-http2-secondary-certs-00:  . . .  21
      A.2.  Since draft-bishop-httpbis-http2-additional-certs-05: . .  21
@@ -146,8 +129,8 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    HTTP clients need to know that the content they receive on a
    connection comes from the origin that they intended to retrieve in
    from.  The traditional form of server authentication in HTTP has been
-   in the form of X.509 certificates provided during the TLS RFC5246
-   [I-D.ietf-tls-tls13] handshake.
+   in the form of a single X.509 certificate provided during the TLS
+   RFC5246 [I-D.ietf-tls-tls13] handshake.
 
    Many existing HTTP [RFC7230] servers also have authentication
    requirements for the resources they serve.  Of the bountiful
@@ -160,15 +143,12 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    connection.  These certificates may contain multiple identities, but
    only one certificate may be provided.
 
-
-
-
-
-
-Bishop, et al.          Expires October 14, 2018                [Page 3]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
+   Many HTTP servers host content from several origins.  HTTP/2 permits
+   clients to reuse an existing HTTP connection to a server provided
+   that the secondary origin is also in the certificate provided during
+   the TLS handshake.  In many cases, servers choose to maintain
+   separate certificates for different origins but still desire the
+   benefits of a shared HTTP connection.
 
 1.1.  Server Certificate Authentication
 
@@ -182,6 +162,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    [RFC7838] enables a step of abstraction from the DNS resolution.  If
    both hosts have provided an Alternative Service at hostnames which
    resolve to the IP address of the server, they are considered
+
+
+
+Bishop, et al.          Expires October 15, 2018                [Page 3]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
+
    authoritative just as if DNS resolved the origin itself to that
    address.  However, the server's one TLS certificate is still required
    to contain the name of each origin in question.
@@ -219,13 +207,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    experience, particularly when sent to a client that does not expect
    the request.
 
-
-
-Bishop, et al.          Expires October 14, 2018                [Page 4]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    The TLS 1.3 CertificateRequest can be used by servers to give clients
    hints about which certificate to offer.  Servers that rely on
    certificate-based authentication might request different certificates
@@ -237,6 +218,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    establishment time only in cases where all clients are expected or
    required to have a single certificate that is used for all resources.
    Many other uses for client certificates are reactive, that is,
+
+
+
+Bishop, et al.          Expires October 15, 2018                [Page 4]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
+
    certificates are requested in response to the client making a
    request.
 
@@ -272,16 +261,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    using a client certificate and that no such certificate has been
    provided.
 
-
-
-
-
-
-Bishop, et al.          Expires October 14, 2018                [Page 5]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    The server initiates TLS renegotiation by sending a TLS HelloRequest
    (at *2).  The client then initiates a TLS handshake.  Note that some
    TLS messages are elided from the figure for the sake of brevity.
@@ -295,6 +274,13 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    When the handshake completes, the server performs any authorization
    checks a second time.  With the client certificate available, it then
    authorizes the request and provides a response (*5).
+
+
+
+Bishop, et al.          Expires October 15, 2018                [Page 5]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
 1.2.2.  HTTP/1.1 using TLS 1.3
 
@@ -331,13 +317,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    some sort of correlation information, a client is unable to identify
    which request caused the server to request a certificate.
 
-
-
-Bishop, et al.          Expires October 14, 2018                [Page 6]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    Thus, the minimum necessary mechanism to support reactive certificate
    authentication in HTTP/2 is an identifier that can be use to
    correlate an HTTP request with a request for a certificate.  Since
@@ -350,6 +329,15 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    extension or update to HTTP/2, such an identifier could be added to
    TLS 1.2 by means of an extension to TLS.  Unfortunately, many TLS 1.2
    implementations do not permit application data to continue during a
+
+
+
+
+Bishop, et al.          Expires October 15, 2018                [Page 6]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
+
    renegotiation.  This is problematic for a multiplexed protocol like
    HTTP/2.
 
@@ -386,14 +374,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    with verified possession of the corresponding private key, which can
    be supplied into a collection of available certificates.  Likewise,
    descriptions of desired certificates can be supplied into these
-
-
-
-Bishop, et al.          Expires October 14, 2018                [Page 7]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    collections.  These pre-supplied elements are then available for
    automatic use (in some situations) or for reference by individual
    streams.
@@ -405,6 +385,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    defines the required frame types, which parallel the TLS 1.3 message
    exchange.  Finally, Section 4 defines new error types which can be
    used to notify peers when the exchange has not been successful.
+
+
+
+
+Bishop, et al.          Expires October 15, 2018                [Page 7]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
 1.4.  Terminology
 
@@ -441,15 +429,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    certificate authentication indicate this using the HTTP/2
    "SETTINGS_HTTP_CERT_AUTH" (0xSETTING-TBD) setting.
 
-
-
-
-
-Bishop, et al.          Expires October 14, 2018                [Page 8]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    The initial value for the "SETTINGS_HTTP_CERT_AUTH" setting is 0,
    indicating that the peer does not support HTTP-layer certificate
    authentication.  If a peer does support HTTP-layer certificate
@@ -462,6 +441,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    connection at any time.  These certificates then become available for
    the peer to consider when deciding whether a connection is suitable
    to transport a particular request.
+
+
+
+
+Bishop, et al.          Expires October 15, 2018                [Page 8]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
    Available certificates which have the "AUTOMATIC_USE" flag set MAY be
    used by the recipient without further notice.  This means that
@@ -498,14 +485,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    As defined in [RFC7540], when a client finds that a https:// origin
    (or Alternative Service [RFC7838]) to which it needs to make a
    request has the same IP address as a server to which it is already
-
-
-
-Bishop, et al.          Expires October 14, 2018                [Page 9]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    connected, it MAY check whether the TLS certificate provided contains
    the new origin as well, and if so, reuse the connection.
 
@@ -518,6 +497,15 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    available using a "CERTIFICATE_REQUEST" frame, the client will need
    to send the "CERTIFICATE_REQUEST" in order to generate the
    "CERTIFICATE_NEEDED" frame.)  The stream represents a pending request
+
+
+
+
+Bishop, et al.          Expires October 15, 2018                [Page 9]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
+
    to that origin which is blocked until a valid certificate is
    processed.
 
@@ -555,13 +543,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    certificate are not already available, they will need to be sent as
    described in Section 2.2 as part of this exchange.
 
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 10]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    Client                                      Server
       <---------- (stream 0) CERTIFICATE_REQUEST --
       ...
@@ -573,6 +554,13 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
 
                Figure 6: Reactive Certificate Authentication
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 10]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
    A server SHOULD provide certificates for an origin before pushing
    resources from it or supplying content referencing the origin.  If a
@@ -609,15 +597,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    certificate authentication.  The frame includes a request identifier
    which can be used to correlate the stream with a previous
    "CERTIFICATE_REQUEST" frame sent on stream zero.  The
-
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 11]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    "CERTIFICATE_REQUEST" describes the certificate the sender requires
    to make progress on the stream in question.
 
@@ -631,6 +610,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    stream.  If a server requires that a client provide multiple
    certificates before authorizing a single request, each required
    certificate MUST be indicated with a separate "CERTIFICATE_NEEDED"
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 11]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
+
    frame, each of which MUST have a different request identifier
    (referencing different "CERTIFICATE_REQUEST" frames describing each
    required certificate).  To reduce the risk of client confusion,
@@ -666,14 +653,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    ID" of the certificate the sender wishes to use.  This MUST be the ID
    of a certificate for which proof of possession has been presented in
    a "CERTIFICATE" frame.  Recipients of a "USE_CERTIFICATE" frame of
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 12]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    any other length MUST treat this as a stream error of type
    "PROTOCOL_ERROR".  Frames with identical certificate identifiers
    refer to the same certificate chain.
@@ -686,6 +665,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    frame.  Receipt of a "USE_CERTIFICATE" frame before the necessary
    frames have been received on stream zero MUST also result in a stream
    error of type "PROTOCOL_ERROR".
+
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 12]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
    The referenced certificate chain needs to conform to the requirements
    expressed in the "CERTIFICATE_REQUEST" to the best of the sender's
@@ -721,15 +708,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
    The frame contains the following fields:
 
-
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 13]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    Request-ID:  "Request-ID" is a 16-bit opaque identifier used to
       correlate subsequent certificate-related frames with this request.
       The identifier MUST be unique in the session for the sender.
@@ -744,6 +722,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    [I-D.ietf-tls-exported-authenticator] takes as input a set of desired
    certificate characteristics and a "certificate_request_context",
    which needs to be unpredictable.  When generating exported
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 13]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
+
    authenticators for use with this extension, the
    "certificate_request_context" MUST contain both the two-octet
    Request-ID as well as at least 96 bits of additional entropy.
@@ -778,14 +764,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
                     Figure 8: CERTIFICATE frame payload
 
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 14]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    The "Exported Authenticator Fragment" field contains a portion of the
    opaque data returned from the TLS connection exported authenticator
    "authenticate" API.  See Section 3.4.1 for more details on the input
@@ -799,6 +777,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    "Cert-ID" following the receipt of a "CERTIFICATE" frame with
    "TO_BE_CONTINUED" unset MUST be treated as a connection error of type
    "PROTOCOL_ERROR".
+
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 14]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
    If the "AUTOMATIC_USE" flag is set, the recipient MAY omit sending
    "CERTIFICATE_NEEDED" frames on future streams which would require a
@@ -834,14 +820,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    context" API, retrieve the "certificate_request_context" used to
    generate the authenticator, if any.  - Verify that the
    "certificate_request_context" is either empty (clients only) or
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 15]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    contains the Request-ID of a previously-sent "CERTIFICATE_REQUEST"
    frame.  - Use the "validate" API to confirm the validity of the
    authenticator with regard to the generated request (if any).
@@ -856,6 +834,13 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    errors which are defined at the TLS layer might now occur at the HTTP
    framing layer.  In this section, those errors are restated and added
    to the HTTP/2 error code registry.
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 15]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
    BAD_CERTIFICATE (0xERROR-TBD1):  A certificate was corrupt, contained
       signatures that did not verify correctly, etc.
@@ -890,14 +875,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    secure, it is important to recognize that a vulnerability in this
    code path is at least equal to a vulnerability in the TLS handshake.
 
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 16]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
 5.1.  Impersonation
 
    This mechanism could increase the impact of a key compromise.  Rather
@@ -913,6 +890,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    [I-D.ietf-tls-exported-authenticator], it difficult to formally prove
    that an endpoint is jointly authoritative over multiple certificates,
    rather than individually authoritative on each certificate.  As a
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 16]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
+
    result, clients MUST NOT assume that because one origin was
    previously colocated with another, those origins will be reachable
    via the same endpoints in the future.  Clients MUST NOT consider
@@ -946,14 +931,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    expensive, while generating an invalid signature is computationally
    cheap.  Implementations will require checks for attacks from this
    direction.  Invalid exported authenticators SHOULD be treated as a
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 17]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    session error, to avoid further attacks from the peer, though an
    implementation MAY instead disable HTTP-layer certificates for the
    current connection instead.
@@ -967,6 +944,15 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    A server that uses certificate authentication needs to be prepared to
    reevaluate the authorization state of a request as the set of
    certificates changes.
+
+
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 17]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
    Client implementations need to carefully consider the impact of
    setting the "AUTOMATIC_USE" flag.  This flag is a performance
@@ -1001,20 +987,28 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
    Specification:  This document.
 
-
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 18]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
 6.2.  New HTTP/2 Frames
 
    Four new frame types are registered in the "HTTP/2 Frame Types"
    registry established in [RFC7540].  The entries in the following
    table are registered by this document.
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 18]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
           +---------------------+--------------+---------------+
           | Frame Type          | Code         | Specification |
@@ -1057,19 +1051,20 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
               ietf-tls-exported-authenticator-04 (work in progress),
               October 2017.
 
-
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 19]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
    [I-D.ietf-tls-tls13]
               Rescorla, E., "The Transport Layer Security (TLS) Protocol
               Version 1.3", draft-ietf-tls-tls13-22 (work in progress),
               November 2017.
+
+
+
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 19]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1111,17 +1106,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
               Alternative Services", RFC 7838, DOI 10.17487/RFC7838,
               April 2016, <https://www.rfc-editor.org/info/rfc7838>.
 
-
-
-
-
-
-
-Bishop, et al.          Expires October 14, 2018               [Page 20]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
-
-
 7.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
@@ -1129,6 +1113,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    [2] http://httpwg.github.io/
 
    [3] https://github.com/httpwg/http-extensions/labels/secondary-certs
+
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 20]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
+
 
 Appendix A.  Change Log
 
@@ -1173,4 +1165,12 @@ Authors' Addresses
 
 
 
-Bishop, et al.          Expires October 14, 2018               [Page 21]
+
+
+
+
+
+
+
+
+Bishop, et al.          Expires October 15, 2018               [Page 21]
