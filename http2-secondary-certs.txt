@@ -120,7 +120,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  21
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  21
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  21
-     A.1.  Since draft-ietf-httpbis-http2-secondary-certs-00:  . . .  22
+     A.1.  Since draft-ietf-httpbis-http2-secondary-certs-00:  . . .  21
      A.2.  Since draft-bishop-httpbis-http2-additional-certs-05: . .  22
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  22
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
@@ -175,9 +175,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    address.  However, the server's one TLS certificate is still required
    to contain the name of each origin in question.
 
-   [I-D.ietf-httpbis-origin-frame] relaxes the requirement to perform
-   the DNS lookup if already connected to a server with an appropriate
-   certificate which claims support for a particular origin.
+   [RFC8336] relaxes the requirement to perform the DNS lookup if
+   already connected to a server with an appropriate certificate which
+   claims support for a particular origin.
 
    Servers which host many origins often would prefer to have separate
    certificates for some sets of origins.  This may be for ease of
@@ -511,10 +511,10 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
    If the TLS certificate does not contain the new origin, but the
    server has claimed support for that origin (with an ORIGIN frame, see
-   [I-D.ietf-httpbis-origin-frame]) and advertised support for HTTP-
-   layer certificates (see Section 2.1), the client MAY send a
-   "CERTIFICATE_REQUEST" frame describing the desired origin.  Servers
-   SHOULD provide a corresponding certificate if one is available.
+   [RFC8336]) and advertised support for HTTP-layer certificates (see
+   Section 2.1), the client MAY send a "CERTIFICATE_REQUEST" frame
+   describing the desired origin.  Servers SHOULD provide a
+   corresponding certificate if one is available.
 
    If the server does not have the desired certificate, it MUST [see
    issue #564].  In this case, or if the server has not advertised
@@ -934,10 +934,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    than needing to subvert DNS or IP routing in order to use a
    compromised certificate, a malicious server now only needs a client
    to connect to _some_ HTTPS site under its control in order to present
-   the compromised certificate.  As recommended in
-   [I-D.ietf-httpbis-origin-frame], clients opting not to consult DNS
-   ought to employ some alternative means to increase confidence that
-   the certificate is legitimate.
+   the compromised certificate.  As recommended in [RFC8336], clients
+   opting not to consult DNS ought to employ some alternative means to
+   increase confidence that the certificate is legitimate.
 
    As noted in the Security Considerations of
    [I-D.ietf-tls-exported-authenticator], it difficult to formally prove
@@ -946,6 +945,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    result, clients MUST NOT assume that because one origin was
    previously colocated with another, those origins will be reachable
    via the same endpoints in the future.  Clients MUST NOT consider
+   previous secondary certificates to be validated after TLS session
 
 
 
@@ -954,7 +954,6 @@ Bishop, et al.          Expires October 15, 2018               [Page 17]
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
 
-   previous secondary certificates to be validated after TLS session
    resumption.  However, clients MAY proactively query for previously-
    presented secondary certificates.
 
@@ -1002,6 +1001,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
    setting the "AUTOMATIC_USE" flag.  This flag is a performance
    optimization, permitting the client to avoid a round-trip on each
    request where the server checks for certificate authentication.
+   However, once this flag has been sent, the client has zero knowledge
 
 
 
@@ -1010,7 +1010,6 @@ Bishop, et al.          Expires October 15, 2018               [Page 18]
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
 
-   However, once this flag has been sent, the client has zero knowledge
    about whether the server will use the referenced cert for any future
    request, or even for an existing request which has not yet completed.
    Clients MUST NOT set this flag on any certificate which is not
@@ -1056,6 +1055,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
           |                     |              |               |
           | USE_CERTIFICATE     | 0xFRAME-TBD4 | Section 3.2   |
           +---------------------+--------------+---------------+
+
 
 
 
@@ -1143,11 +1143,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
 7.2.  Informative References
 
-   [I-D.ietf-httpbis-origin-frame]
-              Nottingham, M. and E. Nygren, "The ORIGIN HTTP/2 Frame",
-              draft-ietf-httpbis-origin-frame-04 (work in progress),
-              August 2017.
-
    [RFC7838]  Nottingham, M., McManus, P., and J. Reschke, "HTTP
               Alternative Services", RFC 7838, DOI 10.17487/RFC7838,
               April 2016, <https://www.rfc-editor.org/info/rfc7838>.
@@ -1169,6 +1164,11 @@ Appendix A.  Change Log
       *RFC Editor's Note:* Please remove this section prior to
       publication of a final version of this document.
 
+A.1.  Since draft-ietf-httpbis-http2-secondary-certs-00:
+
+   o  All frames sent on stream zero; replaced "AUTOMATIC_USE" on
+      "CERTIFICATE" with "UNSOLICITED" on "USE_CERTIFICATE". (#482,#566)
+
 
 
 
@@ -1177,11 +1177,6 @@ Bishop, et al.          Expires October 15, 2018               [Page 21]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2018
 
-
-A.1.  Since draft-ietf-httpbis-http2-secondary-certs-00:
-
-   o  All frames sent on stream zero; replaced "AUTOMATIC_USE" on
-      "CERTIFICATE" with "UNSOLICITED" on "USE_CERTIFICATE". (#482,#566)
 
 A.2.  Since draft-bishop-httpbis-http2-additional-certs-05:
 
@@ -1213,6 +1208,11 @@ Authors' Addresses
    Mozilla
 
    Email: martin.thomson@gmail.com
+
+
+
+
+
 
 
 
