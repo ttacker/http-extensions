@@ -349,7 +349,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
    For example:
 
-   Variants: Content-Encoding;gzip;br, Content-Language;en ;fr
+   Variants: Accept-Encoding;gzip;br, Accept-Language;en ;fr
    Variant-Key: gzip, fr
 
    This header pair indicates that the representation has a "gzip"
@@ -637,7 +637,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Content-Type: image/gif
    Content-Language: en
    Cache-Control: max-age=3600
-   Variants: Content-Language;en;de
+   Variants: Accept-Language;en;de
    Variant-Key: en
    Vary: Accept-Language
    Transfer-Encoding: chunked
@@ -687,8 +687,8 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Content-Type: image/gif
    Content-Language: en
    Content-Encoding: br
-   Variants: Content-Language;en;jp;de
-   Variants: Content-Encoding;br;gzip
+   Variants: Accept-Language;en;jp;de
+   Variants: Accept-Encoding;br;gzip
    Variant-Key: en, br
    Vary: Accept-Language, Accept-Encoding
    Transfer-Encoding: chunked
@@ -706,7 +706,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
 5.1.3.  Partial Coverage
 
    Now, consider the previous example, but where only one of the Vary'd
-   axes is listed in Variants:
+   axes (Content-Encoding) is listed in Variants:
 
    GET /bar HTTP/1.1
    Host: www.example.net
@@ -717,7 +717,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Content-Type: image/gif
    Content-Language: en
    Content-Encoding: br
-   Variants: Content-Encoding;br;gzip
+   Variants: Accept-Encoding;br;gzip
    Variant-Key: br
    Vary: Accept-Language, Accept-Encoding
    Transfer-Encoding: chunked
