@@ -87,25 +87,25 @@ Table of Contents
      4.2.  Defining HTTP Resources . . . . . . . . . . . . . . . . .   8
      4.3.  Specifying Client Behaviours  . . . . . . . . . . . . . .   9
      4.4.  HTTP URLs . . . . . . . . . . . . . . . . . . . . . . . .  10
-       4.4.1.  Initial URL Discovery . . . . . . . . . . . . . . . .  11
+       4.4.1.  Initial URL Discovery . . . . . . . . . . . . . . . .  10
        4.4.2.  URL Schemes . . . . . . . . . . . . . . . . . . . . .  11
        4.4.3.  Transport Ports . . . . . . . . . . . . . . . . . . .  12
      4.5.  HTTP Methods  . . . . . . . . . . . . . . . . . . . . . .  12
        4.5.1.  GET . . . . . . . . . . . . . . . . . . . . . . . . .  13
-       4.5.2.  OPTIONS . . . . . . . . . . . . . . . . . . . . . . .  14
+       4.5.2.  OPTIONS . . . . . . . . . . . . . . . . . . . . . . .  13
      4.6.  HTTP Status Codes . . . . . . . . . . . . . . . . . . . .  14
-     4.7.  HTTP Header Fields  . . . . . . . . . . . . . . . . . . .  16
-     4.8.  Defining Message Payloads . . . . . . . . . . . . . . . .  17
-     4.9.  HTTP Caching  . . . . . . . . . . . . . . . . . . . . . .  17
-     4.10. Application State . . . . . . . . . . . . . . . . . . . .  19
-     4.11. Client Authentication . . . . . . . . . . . . . . . . . .  19
-     4.12. Co-Existing with Web Browsing . . . . . . . . . . . . . .  19
-     4.13. Application Boundaries  . . . . . . . . . . . . . . . . .  21
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  22
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  22
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  22
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  22
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .  24
+       4.6.1.  Redirection . . . . . . . . . . . . . . . . . . . . .  15
+     4.7.  HTTP Header Fields  . . . . . . . . . . . . . . . . . . .  17
+     4.8.  Defining Message Payloads . . . . . . . . . . . . . . . .  18
+     4.9.  HTTP Caching  . . . . . . . . . . . . . . . . . . . . . .  18
+     4.10. Application State . . . . . . . . . . . . . . . . . . . .  20
+     4.11. Client Authentication . . . . . . . . . . . . . . . . . .  20
+     4.12. Co-Existing with Web Browsing . . . . . . . . . . . . . .  20
+     4.13. Application Boundaries  . . . . . . . . . . . . . . . . .  22
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  23
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  23
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  23
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  23
 
 
 
@@ -114,9 +114,10 @@ Nottingham              Expires October 19, 2018                [Page 2]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  27
-   Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  27
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  27
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .  25
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  28
+   Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  28
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  28
 
 1.  Introduction
 
@@ -161,7 +162,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    substrate for [FTP] and [SMTP]; HTTP as a substrate for [IPP] and
    [RESTCONF]).  Because HTTP is extensible in many ways, a number of
    questions arise, such as:
-
 
 
 
@@ -487,16 +487,16 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    using HTTP, there may be confusion and interoperability problems.
    This section recommends default handling for these mechanisms.
 
-   o  Redirect handling - Applications using HTTP SHOULD specify that
-      3xx redirect status codes be followed automatically.  See
-      [RFC7231], Section 6.4.
-
-   o  Redirect methods - Applications using HTTP SHOULD specify that 301
-      and 302 redirect status codes rewrite the POST method to GET, in
-      order to be compatible with browsers.  See [RFC7231], Section 6.4.
+   o  Redirect handling - Applications need to specify how redirects are
+      expected to be handled; see Section 4.6.1.
 
    o  Cookies - Applications using HTTP MUST explicitly reference the
       Cookie specification [RFC6265] if they are required.
+
+   o  Certificates - Applications using HTTP MUST specify that TLS
+      certificates are to be checked according to [RFC2818] when HTTPS
+      is used.
+
 
 
 
@@ -505,10 +505,6 @@ Nottingham              Expires October 19, 2018                [Page 9]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-   o  Certificates - Applications using HTTP MUST specify that TLS
-      certificates are to be checked according to [RFC2818] when HTTPS
-      is used.
 
    In general, applications using HTTP ought to align their usage as
    closely as possible with Web browsers, to avoid interoperability
@@ -551,8 +547,12 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    semantics of the resources that they identify.  See Section 4.2 for
    details.
 
+4.4.1.  Initial URL Discovery
 
-
+   Generally, a client will begin interacting with a given application
+   server by requesting an initial document that contains information
+   about that particular deployment, potentially including links to
+   other relevant resources.
 
 
 
@@ -561,13 +561,6 @@ Nottingham              Expires October 19, 2018               [Page 10]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-4.4.1.  Initial URL Discovery
-
-   Generally, a client will begin interacting with a given application
-   server by requesting an initial document that contains information
-   about that particular deployment, potentially including links to
-   other relevant resources.
 
    Applications that use HTTP are encouraged to allow an arbitrary URL
    to be used as that entry point.  For example, rather than specifying
@@ -610,6 +603,13 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    o  The resources identified by the new scheme will still be available
       using "http" and/or "https" URLs.  Those URLs can "leak" into use,
       which can present security and operability issues.  For example,
+      using a new scheme to assure that requests don't get sent to a
+      "normal" Web site is likely to fail.
+
+   o  Features that rely upon the URL's origin [RFC6454], such as the
+      Web's same-origin policy, will be impacted by a change of scheme.
+
+
 
 
 
@@ -617,12 +617,6 @@ Nottingham              Expires October 19, 2018               [Page 11]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
-
-      using a new scheme to assure that requests don't get sent to a
-      "normal" Web site is likely to fail.
-
-   o  Features that rely upon the URL's origin [RFC6454], such as the
-      Web's same-origin policy, will be impacted by a change of scheme.
 
    o  HTTP-specific features such as cookies [RFC6265], authentication
       [RFC7235], caching [RFC7234], and CORS [FETCH] might or might not
@@ -665,15 +659,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    That means that they need to be potentially applicable to all
    resources, not just those of one application.
 
-
-
-
-
-Nottingham              Expires October 19, 2018               [Page 12]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
-
    While historically some applications (e.g., [RFC4791]) have defined
    non-generic methods, [RFC7231] now forbids this.
 
@@ -681,6 +666,13 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    encouraged to engage with the HTTP community early, and document
    their proposal as a separate HTTP extension, rather than as part of
    an application's specification.
+
+
+
+Nottingham              Expires October 19, 2018               [Page 12]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
 
 4.5.1.  GET
 
@@ -722,14 +714,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    per [RFC7231], Section 4.3.1, a body on a GET has no meaning, and
    will be either ignored or rejected by generic HTTP software.
 
-
-
-
-Nottingham              Expires October 19, 2018               [Page 13]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
-
 4.5.2.  OPTIONS
 
    The OPTIONS method was defined for metadata retrieval, and is used
@@ -738,6 +722,13 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    considered for their use.
 
    However, OPTIONS does have significant limitations:
+
+
+
+Nottingham              Expires October 19, 2018               [Page 13]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
 
    o  It isn't possible to link to the metadata with a simple URL,
       because OPTIONS is not the default GET method.
@@ -778,14 +769,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    In particular, status codes are often generated or overwritten by
    intermediaries, as well as server and client implementations; for
    example, when network errors are encountered, a captive portal is
-
-
-
-Nottingham              Expires October 19, 2018               [Page 14]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
-
    present, when an implementation is overloaded, or it thinks it is
    under attack.  As a result, the status code that a server-side
    application generates and the one that the client software receives
@@ -795,6 +778,14 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    application-specific signals.  Specifying that a particular status
    code has a specific meaning in the context of an application can have
    unintended side effects; if that status code is generated by a
+
+
+
+Nottingham              Expires October 19, 2018               [Page 14]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    generic HTTP component can lead clients to believe that the
    application is in a state that wasn't intended.
 
@@ -833,7 +824,16 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    potentially applicable to all resources, not just to those of one
    application.
 
+   When authors believe that a new status code is required, they are
+   encouraged to engage with the HTTP community early, and document
+   their proposal as a separate HTTP extension, rather than as part of
+   an application's specification.
 
+4.6.1.  Redirection
+
+   The 3xx series of status codes specified in [RFC7231], Section 6.4
+   are used to direct the user agent to another resource to satisfy the
+   request.  The most common of these are 301, 302, 307 and 308, all of
 
 
 
@@ -842,10 +842,61 @@ Nottingham              Expires October 19, 2018               [Page 15]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   When authors believe that a new status code is required, they are
-   encouraged to engage with the HTTP community early, and document
-   their proposal as a separate HTTP extension, rather than as part of
-   an application's specification.
+   which use the Location response header field to indicate where the
+   client should send the request to.
+
+   There are two ways that this group of status codes differ:
+
+   o  Whether they are permanent or temporary.  Permanent redirects can
+      be used to update links stored in the client (e.g., bookmarks),
+      whereas temporary ones are not.  Note that this has no effect on
+      HTTP caching; it is completely separate.
+
+   o  Whether they allow the redirected request to change the request
+      method from POST to GET.  Web browsers generally do change POST to
+      GET for 301 and 302; therefore, 308 and 307 were created to allow
+      redirection without changing the method.
+
+   This table summarises their relationships:
+
+   +-------------------------------------------+-----------+-----------+
+   |                                           | Permanent | Temporary |
+   +-------------------------------------------+-----------+-----------+
+   | Allows changing the request method from   | 301       | 302       |
+   | POST to GET                               |           |           |
+   | Does not allow changing the request       | 308       | 307       |
+   | method                                    |           |           |
+   +-------------------------------------------+-----------+-----------+
+
+   As noted in [RFC7231], a user agent is allowed to automatically
+   follow a 3xx redirect that has a Location response header field, even
+   if they don't understand the semantics of the specific status code.
+   However, they aren't required to do so; therefore, if an application
+   using HTTP desires redirects to be automatically followed, it needs
+   to explicitly specify the circumstances when this is required.
+
+   Applications using HTTP SHOULD specify that 301 and 32 requests
+   change the request method from POST (but no other method) to GET, to
+   be compatible with browsers.
+
+   Generally, when a redirected request is made, its header fields are
+   copied from the original request's.  However, they can be modified by
+   various mechanisms; e.g., sent Authorization ([RFC7235]) and Cookie
+   ([RFC6265]) headers will change if they origin (and sometimes path)
+   of the request changes.  Applications using HTTP SHOULD specify if
+   any request headers need to be modified or removed upon a redirect;
+   however, this behaviour cannot be relied upon, since a generic client
+   (like a browser) will be unaware of such requirements.
+
+
+
+
+
+
+Nottingham              Expires October 19, 2018               [Page 16]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
 
 4.7.  HTTP Header Fields
 
@@ -889,21 +940,19 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    that the "Location" header has a special meaning in a certain
    context.
 
-
-
-
-
-Nottingham              Expires October 19, 2018               [Page 16]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
-
    See Section 4.9 for the interaction between headers and HTTP caching;
    in particular, request headers that are used to "select" a response
    have impact there, and need to be carefully considered.
 
    See Section 4.10 for considerations regarding header fields that
    carry application state (e.g., Cookie).
+
+
+
+Nottingham              Expires October 19, 2018               [Page 17]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
 
 4.8.  Defining Message Payloads
 
@@ -946,18 +995,20 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    point out that this has implications for caching; in general, such
    resources need to either make their responses uncacheable (e.g., with
    the "no-store" cache-control directive defined in [RFC7234],
-
-
-
-Nottingham              Expires October 19, 2018               [Page 17]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
-
    Section 5.2.2.3) or consistently send the Vary response header
    ([RFC7231], Section 7.1.4).
 
    For example, this response:
+
+
+
+
+
+
+Nottingham              Expires October 19, 2018               [Page 18]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
 
    HTTP/1.1 200 OK
    Content-Type: application/example+xml
@@ -1005,7 +1056,12 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 18]
+
+
+
+
+
+Nottingham              Expires October 19, 2018               [Page 19]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1061,7 +1117,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 19]
+Nottingham              Expires October 19, 2018               [Page 20]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1117,7 +1173,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 20]
+Nottingham              Expires October 19, 2018               [Page 21]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1173,7 +1229,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 21]
+Nottingham              Expires October 19, 2018               [Page 22]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1229,7 +1285,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 22]
+Nottingham              Expires October 19, 2018               [Page 23]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1285,7 +1341,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 23]
+Nottingham              Expires October 19, 2018               [Page 24]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1341,7 +1397,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 24]
+Nottingham              Expires October 19, 2018               [Page 25]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1397,7 +1453,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 25]
+Nottingham              Expires October 19, 2018               [Page 26]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1453,7 +1509,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
 
-Nottingham              Expires October 19, 2018               [Page 26]
+Nottingham              Expires October 19, 2018               [Page 27]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
@@ -1509,4 +1565,4 @@ Author's Address
 
 
 
-Nottingham              Expires October 19, 2018               [Page 27]
+Nottingham              Expires October 19, 2018               [Page 28]
