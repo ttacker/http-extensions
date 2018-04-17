@@ -875,7 +875,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    using HTTP desires redirects to be automatically followed, it needs
    to explicitly specify the circumstances when this is required.
 
-   Applications using HTTP SHOULD specify that 301 and 32 requests
+   Applications using HTTP SHOULD specify that 301 and 302 requests
    change the request method from POST (but no other method) to GET, to
    be compatible with browsers.
 
