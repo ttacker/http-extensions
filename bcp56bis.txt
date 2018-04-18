@@ -833,7 +833,7 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    The 3xx series of status codes specified in [RFC7231], Section 6.4
    are used to direct the user agent to another resource to satisfy the
-   request.  The most common of these are 301, 302, 307 and 308, all of
+   request.  The most common of these are 301, 302, 307 and 308
 
 
 
@@ -842,8 +842,8 @@ Nottingham              Expires October 20, 2018               [Page 15]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-   which use the Location response header field to indicate where the
-   client should send the request to.
+   ([RFC7538]), all of which use the Location response header field to
+   indicate where the client should send the request to.
 
    There are two ways that this group of status codes differ:
 
@@ -1466,6 +1466,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Attack", BCP 188, RFC 7258, DOI 10.17487/RFC7258, May
               2014, <https://www.rfc-editor.org/info/rfc7258>.
 
+   [RFC7538]  Reschke, J., "The Hypertext Transfer Protocol Status Code
+              308 (Permanent Redirect)", RFC 7538, DOI 10.17487/RFC7538,
+              April 2015, <https://www.rfc-editor.org/info/rfc7538>.
+
    [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
               and Registration Procedures for URI Schemes", BCP 35,
               RFC 7595, DOI 10.17487/RFC7595, June 2015,
@@ -1501,10 +1505,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               RFC 2821, DOI 10.17487/RFC2821, April 2001,
               <https://www.rfc-editor.org/info/rfc2821>.
 
-   [TELNET]   Postel, J. and J. Reynolds, "Telnet Protocol
-              Specification", STD 8, RFC 854, DOI 10.17487/RFC0854, May
-              1983, <https://www.rfc-editor.org/info/rfc854>.
-
 
 
 
@@ -1513,6 +1513,10 @@ Nottingham              Expires October 20, 2018               [Page 27]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   [TELNET]   Postel, J. and J. Reynolds, "Telnet Protocol
+              Specification", STD 8, RFC 854, DOI 10.17487/RFC0854, May
+              1983, <https://www.rfc-editor.org/info/rfc854>.
 
    [XML]      Bray, T., Paoli, J., Sperberg-McQueen, M., Maler, E., and
               F. Yergeau, "Extensible Markup Language (XML) 1.0 (Fifth
@@ -1542,10 +1546,6 @@ Author's Address
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
-
-
-
-
 
 
 
