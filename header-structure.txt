@@ -261,8 +261,8 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    used.
 
    Note that specifications using Structured Headers do not re-specify
-   its ABNF or parsing algorithms; however, they can do so for
-   substructures inside its values.
+   its ABNF or parsing algorithms; instead, they should be specified in
+   terms of its abstract data structures.
 
    Also, empty header field values are not allowed, and therefore
    parsing for them will fail.
