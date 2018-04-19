@@ -82,8 +82,8 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
      1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   4
-   2.  Specifying Structured Headers . . . . . . . . . . . . . . . .   4
-   3.  Parsing Text into Structured Headers  . . . . . . . . . . . .   5
+   2.  Defining New Structured Headers . . . . . . . . . . . . . . .   4
+   3.  Parsing Textual Header Fields . . . . . . . . . . . . . . . .   5
    4.  Structured Header Data Types  . . . . . . . . . . . . . . . .   6
      4.1.  Dictionaries  . . . . . . . . . . . . . . . . . . . . . .   7
      4.2.  Lists . . . . . . . . . . . . . . . . . . . . . . . . . .   8
@@ -127,20 +127,19 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    be written, because each header has slightly different handling of
    what looks like common syntax.
 
-   This document introduces structured HTTP header field values
-   (hereafter, Structured Headers) to address these problems.
-   Structured Headers define a generic, abstract model for header field
-   values, along with a concrete serialisation for expressing that model
-   in textual HTTP headers, as used by HTTP/1 [RFC7230] and HTTP/2
-   [RFC7540].
+   This document introduces a set of common data structures for use in
+   HTTP header field values to address these problems.  In particular,
+   it defines a generic, abstract model for header field values, along
+   with a concrete serialisation for expressing that model in textual
+   HTTP headers, as used by HTTP/1 [RFC7230] and HTTP/2 [RFC7540].
 
-   HTTP headers that are defined as Structured Headers use the types
+   HTTP headers that are defined as "Structured Headers" use the types
    defined in this specification to define their syntax and basic
    handling rules, thereby simplifying both their definition and
    parsing.
 
    Additionally, future versions of HTTP can define alternative
-   serialisations of the abstract model of Structured Headers, allowing
+   serialisations of the abstract model of these structures, allowing
    headers that use it to be transmitted more efficiently without being
    redefined.
 
@@ -148,8 +147,7 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    existing HTTP headers; the mechanisms described herein are only
    intended to be used with headers that explicitly opt into them.
 
-   To specify a header field that uses Structured Headers, see
-   Section 2.
+   To specify a header field that is a Structured Header, see Section 2.
 
    Section 4 defines a number of abstract data types that can be used in
    Structured Headers.  Dictionaries and lists are only usable at the
@@ -159,6 +157,8 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    Those abstract types can be serialised into textual headers - such as
    those used in HTTP/1 and HTTP/2 - using the algorithms described in
    Section 3.
+
+
 
 
 
@@ -189,12 +189,13 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    specified behaviour.  If there is disagreement between the algorithms
    and ABNF, the specified algorithms take precedence.
 
-2.  Specifying Structured Headers
+2.  Defining New Structured Headers
 
-   A HTTP header that uses Structured Headers need to be defined to do
-   so explicitly; recipients and generators need to know that the
-   requirements of this document are in effect.  The simplest way to do
-   that is by referencing this document in its definition.
+   A HTTP header that uses the structures in this specification need to
+   be defined to do so explicitly; recipients and generators need to
+   know that the requirements of this document are in effect.  The
+   simplest way to do that is by referencing this document in its
+   definition.
 
    The field's definition will also need to specify the field-value's
    allowed syntax, in terms of the types described in Section 4, along
@@ -220,7 +221,6 @@ Internet-Draft         Structured Headers for HTTP            April 2018
 
 
 
-
 Nottingham & Kamp       Expires October 21, 2018                [Page 4]
 
 Internet-Draft         Structured Headers for HTTP            April 2018
@@ -231,7 +231,7 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    The Foo-Example HTTP header field conveys information about how
    much Foo the message has.
 
-   Foo-Example is a Structured header [RFCxxxx]. Its value MUST be a
+   Foo-Example is a Structured Header [RFCxxxx]. Its value MUST be a
    dictionary ([RFCxxxx], Section Y.Y).
 
    The dictionary MUST contain:
@@ -267,7 +267,7 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    Also, empty header field values are not allowed, and therefore
    parsing for them will fail.
 
-3.  Parsing Text into Structured Headers
+3.  Parsing Textual Header Fields
 
    When a receiving implementation parses textual HTTP header fields
    (e.g., in HTTP/1 or HTTP/2) that are known to be Structured Headers,
@@ -744,9 +744,9 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    not delimit strings.  Furthermore, only DQUOTE and "\" can be
    escaped; other sequences MUST cause parsing to fail.
 
-   Unicode is not directly supported in Structured Headers, because it
-   causes a number of interoperability issues, and - with few exceptions
-   - header values do not require it.
+   Unicode is not directly supported in this document, because it causes
+   a number of interoperability issues, and - with few exceptions -
+   header values do not require it.
 
    When it is necessary for a field value to convey non-ASCII string
    content, binary content (Section 4.9) SHOULD be specified, along with
@@ -920,7 +920,7 @@ Internet-Draft         Structured Headers for HTTP            April 2018
    TBD
 
    It is possible for parties with the ability to inject new HTTP header
-   fields to change the meaning of structured headers.  In some
+   fields to change the meaning of a Structured Headers.  In some
    circumstances, this will cause parsing to fail, but it is not
    possible to reliably fail in all such circumstances.
 
