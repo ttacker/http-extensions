@@ -114,11 +114,11 @@ Nottingham              Expires October 21, 2018                [Page 2]
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
 
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  24
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  25
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  26
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  29
-   Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  29
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  29
+   Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  30
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  30
 
 1.  Introduction
 
@@ -1269,12 +1269,12 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
       incorrectly; in particular, if there is contention with resources
       that have actually been requested by the client.
 
-   o  There are several ambiguities about the interaction of Server Push
+   o  There are several ambiguities about the interaction of server push
       with other HTTP features (e.g., caching, validation).  As a
       result, it might be implemented differently in different clients,
       and capabilities might vary.
 
-   o  APIs for Server Push are currently unavailable in some
+   o  APIs for server push are currently unavailable in some
       implementations, and vary widely in others.  In particular, there
       is no current browser API for it.
 
@@ -1299,6 +1299,10 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    fetching links for things likely to be contained within) might
    benefit from using the 103 (Early Hints) status code; see [RFC8297].
 
+   Applications using server push directly need to enforce the
+   requirements regarding authority in [RFC7540], Section 8.2, to avoid
+   cross-origin push attacks.
+
 5.  IANA Considerations
 
    This document has no requirements for IANA.
@@ -1318,6 +1322,9 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    Section 4.13 discusses the issues that arise when applications are
    deployed on the same origin as Web sites (and other applications).
 
+   Section 4.14 highlights risks of using HTTP/2 server push in a manner
+   other than specified.
+
    Applications that use HTTP in a manner that involves modification of
    implementations - for example, requiring support for a new URL
    scheme, or a non-standard method - risk having those implementations
@@ -1326,6 +1333,18 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    improvements incorporated upstream.
 
 7.  References
+
+
+
+
+
+
+
+
+Nottingham              Expires October 21, 2018               [Page 24]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
 
 7.1.  Normative References
 
@@ -1337,14 +1356,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [RFC2818]  Rescorla, E., "HTTP Over TLS", RFC 2818,
               DOI 10.17487/RFC2818, May 2000,
               <https://www.rfc-editor.org/info/rfc2818>.
-
-
-
-
-Nottingham              Expires October 21, 2018               [Page 24]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
               Procedures for Message Header Fields", BCP 90, RFC 3864,
@@ -1381,17 +1392,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC7232, June 2014,
               <https://www.rfc-editor.org/info/rfc7232>.
 
-   [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
-              "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
-              RFC 7233, DOI 10.17487/RFC7233, June 2014,
-              <https://www.rfc-editor.org/info/rfc7233>.
-
-   [RFC7234]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
-              Ed., "Hypertext Transfer Protocol (HTTP/1.1): Caching",
-              RFC 7234, DOI 10.17487/RFC7234, June 2014,
-              <https://www.rfc-editor.org/info/rfc7234>.
-
-
 
 
 
@@ -1401,6 +1401,16 @@ Nottingham              Expires October 21, 2018               [Page 25]
 
 Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
+
+   [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
+              "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
+              RFC 7233, DOI 10.17487/RFC7233, June 2014,
+              <https://www.rfc-editor.org/info/rfc7233>.
+
+   [RFC7234]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "Hypertext Transfer Protocol (HTTP/1.1): Caching",
+              RFC 7234, DOI 10.17487/RFC7234, June 2014,
+              <https://www.rfc-editor.org/info/rfc7234>.
 
    [RFC7235]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Authentication", RFC 7235,
@@ -1438,6 +1448,16 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
               <https://fetch.spec.whatwg.org>.
 
+
+
+
+
+
+Nottingham              Expires October 21, 2018               [Page 26]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [FTP]      Postel, J. and J. Reynolds, "File Transfer Protocol",
               STD 9, RFC 959, DOI 10.17487/RFC0959, October 1985,
               <https://www.rfc-editor.org/info/rfc959>.
@@ -1449,14 +1469,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
               draft-ietf-httpbis-header-structure-04 (work in progress),
               March 2018.
-
-
-
-
-Nottingham              Expires October 21, 2018               [Page 26]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [IPP]      Sweet, M. and I. McDonald, "Internet Printing
               Protocol/1.1: Model and Semantics", RFC 8011,
@@ -1492,6 +1504,16 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               DOI 10.17487/RFC4791, March 2007,
               <https://www.rfc-editor.org/info/rfc4791>.
 
+
+
+
+
+
+Nottingham              Expires October 21, 2018               [Page 27]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [RFC4918]  Dusseault, L., Ed., "HTTP Extensions for Web Distributed
               Authoring and Versioning (WebDAV)", RFC 4918,
               DOI 10.17487/RFC4918, June 2007,
@@ -1505,14 +1527,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [RFC5861]  Nottingham, M., "HTTP Cache-Control Extensions for Stale
               Content", RFC 5861, DOI 10.17487/RFC5861, May 2010,
               <https://www.rfc-editor.org/info/rfc5861>.
-
-
-
-
-Nottingham              Expires October 21, 2018               [Page 27]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
               DOI 10.17487/RFC6265, April 2011,
@@ -1547,6 +1561,15 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
               Port Numbers", BCP 165, RFC 7605, DOI 10.17487/RFC7605,
               August 2015, <https://www.rfc-editor.org/info/rfc7605>.
 
+
+
+
+
+Nottingham              Expires October 21, 2018               [Page 28]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
    [RFC7616]  Shekh-Yusef, R., Ed., Ahrens, D., and S. Bremer, "HTTP
               Digest Access Authentication", RFC 7616,
               DOI 10.17487/RFC7616, September 2015,
@@ -1559,16 +1582,6 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
    [RFC7807]  Nottingham, M. and E. Wilde, "Problem Details for HTTP
               APIs", RFC 7807, DOI 10.17487/RFC7807, March 2016,
               <https://www.rfc-editor.org/info/rfc7807>.
-
-
-
-
-
-
-Nottingham              Expires October 21, 2018               [Page 28]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
 
    [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", STD 90, RFC 8259,
@@ -1605,6 +1618,14 @@ Internet-Draft      On the use of HTTP as a Substrate         April 2018
 
    [3] https://github.com/httpwg/http-extensions/labels/bcp56bis
 
+
+
+
+Nottingham              Expires October 21, 2018               [Page 29]
+
+Internet-Draft      On the use of HTTP as a Substrate         April 2018
+
+
 Appendix A.  Changes from RFC 3205
 
    [RFC3205] captured the Best Current Practice in the early 2000's,
@@ -1615,31 +1636,10 @@ Appendix A.  Changes from RFC 3205
 
 Author's Address
 
-
-
-
-
-
-
-Nottingham              Expires October 21, 2018               [Page 29]
-
-Internet-Draft      On the use of HTTP as a Substrate         April 2018
-
-
    Mark Nottingham
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
-
-
-
-
-
-
-
-
-
-
 
 
 
