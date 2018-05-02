@@ -4,7 +4,8 @@
 
 HTTP Working Group                                            P. McManus
 Internet-Draft                                                   Mozilla
-Intended status: Standards Track                             May 2, 2018
+Updates: 6455 (if approved)                                  May 2, 2018
+Intended status: Standards Track
 Expires: November 3, 2018
 
 
@@ -47,7 +48,6 @@ Copyright Notice
    include Simplified BSD License text as described in Section 4.e of
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
-
 
 
 
@@ -153,8 +153,8 @@ Internet-Draft                H2 Websockets                     May 2018
 
 4.  The Extended CONNECT Method
 
-   The CONNECT Method defined in Section 8.3 of [RFC7540] is modified in
-   the following ways:
+   Usage of the CONNECT method in HTTP/2 is defined by Section 8.3 of
+   [RFC7540].  This extension modifies the method in the following ways:
 
    o  A new pseudo-header :protocol MAY be included on request HEADERS
       indicating the desired protocol to be spoken on the tunnel created
