@@ -93,15 +93,15 @@ Table of Contents
    6.  Defining Content Negotiation Using Variants . . . . . . . . .  14
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  14
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .  15
-   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  15
-   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
-     10.1.  Normative References . . . . . . . . . . . . . . . . . .  16
-     10.2.  Informative References . . . . . . . . . . . . . . . . .  16
-     10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  17
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  15
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  16
+     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  16
    Appendix A.  Variants for Existing Content Negotiation Mechanisms  17
      A.1.  Accept  . . . . . . . . . . . . . . . . . . . . . . . . .  17
-     A.2.  Accept-Encoding . . . . . . . . . . . . . . . . . . . . .  18
+     A.2.  Accept-Encoding . . . . . . . . . . . . . . . . . . . . .  17
      A.3.  Accept-Language . . . . . . . . . . . . . . . . . . . . .  18
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  19
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  19
 
 
@@ -818,18 +818,18 @@ Internet-Draft        HTTP Representation Variants              May 2018
    representations of a certain nature available; the runtime behaviour
    of the server always overrides hints like Variants.
 
-9.  Acknowledgments
+9.  References
 
-   This protocol is conceptually similar to, but simpler than,
-   Transparent Content Negotiation [RFC2295].  Thanks to its authors for
-   their inspiration.
+9.1.  Normative References
 
-   It is also a generalisation of a Fastly VCL feature designed by
-   Rogier 'DocWilco' Mulhuijzen.
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
-   Thanks to Hooman Beheshti for his review and input.
-
-10.  References
+   [RFC4647]  Phillips, A. and M. Davis, "Matching of Language Tags",
+              BCP 47, RFC 4647, DOI 10.17487/RFC4647, September 2006,
+              <https://www.rfc-editor.org/info/rfc4647>.
 
 
 
@@ -841,17 +841,6 @@ Nottingham              Expires November 3, 2018               [Page 15]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
-
-10.1.  Normative References
-
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
-
-   [RFC4647]  Phillips, A. and M. Davis, "Matching of Language Tags",
-              BCP 47, RFC 4647, DOI 10.17487/RFC4647, September 2006,
-              <https://www.rfc-editor.org/info/rfc4647>.
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
@@ -877,7 +866,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-10.2.  Informative References
+9.2.  Informative References
 
    [I-D.ietf-httpbis-client-hints]
               Grigorik, I., "HTTP Client Hints", draft-ietf-httpbis-
@@ -887,23 +876,12 @@ Internet-Draft        HTTP Representation Variants              May 2018
               in HTTP", RFC 2295, DOI 10.17487/RFC2295, March 1998,
               <https://www.rfc-editor.org/info/rfc2295>.
 
-
-
-
-
-
-
-Nottingham              Expires November 3, 2018               [Page 16]
-
-Internet-Draft        HTTP Representation Variants              May 2018
-
-
    [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
               Procedures for Message Header Fields", BCP 90, RFC 3864,
               DOI 10.17487/RFC3864, September 2004,
               <https://www.rfc-editor.org/info/rfc3864>.
 
-10.3.  URIs
+9.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
@@ -912,6 +890,13 @@ Internet-Draft        HTTP Representation Variants              May 2018
    [3] https://github.com/httpwg/http-extensions/labels/variants
 
    [4] https://github.com/mnot/variants-toy
+
+
+
+Nottingham              Expires November 3, 2018               [Page 16]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
 
 Appendix A.  Variants for Existing Content Negotiation Mechanisms
 
@@ -946,14 +931,6 @@ A.1.  Accept
            using the media-range matching mechanism specified in
            [RFC7231] Section 5.3.2 (which is case-insensitive), append
            those members of available-values to preferred-available
-
-
-
-Nottingham              Expires November 3, 2018               [Page 17]
-
-Internet-Draft        HTTP Representation Variants              May 2018
-
-
            (preserving the precedence order implied by the media ranges'
            specificity).
 
@@ -969,6 +946,13 @@ A.2.  Accept-Encoding
 
    To perform content negotiation for Accept-Encoding given a request-
    value and available-values:
+
+
+
+Nottingham              Expires November 3, 2018               [Page 17]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
 
    1.  Let preferred-available be an empty list.
 
@@ -1001,15 +985,6 @@ A.3.  Accept-Language
    This section defines handling for Accept-Language variants, as per
    [RFC7231] Section 5.3.5.
 
-
-
-
-
-Nottingham              Expires November 3, 2018               [Page 18]
-
-Internet-Draft        HTTP Representation Variants              May 2018
-
-
    To perform content negotiation for Accept-Language given a request-
    value and available-values:
 
@@ -1027,12 +1002,31 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
    4.  For each preferred-lang in preferred-langs:
 
+
+
+
+Nottingham              Expires November 3, 2018               [Page 18]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
        1.  If any member of available-values matches preferred-lang,
            using either the Basic or Extended Filtering scheme defined
            in [RFC4647] Section 3.3, append those members of available-
            values to preferred-available (preserving their order).
 
    5.  Return preferred-available.
+
+Acknowledgements
+
+   This protocol is conceptually similar to, but simpler than,
+   Transparent Content Negotiation [RFC2295].  Thanks to its authors for
+   their inspiration.
+
+   It is also a generalisation of a Fastly VCL feature designed by
+   Rogier 'DocWilco' Mulhuijzen.
+
+   Thanks to Hooman Beheshti for his review and input.
 
 Author's Address
 
@@ -1041,6 +1035,12 @@ Author's Address
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
+
+
+
+
+
+
 
 
 
