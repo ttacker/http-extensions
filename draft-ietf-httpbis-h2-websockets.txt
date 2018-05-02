@@ -232,6 +232,12 @@ Internet-Draft                H2 Websockets                     May 2018
    referred to in [RFC6455].  The state of the WebSocket connection at
    this point is OPEN as defined by [RFC6455], Section 4.1.
 
+   The HTTP/2 stream closure is also analagous to the TCP connection of
+   [RFC6455].  Orderly TCP level closures are represented as END_STREAM
+   ([RFC7540] Section 6.1) flags and RST exceptions are represented with
+   the RST_STREAM ([RFC7540] Section 6.4) frame with the CANCEL
+   ([RFC7540] Secion 7) error code.
+
 5.1.  Example
 
 [[ From Client ]]                       [[ From Server ]]
@@ -267,12 +273,6 @@ WebSocket Data
 
    A more native integration with HTTP/2 is certainly possible with
    larger additions to HTTP/2.  This design was selected to minimize the
-   solution complexity while still addressing the primary concern of
-   running HTTP/2 and WebSockets concurrently.
-
-
-
-
 
 
 
@@ -281,6 +281,9 @@ McManus                 Expires November 3, 2018                [Page 5]
 
 Internet-Draft                H2 Websockets                     May 2018
 
+
+   solution complexity while still addressing the primary concern of
+   running HTTP/2 and WebSockets concurrently.
 
 7.  About Intermediaries
 
@@ -326,9 +329,6 @@ Internet-Draft                H2 Websockets                     May 2018
    The 2017 HTTP Workshop had a very productive discussion that helped
    determine the key problem and acceptable level of solution
    complexity.
-
-
-
 
 
 
