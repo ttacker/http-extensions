@@ -181,7 +181,7 @@ Internet-Draft               HTTP Early Data                    May 2018
 
    2.  The server can reject early data.  A server cannot selectively
        reject early data, so this results in all requests sent in early
-       data being rejected.
+       data being discarded.
 
    3.  The server can choose to delay processing of early data until
        after the TLS handshake completes.  By deferring processing, it
