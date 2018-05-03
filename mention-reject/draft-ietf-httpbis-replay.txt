@@ -180,8 +180,8 @@ Internet-Draft               HTTP Early Data                    May 2018
        upper limit to the number of replays.
 
    2.  The server can reject early data.  A server cannot selectively
-       reject early data, so this results in all requests that are sent
-       in early data being rejected.
+       reject early data, so this results in all requests sent in early
+       data being rejected.
 
    3.  The server can choose to delay processing of early data until
        after the TLS handshake completes.  By deferring processing, it
