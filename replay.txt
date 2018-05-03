@@ -269,11 +269,11 @@ Internet-Draft               HTTP Early Data                    May 2018
    data MUST be sent again, unless the client decides to abandon those
    requests.
 
-   This automatic retry exposes the request to a potential replay
-   attack.  An attacker sends early data to one server instance that
-   accepts and processes the early data, but allows that connection to
-   proceed no further.  The attacker then forwards the same messages
-   from the client to another server instance that will reject early
+   Automatic retry creates the potential for a replay attack.  An
+   attacker intercepts a connection that uses early data and copies the
+   early data to another server instance.  The second server instance
+   accepts and processes the early data.  The attacker then allows the
+   original connection to complete.  Even if the early data is detected
 
 
 
@@ -282,11 +282,14 @@ Thomson, et al.         Expires November 4, 2018                [Page 5]
 Internet-Draft               HTTP Early Data                    May 2018
 
 
-   data.  The client then retries the request, resulting in the request
-   being processed twice.  Replays are also possible if there are
-   multiple server instances that will accept early data, or if the same
-   server accepts early data multiple times (though this would be in
-   violation of requirements in Section 8 of [TLS13]).
+   as a duplicate and rejected, the first server instance might allow
+   the connection to complete.  If the client then retries requests that
+   were sent in early data, the request will be processed twice.
+
+   Replays are also possible if there are multiple server instances that
+   will accept early data, or if the same server accepts early data
+   multiple times (though this would be in violation of requirements in
+   Section 8 of [TLS13]).
 
    Clients that use early data MUST retry requests upon receipt of a 425
    (Too Early) status code; see Section 5.2.
@@ -326,9 +329,6 @@ Internet-Draft               HTTP Early Data                    May 2018
    Gateways typically don't have specific information about whether a
    given request can be processed safely when it is sent in early data.
    In many cases, only the origin server has the necessary information
-   to decide whether the risk of replay is acceptable.  These extensions
-   allow coordination between a gateway and its origin server.
-
 
 
 
@@ -337,6 +337,9 @@ Thomson, et al.         Expires November 4, 2018                [Page 6]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
+
+   to decide whether the risk of replay is acceptable.  These extensions
+   allow coordination between a gateway and its origin server.
 
 5.1.  The Early-Data Header Field
 
@@ -381,9 +384,6 @@ Internet-Draft               HTTP Early Data                    May 2018
    be safely processed MUST be rejected using the 425 (Too Early) status
    code.
 
-   The "Early-Data" header field carries a single bit of information and
-   clients MUST include at most one instance.  Multiple instances MUST
-   be treated as equivalent to a single instance by a server.
 
 
 
@@ -393,6 +393,10 @@ Thomson, et al.         Expires November 4, 2018                [Page 7]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
+
+   The "Early-Data" header field carries a single bit of information and
+   clients MUST include at most one instance.  Multiple instances MUST
+   be treated as equivalent to a single instance by a server.
 
    A "Early-Data" header field MUST NOT be included in responses or
    request trailers.
@@ -437,11 +441,7 @@ Internet-Draft               HTTP Early Data                    May 2018
    those requests understands the "Early-Data" header field and will
    correctly generate a 425 (Too Early) status code.  A gateway that is
    uncertain about origin server support for a given request SHOULD
-   either delay forwarding the request until the TLS handshake with its
-   client completes, or send a 425 (Too Early) status code in response.
 
-   A gateway without at least one potential origin server that supports
-   "Early-Data" header field expends significant effort for what can at
 
 
 
@@ -450,6 +450,11 @@ Thomson, et al.         Expires November 4, 2018                [Page 8]
 Internet-Draft               HTTP Early Data                    May 2018
 
 
+   either delay forwarding the request until the TLS handshake with its
+   client completes, or send a 425 (Too Early) status code in response.
+
+   A gateway without at least one potential origin server that supports
+   "Early-Data" header field expends significant effort for what can at
    best be a modest performance benefit from enabling early data.  If no
    origin server supports early data, disabling early data entirely is
    more efficient.
@@ -493,11 +498,6 @@ Internet-Draft               HTTP Early Data                    May 2018
    requests received in early data after handshake completion if it can
    rely on other instances correctly handling replays of the same
    requests.
-
-
-
-
-
 
 
 
