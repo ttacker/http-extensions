@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                                  May 2, 2018
+Updates: 7234 (if approved)                                  May 3, 2018
 Intended status: Standards Track
-Expires: November 3, 2018
+Expires: November 4, 2018
 
 
                       HTTP Representation Variants
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 3, 2018.
+   This Internet-Draft will expire on November 4, 2018.
 
 
 
-Nottingham              Expires November 3, 2018                [Page 1]
+Nottingham              Expires November 4, 2018                [Page 1]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham              Expires November 3, 2018                [Page 2]
+Nottingham              Expires November 4, 2018                [Page 2]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -165,7 +165,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018                [Page 3]
+Nottingham              Expires November 4, 2018                [Page 3]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -221,7 +221,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018                [Page 4]
+Nottingham              Expires November 4, 2018                [Page 4]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -277,7 +277,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018                [Page 5]
+Nottingham              Expires November 4, 2018                [Page 5]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -333,7 +333,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018                [Page 6]
+Nottingham              Expires November 4, 2018                [Page 6]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -389,7 +389,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018                [Page 7]
+Nottingham              Expires November 4, 2018                [Page 7]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -426,8 +426,8 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
    Given incoming-request, a mapping of field-names to lists of field
    values, and stored-responses, a list of stored responses suitable for
-   reuse as defined in [RFC7234] Section 4, excepting the requirement to
-   calculate a secondary cache key:
+   reuse as defined in Section 4 of [RFC7234], excepting the requirement
+   to calculate a secondary cache key:
 
    1.  If stored-responses is empty, return an empty list.
 
@@ -445,7 +445,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018                [Page 8]
+Nottingham              Expires November 4, 2018                [Page 8]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -501,7 +501,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018                [Page 9]
+Nottingham              Expires November 4, 2018                [Page 9]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -557,7 +557,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018               [Page 10]
+Nottingham              Expires November 4, 2018               [Page 10]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -613,7 +613,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018               [Page 11]
+Nottingham              Expires November 4, 2018               [Page 11]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -669,7 +669,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018               [Page 12]
+Nottingham              Expires November 4, 2018               [Page 12]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -725,7 +725,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018               [Page 13]
+Nottingham              Expires November 4, 2018               [Page 13]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -781,7 +781,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018               [Page 14]
+Nottingham              Expires November 4, 2018               [Page 14]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -837,7 +837,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018               [Page 15]
+Nottingham              Expires November 4, 2018               [Page 15]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -893,7 +893,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
 
 
-Nottingham              Expires November 3, 2018               [Page 16]
+Nottingham              Expires November 4, 2018               [Page 16]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -910,8 +910,8 @@ Appendix A.  Variants for Existing Content Negotiation Mechanisms
 
 A.1.  Accept
 
-   This section defines handling for Accept variants, as per [RFC7231]
-   Section 5.3.2.
+   This section defines handling for Accept variants, as per
+   Section 5.3.2 of [RFC7231].
 
    To perform content negotiation for Accept given a request-value and
    available-values:
@@ -919,8 +919,8 @@ A.1.  Accept
    1.  Let preferred-available be an empty list.
 
    2.  Let preferred-types be a list of the types in the request-value,
-       ordered by their weight, highest to lowest, as per [RFC7231]
-       Section 5.3.2 (omitting any coding with a weight of 0).  If
+       ordered by their weight, highest to lowest, as per Section 5.3.2
+       of [RFC7231] (omitting any coding with a weight of 0).  If
        "Accept" is not present or empty, preferred-types will be empty.
        If a type lacks an explicit weight, an implementation MAY assign
        one.
@@ -933,10 +933,10 @@ A.1.  Accept
 
        1.  If any member of available-values matches preferred-type,
            using the media-range matching mechanism specified in
-           [RFC7231] Section 5.3.2 (which is case-insensitive), append
-           those members of available-values to preferred-available
-           (preserving the precedence order implied by the media ranges'
-           specificity).
+           Section 5.3.2 of [RFC7231] (which is case-insensitive),
+           append those members of available-values to preferred-
+           available (preserving the precedence order implied by the
+           media ranges' specificity).
 
    5.  Return preferred-available.
 
@@ -949,7 +949,7 @@ A.1.  Accept
 
 
 
-Nottingham              Expires November 3, 2018               [Page 17]
+Nottingham              Expires November 4, 2018               [Page 17]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -957,7 +957,7 @@ Internet-Draft        HTTP Representation Variants              May 2018
 A.2.  Accept-Encoding
 
    This section defines handling for Accept-Encoding variants, as per
-   [RFC7231] Section 5.3.4.
+   Section 5.3.4 of [RFC7231].
 
    To perform content negotiation for Accept-Encoding given a request-
    value and available-values:
@@ -966,9 +966,9 @@ A.2.  Accept-Encoding
 
    2.  Let preferred-codings be a list of the codings in the request-
        value, ordered by their weight, highest to lowest, as per
-       [RFC7231] Section 5.3.1 (omitting any coding with a weight of 0).
-       If "Accept-Encoding" is not present or empty, preferred-codings
-       will be empty.  If a coding lacks an explicit weight, an
+       Section 5.3.1 of [RFC7231] (omitting any coding with a weight of
+       0).  If "Accept-Encoding" is not present or empty, preferred-
+       codings will be empty.  If a coding lacks an explicit weight, an
        implementation MAY assign one.
 
    3.  If "identity" is not a member of preferred-codings, append
@@ -985,13 +985,13 @@ A.2.  Accept-Encoding
    6.  Return preferred-available.
 
    Note that the unencoded variant needs to have a Variant-Key header
-   field with a value of "identity" (as defined in [RFC7231]
-   Section 5.3.4).
+   field with a value of "identity" (as defined in Section 5.3.4 of
+   [RFC7231]).
 
 A.3.  Accept-Language
 
    This section defines handling for Accept-Language variants, as per
-   [RFC7231] Section 5.3.5.
+   Section 5.3.5 of [RFC7231].
 
    To perform content negotiation for Accept-Language given a request-
    value and available-values:
@@ -1000,12 +1000,12 @@ A.3.  Accept-Language
 
    2.  Let preferred-langs be a list of the language-ranges in the
        request-value, ordered by their weight, highest to lowest, as per
-       [RFC7231] Section 5.3.1 (omitting any language-range with a
+       Section 5.3.1 of [RFC7231] (omitting any language-range with a
 
 
 
 
-Nottingham              Expires November 3, 2018               [Page 18]
+Nottingham              Expires November 4, 2018               [Page 18]
 
 Internet-Draft        HTTP Representation Variants              May 2018
 
@@ -1021,8 +1021,9 @@ Internet-Draft        HTTP Representation Variants              May 2018
 
        1.  If any member of available-values matches preferred-lang,
            using either the Basic or Extended Filtering scheme defined
-           in [RFC4647] Section 3.3, append those members of available-
-           values to preferred-available (preserving their order).
+           in Section 3.3 of [RFC4647], append those members of
+           available-values to preferred-available (preserving their
+           order).
 
    5.  Return preferred-available.
 
@@ -1060,5 +1061,4 @@ Author's Address
 
 
 
-
-Nottingham              Expires November 3, 2018               [Page 19]
+Nottingham              Expires November 4, 2018               [Page 19]
