@@ -66,11 +66,11 @@ Table of Contents
    4.  The Extended CONNECT Method . . . . . . . . . . . . . . . . .   3
    5.  Using Extended CONNECT To Bootstrap The WebSocket Protocol  .   4
      5.1.  Example . . . . . . . . . . . . . . . . . . . . . . . . .   5
-   6.  Design Considerations . . . . . . . . . . . . . . . . . . . .   6
+   6.  Design Considerations . . . . . . . . . . . . . . . . . . . .   5
    7.  About Intermediaries  . . . . . . . . . . . . . . . . . . . .   6
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   7
+   10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   6
    11. Normative References  . . . . . . . . . . . . . . . . . . . .   7
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
 
@@ -243,8 +243,7 @@ Internet-Draft                H2 Websockets                     May 2018
 [[ From Client ]]                       [[ From Server ]]
 
                                         SETTINGS
-                                        SETTINGS_ENABLE_CONNECT_PROTOCOL
-                                          = 1
+                                        SETTINGS_ENABLE_CONNECT_P[..] = 1
 
 HEADERS + END_HEADERS
 :method = CONNECT
@@ -270,9 +269,10 @@ WebSocket Data
 DATA + END_STREAM
 WebSocket Data
 
+6.  Design Considerations
 
-
-
+   A more native integration with HTTP/2 is certainly possible with
+   larger additions to HTTP/2.  This design was selected to minimize the
 
 
 
@@ -282,10 +282,6 @@ McManus                 Expires November 4, 2018                [Page 5]
 Internet-Draft                H2 Websockets                     May 2018
 
 
-6.  Design Considerations
-
-   A more native integration with HTTP/2 is certainly possible with
-   larger additions to HTTP/2.  This design was selected to minimize the
    solution complexity while still addressing the primary concern of
    running HTTP/2 and WebSockets concurrently.
 
@@ -328,7 +324,11 @@ Internet-Draft                H2 Websockets                     May 2018
 
    Specification: This document
 
+10.  Acknowledgments
 
+   The 2017 HTTP Workshop had a very productive discussion that helped
+   determine the key problem and acceptable level of solution
+   complexity.
 
 
 
@@ -337,12 +337,6 @@ McManus                 Expires November 4, 2018                [Page 6]
 
 Internet-Draft                H2 Websockets                     May 2018
 
-
-10.  Acknowledgments
-
-   The 2017 HTTP Workshop had a very productive discussion that helped
-   determine the key problem and acceptable level of solution
-   complexity.
 
 11.  Normative References
 
@@ -375,6 +369,12 @@ Author's Address
    Mozilla
 
    Email: mcmanus@ducksong.com
+
+
+
+
+
+
 
 
 
