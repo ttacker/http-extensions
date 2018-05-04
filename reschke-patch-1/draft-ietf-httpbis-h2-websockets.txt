@@ -4,9 +4,9 @@
 
 HTTP Working Group                                            P. McManus
 Internet-Draft                                                   Mozilla
-Updates: 6455 (if approved)                                  May 3, 2018
+Updates: 6455 (if approved)                                  May 4, 2018
 Intended status: Standards Track
-Expires: November 4, 2018
+Expires: November 5, 2018
 
 
                   Bootstrapping WebSockets with HTTP/2
@@ -32,7 +32,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 4, 2018.
+   This Internet-Draft will expire on November 5, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-McManus                 Expires November 4, 2018                [Page 1]
+McManus                 Expires November 5, 2018                [Page 1]
 
 Internet-Draft                H2 Websockets                     May 2018
 
@@ -70,8 +70,8 @@ Table of Contents
    7.  About Intermediaries  . . . . . . . . . . . . . . . . . . . .   6
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .   6
-   11. Normative References  . . . . . . . . . . . . . . . . . . . .   7
+   10. Normative References  . . . . . . . . . . . . . . . . . . . .   6
+   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .   7
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
 
 1.  Introduction
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-McManus                 Expires November 4, 2018                [Page 2]
+McManus                 Expires November 5, 2018                [Page 2]
 
 Internet-Draft                H2 Websockets                     May 2018
 
@@ -165,7 +165,7 @@ Internet-Draft                H2 Websockets                     May 2018
 
 
 
-McManus                 Expires November 4, 2018                [Page 3]
+McManus                 Expires November 5, 2018                [Page 3]
 
 Internet-Draft                H2 Websockets                     May 2018
 
@@ -221,7 +221,7 @@ Internet-Draft                H2 Websockets                     May 2018
 
 
 
-McManus                 Expires November 4, 2018                [Page 4]
+McManus                 Expires November 5, 2018                [Page 4]
 
 Internet-Draft                H2 Websockets                     May 2018
 
@@ -277,7 +277,7 @@ WebSocket Data
 
 
 
-McManus                 Expires November 4, 2018                [Page 5]
+McManus                 Expires November 5, 2018                [Page 5]
 
 Internet-Draft                H2 Websockets                     May 2018
 
@@ -324,26 +324,19 @@ Internet-Draft                H2 Websockets                     May 2018
 
    Specification: This document
 
-Acknowledgments
-
-   The 2017 HTTP Workshop had a very productive discussion that helped
-   determine the key problem and acceptable level of solution
-   complexity.
-
-
-
-
-McManus                 Expires November 4, 2018                [Page 6]
-
-Internet-Draft                H2 Websockets                     May 2018
-
-
-11.  Normative References
+10.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
+
+
+
+McManus                 Expires November 5, 2018                [Page 6]
+
+Internet-Draft                H2 Websockets                     May 2018
+
 
    [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
               DOI 10.17487/RFC6454, December 2011,
@@ -362,6 +355,12 @@ Internet-Draft                H2 Websockets                     May 2018
               Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
               DOI 10.17487/RFC7540, May 2015,
               <https://www.rfc-editor.org/info/rfc7540>.
+
+Acknowledgments
+
+   The 2017 HTTP Workshop had a very productive discussion that helped
+   determine the key problem and acceptable level of solution
+   complexity.
 
 Author's Address
 
@@ -389,4 +388,5 @@ Author's Address
 
 
 
-McManus                 Expires November 4, 2018                [Page 7]
+
+McManus                 Expires November 5, 2018                [Page 7]
