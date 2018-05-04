@@ -5,10 +5,10 @@
 HTTP Working Group                                            M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Standards Track                           M. Nottingham
-Expires: November 4, 2018                                         Fastly
+Expires: November 5, 2018                                         Fastly
                                                               W. Tarreau
                                                     HAProxy Technologies
-                                                            May 03, 2018
+                                                            May 04, 2018
 
 
                         Using Early Data in HTTP
@@ -47,13 +47,13 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 4, 2018.
+   This Internet-Draft will expire on November 5, 2018.
 
 
 
 
 
-Thomson, et al.         Expires November 4, 2018                [Page 1]
+Thomson, et al.         Expires November 5, 2018                [Page 1]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Thomson, et al.         Expires November 4, 2018                [Page 2]
+Thomson, et al.         Expires November 5, 2018                [Page 2]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
@@ -165,7 +165,7 @@ Internet-Draft               HTTP Early Data                    May 2018
 
 
 
-Thomson, et al.         Expires November 4, 2018                [Page 3]
+Thomson, et al.         Expires November 5, 2018                [Page 3]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
@@ -179,17 +179,21 @@ Internet-Draft               HTTP Early Data                    May 2018
        eliminate the chance of data being replayed and ensure a fixed
        upper limit to the number of replays.
 
-   2.  The server can choose whether it will process early data before
-       the TLS handshake completes.  By deferring processing, it can
-       ensure that only a successfully completed connection is used for
-       the request(s) therein.  This provides the server with some
+   2.  The server can reject early data.  A server cannot selectively
+       reject early data, so this results in all requests sent in early
+       data being discarded.
+
+   3.  The server can choose to delay processing of early data until
+       after the TLS handshake completes.  By deferring processing, it
+       can ensure that only a successfully completed connection is used
+       for the request(s) therein.  This provides the server with some
        assurance that the early data was not replayed.
 
-   3.  If the server receives multiple requests in early data, it can
+   4.  If the server receives multiple requests in early data, it can
        determine whether to defer HTTP processing on a per-request
        basis.
 
-   4.  The server can cause a client to retry a request and not use
+   5.  The server can cause a client to retry a request and not use
        early data by responding with the 425 (Too Early) status code
        (Section 5.2), in cases where the risk of replay is judged too
        great.
@@ -214,17 +218,18 @@ Internet-Draft               HTTP Early Data                    May 2018
    the request being sent after the handshake completes.  This does not
    necessarily affect handling of that request; what matters is when the
    server starts acting upon the contents of a request.  Any time any
+
+
+
+Thomson, et al.         Expires November 5, 2018                [Page 4]
+
+Internet-Draft               HTTP Early Data                    May 2018
+
+
    server instance might initiate processing prior to completion of the
    handshake, all server instances need to consider how a possible
    replay of early data could affect that processing (see also
    Section 6.2).
-
-
-
-Thomson, et al.         Expires November 4, 2018                [Page 4]
-
-Internet-Draft               HTTP Early Data                    May 2018
-
 
    A server can partially process requests that are incomplete.  Parsing
    header fields - without acting on the values - and determining
@@ -269,19 +274,19 @@ Internet-Draft               HTTP Early Data                    May 2018
    data MUST be sent again, unless the client decides to abandon those
    requests.
 
+
+
+
+Thomson, et al.         Expires November 5, 2018                [Page 5]
+
+Internet-Draft               HTTP Early Data                    May 2018
+
+
    Automatic retry creates the potential for a replay attack.  An
    attacker intercepts a connection that uses early data and copies the
    early data to another server instance.  The second server instance
    accepts and processes the early data.  The attacker then allows the
    original connection to complete.  Even if the early data is detected
-
-
-
-Thomson, et al.         Expires November 4, 2018                [Page 5]
-
-Internet-Draft               HTTP Early Data                    May 2018
-
-
    as a duplicate and rejected, the first server instance might allow
    the connection to complete.  If the client then retries requests that
    were sent in early data, the request will be processed twice.
@@ -326,18 +331,16 @@ Internet-Draft               HTTP Early Data                    May 2018
    gateway (also "reverse proxy", "Content Delivery Network", or
    "surrogate") is present.
 
-   Gateways typically don't have specific information about whether a
-   given request can be processed safely when it is sent in early data.
-   In many cases, only the origin server has the necessary information
 
 
-
-
-Thomson, et al.         Expires November 4, 2018                [Page 6]
+Thomson, et al.         Expires November 5, 2018                [Page 6]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
 
+   Gateways typically don't have specific information about whether a
+   given request can be processed safely when it is sent in early data.
+   In many cases, only the origin server has the necessary information
    to decide whether the risk of replay is acceptable.  These extensions
    allow coordination between a gateway and its origin server.
 
@@ -386,10 +389,7 @@ Internet-Draft               HTTP Early Data                    May 2018
 
 
 
-
-
-
-Thomson, et al.         Expires November 4, 2018                [Page 7]
+Thomson, et al.         Expires November 5, 2018                [Page 7]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
@@ -445,7 +445,7 @@ Internet-Draft               HTTP Early Data                    May 2018
 
 
 
-Thomson, et al.         Expires November 4, 2018                [Page 8]
+Thomson, et al.         Expires November 5, 2018                [Page 8]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
@@ -501,7 +501,7 @@ Internet-Draft               HTTP Early Data                    May 2018
 
 
 
-Thomson, et al.         Expires November 4, 2018                [Page 9]
+Thomson, et al.         Expires November 5, 2018                [Page 9]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
@@ -557,7 +557,7 @@ Internet-Draft               HTTP Early Data                    May 2018
 
 
 
-Thomson, et al.         Expires November 4, 2018               [Page 10]
+Thomson, et al.         Expires November 5, 2018               [Page 10]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
@@ -613,7 +613,7 @@ Acknowledgments
 
 
 
-Thomson, et al.         Expires November 4, 2018               [Page 11]
+Thomson, et al.         Expires November 5, 2018               [Page 11]
 
 Internet-Draft               HTTP Early Data                    May 2018
 
@@ -669,4 +669,4 @@ Authors' Addresses
 
 
 
-Thomson, et al.         Expires November 4, 2018               [Page 12]
+Thomson, et al.         Expires November 5, 2018               [Page 12]
