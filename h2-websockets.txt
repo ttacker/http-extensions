@@ -15,7 +15,7 @@ Expires: November 5, 2018
 Abstract
 
    This document defines a mechanism for running the WebSocket Protocol
-   over a single stream of an HTTP/2 connection.
+   [RFC6455] over a single stream of an HTTP/2 connection.
 
 Status of This Memo
 
@@ -70,8 +70,8 @@ Table of Contents
    7.  About Intermediaries  . . . . . . . . . . . . . . . . . . . .   6
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .   6
-   11. Normative References  . . . . . . . . . . . . . . . . . . . .   7
+   10. Normative References  . . . . . . . . . . . . . . . . . . . .   6
+   Acknowledgments . . . . . . . . . . . . . . . . . . . . . . . . .   7
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
 
 1.  Introduction
@@ -122,10 +122,11 @@ Internet-Draft                H2 Websockets                     May 2018
 
 2.  Terminology
 
-   In this document, the key words "MUST", "MUST NOT", "REQUIRED",
-   "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
-   and "OPTIONAL" are to be interpreted as described in BCP 14,
-   [RFC2119].
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
 
 3.  The SETTINGS_ENABLE_CONNECT_PROTOCOL SETTINGS Parameter
 
@@ -164,7 +165,6 @@ Internet-Draft                H2 Websockets                     May 2018
 
 
 
-
 McManus                 Expires November 5, 2018                [Page 3]
 
 Internet-Draft                H2 Websockets                     May 2018
@@ -176,7 +176,7 @@ Internet-Draft                H2 Websockets                     May 2018
    o  On requests bearing the :protocol pseudo-header, the :authority
       pseudo-header field is interpreted according to Section 8.1.2.3 of
       [RFC7540] instead of Section 8.3 of [RFC7540].  In particular the
-      server MUST not make a new TCP connection to the host and port
+      server MUST NOT make a new TCP connection to the host and port
       indicated by the :authority.
 
    Upon receiving a CONNECT request bearing the :protocol pseudo-header
@@ -199,7 +199,7 @@ Internet-Draft                H2 Websockets                     May 2018
    websocket URI is still used for proxy autoconfiguration.
 
    [RFC6455] requires the use of Connection and Upgrade headers that are
-   not part of HTTP/2.  They MUST not be included in the CONNECT request
+   not part of HTTP/2.  They MUST NOT be included in the CONNECT request
    defined here.
 
    [RFC6455] requires the use of a Host header which is also not part of
@@ -324,12 +324,12 @@ Internet-Draft                H2 Websockets                     May 2018
 
    Specification: This document
 
-10.  Acknowledgments
+10.  Normative References
 
-   The 2017 HTTP Workshop had a very productive discussion that helped
-   determine the key problem and acceptable level of solution
-   complexity.
-
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
 
 
@@ -337,13 +337,6 @@ McManus                 Expires November 5, 2018                [Page 6]
 
 Internet-Draft                H2 Websockets                     May 2018
 
-
-11.  Normative References
-
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
               DOI 10.17487/RFC6454, December 2011,
@@ -363,15 +356,22 @@ Internet-Draft                H2 Websockets                     May 2018
               DOI 10.17487/RFC7540, May 2015,
               <https://www.rfc-editor.org/info/rfc7540>.
 
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+Acknowledgments
+
+   The 2017 HTTP Workshop had a very productive discussion that helped
+   determine the key problem and acceptable level of solution
+   complexity.
+
 Author's Address
 
    Patrick McManus
    Mozilla
 
    Email: mcmanus@ducksong.com
-
-
-
 
 
 
