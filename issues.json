@@ -30,7 +30,13 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 418128526,
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/cache-digest",
+        "name": "cache-digest",
+        "color": "fbca04",
+        "default": false
+      }
     ],
     "state": "open",
     "locked": false,
@@ -39,9 +45,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2018-05-03T13:28:09Z",
-    "updated_at": "2018-05-03T13:32:46Z",
+    "updated_at": "2018-05-04T10:52:05Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "During the implementation of the [Cache Digests reference implementation](https://github.com/yoavweiss/cache-digests-cuckoo) I [realized](https://github.com/yoavweiss/cache-digests-cuckoo/commit/3ee4a45bf0bc03ea47ae7125e409b41d57acb198) that the digest size has to be a power of 2. Otherwise the `xor` operation on the primary index can lead to an out-of-bounds write, resulting in memory and correctness issues.\r\n\r\nAn alternative to that approach would be to:\r\n* Do an out-of-bounds check to the `xor` operation and if it is out-of-bounds, take as an index the out-of-bounds value minus the digest size.\r\n* Add a bit to the fingerprint which indicates that the alternative index was out-of-bounds.\r\n* In the future, when a fingerprint is displaced and need to be returned to the primary index, the \"out-of-bounds\" bit can be used as an indication that the original `xor` operation was out-of-bounds, and instead of the index, the `xor` operation now can use the original out-of-bounds index.\r\n\r\n@kazuho - Does that make sense?\r\n\r\nIt will cost us a bit more space (extra bit per fingerprint), but will make the digest size significantly more flexible.\r\n"
@@ -78,17 +84,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-05-03T05:45:31Z",
-    "updated_at": "2018-05-03T05:45:31Z",
-    "closed_at": null,
+    "updated_at": "2018-05-03T20:47:12Z",
+    "closed_at": "2018-05-03T20:47:12Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/606",
@@ -143,7 +149,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -152,8 +158,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-05-03T05:43:03Z",
-    "updated_at": "2018-05-03T05:43:03Z",
-    "closed_at": null,
+    "updated_at": "2018-05-03T20:02:34Z",
+    "closed_at": "2018-05-03T20:02:33Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/605",
@@ -195,7 +201,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -204,8 +210,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-05-03T05:20:51Z",
-    "updated_at": "2018-05-03T05:20:51Z",
-    "closed_at": null,
+    "updated_at": "2018-05-04T21:22:38Z",
+    "closed_at": "2018-05-04T21:22:38Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/604",
@@ -253,7 +259,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -262,8 +268,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-05-03T01:50:48Z",
-    "updated_at": "2018-05-03T02:17:41Z",
-    "closed_at": null,
+    "updated_at": "2018-05-03T23:25:19Z",
+    "closed_at": "2018-05-03T23:25:05Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/603",
@@ -311,17 +317,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-05-03T01:38:03Z",
-    "updated_at": "2018-05-03T02:16:11Z",
-    "closed_at": null,
+    "updated_at": "2018-05-03T23:25:16Z",
+    "closed_at": "2018-05-03T23:25:13Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/602",
@@ -473,17 +479,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-05-02T09:00:28Z",
-    "updated_at": "2018-05-02T09:00:28Z",
-    "closed_at": null,
+    "updated_at": "2018-05-04T02:45:07Z",
+    "closed_at": "2018-05-04T02:45:07Z",
     "author_association": "MEMBER",
     "body": "Does it really *update* RFC 7234? If it really does, it should say how exactly."
   },
@@ -681,7 +687,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -690,8 +696,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-05-01T04:30:15Z",
-    "updated_at": "2018-05-01T04:30:15Z",
-    "closed_at": null,
+    "updated_at": "2018-05-04T02:13:09Z",
+    "closed_at": "2018-05-04T02:13:09Z",
     "author_association": "OWNER",
     "body": "I've had some feedback that the current title is unwieldy.\r\n\r\nSuggestion: \"Building Protocols with HTTP\"."
   },
@@ -1467,7 +1473,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1476,8 +1482,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-04-12T02:30:57Z",
-    "updated_at": "2018-04-12T02:30:57Z",
-    "closed_at": null,
+    "updated_at": "2018-05-04T02:13:09Z",
+    "closed_at": "2018-05-04T02:13:09Z",
     "author_association": "OWNER",
     "body": "*sigh*\r\n\r\nSources:\r\n* https://www.mnot.net/blog/2011/10/25/web_api_versioning_smackdown\r\n* https://www.mnot.net/blog/2012/07/11/header_versioning"
   },
@@ -1519,17 +1525,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-04-12T02:30:21Z",
-    "updated_at": "2018-04-12T02:30:21Z",
-    "closed_at": null,
+    "updated_at": "2018-05-04T02:14:36Z",
+    "closed_at": "2018-05-04T02:14:36Z",
     "author_association": "OWNER",
     "body": "perhaps along the lines of https://www.mnot.net/blog/2012/09/05/patch"
   },
