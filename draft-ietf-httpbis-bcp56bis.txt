@@ -344,47 +344,47 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 3.3.  Rich Functionality
 
-   The simplest possible use of HTTP is to POST data to a single URL,
-   thereby effectively tunnelling through the protocol.
+   HTTP offers a number of features to applications, such as:
 
-   This "RPC" style of communication does get some benefit from using
-   HTTP - namely, message framing and the availability of
-   implementations - but fails to realise many others when used
-   exclusively:
+   o  Message framing
+
+   o  Multiplexing (in HTTP/2)
+
+   o  Integration with TLS
+
+   o  Support for intermediaries (proxies, gateways, Content Delivery
+      Networks)
+
+   o  Client authentication
+
+   o  Content negotiation for format, language, and other features
 
    o  Caching for server scalability, latency and bandwidth reduction,
-      and reliability;
+      and reliability
 
    o  Granularity of access control (through use of a rich space of
-      URLs);
+      URLs)
 
-   o  Partial content to selectively request part of a response;
-
-   o  Definition of an information space using URLs; and
+   o  Partial content to selectively request part of a response
 
    o  The ability to interact with the application easily using a Web
-      browser.
+      browser
 
-   Using such a high-level protocol to tunnel simple semantics has
-   downsides too; because of its more advanced capabilities, breadth of
-   deployment and age, HTTP's complexity can cause interoperability
-   problems that could be avoided by using a simpler substrate (e.g.,
-   WebSockets [RFC6455], if browser support is necessary, or TCP
-   [RFC0793] if not), or making the application be based upon HTTP,
-   instead of using it (as defined in Section 2).
-
-   Applications that use HTTP are encouraged to accommodate the various
+   Applications that use HTTP are encouraged to utilise the various
    features that the protocol offers, so that their users receive the
-   maximum benefit from it.  This document does not require specific
-   features to be used, since the appropriate design tradeoffs are
-   highly specific to a given situation.  However, following the
-   practices in Section 4 will help make them available.
+   maximum benefit from it, and to allow it to be deployed in a variety
+   of situations.  This document does not require specific features to
+   be used, since the appropriate design tradeoffs are highly specific
+   to a given situation.  However, following the practices in Section 4
+   is a good starting point.
 
 4.  Best Practices for Using HTTP
 
    This section contains best practices regarding the use of HTTP by
    applications, including practices for specific HTTP protocol
    elements.
+
+
 
 
 
@@ -1475,10 +1475,6 @@ Internet-Draft        Building Protocols with HTTP              May 2018
               2017,
               <https://www.w3.org/TR/2017/CR-referrer-policy-20170126>.
 
-   [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
-              RFC 793, DOI 10.17487/RFC0793, September 1981,
-              <https://www.rfc-editor.org/info/rfc793>.
-
    [RFC3205]  Moore, K., "On the use of HTTP as a Substrate", BCP 56,
               RFC 3205, DOI 10.17487/RFC3205, February 2002,
               <https://www.rfc-editor.org/info/rfc3205>.
@@ -1507,6 +1503,10 @@ Internet-Draft        Building Protocols with HTTP              May 2018
               Content", RFC 5861, DOI 10.17487/RFC5861, May 2010,
               <https://www.rfc-editor.org/info/rfc5861>.
 
+   [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
+              DOI 10.17487/RFC6265, April 2011,
+              <https://www.rfc-editor.org/info/rfc6265>.
+
 
 
 Nottingham              Expires November 8, 2018               [Page 27]
@@ -1514,17 +1514,9 @@ Nottingham              Expires November 8, 2018               [Page 27]
 Internet-Draft        Building Protocols with HTTP              May 2018
 
 
-   [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
-              DOI 10.17487/RFC6265, April 2011,
-              <https://www.rfc-editor.org/info/rfc6265>.
-
    [RFC6415]  Hammer-Lahav, E., Ed. and B. Cook, "Web Host Metadata",
               RFC 6415, DOI 10.17487/RFC6415, October 2011,
               <https://www.rfc-editor.org/info/rfc6415>.
-
-   [RFC6455]  Fette, I. and A. Melnikov, "The WebSocket Protocol",
-              RFC 6455, DOI 10.17487/RFC6455, December 2011,
-              <https://www.rfc-editor.org/info/rfc6455>.
 
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
@@ -1560,6 +1552,14 @@ Internet-Draft        Building Protocols with HTTP              May 2018
               APIs", RFC 7807, DOI 10.17487/RFC7807, March 2016,
               <https://www.rfc-editor.org/info/rfc7807>.
 
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/info/rfc8259>.
+
+   [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
+              RFC 8297, DOI 10.17487/RFC8297, December 2017,
+              <https://www.rfc-editor.org/info/rfc8297>.
 
 
 
@@ -1569,15 +1569,6 @@ Nottingham              Expires November 8, 2018               [Page 28]
 
 Internet-Draft        Building Protocols with HTTP              May 2018
 
-
-   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
-              Interchange Format", STD 90, RFC 8259,
-              DOI 10.17487/RFC8259, December 2017,
-              <https://www.rfc-editor.org/info/rfc8259>.
-
-   [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
-              RFC 8297, DOI 10.17487/RFC8297, December 2017,
-              <https://www.rfc-editor.org/info/rfc8297>.
 
    [SECCTXT]  West, M., "Secure Contexts", World Wide Web Consortium CR
               CR-secure-contexts-20160915, September 2016,
@@ -1611,6 +1602,15 @@ Author's Address
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
+
+
+
+
+
+
+
+
+
 
 
 
