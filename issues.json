@@ -45,7 +45,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -54,8 +54,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-05-05T09:46:09Z",
-    "updated_at": "2018-05-05T09:46:09Z",
-    "closed_at": null,
+    "updated_at": "2018-05-07T12:03:59Z",
+    "closed_at": "2018-05-07T12:03:59Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/611",
@@ -233,17 +233,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2018-05-04T22:39:41Z",
-    "updated_at": "2018-05-04T22:39:41Z",
-    "closed_at": null,
+    "updated_at": "2018-05-07T11:50:33Z",
+    "closed_at": "2018-05-07T11:50:33Z",
     "author_association": "OWNER",
     "body": "Much of the text of \"3.3 Rich Functionality\" discusses the merits of granular uris, but in one fell swoop it dismisses post/single-uri pattern as benefiting from only a very short and finite list of features: message framing, and availability of implementations.\r\n\r\nI find the former convincing, but the latter dismissal rather unconvincing.. it gives the air of being a complete argument but leaves out a lot of valuable other things even in a mere tunnel case - e.g. proxy support, varied authentication schemes, content negotiation, language negotiation, multiplexing  in h2, alt-service routing, coalsecing, and cross-origin policy enforcement in a browser, etc... These are reasonable motivators and you might be underselling the value of high quality available implementations for all aspects of the ecosystem including load balancers.\r\n\r\nI wonder if this could be more focused on the merits of URI design rather than saying - if you don't find that a match don't use http.\r\n\r\nand the bullet about \"The ability to interact with the application easily using a Web browser\" might be clarified to mean in a linkable/browsable/discoverable sense rather than excluding a fetch based API for it.."
   },
