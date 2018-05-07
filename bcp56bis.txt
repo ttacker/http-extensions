@@ -625,10 +625,11 @@ Internet-Draft        Building Protocols with HTTP              May 2018
       Web's same-origin policy, will be impacted by a change of scheme.
 
    o  HTTP-specific features such as cookies [RFC6265], authentication
-      [RFC7235], caching [RFC7234], and CORS [FETCH] might or might not
-      work correctly, depending on how they are defined and implemented.
-      Generally, they are designed and implemented with an assumption
-      that the URL will always be "http" or "https".
+      [RFC7235], caching [RFC7234], HSTS [RFC6797], and CORS [FETCH]
+      might or might not work correctly, depending on how they are
+      defined and implemented.  Generally, they are designed and
+      implemented with an assumption that the URL will always be "http"
+      or "https".
 
    o  Web features that require a secure context [SECCTXT] will likely
       treat a new scheme as insecure.
@@ -664,7 +665,6 @@ Internet-Draft        Building Protocols with HTTP              May 2018
    IETF Review (see [RFC7232]), and are also required to be generic.
    That means that they need to be potentially applicable to all
    resources, not just those of one application.
-
 
 
 
@@ -1518,6 +1518,11 @@ Internet-Draft        Building Protocols with HTTP              May 2018
               RFC 6415, DOI 10.17487/RFC6415, October 2011,
               <https://www.rfc-editor.org/info/rfc6415>.
 
+   [RFC6797]  Hodges, J., Jackson, C., and A. Barth, "HTTP Strict
+              Transport Security (HSTS)", RFC 6797,
+              DOI 10.17487/RFC6797, November 2012,
+              <https://www.rfc-editor.org/info/rfc6797>.
+
    [RFC7049]  Bormann, C. and P. Hoffman, "Concise Binary Object
               Representation (CBOR)", RFC 7049, DOI 10.17487/RFC7049,
               October 2013, <https://www.rfc-editor.org/info/rfc7049>.
@@ -1557,11 +1562,6 @@ Internet-Draft        Building Protocols with HTTP              May 2018
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/info/rfc8259>.
 
-   [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
-              RFC 8297, DOI 10.17487/RFC8297, December 2017,
-              <https://www.rfc-editor.org/info/rfc8297>.
-
-
 
 
 
@@ -1569,6 +1569,10 @@ Nottingham              Expires November 8, 2018               [Page 28]
 
 Internet-Draft        Building Protocols with HTTP              May 2018
 
+
+   [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
+              RFC 8297, DOI 10.17487/RFC8297, December 2017,
+              <https://www.rfc-editor.org/info/rfc8297>.
 
    [SECCTXT]  West, M., "Secure Contexts", World Wide Web Consortium CR
               CR-secure-contexts-20160915, September 2016,
@@ -1602,10 +1606,6 @@ Author's Address
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
-
-
-
-
 
 
 
