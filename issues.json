@@ -1,6 +1,58 @@
 [
 
   {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/623",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/623/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/623/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/623/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/623",
+    "id": 322685774,
+    "number": 623,
+    "title": "Header fields that are valid SH, but invalid according to the definition of that field",
+    "user": {
+      "login": "martinthomson",
+      "id": 67641,
+      "avatar_url": "https://avatars1.githubusercontent.com/u/67641?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/martinthomson",
+      "html_url": "https://github.com/martinthomson",
+      "followers_url": "https://api.github.com/users/martinthomson/followers",
+      "following_url": "https://api.github.com/users/martinthomson/following{/other_user}",
+      "gists_url": "https://api.github.com/users/martinthomson/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/martinthomson/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/martinthomson/subscriptions",
+      "organizations_url": "https://api.github.com/users/martinthomson/orgs",
+      "repos_url": "https://api.github.com/users/martinthomson/repos",
+      "events_url": "https://api.github.com/users/martinthomson/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/martinthomson/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 499581321,
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/header-structure",
+        "name": "header-structure",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-05-14T06:20:44Z",
+    "updated_at": "2018-05-14T06:20:44Z",
+    "closed_at": null,
+    "author_association": "MEMBER",
+    "body": "If a header field is valid according to SH, but invalid according to some additional constraints that are included in the definition of the specific header field, what happens?\r\n\r\n* it needs to be dropped because malformed header fields are dropped according to SH\r\n\r\n* the definition of the specific header field needs to define what happens in this case"
+  },
+  {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/622",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
     "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/622/labels{/name}",
@@ -267,7 +319,7 @@
     "created_at": "2018-05-11T07:35:45Z",
     "updated_at": "2018-05-11T08:22:28Z",
     "closed_at": "2018-05-11T08:22:28Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/619",
       "html_url": "https://github.com/httpwg/http-extensions/pull/619",
@@ -361,7 +413,7 @@
     "created_at": "2018-05-10T15:41:27Z",
     "updated_at": "2018-05-10T15:55:33Z",
     "closed_at": "2018-05-10T15:55:27Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/618",
       "html_url": "https://github.com/httpwg/http-extensions/pull/618",
@@ -588,7 +640,7 @@
     "created_at": "2018-05-07T23:02:51Z",
     "updated_at": "2018-05-07T23:02:51Z",
     "closed_at": null,
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "All of the references are currently normative. After a quick read, I think the following can be moved to Informative:\r\n\r\n* HTML / HTML5\r\n* FETCH\r\n* RFC5246\r\n"
   },
   {
@@ -640,7 +692,7 @@
     "created_at": "2018-05-07T20:07:43Z",
     "updated_at": "2018-05-07T23:26:39Z",
     "closed_at": "2018-05-07T23:26:39Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "section 4.3.2\r\n\r\n> HTTP-specific features such as cookies [RFC6265], authentication [RFC7235], caching [RFC7234], and CORS [FETCH] might or might not work correctly, depending on how they are defined and implemented. Generally, they are designed and implemented with an assumption that the URL will always be “http” or “https”.\r\n\r\nlikely worth working HSTS into that list.. we've seen it fail to provide its security benefit when mixed on hosts that provide ftp resources\r\n"
   },
   {
@@ -692,7 +744,7 @@
     "created_at": "2018-05-07T20:01:19Z",
     "updated_at": "2018-05-08T17:02:05Z",
     "closed_at": "2018-05-08T17:02:04Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "> Certificates - Applications using HTTP MUST specify that TLS certificates are to be checked according to [RFC2818] when HTTPS is used.\r\n\r\nwhy is this more special than any of the other 2818 rules (it is a MUST there I believe)? This doesn't seem to square with the optional theme of cookies and redirects.\r\n\r\ncool btw that https is RECCOMMENDED"
   },
   {
@@ -939,7 +991,7 @@
     "created_at": "2018-05-04T22:39:41Z",
     "updated_at": "2018-05-07T11:50:33Z",
     "closed_at": "2018-05-07T11:50:33Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Much of the text of \"3.3 Rich Functionality\" discusses the merits of granular uris, but in one fell swoop it dismisses post/single-uri pattern as benefiting from only a very short and finite list of features: message framing, and availability of implementations.\r\n\r\nI find the former convincing, but the latter dismissal rather unconvincing.. it gives the air of being a complete argument but leaves out a lot of valuable other things even in a mere tunnel case - e.g. proxy support, varied authentication schemes, content negotiation, language negotiation, multiplexing  in h2, alt-service routing, coalsecing, and cross-origin policy enforcement in a browser, etc... These are reasonable motivators and you might be underselling the value of high quality available implementations for all aspects of the ecosystem including load balancers.\r\n\r\nI wonder if this could be more focused on the merits of URI design rather than saying - if you don't find that a match don't use http.\r\n\r\nand the bullet about \"The ability to interact with the application easily using a Web browser\" might be clarified to mean in a linkable/browsable/discoverable sense rather than excluding a fetch based API for it.."
   },
   {
@@ -1536,7 +1588,7 @@
     "created_at": "2018-05-02T06:47:28Z",
     "updated_at": "2018-05-02T06:47:28Z",
     "closed_at": null,
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The prose defines precise ranges for numbers (explicitly for integers, implicitly for floats), yet the algorithm doesn't yet enforce them."
   },
   {
@@ -1640,7 +1692,7 @@
     "created_at": "2018-05-01T04:30:15Z",
     "updated_at": "2018-05-04T02:13:09Z",
     "closed_at": "2018-05-04T02:13:09Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "I've had some feedback that the current title is unwieldy.\r\n\r\nSuggestion: \"Building Protocols with HTTP\"."
   },
   {
@@ -1694,7 +1746,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "What happens when a page tries to set a samesite cookie when we are not in a samesite context? For instance, a top-level a.com has an iframe to b.com and b.com tries to set a cookie with the samesite attribute. It sounds like we would want the cookie to not be writeable since it's not readable in that case.\r\n\r\ncc @mikewest"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/593",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -1746,10 +1801,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Following a conversation the other day, I think we need to clarify what the \"site for cookies\" is in the case of redirects.\r\n\r\nThe relevant section of the specification reads:\r\n\r\n> If \"request\"'s client is \"null\", return \"same-site\".\r\n> \r\n>        Note that this is the case for navigation triggered by the user\r\n>        directly (e.g. by typing directly into a user agent's address\r\n>        bar).\r\n\r\nI take this to mean that for the *first* request (the request that the user initiated) the client is null and, therefore, same-site - but for subsequent requests, since they're initiated by the redirect, they may be treated as cross-site requests (if 'target' differs from 'site').\r\n\r\nThis differs from the Chrome implementation's current behavior. I think, for strict same site cookies at least, this perhaps needs tightening up.\r\n\r\nThoughts?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/592",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -2091,7 +2143,7 @@
     "created_at": "2018-04-16T00:18:43Z",
     "updated_at": "2018-04-30T06:16:22Z",
     "closed_at": "2018-04-30T06:16:22Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Should applications using HTTP be allowed to specify a minimum version? If so, what are the criteria / limits?"
   },
   {
@@ -2273,7 +2325,7 @@
     "created_at": "2018-04-12T02:32:57Z",
     "updated_at": "2018-04-19T07:45:42Z",
     "closed_at": "2018-04-19T07:45:42Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Source: https://www.mnot.net/blog/2007/05/15/expires_max-age"
   },
   {
@@ -2325,7 +2377,7 @@
     "created_at": "2018-04-12T02:32:16Z",
     "updated_at": "2018-04-30T06:20:53Z",
     "closed_at": "2018-04-30T06:20:53Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Source: https://www.mnot.net/blog/2007/08/07/etags"
   },
   {
@@ -2377,7 +2429,7 @@
     "created_at": "2018-04-12T02:31:27Z",
     "updated_at": "2018-04-30T06:21:03Z",
     "closed_at": "2018-04-30T06:21:03Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Source: https://www.mnot.net/blog/2013/06/23/linking_apis"
   },
   {
@@ -2429,7 +2481,7 @@
     "created_at": "2018-04-12T02:30:57Z",
     "updated_at": "2018-05-04T02:13:09Z",
     "closed_at": "2018-05-04T02:13:09Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "*sigh*\r\n\r\nSources:\r\n* https://www.mnot.net/blog/2011/10/25/web_api_versioning_smackdown\r\n* https://www.mnot.net/blog/2012/07/11/header_versioning"
   },
   {
@@ -2481,7 +2533,7 @@
     "created_at": "2018-04-12T02:30:21Z",
     "updated_at": "2018-05-04T02:14:36Z",
     "closed_at": "2018-05-04T02:14:36Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "perhaps along the lines of https://www.mnot.net/blog/2012/09/05/patch"
   },
   {
@@ -2533,7 +2585,7 @@
     "created_at": "2018-04-12T02:16:34Z",
     "updated_at": "2018-04-30T06:16:55Z",
     "closed_at": "2018-04-30T06:16:55Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Do we feel confident enough to say anything about Push yet? Or conversely, should we warn that we don't know if it's going to be useful?"
   },
   {
@@ -2585,7 +2637,7 @@
     "created_at": "2018-04-12T02:07:49Z",
     "updated_at": "2018-04-12T02:07:49Z",
     "closed_at": null,
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/578",
       "html_url": "https://github.com/httpwg/http-extensions/pull/578",
@@ -3088,7 +3140,7 @@
     "created_at": "2018-04-09T06:27:47Z",
     "updated_at": "2018-04-19T07:28:37Z",
     "closed_at": "2018-04-19T07:28:37Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/571",
       "html_url": "https://github.com/httpwg/http-extensions/pull/571",
@@ -3146,7 +3198,7 @@
     "created_at": "2018-04-09T06:01:09Z",
     "updated_at": "2018-04-10T07:08:15Z",
     "closed_at": null,
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": ""
   },
   {
@@ -3198,7 +3250,7 @@
     "created_at": "2018-04-09T05:57:24Z",
     "updated_at": "2018-04-10T05:38:33Z",
     "closed_at": "2018-04-10T05:38:33Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "... needs some tweaking."
   },
   {
@@ -3250,7 +3302,7 @@
     "created_at": "2018-04-07T08:18:52Z",
     "updated_at": "2018-04-12T00:21:58Z",
     "closed_at": "2018-04-12T00:21:58Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "TAG feedback: this needs to be strengthened:\r\n\r\n> “https” is preferred to provide authentication, integrity and confidentiality, as well as mitigate pervasive monitoring attacks"
   },
   {
@@ -3302,7 +3354,7 @@
     "created_at": "2018-04-07T08:06:26Z",
     "updated_at": "2018-04-11T23:39:30Z",
     "closed_at": "2018-04-11T23:39:30Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Explain the pitfalls of OPTIONS."
   },
   {
@@ -3487,7 +3539,10 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "In the current draft, the client ties up a stream for a pending request on an unproven domain so that it can send a `NEEDED` frame, permitting the server to respond with `USE`.  This is rather awkward.\r\n\r\nHowever, the alternative is also somewhat unappealing.  In the process of updating #480, I'm adding a suggestion that servers SHOULD respond to `REQUEST` with an appropriate certificate if they have one, which makes this flow much cleaner.  However, there's current no way to *reject* a certificate request without a request stream."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/563",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3537,12 +3592,9 @@
     "created_at": "2018-04-06T19:41:30Z",
     "updated_at": "2018-04-11T23:24:12Z",
     "closed_at": "2018-04-11T23:24:12Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "I think FOH (foo over http), has a tendency to encourage \"when x happens, use http code xxx\"... the draft talks about not minting new xxx, but doesn't explore why specifying xxx is an iffy idea.\r\n\r\nyou can really only control what the server emits.. and even then it might be in conflict with some other possible return codes.. but the client needs to be prepared to deal with anything because the server might not be a FOH server.\r\n\r\nto generalize - a received error code isn't a strong signal of what actually happened.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/562",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3813,7 +3865,7 @@
     "created_at": "2018-04-03T09:48:06Z",
     "updated_at": "2018-04-04T00:46:45Z",
     "closed_at": "2018-04-04T00:46:45Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Point out the common trap that `no-cache` responses can still be cached."
   },
   {
@@ -3865,7 +3917,7 @@
     "created_at": "2018-04-03T09:46:52Z",
     "updated_at": "2018-04-12T00:20:18Z",
     "closed_at": "2018-04-12T00:20:18Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "- mention that message bodes are removed\r\n- when redirects are handled, request header forwarding is... interesting"
   },
   {
@@ -3917,7 +3969,7 @@
     "created_at": "2018-04-03T09:45:22Z",
     "updated_at": "2018-04-10T05:48:30Z",
     "closed_at": "2018-04-10T05:48:30Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "- [x] refer to 7231 section on considerations for new headers (point out the most important?)\r\n- [x] refer to structured headers?"
   },
   {
@@ -4236,7 +4288,7 @@
     "created_at": "2018-04-02T05:19:28Z",
     "updated_at": "2018-05-05T03:38:13Z",
     "closed_at": null,
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "... when available."
   },
   {
@@ -4288,7 +4340,7 @@
     "created_at": "2018-04-02T02:06:55Z",
     "updated_at": "2018-04-02T02:06:55Z",
     "closed_at": null,
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Would an algorithm to key the cache on a cookie by name work?\r\n\r\n_(moved from mnot/I-D)_"
   },
   {
@@ -4340,7 +4392,7 @@
     "created_at": "2018-04-02T02:06:13Z",
     "updated_at": "2018-04-19T07:28:46Z",
     "closed_at": "2018-04-19T07:28:46Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Allow a response to associate itself with more than one variant.\r\n\r\n_(moved from mnot/I-D)_"
   },
   {
@@ -4392,7 +4444,7 @@
     "created_at": "2018-03-30T00:23:30Z",
     "updated_at": "2018-04-02T05:55:30Z",
     "closed_at": "2018-04-02T05:55:30Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": ""
   },
   {
@@ -4444,7 +4496,7 @@
     "created_at": "2018-03-30T00:23:15Z",
     "updated_at": "2018-04-02T05:00:34Z",
     "closed_at": "2018-04-02T05:00:34Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "it comes up."
   },
   {
@@ -4496,7 +4548,7 @@
     "created_at": "2018-03-30T00:22:34Z",
     "updated_at": "2018-04-03T02:13:41Z",
     "closed_at": "2018-04-03T02:13:41Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "- generic caching can't be modified by application-specific extensions / controls\r\n- remember intermediary caches / reverse caches / CDN caches / server caches\r\n- sometimes a separate expiration is needed\r\n- invalidation"
   },
   {
@@ -4548,7 +4600,7 @@
     "created_at": "2018-03-30T00:18:54Z",
     "updated_at": "2018-04-03T00:51:57Z",
     "closed_at": "2018-04-03T00:51:57Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "e.g., specific security headers, best practices. "
   },
   {
@@ -5162,7 +5214,10 @@
     "closed_at": "2018-03-28T06:03:59Z",
     "author_association": "NONE",
     "body": "The text makes it appear as if this algorithm takes a header value, but then it branches on arguments not explicitly given. It would be better if the algorithm stated upfront that you need to have (side channel) knowledge about the header to get a structured representation about it.\r\n\r\n(This is also what I dislike about this proposal. That it requires knowledge about the header names to do something useful. That doesn't work well for generic processors or APIs.)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/533",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5214,10 +5269,7 @@
     "closed_at": "2018-03-28T06:12:47Z",
     "author_association": "NONE",
     "body": "> \"foo\" MUST be between 0 and 10, inclusive; other values MUST be ignored.\r\n\r\nIt seems you want to say that other values MUST cause the header to be ignored?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/532",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5274,7 +5326,7 @@
     "created_at": "2018-03-27T02:54:16Z",
     "updated_at": "2018-04-02T05:12:50Z",
     "closed_at": "2018-04-02T05:12:50Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "one thing that came up at the WHATWG Bar BoF was the possibility of referencing Fetch as one way to specify how a client should behave."
   },
   {
@@ -5378,7 +5430,7 @@
     "created_at": "2018-03-22T13:47:16Z",
     "updated_at": "2018-04-02T05:00:35Z",
     "closed_at": "2018-04-02T05:00:35Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Talk about the pitfalls, mitigations\r\n\r\ne.g., doh\r\n\r\n"
   },
   {
@@ -5430,7 +5482,7 @@
     "created_at": "2018-03-22T13:46:47Z",
     "updated_at": "2018-04-03T06:53:05Z",
     "closed_at": "2018-04-03T00:35:16Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "DOH ran into it."
   },
   {
@@ -5482,7 +5534,7 @@
     "created_at": "2018-03-21T12:14:25Z",
     "updated_at": "2018-03-30T00:11:20Z",
     "closed_at": "2018-03-30T00:11:20Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "> Applications MUST NOT make assumptions about the relationship between\r\n   separate requests on a single transport connection; doing so breaks\r\n   many of the assumptions of HTTP as a stateless protocol, and will\r\n   cause problems in interoperability, security, operability and\r\n   evolution.\r\n\r\ngood paragraph! But I think it deserves its own headline instead of being mushed in with authentication (which is just one related subset of the problem).\r\n\r\nIt would be good to also point out that HTTP isn't a reliable messaging protocol -> ATLS is currently confused about that."
   },
   {
@@ -5534,7 +5586,7 @@
     "created_at": "2018-03-21T12:11:43Z",
     "updated_at": "2018-03-30T00:08:03Z",
     "closed_at": "2018-03-30T00:08:03Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "4.9 rightfully discourages digest and basic on \"http\" scheme.. but is \"scheme\" the right scope, or should that be language about secure transports (as http can of course carry a variety of schemes)."
   },
   {
@@ -6990,7 +7042,7 @@
     "created_at": "2018-03-05T23:30:09Z",
     "updated_at": "2018-03-28T06:18:25Z",
     "closed_at": "2018-03-28T06:18:25Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "We've designed structured headers so that it's easy to deterministically parse a given header into the appropriate data types. \r\n\r\nHowever, it seems like there's likely to be ambiguity about taking a given data structure in common programming languages and creating the correct data types, without a significant amount of metatdata.\r\n\r\nWhile most languages can distinguish floats from integers, as well as binary content from other content, identifiers are a strict subset of strings.\r\n\r\nFor example, if a value is \"foo\",  and I need to serialise it as an Item, I have no idea whether it should be:\r\n\r\n> ExampleHeader: foo\r\n\r\nor \r\n\r\n> ExampleHeader: \"foo\"\r\n\r\nwithout extra metadata. Same problem where items can appear inside lists, dict values, etc.\r\n\r\nOne way to address this would be to remove identifiers from items.\r\n\r\nThoughts?"
   },
   {
@@ -7049,9 +7101,12 @@
     "created_at": "2018-03-05T23:22:05Z",
     "updated_at": "2018-04-09T23:32:16Z",
     "closed_at": "2018-04-09T23:32:16Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Kari points out [on list](https://www.w3.org/mid/20180305184510.66F8B4792D@welho-filter2.welho.com):\r\n\r\n3. [Parsing Text into Structured Headers](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-3)\r\n\r\n~~~\r\nGiven an ASCII string input_string that represents the chosen\r\nheader's field-value, return the parsed header value.  When\r\ngenerating input_string, parsers MUST combine all instances of the\r\ntarget header field into one comma-separated field-value, as per\r\n[RFC7230], Section 3.2.2; this assures that the header is processed\r\ncorrectly.\r\n\r\nNote that in the case of lists, parameterised lists and dictionaries,\r\nthis has the effect of coalescing all of the values for that field.\r\nHowever, for singular items, parsing will fail if more than instance\r\nof that header field is present.\r\n~~~\r\n\r\nI think that this is not true for a String, if header field is mailformed\r\nenough.\r\n\r\nConsider following\r\n\r\n~~~\r\nFoo: \"xxss\r\nFoo: xxxx\"\r\n~~~\r\n\r\nThis gives\r\n\r\n> Foo: \"xxss,xxxx\"\r\n\r\nThis passes\r\n\r\n[4.7.1.  Parsing a String from Text](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.7.1)\r\n\r\n[4.7.  Strings](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.7)\r\n\r\n~~~\r\n string    = DQUOTE 0*1024(char) DQUOTE\r\n char      = unescaped / escape ( DQUOTE / \"\\\" )\r\n unescaped = %x20-21 / %x23-5B / %x5D-7E\r\n escape    = \"\\\"\r\n~~~\r\n\r\nComma is allowed here as unescaped.\r\n\r\nOther singular items does not allow comma, so combining causes parse error."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/503",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7145,10 +7200,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/503.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/502",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7205,7 +7257,7 @@
     "created_at": "2018-03-01T02:27:47Z",
     "updated_at": "2018-03-29T23:57:00Z",
     "closed_at": "2018-03-29T23:57:00Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "- multiple implementations\r\n- multiple instances\r\n- multiple versions\r\n\r\nall co-existing"
   },
   {
@@ -7264,7 +7316,7 @@
     "created_at": "2018-03-01T02:27:03Z",
     "updated_at": "2018-04-02T05:06:26Z",
     "closed_at": "2018-04-02T05:06:26Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Mention HTTP problems RFC?"
   },
   {
@@ -7491,7 +7543,7 @@
     "created_at": "2018-02-23T04:36:37Z",
     "updated_at": "2018-03-01T02:11:43Z",
     "closed_at": "2018-03-01T02:11:43Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Applications should allow features negotiated by HTTP to operate normally, rather than require pre-arranged behaviours. E.g., conneg."
   },
   {
@@ -7550,7 +7602,7 @@
     "created_at": "2018-02-21T06:39:41Z",
     "updated_at": "2018-02-22T05:04:58Z",
     "closed_at": "2018-02-22T05:04:58Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": ""
   },
   {
@@ -7727,7 +7779,7 @@
     "created_at": "2018-02-14T06:21:07Z",
     "updated_at": "2018-03-29T23:37:09Z",
     "closed_at": "2018-03-29T23:37:09Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Is it good practice to use RFC2119 requirements in a BCP like this?"
   },
   {
@@ -7786,7 +7838,7 @@
     "created_at": "2018-02-14T06:20:36Z",
     "updated_at": "2018-03-01T01:48:13Z",
     "closed_at": "2018-03-01T01:48:13Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Michael Sweet pointed out IPP, which uses HTTP POST and status codes (very basically) to get its job done, and it doesn't register anything new.\r\n\r\nWhen this is the case, it doesn't seem harmful to say that they can use HTTP registries. What's harmful is when a non-HTTP protocol puts something into HTTP's registries, creating confusing about what can be used where.\r\n\r\nIs it sensible to drop the aspect of \"using HTTP\" that is:\r\n\r\n> The message formats described in {{RFC7230}} and/or {{RFC7540}} are used in conjunction with the IANA registries defined for HTTP.\r\n\r\n... and add a requirement that protocols that are based upon HTTP MUST not register anything in HTTP's registries, but instead define their own registries if they want to add new protocol artefacts?"
   },
   {
@@ -7845,7 +7897,7 @@
     "created_at": "2018-02-14T06:14:53Z",
     "updated_at": "2018-03-01T02:11:43Z",
     "closed_at": "2018-03-01T02:11:43Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The capabilities of client regarding things like automatic handling of redirects varies widely; while it's assumed in Web browsers, it's much less clear what's expected for other applications.\r\n"
   },
   {
@@ -8606,7 +8658,7 @@
     "created_at": "2018-02-03T00:20:44Z",
     "updated_at": "2018-02-16T03:15:16Z",
     "closed_at": "2018-02-16T03:15:16Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The dict parsing algorithm currently allows a trailing comma (and OWS). \r\n\r\nIs the comma intentional?"
   },
   {
@@ -8723,7 +8775,7 @@
     "created_at": "2018-02-01T23:29:46Z",
     "updated_at": "2018-04-02T06:32:28Z",
     "closed_at": "2018-04-02T06:32:28Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "In particular, the relationship between 2119 requirements, ABNF and algorithms."
   },
   {
@@ -8782,7 +8834,7 @@
     "created_at": "2018-02-01T23:26:06Z",
     "updated_at": "2018-03-28T06:25:09Z",
     "closed_at": "2018-02-22T08:21:01Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Right now, Structured Headers allows the following types at the top level:\r\n\r\n* Dictionaries\r\n* Lists\r\n* Parameterised Labels\r\n* Items\r\n\r\nItems' types can be identified by inspecting their first character, and #443 covers parameterised labels.\r\n\r\nHowever, there isn't any easy way for a parser to identify whether the top-level data type is a dictionary or a list. As a result, a parser will need a hint as to what kind of top-level data type is expected for a given header.\r\n\r\nIt seems like the options are:\r\n\r\n1) Make it possible to distinguish these data types on the wire; e.g., dictionaries start with `{`, lists start with `[`.\r\n\r\n2) Require parsers to have external information about what's being parsed, at least at the top level. E.g., the parser could expose four functions, `parseList`, `parseDict`, `parsePlabel`, `parseItem`.\r\n"
   },
   {
@@ -8841,7 +8893,7 @@
     "created_at": "2018-02-01T07:08:35Z",
     "updated_at": "2018-04-02T23:26:39Z",
     "closed_at": "2018-04-02T23:26:39Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "doesn't enforce syntactic limits."
   },
   {
@@ -8902,7 +8954,10 @@
     "closed_at": "2018-02-01T23:32:47Z",
     "author_association": "CONTRIBUTOR",
     "body": "https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses-02#section-3.8.3 would like to allow clients to pass a 0-length binary string (as a prefix that matches anything), but https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-02#section-4.5 requires at least 1 base64 character. Does it make sense to allow 0-length content?\r\n\r\n(If not, you should at least start with 2 characters, since 1 character isn't valid base64 since it doesn't specify a whole octet.)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/473",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -8961,10 +9016,7 @@
     "closed_at": "2018-02-22T08:39:51Z",
     "author_association": "CONTRIBUTOR",
     "body": "http://httpwg.org/http-extensions/draft-ietf-httpbis-header-structure.html#binary says to \r\n> Let binary_content be the result of Base 64 Decoding [RFC4648] b64_content, synthesising padding if necessary.\r\n\r\nHowever, https://tools.ietf.org/html/rfc4648#section-3.5 says\r\n> decoders MAY chose to reject an encoding if the pad bits have not been set to zero.\r\n\r\nStructured headers should specify whether to reject these encodings. For example, do both `iZ` and `iQ` decode to 0x89 or is `iZ` an error?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/472",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -9756,7 +9808,7 @@
     "created_at": "2017-12-14T01:49:04Z",
     "updated_at": "2018-02-05T00:25:59Z",
     "closed_at": "2018-02-05T00:25:59Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "> The resources identified by the new scheme will still be available with \"http\" and/or \"https\" URLs to clients. While it is possible to define the relationship between these resources in the new scheme's specification, existing HTTP software (such as clients, caches, intermediaries and servers) will not be available, so there is a danger of confusion when the \"wrong\" URL is used.\r\n\r\nI don't understand this statement, particularly \"existing HTTP software will not be available\". I think it's just a word or two missing but I don't know what's appropriate.\r\n\r\n(from @LPardue)"
   },
   {
@@ -9815,7 +9867,7 @@
     "created_at": "2017-12-14T01:47:32Z",
     "updated_at": "2018-02-01T07:25:08Z",
     "closed_at": "2018-02-01T07:25:08Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Many of the algorithms in structured-headers are defined as taking input_string and returning a parsed X after modifying input_string to remove the X.  This is a pretty common way of building an inline parser.\r\n\r\nTake label, which describes an initial step of:\r\n\r\n> If input_string contains more than 256 characters, throw an error.\r\n\r\nBut a label can be followed by other things that will cause the overall string to exceed this length.  So this check is invalid.\r\n\r\nI'd recommend moving the size checks into the algorithm body.  If X exceeds length maxlen(X), then throw as you are scrubbing through.\r\n\r\n\r\n(from @martinthomson)"
   },
   {
@@ -9874,7 +9926,7 @@
     "created_at": "2017-12-14T01:44:36Z",
     "updated_at": "2018-02-13T04:44:25Z",
     "closed_at": "2018-02-13T04:44:25Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Don't depend on state in connection\r\n\r\nhttps://mailarchive.ietf.org/arch/msg/ietf/SF3k5e76DmMjwtPz9Zt342Q0GSc"
   },
   {
@@ -9933,7 +9985,7 @@
     "created_at": "2017-12-14T01:43:54Z",
     "updated_at": "2018-03-01T01:47:40Z",
     "closed_at": "2018-03-01T01:47:40Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Digest authentication is laughably weak; anything that uses it over HTTP is asking for trouble.\r\n\r\n(from @martinthomson)"
   },
   {
@@ -9992,7 +10044,7 @@
     "created_at": "2017-12-14T01:43:03Z",
     "updated_at": "2018-02-05T00:25:59Z",
     "closed_at": "2018-02-05T00:25:59Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "bcp56bis says\r\n\r\n> In particular, if a header field is specific to an application, an identifier for that application SHOULD form a prefix to the header field name, separated by a “-“.\r\n\r\nThis might tempered by a reference to RFC 6648 so that people don't get the mistaken impression that prefixing is a universal good.  The important qualification here is that the header field is specific to that application, which probably needs emphasis."
   },
   {
@@ -10051,7 +10103,7 @@
     "created_at": "2017-12-14T01:42:12Z",
     "updated_at": "2018-02-22T05:09:49Z",
     "closed_at": "2018-02-22T05:09:49Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "> Applications that use HTTP SHOULD use the default port for the URL scheme in use. \r\n\r\nThis isn't really necessary.  I would instead say that the port number is in the URL and cite [Initial URL Discovery](https://mnot.github.io/I-D/bcp56bis/#initial-url-discovery) for details.\r\n\r\nThen explain that if you are bootstrapping from a bare hostname with `.well-known`, then this should assume the use of the default port for the scheme unless there are very good reasons.  In particular, when it comes to using port numbers other than the default, you can note that there are privacy implications (it makes your protocol distinguishable) and deployment implications (some middleboxes might interfere with the operation of your protocol).\r\n\r\n(from @martinthomson)"
   },
   {
@@ -10110,7 +10162,7 @@
     "created_at": "2017-12-14T01:41:12Z",
     "updated_at": "2018-01-30T01:42:49Z",
     "closed_at": "2018-01-30T01:42:49Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The bcp56bis draft currently says:\r\n\r\n“https” is preferred to mitigate pervasive monitoring attacks [RFC7258].\r\nThis implies that this is the only reason. The best reasons are not even mentioned: authentication, confidentiality, and integrity.\r\n\r\n(from @martinthomson)"
   },
   {
@@ -10169,7 +10221,7 @@
     "created_at": "2017-12-14T01:40:14Z",
     "updated_at": "2018-02-13T04:25:34Z",
     "closed_at": "2018-02-13T04:25:34Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Examples should include HTTP/1.1 headers, with both the request and response."
   },
   {
@@ -10380,7 +10432,7 @@
     "created_at": "2017-12-13T07:03:00Z",
     "updated_at": "2017-12-13T21:18:48Z",
     "closed_at": "2017-12-13T21:18:48Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "As it's repellant. "
   },
   {
@@ -10804,7 +10856,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/444.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/443",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -10863,10 +10918,7 @@
     "closed_at": "2018-03-14T11:44:55Z",
     "author_association": "CONTRIBUTOR",
     "body": "http://httpwg.org/http-extensions/header-structure.html#parsing-a-list-from-textual-headers only parses items, while http://httpwg.org/http-extensions/header-structure.html#list says it should allow parameterised labels too."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/442",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -11196,7 +11248,7 @@
     "created_at": "2017-11-28T02:14:46Z",
     "updated_at": "2018-02-01T07:23:37Z",
     "closed_at": "2018-02-01T07:23:37Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "From Alex R on list:\r\n\r\nI understand the desire to limit this specification to parsing a single\r\nheader field or equivalent, leaving the Pandora box of combining\r\nsame-name fields closed. However, this honorable approach complicates\r\nplacing interoperability limits on the number of list members: An\r\napplication that parses individual fields (and possibly never combines\r\nthe results!) may not hit the limit that an application combining raw\r\nvalue strings before parsing would hit.\r\n\r\nIMHO, we should explicitly say something (conservative) about this\r\nproblem so that header generators know how the limits may be applied.\r\n"
   },
   {
@@ -11255,7 +11307,7 @@
     "created_at": "2017-11-28T02:14:05Z",
     "updated_at": "2018-02-01T07:35:29Z",
     "closed_at": "2018-02-01T07:35:29Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "From Alex R on list:\r\n\r\nAFAICT, the top-level parsing algorithm in Section 3 is missing a\r\ncatch-all rule for trailing garbage. For example, right now, the\r\nfollowing malformed Item header field will pass all checks and return a\r\n\"valid\" String to the caller. It should throw a \"trailing garbage\" error\r\ninstead.\r\n\r\n Foo: \"valid\" garbage!\r\n\r\nWhen fixing that, tolerating trailing BWS may be a good idea."
   },
   {
@@ -11314,7 +11366,7 @@
     "created_at": "2017-11-28T02:12:39Z",
     "updated_at": "2018-02-01T06:56:39Z",
     "closed_at": "2018-02-01T06:56:39Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Should parameters on parameterised labels be ordered or unordered?"
   },
   {
@@ -11373,7 +11425,7 @@
     "created_at": "2017-11-28T02:03:29Z",
     "updated_at": "2018-02-01T07:25:42Z",
     "closed_at": "2018-02-01T07:25:42Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "There's been a wide-ranging discussion of numbers on-list.\r\n\r\nI *think* the current proposal is to define separate int and float type, with the former probably being 64 bits, and the latter probably being something like what's in the current draft. Both probably signed (?).\r\n\r\nFuture number types might be defined, but these should catch the majority of cases."
   },
   {
@@ -11432,7 +11484,7 @@
     "created_at": "2017-11-28T02:01:35Z",
     "updated_at": "2018-04-12T02:08:23Z",
     "closed_at": null,
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The current draft puts specific size limits on each type (e.g., lengths of strings, number of items in an array).\r\n\r\nThe rationale for including (generous) limits is that header authors often don't specify any limits, which puts implementations in an awkward position of deciding how much is \"too much\", leading to interoperability problems.\r\n\r\nIdeally each header author would define their own limits, tighter limits where necessary, making these a catch-all. \r\n\r\nWith that said, two questions:\r\n\r\n1)  Should we have such limits?\r\n\r\n2) If so, are the current limits correct? "
   },
   {
@@ -12986,7 +13038,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/414.patch"
     },
     "body": "Also added a new Security Consideration for JavaScript-based clients and servers."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/413",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -13044,10 +13099,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/413.patch"
     },
     "body": "Resolves https://github.com/httpwg/http-extensions/issues/268"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/412",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -13104,7 +13156,7 @@
     "created_at": "2017-10-24T04:39:59Z",
     "updated_at": "2018-01-30T00:38:53Z",
     "closed_at": "2018-01-30T00:38:53Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Should we allow splitting common structure data over multiple headers ?\r\n\r\nPro:\r\n\r\nAvoids size restrictions, easier on-the-fly editing\r\n\r\nContra:\r\n\r\nCannot act on any such header until all headers have been received.\r\n\r\nWe must define where headers can be split (between identifier and dictionary ?, in the middle of\r\ndictionaries ?)\r\n\r\nMost on-the-fly editing is hackish at best.\r\n\r\n_from the draft_"
   },
   {
@@ -13441,7 +13493,7 @@
     "created_at": "2017-09-27T02:03:32Z",
     "updated_at": "2017-12-13T20:31:36Z",
     "closed_at": "2017-10-01T16:12:32Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/406",
       "html_url": "https://github.com/httpwg/http-extensions/pull/406",
@@ -14957,7 +15009,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/384.patch"
     },
     "body": "Make references consistent (both within the doc and across WG documents)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/383",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -15016,10 +15071,7 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "The spec currently references both HTML-the-living-spec (with potentially incorrect author information), and HTML 4.01. Only the latter is actually used."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/382",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -15076,7 +15128,7 @@
     "created_at": "2017-08-14T13:13:43Z",
     "updated_at": "2017-08-14T13:13:43Z",
     "closed_at": null,
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "https://lists.w3.org/Archives/Public/ietf-http-wg/2017JulSep/0263.html\r\n\r\nSome editorial feedback:\r\n\r\n1) ABNF list rule reference has wrong section \r\n(https://github.com/httpwg/http-extensions/pull/376)\r\n\r\n2) Throughout s/header/header field/\r\n\r\n3) \r\n<https://www.greenbytes.de/tech/webdav/draft-ietf-httpbis-cache-digest-02.html#rfc.section.5.p.4>:\r\n\r\n\"TODO: discuss how effective the suggested mitigations actually would be.\"\r\n\r\n4) Please avoid lowercase BCP 14 keywords such as \"may\", or invoke \r\n<https://tools.ietf.org/html/rfc8174>\r\n\r\nBest regards, Julian"
   },
   {
@@ -15847,7 +15899,7 @@
     "created_at": "2017-07-18T12:28:52Z",
     "updated_at": "2017-07-31T04:13:17Z",
     "closed_at": "2017-07-31T04:13:17Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "From Lucas:\r\n\r\nIs this reflective of current ORIGIN frame fields? The terminology seems slightly askew as each Origin is comprised of two fields and I’m wondering if it got outdated. Using the term Origin-Entry could help here."
   },
   {
@@ -15906,7 +15958,7 @@
     "created_at": "2017-07-18T12:28:20Z",
     "updated_at": "2017-07-31T04:36:03Z",
     "closed_at": "2017-07-31T04:36:03Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "From Lucas:\r\n\r\nIf my interpretation of the specification is correct, the Origin Set is currently unbounded. While the size of an individual H2 frame is bounded and negotiated, the Origin set can seemingly be added to ad nauseam. Even in the default size case, for a short ASCII-Origin such as http://dk, if might be possible to create an Origin set with ~1500 entries. I like the fact that ORIGIN frame extension doesn’t need any negotiation, so perhaps some guidance for client-side implementations would help e.g. be aware of the Origin Set size and be prepared to close the connection if you’re getting unhappy."
   },
   {
@@ -15965,7 +16017,7 @@
     "created_at": "2017-07-18T12:27:27Z",
     "updated_at": "2017-07-31T04:10:57Z",
     "closed_at": "2017-07-31T04:10:57Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "From Lucas:\r\n\r\nI naively assumed the ORIGIN frame was very similar to the ALTSVC frame, I missed out on the repetition element. I think it would help to improve upon diagram in section 2.1, first coin a term for the Origin-Len:ASCII-Origin pair (it is loosely referred to as set, which is easily confused with Origin Set), for this email I’ll use the term Origin-Entry. Section 2.1 would be changed to contain two clearly labelled diagrams: one shall show the fields comprising an Origin-Entry, the other shall show the ORIGIN frame payload as an OPTIONAL sequence of Origin-Entries, with cardinality of 0-*. 0 indicates an empty ORIGIN frame, which is implied by the text in Appendix B - “inform the client that the connection is only to be used for the SNI-based origin, by sending an empty ORIGIN frame.”."
   },
   {
@@ -16277,7 +16329,7 @@
     "created_at": "2017-06-27T02:23:20Z",
     "updated_at": "2017-10-13T02:23:07Z",
     "closed_at": "2017-10-13T02:23:05Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/362",
       "html_url": "https://github.com/httpwg/http-extensions/pull/362",
@@ -16436,7 +16488,7 @@
     "created_at": "2017-06-20T00:18:33Z",
     "updated_at": "2017-07-21T15:05:29Z",
     "closed_at": "2017-07-21T15:05:29Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "From thread at <http://www.w3.org/mid/20170419164106.EFBCF24249@welho-filter4.welho.com>:\r\n\r\n> Is it assumed that \"Accept-CH\" is given in http-equiv attribute, but \"Accept-CH-Lifetime\" on http response ?\r\n\r\nYes. \r\n\r\n> Or is that needed so that \"Accept-CH\" can be given on several times?\r\n\r\nNo, that's implicit in its definition as a comma separated list of values. Correct me if I'm wrong, but my understanding is that default semantics allow multiple headers with same field-name, as long as the field-value is defined as a comma separated list.. Meaning, there can be multiple Accept-CH header fields and they can be combined into a single list.\r\n \r\n> What happens if there is several \"Accept-CH-Lifetime\" on response?\r\n\r\nFor Accept-CH-Lifetime, I guess we just need to specify which one wins, correct? Any defaults I can point to or reuse? Last one wins?\r\n"
   },
   {
@@ -16531,7 +16583,7 @@
     "created_at": "2017-06-20T00:16:57Z",
     "updated_at": "2017-07-21T15:05:20Z",
     "closed_at": "2017-07-21T15:05:20Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "http://www.w3.org/mid/624e3e87-43bc-0dc2-d38c-2d69cbb9e93b@gmx.de\r\n\r\nMost of this is editorial, so you can dispose of it as you see fit (although some of it is likely to come back up in IETF LC if not addressed. The exceptions are **bold**; I think we need to give some sort of response to those.\r\n\r\n* [x] Througout: avoid lowercase BCP14 keywords (may->can, should->ought to, ...), or actually invoke the new boilerplate defined in draft-leiba-rfc2119-update.\r\n* [x] s/headers/header fields/\r\n* [x] **It's not optimal to mention a draft that for now is work in progress so close to a \"MUST\", even with \"optionally\" sprinkled in. My recommendation continues to move all material that refers to the Key header field to an appendix.**\r\n* [x] s/defines/defines the/\r\n* [x] We should define \"origin\" somewhere (and also explain \"subresource\").\r\n* [x] Througout: uppercase \"header field\" in section titles.\r\n* [x] Isn't that evident because sending the hints is purely OPTIONAL anyway?\r\n* [x] **Why aren't we using HTTP list syntax here? Also, what does it mean when the field appears more than once?**\r\n* [x] I would rename this to \"CSSVAL\" (or something like that) for readability.\r\n* [x] I would rename this to \"HTML5\" (or something like that) for readability. \r\n* [x] I would rename this to \"KEY\" (or something like that) for readability. \r\n* [x] Finally: no Acknowledgements?"
   },
   {
@@ -16802,7 +16854,7 @@
     "created_at": "2017-05-30T06:52:04Z",
     "updated_at": "2017-07-31T04:07:34Z",
     "closed_at": "2017-07-31T04:07:34Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "#349 made me realise that, from the server's perspective, they don't have hard information about whether the client supports ORIGIN at the time they send the ORIGIN frame. \r\n\r\nWhile they might gather this based upon the requests that the client subsequently sends, this isn't information you'd want to rely upon.\r\n\r\nThis is especially relevant to Server Push. Right now, ORIGIN is defined to affect what the client is able to push, but (as above), the server doesn't have a firm idea about the origins that are actually valid to use on the connection at any given time. \r\n\r\nA number of potential solutions:\r\n\r\n1. The server just speculatively pushes and figures it out based upon the responses (i.e. no change)\r\n2. We create an explicit signal from the client to the server (e.g., \"I will process ORIGIN\", probably a SETTING, or \"I have processed ORIGIN\", probably a frame)\r\n3. ORIGIN doesn't constrain Server Push\r\n\r\nNote that 1 is not optimal (wasted bytes), and 3 might collide badly with future uses of ORIGIN."
   },
   {
@@ -16862,7 +16914,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/354.patch"
     },
     "body": "Adds an example showing how 103 can be used."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/353",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -16920,10 +16975,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/353.patch"
     },
     "body": "based on the suggestion in https://lists.w3.org/Archives/Public/ietf-http-wg/2017AprJun/0147.html"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/352",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -16973,7 +17025,7 @@
     "created_at": "2017-05-25T06:50:27Z",
     "updated_at": "2017-12-13T20:33:25Z",
     "closed_at": "2017-05-25T07:02:53Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/352",
       "html_url": "https://github.com/httpwg/http-extensions/pull/352",
@@ -17074,7 +17126,7 @@
     "created_at": "2017-05-23T05:13:52Z",
     "updated_at": "2017-07-03T19:21:11Z",
     "closed_at": "2017-07-03T19:21:11Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "* [ ] Immutable doesn't contain the RFC2119 boilerplate, even though it uses the language. \r\n* [ ] It also has a dangling reference to RFC7231."
   },
   {
@@ -17169,7 +17221,7 @@
     "created_at": "2017-05-23T05:08:07Z",
     "updated_at": "2017-07-03T19:20:56Z",
     "closed_at": "2017-07-03T19:20:56Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "> 2.1.  About Intermediaries\r\n>\r\n>  An immutable response has the same semantic meaning when received by\r\n>  proxy clients as it does when received by User-Agent based clients.\r\n>  Therefore proxies SHOULD skip conditionally revalidating fresh\r\n>  responses containing the immutable extension unless there is a signal\r\n>  from the client that a validation is necessary (e.g. a no-cache\r\n>  Cache-Control request directive).\r\n\r\nMaybe point to Section 5.2.1.4 of RFC 7234 here...\r\n\r\n>  A proxy that uses immutable to bypass a conditional revalidation may\r\n>  choose whether to reply with a 304 or 200 to its requesting client\r\n>  based on the request headers the proxy received.\r\n\r\ns/may/MAY/ or s/may/can/\r\n\r\n> 2.2.  Example\r\n>\r\n>  Cache-Control: max-age=31536000, immutable\r\n\r\nMaybe add a full example, including a request/response pair for the case when \"immutable\" is not present?\r\n\r\n> 4.  IANA Considerations\r\n>\r\n>  [RFC7234] sections 7.1 and 7.1.2 require registration of the\r\n\r\ns/[RFC7234] sections 7.1 and 7.1.2/Section 7.1 of .../"
   },
   {
@@ -18781,7 +18833,7 @@
     "created_at": "2017-04-19T02:26:42Z",
     "updated_at": "2017-12-13T20:31:01Z",
     "closed_at": "2017-05-16T02:20:42Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/328",
       "html_url": "https://github.com/httpwg/http-extensions/pull/328",
@@ -18950,7 +19002,7 @@
     "created_at": "2017-04-13T00:21:31Z",
     "updated_at": "2017-05-03T01:55:07Z",
     "closed_at": "2017-05-03T01:55:07Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Just wondering out loud -- should immutable have any consideration of whether the response is incomplete, or potentially incomplete (i.e., close-delimited, rather than byte-counted or chunked or h2)?\r\n\r\nOne of the reasons people hit 'reload' is when something on the page seems corrupted.\r\n\r\n@mcmanus any thoughts?"
   },
   {
@@ -19002,9 +19054,12 @@
     "created_at": "2017-04-11T01:06:19Z",
     "updated_at": "2017-04-19T01:34:14Z",
     "closed_at": "2017-04-19T01:34:14Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "pull #323 "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/323",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -19048,7 +19103,7 @@
     "created_at": "2017-04-11T01:05:05Z",
     "updated_at": "2017-04-18T08:39:48Z",
     "closed_at": "2017-04-11T04:09:40Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/323",
       "html_url": "https://github.com/httpwg/http-extensions/pull/323",
@@ -19056,10 +19111,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/323.patch"
     },
     "body": "While testing firefox's implementation of this draft Vlad determined that some versions of Chrome throw PROTOCOL_ERROR and close the connection if it receives a type 0xB frame with a non zero length on stream 0.\r\n\r\nOther frame type numbers, such as 0xC do not seem to have that problem.\r\n\r\ntesting indicates this is fixed in version 59 and is a problem previous to that. (57 is in release as I write this).\r\n\r\npresumably this is related to historical code around BLOCKED which was proposed to use 0xB.\r\n\r\nPrudence says to just use a different code point for the moment."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/322",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -19567,7 +19619,7 @@
     "created_at": "2017-03-20T14:40:43Z",
     "updated_at": "2017-04-20T00:34:19Z",
     "closed_at": "2017-04-20T00:34:19Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "7540 has coalescing rules that are overruled by Origin frames - we all know that can't take effect until the origin frame(s) have been received at the client - so that's the basic race condition that we're comfortable with.\r\n\r\nBut because the origin set is done one origin in one frame at a time, and there is no End-of-Set marker on it, the set can become initialized before it is complete upon receipt of the first frame. Initialization means any origin that will soon be in the set but has not yet been processed will not be coalesced onto this connection even if it meets the rules of 7540.. that's the state that is intended at the end of origin set processing, but this interim state seems counterproductive.\r\n\r\nThe easiest thing to do seems to be to create some kind of checkpoint flag that means 'generation done for now'."
   },
   {
@@ -19958,7 +20010,7 @@
     "created_at": "2017-03-02T04:37:29Z",
     "updated_at": "2017-03-14T08:03:05Z",
     "closed_at": "2017-03-14T08:03:05Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Taking a run through the spec before we sent it upstairs, a few suggestions --\r\n\r\n* In the abstract, `s/clients/user agents/g` (proxies aren't going to generate them, and shouldn't try)\r\n* Introduction - you might get complaints about the \"UA\" abbreviation; spell out as `User-Agent`?\r\n* Section 2 - \"Each one conveys a list of client preferences\" -- are they all list-based?\r\n* 2.2 - \"Servers respond with an optimized response based on one or more received hints from the client.\" -- awkward; suggest: \"When presented with a request that contains one or more client hint headers, servers can optimise the response based upon the information in them.\"\r\n* 2.2 - \"used hint\" --> \"hint used\"\r\n* 2.2 - \"emit\" --> \"generate\"  (has meaning in HTTP)\r\n* 2.2 \"confirm the property of the response, such that the client can adjust its processing\" --> \"convey related values to aid client processing\"\r\n* Sections 3-7: These feel like they should all be in their own subsection. Also, would you consider changing \"client hint\" in each title to \"header field\"? That will emphasise that they're just regular headers, not some new class of thing (I continue to be concerned that people think these are magical because they are called Client Hints).\r\n* Section 7: \"New token and extension token values can only be defined by revisions of this specification\" --> \"New token and extension token values can be defined by updates to this specification.\"  (IETF-specific wording)\r\n* Section 9: \"Client Hints defined in this specification do not expose new information about the user’s environment beyond what is already available to, and can be communicated by, the application at runtime via JavaScript and CSS.\" --> \"The request header fields defined in this specification expose information that is already available to Web applications in the browser runtime itself (e.g., using JavaScript and CSS).\"\r\n* Section 9: \"However, implementors should consider the privacy implications of various methods to enable delivery of Client Hints - see “Sending Client Hints” section.\" --> \"However, servers that gather this information through such mechanisms are typically observable (e.g., you can see that they're using JavaScript to gather it), whereas servers' use of the header fields introduced by this specification is not observable. Section 2.1 discusses potential mitigations.\" \r\n* Section 9: \"might reduce such fingerprinting risks\" --> \"can help mitigate the risk of such fingerprinting.\"\r\n* Section 9: \"The implementers can...\" --> \"Implementers ought to...\"\r\n* Section 9: \"...advertised: require...\" --> \"...advertised. For example, they could require...\""
   },
   {
@@ -20017,7 +20069,7 @@
     "created_at": "2017-03-02T04:09:39Z",
     "updated_at": "2017-04-10T09:55:02Z",
     "closed_at": "2017-03-26T17:31:00Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The `Accept-CH` response header is defined as:\r\n\r\n> When a client receives Accept-CH, or if it is capable of processing the HTML response and finds an equivalent HTML meta element, it can treat it as a signal that the server is interested in receiving the Client-Hint header fields that match the advertised field-values; subsequent requests initiated to the same server and, optionally any subresource requests initiated as a result of processing the response from the server that includes the Accept-CH opt-in, can include the Client-Hint header fields that match the advertised field-values.\r\n>\r\n> For example, based on Accept-CH example above, a user agent could append DPR, Width, Viewport-Width, and Downlink header fields to all subresource requests initiated by the page constructed from the response. Alternatively, a client can treat advertised support as a persistent origin preference and append same header fields on all future requests initiated to and by the resources associated with that origin.\r\n\r\n\"All future requests\" is a long time indeed. While of course the client isn't going to literally do that (eventually it'll be garbage collected, or the user will reset state, or the machine will be recycled), from a server-side perspective, it'd be nice to have *some* level of control over how bloated your requests get.\r\n\r\nAdditionally, having `Accept-CH` possibly indicate that future references *to* **and** *from* this origin seems like a pretty broad brush to be painting with. While Chrome might make some reasonable decisions about tradeoffs here (and probably needs some wiggle room), if this ever does get implemented elsewhere, this broadness and freedom is a recipe for bad interop and worse server-side headaches.\r\n\r\nSo, can we nail this down at all? \r\n\r\nThe most conservative approach is:\r\n\r\n\"Send CH headers on subrequests generated by this content, please.\"\r\n\r\nHowever, the above also says \"subsequent requests initiated to the same server\" in the primary spot; the case above is relegated to \"optionally.\"\r\n\r\nPersonally, my preference would be to drop \"subsequent requests initiated to the same server and, optionally\" and the corresponding text in the example below it. The primary use case for CH as I understand it is serving appropriate subresources, NOT dynamically modifying HTML, so that should do the trick.\r\n\r\nAm I missing something, @igrigorik?\r\n\r\nRegardless of that, \"server\" is used very loosely above; I think you mean \"origin\", right? And \"can\" should probably be \"MAY\".\r\n\r\nCC @yoavweiss"
   },
   {
@@ -20809,7 +20861,10 @@
     "closed_at": "2017-05-25T03:36:48Z",
     "author_association": "MEMBER",
     "body": "I want to address these issues that were filed in the old repo https://github.com/bifurcation/expect-ct/:\r\n\r\n- [x] https://github.com/bifurcation/expect-ct/issues/18\r\n- [x] https://github.com/bifurcation/expect-ct/issues/16\r\n- [x] https://github.com/bifurcation/expect-ct/issues/7\r\n- [x] https://github.com/bifurcation/expect-ct/issues/6\r\n- [x] https://github.com/bifurcation/expect-ct/issues/4"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/293",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -20861,10 +20916,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/293.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/292",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -21015,7 +21067,7 @@
     "created_at": "2017-02-03T03:08:17Z",
     "updated_at": "2017-04-19T01:33:30Z",
     "closed_at": "2017-04-19T01:33:30Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Dare we specify that clients MAY/SHOULD persist origin information for a given endpoint beyond the lifetime of the connection?"
   },
   {
@@ -21110,7 +21162,7 @@
     "created_at": "2017-02-03T02:22:18Z",
     "updated_at": "2017-03-13T16:29:02Z",
     "closed_at": "2017-03-13T16:29:02Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "> An immutable response has the same semantic meaning for proxy clients as it does for User-Agent based clients and they therefore MAY also presume a conditional revalidation for a response marked immutable would return 304. A proxy client who uses immutable to anticipate a 304 response may choose whether to reply with a 304 or 200 to its requesting client.\r\n\r\nParse error :) What are you trying to do?"
   },
   {
@@ -21169,7 +21221,7 @@
     "created_at": "2017-02-03T02:20:37Z",
     "updated_at": "2017-03-13T16:29:46Z",
     "closed_at": "2017-03-13T16:29:46Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The definition of `immutable`s semantics are a bit weird:\r\n\r\n> When present in an HTTP response, the `immutable` Cache-Control extension indicates that the origin server MUST NOT update the representation of that resource during the freshness lifetime of the response.\r\n\r\nI think it should be defined in terms of client operation, rather than server operation. E.g.,\r\n\r\n> When present in an HTTP response, the `immutable` Cache-Control extension indicates that clients SHOULD NOT issue a conditional request during the response's freshness lifetime (e.g., upon a \"reload\"), unless explicitly overridden by the user (e.g., a \"force reload\").\r\n"
   },
   {
@@ -21228,7 +21280,7 @@
     "created_at": "2017-02-03T02:17:10Z",
     "updated_at": "2017-03-14T00:16:21Z",
     "closed_at": "2017-03-14T00:16:21Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Chrome currently implements the semantics of `immutable` using a browser heuristic rather than an explicit signal from the server.\r\n\r\nif we define a complimentary CC extension with the inverse semantics of `immutable` -- i.e., roughly, \"always refresh this when the user hits reload\" -- it would allow Chrome to continue using a heuristic, but override it with an explicit signal from the server when the server cares about it.\r\n\r\nIf we do that, I think the CC extension name should be short (e.g., one or two characters)."
   },
   {
@@ -21287,7 +21339,7 @@
     "created_at": "2017-02-03T02:13:38Z",
     "updated_at": "2017-03-13T16:32:00Z",
     "closed_at": "2017-03-13T16:31:46Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/287",
       "html_url": "https://github.com/httpwg/http-extensions/pull/287",
@@ -21352,7 +21404,7 @@
     "created_at": "2017-02-03T01:53:21Z",
     "updated_at": "2017-02-03T01:55:05Z",
     "closed_at": "2017-02-03T01:55:05Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": ""
   },
   {
@@ -21398,7 +21450,7 @@
     "created_at": "2017-02-01T06:40:41Z",
     "updated_at": "2017-02-13T05:25:23Z",
     "closed_at": "2017-02-13T05:25:23Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/285",
       "html_url": "https://github.com/httpwg/http-extensions/pull/285",
@@ -21463,7 +21515,7 @@
     "created_at": "2017-01-31T07:26:26Z",
     "updated_at": "2017-02-27T05:48:57Z",
     "closed_at": "2017-02-27T05:48:57Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "As discussed on list, a formal requirement to see `Accept-CH` before sending hints might be desirable, to reduce fingerprinting surface."
   },
   {
@@ -22218,7 +22270,7 @@
     "created_at": "2016-11-21T03:00:00Z",
     "updated_at": "2017-03-03T04:05:31Z",
     "closed_at": "2017-03-03T04:05:31Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "A few things I noticed / need to ask:\r\n\r\n* Is the Abstract still suitable? I note it doesn't mention 5987.\r\n\r\n* Is the intended status really Internet Standard? Given that 2026 requires \"a high degree of technical maturity and by a generally held belief that the specified protocol or service provides significant benefit to the Internet community\" and in light of the doubt around the use of this format, it seems like Proposed Standard might be more appropriate. Also, we'd need to document the implementations.\r\n\r\n* @reschke - If you have direct, personal knowledge of any IPR related to this document, has it already been disclosed?"
   },
   {
@@ -22460,7 +22512,7 @@
     "created_at": "2016-11-16T06:40:41Z",
     "updated_at": "2017-03-03T04:09:29Z",
     "closed_at": "2017-03-03T04:09:29Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "In working on RFC5988bis, I'm referring to this spec, and finding it's difficult to talk about the concepts, because so much has been pared back.\r\n\r\nIn particular:\r\n\r\n* [ ] There isn't any prose reference to the \"*\" form of the attribute name; it only occurs in examples. One would assume that this is the normative way to invoke this encoding, but it isn't specified.\r\n* [ ] A distinct name for the encoding would help; right now, the best I can do is \"the encoding specified in RFC5987bis\".\r\n* [ ] The examples of how to use this in header specifications needs to be deeper."
   },
   {
@@ -22519,7 +22571,7 @@
     "created_at": "2016-11-16T06:33:04Z",
     "updated_at": "2016-11-17T00:43:40Z",
     "closed_at": "2016-11-17T00:43:40Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "... occurs twice in the current draft, without much context. Should it be removed?"
   },
   {
@@ -22639,7 +22691,10 @@
     "closed_at": "2017-04-26T03:29:24Z",
     "author_association": "NONE",
     "body": "(Originally misfiled at https://github.com/mnot/I-D/issues/204)\r\n\r\nI believe the algorithm may be improved to increase speed and reduce digest size.\r\n\r\n#### De-dupe URLs before hashing them\r\n\r\nWastes time sorting and skipping through the list in a later stage.\r\nInflates value of N, needlessly increasing size of the entire digest.\r\n\r\n#### Trim URL origin\r\n\r\nEvery URL has identical origin. Hashing this repetitive data is wasted effort."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/263",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22691,10 +22746,7 @@
     "closed_at": "2016-12-25T17:19:07Z",
     "author_association": "NONE",
     "body": "Add Client hints support for the following:\r\n\r\n`Viewport-Color-Gamut`\r\nhttps://drafts.csswg.org/mediaqueries-4/#color-gamut\r\n\r\n`Viewport-Color-Profile`\r\nhttps://www.w3.org/TR/css-color-4/#at-ruledef-profile"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/262",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -23115,7 +23167,7 @@
     "created_at": "2016-10-31T23:50:02Z",
     "updated_at": "2017-06-19T23:59:38Z",
     "closed_at": "2017-06-19T23:59:38Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Perhaps we should add an appendix to help people do this?"
   },
   {
@@ -23174,7 +23226,7 @@
     "created_at": "2016-10-31T23:26:57Z",
     "updated_at": "2017-06-20T00:00:14Z",
     "closed_at": "2017-06-20T00:00:13Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "We need to evaluate and possibly pare down / adjust the flags in the frame, based upon real-world use cases.\r\n\r\nSee Kazuho's evaluation:\r\n  https://github.com/HTTPWorkshop/workshop2016/blob/master/talks/cache-digests.pdf"
   },
   {
@@ -23914,7 +23966,7 @@
     "created_at": "2016-10-11T05:10:00Z",
     "updated_at": "2016-10-11T08:23:28Z",
     "closed_at": "2016-10-11T08:22:56Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "From Kari on-list:\n\n5.1.3.  Domain Matching\nhttps://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-00#section-5.1.3\n\nThere is some nested lists lost.\n\n|   o  The domain string and the string are identical.  (Note that both\n|      the domain string and the string will have been canonicalized to\n|      lower case at this point.)\n|   o  All of the following conditions hold:\n|   o  The domain string is a suffix of the string.\n|   o  The last character of the string that is not included in the\n|      domain string is a %x2E (\".\") character.\n|   o  The string is a host name (i.e., not an IP address\n\nThese should be on nested list, I think:\n\n|   o  The domain string is a suffix of the string.\n|   o  The last character of the string that is not included in the\n|      domain string is a %x2E (\".\") character.\n|   o  The string is a host name (i.e., not an IP address\n\nRFC 6265 was\n\n5.1.3.  Domain Matching\nhttps://tools.ietf.org/html/rfc6265#section-5.1.3\n\n|   o  The domain string and the string are identical.  (Note that both\n|      the domain string and the string will have been canonicalized to\n|      lower case at this point.)\n|\n|   o  All of the following conditions hold:\n|\n|      \\*  The domain string is a suffix of the string.\n|\n|      \\*  The last character of the string that is not included in the\n|         domain string is a %x2E (\".\") character.\n|\n|      \\*  The string is a host name (i.e., not an IP address).\n"
   },
   {
@@ -24303,7 +24355,7 @@
     "created_at": "2016-09-07T20:44:53Z",
     "updated_at": "2016-09-28T03:09:05Z",
     "closed_at": "2016-09-28T03:09:05Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "3] get rid of tls-commit (i.e. the latch to opp sec) as this plays very poorly with alt-svc. The notion of alt-svc has always been that it is a shortcut route (or dns name if your prefer) for the same content as supplied at the default origin. If for any reason you cannot get there, you can always go back to the default origin. All of the machinery around this (validating alternates, etc) can happen transparently and asynchronously in the background until they are ready to be used. A mechanism that requires a characteristic of a route (auth'd TLS) but not the route itself doesn't play well - its far too easy to brick your site for an extended period of time and really ceases to be opportunistic in any meaningful sense. If you're up to managing this, then you're probably up to the fight of running https:// and using HSTS which at least has the benefit of not bringing a whole second technology (alt-svc) into play.\n\n[there is further discussion on list]\n"
   },
   {
@@ -24355,7 +24407,7 @@
     "created_at": "2016-09-07T20:44:20Z",
     "updated_at": "2016-11-21T21:44:32Z",
     "closed_at": "2016-11-21T02:13:00Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "2] /.well-known/http-opportunistic should always be required. The current doc is actually a little fuzzy on this, I think by accident. It refers to this as an \"additional mechanism\" in addition to authentication. But .wk does not really play the same role - it allows the server to opt-in to being an alternate for specific origins on specific ports. So if we're going to use it - we should always use it. (This has no bearing on https:// alt-svc, this is just about http:// as that is all this doc governs).\n\n[There is further discussion of this on list]\n"
   },
   {
@@ -24407,9 +24459,12 @@
     "created_at": "2016-09-07T20:43:13Z",
     "updated_at": "2016-11-21T02:13:14Z",
     "closed_at": "2016-11-21T02:13:14Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "1] opportunistic security should require TLS authentication. Any other approach undermines the opt-in mechanism of .wk. As the PKI market has matured to allow truly free and automated certs certificate availability is no longer the chief barrier to https, and so opportunistic security should feel comfortable requiring real authentication. (THERE IS NO PROPOSED CHANGE IN THE SECURITY MODEL - HTTP:// IS STILL HTTP:// AND NOT GRANTED HTTPS:// STATUS AT ALL). The biggest barrier to https:// at this point seems to be mixed content.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/233",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -24466,12 +24521,9 @@
     "created_at": "2016-08-24T07:15:20Z",
     "updated_at": "2018-04-03T23:40:25Z",
     "closed_at": "2018-04-03T23:40:25Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Define maximums; e.g., uint64_t? for DIV, PARTITION\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/232",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -24528,7 +24580,7 @@
     "created_at": "2016-08-24T07:14:45Z",
     "updated_at": "2018-04-03T23:40:25Z",
     "closed_at": "2018-04-03T23:40:25Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Some sort of syntax to denote that if a match is made, stop processing, to allow control over permutations.\n"
   },
   {
@@ -24587,7 +24639,7 @@
     "created_at": "2016-08-24T07:13:37Z",
     "updated_at": "2018-04-03T23:40:25Z",
     "closed_at": "2018-04-03T23:40:25Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "E.g., \n\n> substr=foo|bar\n"
   },
   {
@@ -24646,7 +24698,7 @@
     "created_at": "2016-08-24T06:49:22Z",
     "updated_at": "2016-10-31T23:40:14Z",
     "closed_at": "2016-10-31T23:40:14Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "as per @martinthomson \n"
   },
   {
@@ -24705,7 +24757,7 @@
     "created_at": "2016-08-20T01:01:47Z",
     "updated_at": "2017-05-25T07:29:58Z",
     "closed_at": "2017-05-25T07:29:58Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Some mechanism to note that the server wants CD would be good.\n"
   },
   {
@@ -24764,7 +24816,7 @@
     "created_at": "2016-08-20T01:01:13Z",
     "updated_at": "2017-02-07T05:06:38Z",
     "closed_at": "2017-02-07T05:06:38Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "A few people have noted that SHA-1 is probably overkill.\n"
   },
   {
@@ -24823,7 +24875,7 @@
     "created_at": "2016-08-18T07:47:11Z",
     "updated_at": "2016-10-11T05:46:38Z",
     "closed_at": "2016-10-11T05:46:38Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "As per recent discussion, this draft should advise readers about whether or not it should be used for new headers, or new parameters on existing headers.\n\nStraw-man:\n- Change the Abstract to:\n\n> RFC5987 defines an encoding for non-ASCII payloads in HTTP header field value parameters, based upon the encoding defined in RFC2231. This document updates that definition and describes how it should (and should not) be used.\n- Change the first paragraph of Introduction to:\n\n> By default, header field values in HTTP messages ([RFC7230]) cannot directly carry characters outside the US-ASCII coded character set ([RFC0020]). RFC 2231 ([RFC2231]) defines an encoding mechanism for use in MIME headers. This specification documents a subset of that encoding that has been used in some HTTP header fields. Its use in new header fields, or new parameters on existing header fields, is NOT RECOMMENDED.\n- Remove section 4 contents (and subsections), replace with:\n\n> The convention defined by this specification allows a parameter fields that have two possible encodings (ASCII without the `*`, UTF-8 with it). This causes considerable complication in the use and implementation of those parameters, since they now have to handle both, and all of the possible permutations and edge conditions implied by this (e.g., how a header field value with both ought to be handled).\n> Furthermore, this encoding can only be used in parameter values, not in other parts of header field values.\n> As a result, use of this encoding is only RECOMMENDED where already defined; new header fields, as well as new parameters on existing header fields, SHOULD NOT use it when non-ASCII content is anticipated. Instead, they SHOULD mandate a character encoding of UTF-8, combined with escaping of non-ASCII characters using a well-defined convention (e.g., percent encoding, as per [RFC3986).\n- Optionally, move the existing contents of section 4 into an appendix, but clarify that they're there merely for the benefit of existing uses.\n"
   },
   {
@@ -25022,7 +25074,7 @@
     "created_at": "2016-08-10T04:05:44Z",
     "updated_at": "2016-08-18T00:04:00Z",
     "closed_at": "2016-08-18T00:04:00Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Discuss taking CH to Experimental.\n"
   },
   {
@@ -25901,7 +25953,7 @@
     "created_at": "2016-07-15T18:27:22Z",
     "updated_at": "2016-10-11T05:51:22Z",
     "closed_at": "2016-10-11T05:51:22Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "we debated this a bit in BA - but didn't come to a resolution that I recall. opening an issue\n\n\"   When received by a client, it can be used to inform HTTP/2 connection\n   coalescing (see [RFC7540], Section 9.1.1), but does not relax the\n   requirement there that the server is authoritative. \"\n\nessentially this means you can't advertise an origin that the client wouldn't have known to ask you for - doing so is obviously very powerful (in both good and scary ways).\n\nI think we want to allow it assuming the \"valid certificate for the origin\" logic is met. i.e. formally separate insecure routing from secure certificates. This dovetails with mike's secondary cert draft.\n"
   },
   {
@@ -26443,7 +26495,10 @@
     "closed_at": "2017-08-07T13:08:54Z",
     "author_association": "NONE",
     "body": "a suggestion for 6265bis' title such that the term \"cookies\" is included...\n\n```\nCookies: HTTP State Management Mechanism\n```\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/203",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -26495,10 +26550,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/203.patch"
     },
     "body": "\"The record starts and ends on multiples of the record size\" sounds like a tautology.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/202",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -27136,7 +27188,7 @@
     "created_at": "2016-06-02T07:38:59Z",
     "updated_at": "2016-06-21T02:31:51Z",
     "closed_at": "2016-06-21T02:31:51Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Erik raises in post-WGLC:\n\nThe text is still a little unclear on whether commit then requires subsequent connections to use \"strong authentication\" or just \"authentication\".  In particular, Section 3 seems to add some confusion about whether \"reasonable assurances\" and \"server authentication\" are the same thing or not but then 5.2 sometimes uses \"authenticated without \"strongly authenticated\".  For example, this paragraph is not particularly crisp on what the requirements are (strong authentication or something else):\n\n```\nA commitment is not bound to a particular alternative service.\nClients are able to use alternative services that they become aware\nof.  However, once a valid and authenticated commitment has been\nreceived, clients SHOULD NOT use an unauthenticated alternative\nservice.  Where there is an active commitment, clients SHOULD ignore\nadvertisements for unsecured alternative services.  A client MAY send\nrequests to an unauthenticated origin in an attempt to discover\npotential alternative services, but these requests SHOULD be entirely\ngeneric and avoid including credentials.\n```\n"
   },
   {
@@ -28111,7 +28163,10 @@
     "closed_at": "2016-04-26T02:58:20Z",
     "author_association": "NONE",
     "body": "Unsure if this is the right place to ask. Is there an existing effort to make a header for HTTP/2's PUSH promises able to sync dependency trees?\n\nConsider:\n\n``` html\n<!-- index.html -->\n<script type=\"module\" src=\"a\"></script>\n```\n\n``` js\n// a\nimport \"b\";\n```\n\n``` js\n// b\nimport \"c\";\n```\n\nAnd so on...\n\nRight now we can PUSH `a`, `b`, etc. when `index.html` is requested. However, when we receive an etag for `index.html` we are unsure what revision of dependencies are in the cache for `a`, `b`, etc.\n\nI saw CACHE_DIGEST, but was wondering if there was an effort to make dependency tree caching available to reduce chatter for PUSH of large/deep resources as are common in JS applications.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/173",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -28163,10 +28218,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/173.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/172",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -28877,7 +28929,7 @@
     "created_at": "2016-03-18T01:08:12Z",
     "updated_at": "2016-06-02T07:37:53Z",
     "closed_at": "2016-06-02T07:37:53Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Kari raises in WGLC:\n\nIn [5.1. Opportunistic Commitment](https://tools.ietf.org/html/draft-ietf-httpbis-http2-encryption-04#section-5.1):\n\n> An origin can reduce the risk of attacks on opportunistically secured connections by committing to provide an secured, authenticated alternative service.  This is done by including the optional \"commit\" member in the http-opportunistic well-known resource (see Section 6).\n\nThis does not make possible to specify \"commit\" without saying same time that  there is also reasonable assurance for alternative services for on same host which does not provide strong authentication.\n\nThere should be possible to give \"commit\" for authenticated alternatives WITHOUT giving also reasonable assurances for non-authenticated alternatives (on same host that origin).\n\n`/.well-known/http-opportunistic` SHOULD include separate indication that for reasonable assurances. My suggestion for that parameter is same than for \"Attacks from the same host\".\n"
   },
   {
@@ -29543,7 +29595,7 @@
     "created_at": "2016-02-20T02:13:18Z",
     "updated_at": "2016-05-10T06:17:40Z",
     "closed_at": "2016-05-10T06:17:40Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Brought up in LC, http://www.w3.org/mid/20160209182822.C37A959F@welho-filter2.welho.com.\n1. Examples contain h2c, although this document implies that's not allowed\n2. Examples should clarify that even on the same host, by default we don't allow h2c\n3. Do we need to define \"reasonable assurances\" more tightly, e.g., by requiring something to update this document?\n"
   },
   {
@@ -29706,7 +29758,7 @@
     "created_at": "2016-02-06T02:03:31Z",
     "updated_at": "2016-03-17T01:06:50Z",
     "closed_at": "2016-03-17T01:06:50Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "[Section 5](https://httpwg.github.io/http-extensions/encryption.html#http-tls) roughly sketches the `HTTP-TLS` header. \n\nWe need to decide if this should be included (is it implemented?).\n"
   },
   {
@@ -29765,9 +29817,12 @@
     "created_at": "2016-02-06T02:02:11Z",
     "updated_at": "2016-03-17T01:06:28Z",
     "closed_at": "2016-03-17T01:06:28Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "When an attacker has the ability to:\n\n1) inject a HTTP header in any response from an origin\n2) listen to a port on the same host\n\nthey can effectively hijack the origin, for browsers that implement OppSec.\n\nE.g., someone on a shared Web host that also offers shell access.\n\nPreviously, Alt-Svc used the port number as a way to mitigate this; however, in #139 we dropped that, because on many systems this is no longer a meaningful way to segment privileged applications. \n\nIn discussion, it was suggested that the origin should opt into OppSec explicitly, e.g., with a `.well-known` file. \n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/143",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -29819,10 +29874,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/143.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/142",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -30302,7 +30354,7 @@
     "created_at": "2016-01-21T02:46:55Z",
     "updated_at": "2016-02-04T00:45:22Z",
     "closed_at": "2016-02-04T00:45:18Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/134",
       "html_url": "https://github.com/httpwg/http-extensions/pull/134",
@@ -30367,7 +30419,7 @@
     "created_at": "2016-01-14T23:24:24Z",
     "updated_at": "2016-06-03T03:59:19Z",
     "closed_at": "2016-06-03T03:59:19Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Get advice from CFRG on crypto choices.\n"
   },
   {
@@ -30426,7 +30478,7 @@
     "created_at": "2016-01-14T23:09:58Z",
     "updated_at": "2016-06-02T07:33:54Z",
     "closed_at": "2016-06-02T07:33:54Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Feedback from @hadleybeeman during TAG discussion: it would be great if use cases were explored a bit in this document, because \"encrypted content\" covers a lot of ground.\n"
   },
   {
@@ -31441,7 +31493,10 @@
     "closed_at": "2015-11-04T07:30:48Z",
     "author_association": "MEMBER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/113",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -31493,10 +31548,7 @@
     "closed_at": "2015-11-11T04:48:40Z",
     "author_association": "NONE",
     "body": "http://tools.ietf.org/html/draft-ietf-httpbis-key-00#section-2.3.1\n2.3.1. div first example\n...(because, divided by 5, they all result in 1)...\nI think they all result in 0.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/112",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -31553,7 +31605,7 @@
     "created_at": "2015-10-19T05:20:03Z",
     "updated_at": "2015-11-11T04:48:40Z",
     "closed_at": "2015-11-11T04:48:40Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/138\n"
   },
   {
@@ -31612,7 +31664,7 @@
     "created_at": "2015-10-19T05:19:16Z",
     "updated_at": "2015-11-11T06:34:10Z",
     "closed_at": "2015-11-11T06:34:10Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/137\n"
   },
   {
@@ -31671,7 +31723,7 @@
     "created_at": "2015-10-19T05:18:48Z",
     "updated_at": "2015-11-11T04:19:35Z",
     "closed_at": "2015-11-11T04:19:35Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "from https://github.com/mnot/I-D/issues/135 :\n\nRoy points out that the lists look like section headers; should update when close to RFC editor.\n\nSee:\nhttps://www.rfc-editor.org/rfc-editor/xml2rfcFAQ.html#q_fancy_lists\n"
   },
   {
@@ -31730,7 +31782,7 @@
     "created_at": "2015-10-19T05:17:40Z",
     "updated_at": "2018-04-03T23:40:24Z",
     "closed_at": "2018-04-03T23:40:24Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/133\n"
   },
   {
@@ -31789,7 +31841,7 @@
     "created_at": "2015-10-19T05:16:59Z",
     "updated_at": "2015-11-24T00:34:50Z",
     "closed_at": "2015-11-24T00:34:50Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/132\n"
   },
   {
@@ -31848,7 +31900,7 @@
     "created_at": "2015-10-19T05:16:10Z",
     "updated_at": "2016-03-02T04:33:36Z",
     "closed_at": "2016-03-02T04:33:36Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/131\n"
   },
   {
@@ -31907,7 +31959,7 @@
     "created_at": "2015-10-19T05:15:22Z",
     "updated_at": "2016-03-02T04:37:36Z",
     "closed_at": "2016-03-02T04:37:36Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/130\n"
   },
   {
@@ -31966,7 +32018,7 @@
     "created_at": "2015-10-19T05:14:23Z",
     "updated_at": "2018-04-03T23:40:24Z",
     "closed_at": "2018-04-03T23:40:24Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/67\n"
   },
   {
@@ -32025,7 +32077,7 @@
     "created_at": "2015-10-19T05:13:24Z",
     "updated_at": "2016-03-22T19:12:21Z",
     "closed_at": "2016-03-02T04:23:56Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "See: \n  https://github.com/mnot/I-D/issues/21\n"
   },
   {
@@ -32120,7 +32172,7 @@
     "created_at": "2015-10-13T00:32:34Z",
     "updated_at": "2015-11-16T00:13:44Z",
     "closed_at": "2015-11-16T00:13:44Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Amos raises:\n\n\"for use when a server operator has a received a legal demand to deny\naccess to a resource\"\n\nThis is a lot more restrictive than what I understood was being agreed\nto. This phrasing implies that a specific-URL DMCA type notice is\nrequired before the status may be used.\n\nIt would be a lot more reasonable to also allow the status to be used\nwhen a blanket law requirement was levelled on the operator. For example\nschools following laws on porn fitering, or national level restrictions\non categories of traffic. In cases like these operators dont receive\nper-resource demands, they often receive a one-off notice \"law X applies\nto you\" and are then expected to censor proactively to the best of their\nability and face the court on overlooked URLs.\n\nProbably this can be resolved with s/legal demand/legal requirement/.\n\nThere are other \"legal demand\" phrase uses elsewhere to keep in sync.\n\nIf \"legal demand\" is being used with a meaning other than a specific\nwarrant DMCA takedown etc. Then that definitely needs to be explained.\n"
   },
   {
@@ -32179,7 +32231,7 @@
     "created_at": "2015-10-13T00:29:52Z",
     "updated_at": "2015-11-16T00:14:09Z",
     "closed_at": "2015-11-16T00:14:09Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "From Julian.\n### 1\n\n> Feedback should occur on the ietf-http-wg@w3.org mailing list.\n\n(This should go in the boilerplate, not the actual spec text; and yes, the RFC production center will catch it)\n### 2\n\nThe example should use the link header field.\n### 3\n\n> 1.  Security Considerations\n\n1) We don't need a nested subsection here. \n2) Avoid use of lowercased BCP14 terms...\n### 4\n\nWe'll need the IANA considerations for the new link relation as well.\n"
   },
   {
@@ -33209,7 +33261,10 @@
     "closed_at": "2015-06-08T19:10:24Z",
     "author_association": "MEMBER",
     "body": "\"The ABNF (Augmented Backus-Naur Form) syntax for the ALPN header field is given below. It is based on the Generic Grammar defined in Section 2 of [RFC7230].\"\n\nThis needs to say something like\n\n\"The ABNF (Augmented Backus-Naur Form) syntax for the ALPN header field value is given below. It uses the syntax defined in Section 1.2 of [RFC7230].\" \n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/83",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -33300,12 +33355,9 @@
     "created_at": "2015-06-08T00:59:04Z",
     "updated_at": "2015-10-07T00:42:39Z",
     "closed_at": "2015-09-25T06:21:18Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Amos pointed out that we should consider making the header field explicitly hop-by-hop, to match the semantics of the frame.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/82",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -33362,7 +33414,7 @@
     "created_at": "2015-06-01T00:22:36Z",
     "updated_at": "2015-06-29T02:24:09Z",
     "closed_at": "2015-06-29T02:24:09Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Is 451 cacheable by default? I suspect so.\n\nSee:\n  http://httpwg.github.io/specs/rfc7231.html#overview.of.status.codes\n"
   },
   {
@@ -33421,7 +33473,7 @@
     "created_at": "2015-06-01T00:18:40Z",
     "updated_at": "2015-06-29T02:24:00Z",
     "closed_at": "2015-06-29T02:24:00Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "\"The author takes all responsibility for errors and omissions.\"\n\nThis isn't necessary any more.\n"
   },
   {
@@ -33516,7 +33568,7 @@
     "created_at": "2015-06-01T00:17:19Z",
     "updated_at": "2015-11-16T00:13:59Z",
     "closed_at": "2015-11-16T00:13:59Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "In the current draft, 451 is used both to indicate when the origin server has the legal demands placed upon it, and when an intervening intermediary is enforcing such a demand.\n\nIn discussion, some have wondered whether it would be useful to be able to distinguish them in a machine-readable way; e.g., using a different status code (452?) or a response header.\n"
   },
   {
@@ -33575,7 +33627,7 @@
     "created_at": "2015-06-01T00:13:11Z",
     "updated_at": "2015-06-29T02:24:41Z",
     "closed_at": "2015-06-29T02:24:41Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "1. Introduction says \"...although this draft is NOT a work item of the IETF HTTPbis Working Group.\"\n\nNot true :)\n"
   },
   {
@@ -34159,7 +34211,7 @@
     "created_at": "2015-05-27T07:13:39Z",
     "updated_at": "2015-07-20T12:53:20Z",
     "closed_at": "2015-07-20T12:53:20Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/70",
       "html_url": "https://github.com/httpwg/http-extensions/pull/70",
@@ -35091,7 +35143,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/54.patch"
     },
     "body": "This adds a section regarding falsification of Tunnel-Protocol.  I didn't expand this to note that WebRTC won't suffer from this problem because the application won't be able to set the header field.  That seemed like too much detail.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/53",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -35176,12 +35231,9 @@
     "created_at": "2015-03-10T02:59:06Z",
     "updated_at": "2015-03-11T14:39:26Z",
     "closed_at": "2015-03-11T14:38:37Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The full name of the WG is \"HTTP Working Group\" -- httpbis is only the short identifier (kept because changing it would be a pain). Please replace throughout your drafts, and note below when each is done.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/52",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -35676,7 +35728,7 @@
     "created_at": "2015-02-06T22:42:44Z",
     "updated_at": "2015-04-21T06:29:10Z",
     "closed_at": "2015-04-21T06:29:10Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "section 4 of alt-svc clearly describes origin field handling for stream 0 and client initiated (odd) streams, but it is silent on pushed streams.\n\nI think it should say must ignore\n"
   },
   {
@@ -36649,7 +36701,7 @@
     "created_at": "2014-08-19T02:11:54Z",
     "updated_at": "2014-08-19T18:29:05Z",
     "closed_at": "2014-08-19T18:29:05Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "I think the introduction needs to do a stronger job of framing expectations regarding security properties.\n\nE.g., insert new para after para 2:\n\n> Opportunistic Security does not provide the same guarantees as using TLS with \"https\" URIs; it is vulnerable to active attacks, and does not change the security context of the connection. Normally, users will not be able to tell that it is in use (e.g., there will be no \"lock icon\").\n"
   },
   {
@@ -36708,7 +36760,7 @@
     "created_at": "2014-08-19T01:58:25Z",
     "updated_at": "2014-08-19T18:31:54Z",
     "closed_at": "2014-08-19T18:31:54Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Section 3 third para ends:\n\n> For instance, a client could examine the certificate to see if it has changed over time.\n\nThis implies that certs SHOULD NOT change over time; as it is, though, they can't rely upon that, so this text is highly speculative. I think we should either firm it up or take it out (probably the latter).\n"
   },
   {
@@ -36767,7 +36819,7 @@
     "created_at": "2014-08-19T01:57:01Z",
     "updated_at": "2014-12-16T00:17:54Z",
     "closed_at": "2014-12-16T00:17:54Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Section 3 implies that there are no cipher suite requirements on Opp Sec, but it'd be good to discuss and formalise this. May require tweaks to HTTP/2 (which places requirements on use of TLS, _not_ TLS with \"https\").\n"
   },
   {
@@ -36826,7 +36878,7 @@
     "created_at": "2014-08-19T01:55:07Z",
     "updated_at": "2014-08-19T18:18:32Z",
     "closed_at": "2014-08-19T18:18:32Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Second para of 3. Server Authentication starts:\n\n> When connecting to an alternative service for an \"http\" URI, clients are required to perform the server authentication procedure descriptor in Section 3.1 of [RFC2818].\n\nIs this merely a missing \"not\"? If that isn't the case, this is a design issue...\n"
   },
   {
@@ -36878,7 +36930,7 @@
     "created_at": "2014-08-19T01:53:45Z",
     "updated_at": "2014-08-19T18:13:04Z",
     "closed_at": "2014-08-19T18:13:04Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/24",
       "html_url": "https://github.com/httpwg/http-extensions/pull/24",
@@ -36886,7 +36938,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/24.patch"
     },
     "body": "Editorial suggestions for opp-sec; please review carefully.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/23",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -36938,10 +36993,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/23.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/22",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -37057,7 +37109,7 @@
     "created_at": "2014-08-18T07:05:48Z",
     "updated_at": "2015-09-01T15:34:45Z",
     "closed_at": "2015-09-01T15:34:45Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "I think we need to be REALLY careful about making assertions about an origin in a response, given things like pretty-bad-proxy.\n\nSection 3 says:\n\n> Alt-Svc MAY occur in any HTTP response message, regardless of the status code.\n\nThat's way too broad. For example, what if it's in response to a CONNECT -- will clients associate it with the origin?\n\nI think the resolution of this will need to reference this:\n  http://httpwg.github.io/specs/rfc7231.html#identification\n"
   },
   {
@@ -37109,7 +37161,7 @@
     "created_at": "2014-08-18T07:01:28Z",
     "updated_at": "2014-10-25T16:04:16Z",
     "closed_at": "2014-10-25T16:04:16Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/20",
       "html_url": "https://github.com/httpwg/http-extensions/pull/20",
@@ -37174,7 +37226,7 @@
     "created_at": "2014-08-18T06:58:43Z",
     "updated_at": "2014-10-25T17:09:38Z",
     "closed_at": "2014-10-25T17:09:38Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Section 4 doesn't explain what to do when the frame is missing the origin on stream 0.\n\nSimplest thing would be to say that a frame on stream 0 that doesn't contain an origin should be ignored.\n"
   },
   {
@@ -37233,7 +37285,7 @@
     "created_at": "2014-08-18T06:56:55Z",
     "updated_at": "2015-06-21T17:41:00Z",
     "closed_at": "2015-06-21T17:41:00Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Section 4 requires PROTOCOL_ERROR on an ALTSVC frame. However, earlier we say that it's a non-critical extension, and can be ignored. Which is it?\n\nYes, we could make a distinction on \"supporting the frame\", but that doesn't seem to helpful.\n\nCan we just drop the requirement and say it doesn't mean anything?\n"
   },
   {
@@ -37292,7 +37344,7 @@
     "created_at": "2014-08-18T06:55:02Z",
     "updated_at": "2014-10-25T16:38:37Z",
     "closed_at": "2014-10-25T16:38:37Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "The field-name for Alt-Svc-Used is 12 characters, and it's required to be sent in every request. \n\nWhile we have header compression in /2, we don't in /1.\n\nCan we make this shorter? Perhaps \"ASU\"?\n"
   },
   {
@@ -37351,7 +37403,7 @@
     "created_at": "2014-08-18T06:54:06Z",
     "updated_at": "2015-09-19T18:33:45Z",
     "closed_at": "2015-09-19T18:33:45Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "In 3 The Alt-Svc HTTP Header Field, there's:\n\n> When an Alt-Svc response header field is received from an origin, its value invalidates and replaces all cached alternative services for that origin.\n\nHowever, in several other places, we now say that multiple alternatives can co-exist (with the client figuring out which to use). \n\nIs this still our intent -- i.e., that the header field has a special cache invalidation semantic -- or is it just left over from our previous approach?\n"
   },
   {
@@ -37397,7 +37449,7 @@
     "created_at": "2014-08-15T02:18:54Z",
     "updated_at": "2014-08-17T23:44:13Z",
     "closed_at": "2014-08-15T18:17:50Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/15",
       "html_url": "https://github.com/httpwg/http-extensions/pull/15",
@@ -37455,7 +37507,7 @@
     "created_at": "2014-08-11T05:38:58Z",
     "updated_at": "2014-08-13T19:29:21Z",
     "closed_at": "2014-08-13T19:29:21Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/14",
       "html_url": "https://github.com/httpwg/http-extensions/pull/14",
@@ -37520,7 +37572,7 @@
     "created_at": "2014-07-29T06:35:01Z",
     "updated_at": "2014-08-18T01:06:44Z",
     "closed_at": "2014-08-18T01:06:44Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "Section 9.4 - is this still necessary, now that it's just one bit? At a minimum, this section should be toned down.\n"
   },
   {
@@ -37784,7 +37836,7 @@
     "created_at": "2014-07-02T06:06:15Z",
     "updated_at": "2014-08-15T04:00:07Z",
     "closed_at": "2014-08-15T04:00:07Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "We need to define how a client using OppSec connects to a configured proxy; e.g., does it CONNECT, or does it downgrade? Does the answer change if the proxy is http vs https? Can the proxy advertise OppSec?\n"
   },
   {
@@ -37879,7 +37931,7 @@
     "created_at": "2014-06-24T01:27:56Z",
     "updated_at": "2014-08-18T01:06:07Z",
     "closed_at": "2014-08-18T01:06:07Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/martinthomson\"><img src=\"https://avatars.githubusercontent.com/u/67641?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [martinthomson](https://github.com/martinthomson)**\n_Thursday Jun 12, 2014 at 18:00 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/522_\n\n---\n\nWhat are the semantics of subsequent ALTSVC frames for a given origin?\n\nThe current story is that a new value replaces the value of the old for that origin.\n\nAlternatively, we could have multiple frames present alternative alternative services.  That opens the question of how to indicate that a given service is obsolete.  But it's not clear we even need to do that.\n\nThen there is the fact that the Alt-Svc header field can have multiple values (see #521).  Do we need to replicate that capability for frames?\n"
   },
   {
@@ -37938,7 +37990,7 @@
     "created_at": "2014-06-24T01:27:55Z",
     "updated_at": "2014-07-23T14:58:16Z",
     "closed_at": "2014-07-23T14:58:16Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/martinthomson\"><img src=\"https://avatars.githubusercontent.com/u/67641?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [martinthomson](https://github.com/martinthomson)**\n_Thursday Jun 12, 2014 at 17:56 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/521_\n\n---\n\nThe Alt-Svc header field permits multiple entries.  How does a client select between them when there are multiple options that are acceptable to the client?\n1. Add a q= parameter.\n2. Select the first acceptable option.\n3. Something else.\n"
   },
   {
@@ -37997,7 +38049,7 @@
     "created_at": "2014-06-24T01:27:52Z",
     "updated_at": "2014-06-24T01:30:06Z",
     "closed_at": "2014-06-24T01:30:06Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/martinthomson\"><img src=\"https://avatars.githubusercontent.com/u/67641?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [martinthomson](https://github.com/martinthomson)**\n_Thursday Jun 05, 2014 at 19:46 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/502_\n\n---\n\n...with a good explanation.  This helps alleviate the privacy considerations (see #501)\n"
   },
   {
@@ -38056,7 +38108,7 @@
     "created_at": "2014-06-24T01:27:43Z",
     "updated_at": "2014-07-23T14:09:59Z",
     "closed_at": "2014-07-23T14:09:59Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/mnot\"><img src=\"https://avatars.githubusercontent.com/u/74384?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [mnot](https://github.com/mnot)**\n_Wednesday Jun 04, 2014 at 16:11 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/492_\n\n---\n\nWhen we were originally working on Alt-Svc, Patrick and I put a restriction on the Alt-Svc header field so that it couldn’t redirect clients to a different host.\n\nSince then, several people have pointed out that the requirement to have strong server authentication, as well as cache flushing, seems to contain the risk associated with doing this, and that the facility could be quite useful.\n\nSo, I’m suggesting we (re-) add the capability to the header.\n"
   },
   {
@@ -38115,7 +38167,7 @@
     "created_at": "2014-06-24T01:27:40Z",
     "updated_at": "2014-06-24T01:29:46Z",
     "closed_at": "2014-06-24T01:29:46Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/mnot\"><img src=\"https://avatars.githubusercontent.com/u/74384?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [mnot](https://github.com/mnot)**\n_Monday Apr 21, 2014 at 03:02 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/462_\n\n---\n\nCurrently, Alt-Svc says:\n\n```\nIntermediaries MUST NOT change or append Alt-Svc field values.\n```\n\nThis seems too restrictive; e.g., a gateway (CDN) could do something useful here.\n\nSuggestion:\n\n```\nProxies MUST NOT change or append Alt-Svc field values.\n```\n\nAn argument could be made to degrade to SHOULD NOT, but if we do that, the specific conditions ought to be enumerated.\n"
   },
   {
@@ -38174,7 +38226,7 @@
     "created_at": "2014-06-24T01:27:39Z",
     "updated_at": "2014-06-24T01:29:21Z",
     "closed_at": "2014-06-24T01:29:12Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/reschke\"><img src=\"https://avatars.githubusercontent.com/u/332994?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [reschke](https://github.com/reschke)**\n_Tuesday Apr 01, 2014 at 06:16 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/446_\n\n---\n\nSee http://lists.w3.org/Archives/Public/ietf-http-wg/2014JanMar/0856.html\n"
   },
   {
@@ -38233,7 +38285,7 @@
     "created_at": "2014-06-24T01:27:36Z",
     "updated_at": "2014-07-23T14:31:37Z",
     "closed_at": "2014-07-23T14:31:37Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/mnot\"><img src=\"https://avatars.githubusercontent.com/u/74384?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [mnot](https://github.com/mnot)**\n_Monday Mar 31, 2014 at 03:20 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/444_\n\n---\n\nFor the load balancing use case, it's necessary for clients to always flush altsvc cache upon a network change, but right now they're only required to examine the cache for suspicious entries. We should discuss whether this should be upgraded to always flush.\n"
   },
   {
@@ -38292,7 +38344,7 @@
     "created_at": "2014-06-24T01:27:32Z",
     "updated_at": "2014-06-24T01:29:00Z",
     "closed_at": "2014-06-24T01:29:00Z",
-    "author_association": "OWNER",
+    "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/mnot\"><img src=\"https://avatars.githubusercontent.com/u/74384?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [mnot](https://github.com/mnot)**\n_Monday Mar 31, 2014 at 03:19 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/443_\n\n---\n\nIt's likely necessary for the server to know which protocol the user agent has chosen, and perhaps even the hostname (for load balancing). At the very least, there should be a flag in SETTINGS that indicates that an alternate service has been used.\n"
   }
 
