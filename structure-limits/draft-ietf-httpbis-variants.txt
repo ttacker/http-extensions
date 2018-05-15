@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                               April 12, 2018
+Updates: 7234 (if approved)                                 May 15, 2018
 Intended status: Standards Track
-Expires: October 14, 2018
+Expires: November 16, 2018
 
 
                       HTTP Representation Variants
@@ -49,13 +49,13 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 14, 2018.
+   This Internet-Draft will expire on November 16, 2018.
 
 
 
-Nottingham              Expires October 14, 2018                [Page 1]
+Nottingham              Expires November 16, 2018               [Page 1]
 
-Internet-Draft        HTTP Representation Variants            April 2018
+Internet-Draft        HTTP Representation Variants              May 2018
 
 
 Copyright Notice
@@ -79,29 +79,29 @@ Table of Contents
      1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   4
    2.  The "Variants" HTTP Header Field  . . . . . . . . . . . . . .   5
      2.1.  Relationship to Vary  . . . . . . . . . . . . . . . . . .   6
-   3.  The "Variant-Key" HTTP Header Field . . . . . . . . . . . . .   6
-     3.1.  Generating a Normalised Variant-Key . . . . . . . . . . .   7
+   3.  The "Variant-Key" HTTP Header Field . . . . . . . . . . . . .   7
+     3.1.  Generating a Variant-Key List . . . . . . . . . . . . . .   7
    4.  Cache Behaviour . . . . . . . . . . . . . . . . . . . . . . .   8
-     4.1.  Find Available Keys . . . . . . . . . . . . . . . . . . .   9
+     4.1.  Compute Possible Keys . . . . . . . . . . . . . . . . . .   9
      4.2.  Check Vary  . . . . . . . . . . . . . . . . . . . . . . .  10
-     4.3.  Example of Cache Behaviour  . . . . . . . . . . . . . . .  10
+     4.3.  Example of Cache Behaviour  . . . . . . . . . . . . . . .  11
    5.  Origin Server Behaviour . . . . . . . . . . . . . . . . . . .  11
      5.1.  Examples  . . . . . . . . . . . . . . . . . . . . . . . .  12
        5.1.1.  Single Variant  . . . . . . . . . . . . . . . . . . .  12
        5.1.2.  Multiple Variants . . . . . . . . . . . . . . . . . .  13
-       5.1.3.  Partial Coverage  . . . . . . . . . . . . . . . . . .  13
+       5.1.3.  Partial Coverage  . . . . . . . . . . . . . . . . . .  14
    6.  Defining Content Negotiation Using Variants . . . . . . . . .  14
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  14
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  15
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .  15
-   9.  Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  15
-   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
-     10.1.  Normative References . . . . . . . . . . . . . . . . . .  15
-     10.2.  Informative References . . . . . . . . . . . . . . . . .  16
-     10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  16
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  15
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  16
+     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  16
    Appendix A.  Variants for Existing Content Negotiation Mechanisms  17
      A.1.  Accept  . . . . . . . . . . . . . . . . . . . . . . . . .  17
-     A.2.  Accept-Encoding . . . . . . . . . . . . . . . . . . . . .  17
+     A.2.  Accept-Encoding . . . . . . . . . . . . . . . . . . . . .  18
      A.3.  Accept-Language . . . . . . . . . . . . . . . . . . . . .  18
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  19
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  19
 
 
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham              Expires October 14, 2018                [Page 2]
+Nottingham              Expires November 16, 2018               [Page 2]
 
-Internet-Draft        HTTP Representation Variants            April 2018
+Internet-Draft        HTTP Representation Variants              May 2018
 
 
 1.  Introduction
@@ -143,6 +143,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Host: www.example.com
    Accept-Language: en;q=0.5, fr;q=1.0
 
+
    HTTP/1.1 200 OK
    Content-Type: text/html
    Content-Language: fr
@@ -161,26 +162,27 @@ Internet-Draft        HTTP Representation Variants            April 2018
    This specification introduces the HTTP Variants response header field
    (Section 2) to enumerate the available variant representations on the
    origin server, to provide clients and caches with enough information
-   to properly satisfy requests - either by selecting a response from
 
 
 
-Nottingham              Expires October 14, 2018                [Page 3]
+Nottingham              Expires November 16, 2018               [Page 3]
 
-Internet-Draft        HTTP Representation Variants            April 2018
+Internet-Draft        HTTP Representation Variants              May 2018
 
 
+   to properly satisfy requests - either by selecting a response from
    cache or by forwarding the request towards the origin - by following
    the algorithm defined in Section 4.
 
-   Its companion the Variant-Key response header field (Section 3)
-   indicates which representation was selected, so that it can be
-   reliably reused in the future.  When this specification is in use,
-   the example above might become:
+   Its companion Variant-Key response header field (Section 3) indicates
+   the applicable key(s) that the response is associated with, so that
+   it can be reliably reused in the future.  When this specification is
+   in use, the example above might become:
 
    GET /foo HTTP/1.1
    Host: www.example.com
    Accept-Language: en;q=0.5, fr;q=1.0
+
 
    HTTP/1.1 200 OK
    Content-Type: text/html
@@ -215,17 +217,18 @@ Internet-Draft        HTTP Representation Variants            April 2018
    14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
+
+
+
+
+Nottingham              Expires November 16, 2018               [Page 4]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
    This specification uses the Augmented Backus-Naur Form (ABNF)
    notation of [RFC5234] with a list extension, defined in Section 7 of
    [RFC7230], that allows for compact definition of comma-separated
-
-
-
-Nottingham              Expires October 14, 2018                [Page 4]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
-
    lists using a '#' operator (similar to how the '*' operator indicates
    repetition).
 
@@ -270,17 +273,17 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Here, recipients can infer that two content-codings in addition to
    "identity" are available, as well as two content languages.  Note
    that, as with all HTTP header fields that use the "#" list rule (see
+
+
+
+
+Nottingham              Expires November 16, 2018               [Page 5]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
    [RFC7230], Section 7), they might occur in the same header field or
    separately, like this:
-
-
-
-
-
-Nottingham              Expires October 14, 2018                [Page 5]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
 
    Variants: Accept-Encoding;gzip;brotli
    Variants: Accept-Language;en ;fr
@@ -307,11 +310,12 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
 2.1.  Relationship to Vary
 
-   Caches that implement this specification SHOULD ignore request header
-   fields in the Vary header for the purposes of secondary cache key
-   calculation ([RFC7234], Section 4.1) when their semantics are
-   implemented as per this specification and their corresponding
-   response header field is listed in Variants.
+   This specification updates [RFC7234] to allow caches that implement
+   this specification to ignore request header fields in the Vary header
+   for the purposes of secondary cache key calculation ([RFC7234],
+   Section 4.1) when their semantics are implemented as per this
+   specification and their corresponding response header field is listed
+   in Variants.
 
    If any member of the Vary header does not have a corresponding
    variant that is understood by the implementation, it is still subject
@@ -325,23 +329,26 @@ Internet-Draft        HTTP Representation Variants            April 2018
    implementations might choose to disable Variants processing when this
    is the case.
 
+
+
+
+
+Nottingham              Expires November 16, 2018               [Page 6]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
 3.  The "Variant-Key" HTTP Header Field
 
    The Variant-Key HTTP response header field is used to indicate the
-   value(s) from the Variants header field that identify the
+   values from the Variants header field that identify the
    representation it occurs within.
 
+   Variant-Key      = 1#available-values
+   available-values = available-value *( ";" available-value )
 
-
-Nottingham              Expires October 14, 2018                [Page 6]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
-
-   Variant-Key     = 1#available-value
-
-   Each value indicates the selected available-value, in the same order
-   as the variants listed in the Variants header field.
+   Each member of the list contains the selected available-value(s), in
+   the same order as the variants listed in the Variants header field.
 
    Therefore, Variant-Key MUST be the same length (in comma-separated
    members) as Variants, and each member MUST correspond in position to
@@ -349,50 +356,63 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
    For example:
 
-   Variants: Content-Encoding;gzip;br, Content-Language;en ;fr
+   Variants: Accept-Encoding;gzip;br, Accept-Language;en ;fr
    Variant-Key: gzip, fr
 
    This header pair indicates that the representation has a "gzip"
    content-coding and "fr" content-language.
 
-   Note that Variant-Key is only used to indicate what request
-   attributes are associated with the response containing it; this is
-   different from headers like Content-Encoding, which indicate
-   attributes of the response itself.  In the example above, it might be
-   that a gzip'd version of the French content is not available, in
-   which case the response will include:
+   A more complex example involves listing multiple available-values in
+   a list member, to indicate that the response can be used to satisfy
+   requests with any of those values.  For example:
 
-   Variant-Key: gzip, fr
+   Variants: Content-Encoding;gzip;br, Content-Language;en ;fr
+   Variant-Key: gzip;identity, fr
 
-   even though Content-Encoding does not contain "gzip".
+   indicates that this response can be used for requests whose Content-
+   Encoding algorithm selects "gzip" or "identity", as long as the
+   Content-Language algorithm selects "fr" - perhaps because there is no
+   gzip-compressed French representation.
 
-3.1.  Generating a Normalised Variant-Key
+   This highlights an important aspect of Variant-Key; it is only used
+   to indicate what request attributes are associated with the response
+   containing it; this is different from headers like Content-Encoding,
+   which indicate attributes of the response itself.
 
-   This algorithm generates a normalised string for Variant-Key,
-   suitable for comparison with values generated by Section 4.
+3.1.  Generating a Variant-Key List
+
+   This algorithm generates a list of normalised strings from Variant-
+   Key, suitable for comparison with values generated by Section 4.
 
    Given stored-headers, a set of headers from a stored response, a
-   normalised variant-key for that message can be generated by:
+   normalised list of variant-keys for that message can be generated by:
 
-   1.  Let variant-key-header be a string, the result of selecting all
+
+
+Nottingham              Expires November 16, 2018               [Page 7]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
+   1.  Let variant-keys be an empty list.
+
+   2.  Let variant-key-header be a string, the result of selecting all
        field-values of stored-headers whose field-name is "Variant-Key"
        and joining them with a comma (",").
 
-   2.  Remove all whitespace from variant-key-header.
+   3.  Let value-list be the result of splitting variant-key-header on
+       commas (",").
 
-   3.  Return variant-key-header.
+   4.  For each value in value-list:
 
+       1.  Remove all whitespace from value.
 
+       2.  Let items be the result of splitting value on ";".
 
+       3.  append items to variant-keys.
 
-
-
-
-
-Nottingham              Expires October 14, 2018                [Page 7]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
+   5.  Return the result of running Compute Possible Keys (Section 4.1)
+       on variant-keys, an empty string and an empty list.
 
 4.  Cache Behaviour
 
@@ -406,8 +426,8 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
    Given incoming-request, a mapping of field-names to lists of field
    values, and stored-responses, a list of stored responses suitable for
-   reuse as defined in [RFC7234] Section 4, excepting the requirement to
-   calculate a secondary cache key:
+   reuse as defined in Section 4 of [RFC7234], excepting the requirement
+   to calculate a secondary cache key:
 
    1.  If stored-responses is empty, return an empty list.
 
@@ -421,6 +441,15 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
        1.  Select one member of stored-responses and let its "Variants"
            header field-value(s) be variants-header.  This SHOULD be the
+
+
+
+
+Nottingham              Expires November 16, 2018               [Page 8]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
            most recent response, but MAY be from an older one as long as
            it is still fresh.
 
@@ -442,21 +471,13 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
                4.  Append sorted-values to sorted-variants.
 
-
-
-
-Nottingham              Expires October 14, 2018                [Page 8]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
-
            At this point, sorted-variants will be a list of lists, each
            member of the top-level list corresponding to a variant-item
            in the Variants header field-value, containing zero or more
            items indicating available-values that are acceptable to the
            client, in order of preference, greatest to least.
 
-   5.  Return result of running Find Available Keys (Section 4.1) on
+   5.  Return result of running Compute Possible Keys (Section 4.1) on
        sorted-variants, an empty string and an empty list.
 
    This returns a list of strings suitable for comparing to normalised
@@ -466,17 +487,24 @@ Internet-Draft        HTTP Representation Variants            April 2018
    covered by Variants) matches.  Section 4.2 illustrates one way to do
    this.
 
-4.1.  Find Available Keys
+4.1.  Compute Possible Keys
 
-   Given sorted-variants, a list of lists, and key-stub, a string
+   Given key-facets, a list of lists, and key-stub, a string
    representing a partial key, and possible-keys, a list:
 
-   1.  Let sorted-values be the first member of sorted-variants.
+   1.  Let values be the first member of key-facets.
 
-   2.  For each sorted-value in sorted-values:
+   2.  For each value in values:
 
        1.  If key-stub is an empty string, let this-key be a copy of
-           sorted-value.
+           value.
+
+
+
+Nottingham              Expires November 16, 2018               [Page 9]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
 
        2.  Otherwise:
 
@@ -484,27 +512,18 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
            2.  Append a comma (",") to this-key.
 
-           3.  Append sorted-value to this-key.
+           3.  Append value to this-key.
 
-       3.  Let remaining-variants be a copy of all of the members of
-           sorted-variants except the first.
+       3.  Let remaining-facets be a copy of all of the members of key-
+           facets except the first.
 
-       4.  If remaining-variants is empty, append this-key to possible-
+       4.  If remaining-facets is empty, append this-key to possible-
            keys.
 
-       5.  Otherwise, run Find Available Keys on remaining-variants,
-           this-key and possible-keys.
+       5.  Otherwise, run Find Available Keys on remaining-facets, this-
+           key and possible-keys.
 
    3.  Return possible-keys.
-
-
-
-
-
-Nottingham              Expires October 14, 2018                [Page 9]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
 
 4.2.  Check Vary
 
@@ -534,6 +553,15 @@ Internet-Draft        HTTP Representation Variants            April 2018
    This returns a Boolean that indicates whether stored-response can be
    used to satisfy the request.
 
+
+
+
+
+Nottingham              Expires November 16, 2018              [Page 10]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
    Note that implementation of the Vary header field varies in practice,
    and the algorithm above illustrates only one way to apply it.  It is
    equally viable to forward the request if there is a request header
@@ -551,16 +579,6 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Accept-Encoding: gzip
 
    Then the sorted-variants would be:
-
-
-
-
-
-
-Nottingham              Expires October 14, 2018               [Page 10]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
 
  [
    ["fr", "en"]           // prefers French, will accept English
@@ -591,6 +609,15 @@ Internet-Draft        HTTP Representation Variants            April 2018
    generate both the Variants (Section 2) and Variant-Key (Section 3)
    header fields in all cacheable responses for a given resource.  If
    either is omitted and the response is stored, it will have the effect
+
+
+
+
+Nottingham              Expires November 16, 2018              [Page 11]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
    of disabling caching for that resource until it is no longer stored
    (e.g., it expires, or is evicted).
 
@@ -609,15 +636,6 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
    Origin servers are advised to carefully consider which content
    negotiation mechanisms to enumerate in Variants; if a mechanism is
-
-
-
-
-Nottingham              Expires October 14, 2018               [Page 11]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
-
    not supported by a receiving cache, it will "downgrade" to Vary
    handling, which can negatively impact cache efficiency.
 
@@ -633,11 +651,12 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Host: www.example.com
    Accept-Language: en;q=1.0, fr;q=0.5
 
+
    HTTP/1.1 200 OK
    Content-Type: image/gif
    Content-Language: en
    Cache-Control: max-age=3600
-   Variants: Content-Language;en;de
+   Variants: Accept-Language;en;de
    Variant-Key: en
    Vary: Accept-Language
    Transfer-Encoding: chunked
@@ -645,6 +664,15 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Upon receipt of this response, the cache knows that two
    representations of this resource are available, one with a Content-
    Language of "en", and another whose Content-Language is "de".
+
+
+
+
+
+Nottingham              Expires November 16, 2018              [Page 12]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
 
    Subsequent requests (while this response is fresh) will cause the
    cache to either reuse this response or forward the request, depending
@@ -665,15 +693,6 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Note that Accept-Language is listed in Vary, to assure backwards-
    compatibility with caches that do not support Variants.
 
-
-
-
-
-Nottingham              Expires October 14, 2018               [Page 12]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
-
 5.1.2.  Multiple Variants
 
    A more complicated request/response pair:
@@ -683,12 +702,13 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Accept-Language: en;q=1.0, fr;q=0.5
    Accept-Encoding: gzip, br
 
+
    HTTP/1.1 200 OK
    Content-Type: image/gif
    Content-Language: en
    Content-Encoding: br
-   Variants: Content-Language;en;jp;de
-   Variants: Content-Encoding;br;gzip
+   Variants: Accept-Language;en;jp;de
+   Variants: Accept-Encoding;br;gzip
    Variant-Key: en, br
    Vary: Accept-Language, Accept-Encoding
    Transfer-Encoding: chunked
@@ -703,32 +723,32 @@ Internet-Draft        HTTP Representation Variants            April 2018
    stored representation, it can be served from cache; otherwise, the
    request will need to be forwarded to origin.
 
+
+
+Nottingham              Expires November 16, 2018              [Page 13]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
 5.1.3.  Partial Coverage
 
    Now, consider the previous example, but where only one of the Vary'd
-   axes is listed in Variants:
+   axes (Content-Encoding) is listed in Variants:
 
    GET /bar HTTP/1.1
    Host: www.example.net
    Accept-Language: en;q=1.0, fr;q=0.5
    Accept-Encoding: gzip, br
 
+
    HTTP/1.1 200 OK
    Content-Type: image/gif
    Content-Language: en
    Content-Encoding: br
-   Variants: Content-Encoding;br;gzip
+   Variants: Accept-Encoding;br;gzip
    Variant-Key: br
    Vary: Accept-Language, Accept-Encoding
    Transfer-Encoding: chunked
-
-
-
-
-Nottingham              Expires October 14, 2018               [Page 13]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
 
    Here, the cache will need to calculate a secondary cache key as per
    [RFC7234], Section 4.1 - but considering only Accept-Language to be
@@ -757,6 +777,15 @@ Internet-Draft        HTTP Representation Variants            April 2018
    Appendix A fulfils these requirements for some existing proactive
    content negotiation mechanisms in HTTP.
 
+
+
+
+
+Nottingham              Expires November 16, 2018              [Page 14]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
 7.  IANA Considerations
 
    This specification registers two values in the Permanent Message
@@ -778,14 +807,6 @@ Internet-Draft        HTTP Representation Variants            April 2018
 
    o  Applicable protocol: http
 
-
-
-
-Nottingham              Expires October 14, 2018               [Page 14]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
-
    o  Status: standard
 
    o  Author/Change Controller: IETF
@@ -804,25 +825,22 @@ Internet-Draft        HTTP Representation Variants            April 2018
    representations of a certain nature available; the runtime behaviour
    of the server always overrides hints like Variants.
 
-9.  Acknowledgments
+9.  References
 
-   This protocol is conceptually similar to, but simpler than,
-   Transparent Content Negotiation [RFC2295].  Thanks to its authors for
-   their inspiration.
-
-   It is also a generalisation of a Fastly VCL feature designed by
-   Rogier 'DocWilco' Mulhuijzen.
-
-   Thanks to Hooman Beheshti for his review and input.
-
-10.  References
-
-10.1.  Normative References
+9.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
+
+
+
+
+Nottingham              Expires November 16, 2018              [Page 15]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
 
    [RFC4647]  Phillips, A. and M. Davis, "Matching of Language Tags",
               BCP 47, RFC 4647, DOI 10.17487/RFC4647, September 2006,
@@ -832,15 +850,6 @@ Internet-Draft        HTTP Representation Variants            April 2018
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
-
-
-
-
-
-Nottingham              Expires October 14, 2018               [Page 15]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
 
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
@@ -861,7 +870,7 @@ Internet-Draft        HTTP Representation Variants            April 2018
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-10.2.  Informative References
+9.2.  Informative References
 
    [I-D.ietf-httpbis-client-hints]
               Grigorik, I., "HTTP Client Hints", draft-ietf-httpbis-
@@ -876,27 +885,22 @@ Internet-Draft        HTTP Representation Variants            April 2018
               DOI 10.17487/RFC3864, September 2004,
               <https://www.rfc-editor.org/info/rfc3864>.
 
-10.3.  URIs
+9.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
    [2] https://httpwg.github.io/
 
+
+
+Nottingham              Expires November 16, 2018              [Page 16]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
    [3] https://github.com/httpwg/http-extensions/labels/variants
 
    [4] https://github.com/mnot/variants-toy
-
-
-
-
-
-
-
-
-Nottingham              Expires October 14, 2018               [Page 16]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
 
 Appendix A.  Variants for Existing Content Negotiation Mechanisms
 
@@ -906,8 +910,8 @@ Appendix A.  Variants for Existing Content Negotiation Mechanisms
 
 A.1.  Accept
 
-   This section defines handling for Accept variants, as per [RFC7231]
-   Section 5.3.2.
+   This section defines handling for Accept variants, as per
+   Section 5.3.2 of [RFC7231].
 
    To perform content negotiation for Accept given a request-value and
    available-values:
@@ -915,8 +919,8 @@ A.1.  Accept
    1.  Let preferred-available be an empty list.
 
    2.  Let preferred-types be a list of the types in the request-value,
-       ordered by their weight, highest to lowest, as per [RFC7231]
-       Section 5.3.2 (omitting any coding with a weight of 0).  If
+       ordered by their weight, highest to lowest, as per Section 5.3.2
+       of [RFC7231] (omitting any coding with a weight of 0).  If
        "Accept" is not present or empty, preferred-types will be empty.
        If a type lacks an explicit weight, an implementation MAY assign
        one.
@@ -929,38 +933,42 @@ A.1.  Accept
 
        1.  If any member of available-values matches preferred-type,
            using the media-range matching mechanism specified in
-           [RFC7231] Section 5.3.2 (which is case-insensitive), append
-           those members of available-values to preferred-available
-           (preserving the precedence order implied by the media ranges'
-           specificity).
+           Section 5.3.2 of [RFC7231] (which is case-insensitive),
+           append those members of available-values to preferred-
+           available (preserving the precedence order implied by the
+           media ranges' specificity).
 
    5.  Return preferred-available.
 
    Note that this algorithm explicitly ignores extension parameters on
    media types (e.g., "charset").
 
+
+
+
+
+
+
+Nottingham              Expires November 16, 2018              [Page 17]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
 A.2.  Accept-Encoding
 
    This section defines handling for Accept-Encoding variants, as per
-   [RFC7231] Section 5.3.4.
+   Section 5.3.4 of [RFC7231].
 
    To perform content negotiation for Accept-Encoding given a request-
    value and available-values:
-
-
-
-Nottingham              Expires October 14, 2018               [Page 17]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
 
    1.  Let preferred-available be an empty list.
 
    2.  Let preferred-codings be a list of the codings in the request-
        value, ordered by their weight, highest to lowest, as per
-       [RFC7231] Section 5.3.1 (omitting any coding with a weight of 0).
-       If "Accept-Encoding" is not present or empty, preferred-codings
-       will be empty.  If a coding lacks an explicit weight, an
+       Section 5.3.1 of [RFC7231] (omitting any coding with a weight of
+       0).  If "Accept-Encoding" is not present or empty, preferred-
+       codings will be empty.  If a coding lacks an explicit weight, an
        implementation MAY assign one.
 
    3.  If "identity" is not a member of preferred-codings, append
@@ -977,13 +985,13 @@ Internet-Draft        HTTP Representation Variants            April 2018
    6.  Return preferred-available.
 
    Note that the unencoded variant needs to have a Variant-Key header
-   field with a value of "identity" (as defined in [RFC7231]
-   Section 5.3.4).
+   field with a value of "identity" (as defined in Section 5.3.4 of
+   [RFC7231]).
 
 A.3.  Accept-Language
 
    This section defines handling for Accept-Language variants, as per
-   [RFC7231] Section 5.3.5.
+   Section 5.3.5 of [RFC7231].
 
    To perform content negotiation for Accept-Language given a request-
    value and available-values:
@@ -992,7 +1000,16 @@ A.3.  Accept-Language
 
    2.  Let preferred-langs be a list of the language-ranges in the
        request-value, ordered by their weight, highest to lowest, as per
-       [RFC7231] Section 5.3.1 (omitting any language-range with a
+       Section 5.3.1 of [RFC7231] (omitting any language-range with a
+
+
+
+
+Nottingham              Expires November 16, 2018              [Page 18]
+
+Internet-Draft        HTTP Representation Variants              May 2018
+
+
        weight of 0).  If a language-range lacks a weight, an
        implementation MAY assign one.
 
@@ -1002,20 +1019,24 @@ A.3.  Accept-Language
 
    4.  For each preferred-lang in preferred-langs:
 
-
-
-
-Nottingham              Expires October 14, 2018               [Page 18]
-
-Internet-Draft        HTTP Representation Variants            April 2018
-
-
        1.  If any member of available-values matches preferred-lang,
            using either the Basic or Extended Filtering scheme defined
-           in [RFC4647] Section 3.3, append those members of available-
-           values to preferred-available (preserving their order).
+           in Section 3.3 of [RFC4647], append those members of
+           available-values to preferred-available (preserving their
+           order).
 
    5.  Return preferred-available.
+
+Acknowledgements
+
+   This protocol is conceptually similar to, but simpler than,
+   Transparent Content Negotiation [RFC2295].  Thanks to its authors for
+   their inspiration.
+
+   It is also a generalisation of a Fastly VCL feature designed by
+   Rogier 'DocWilco' Mulhuijzen.
+
+   Thanks to Hooman Beheshti for his review and input.
 
 Author's Address
 
@@ -1040,25 +1061,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Nottingham              Expires October 14, 2018               [Page 19]
+Nottingham              Expires November 16, 2018              [Page 19]
