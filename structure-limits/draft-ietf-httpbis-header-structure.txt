@@ -5,8 +5,8 @@
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P-H. Kamp
-Expires: November 16, 2018                     The Varnish Cache Project
-                                                            May 15, 2018
+Expires: November 17, 2018                     The Varnish Cache Project
+                                                            May 16, 2018
 
 
                       Structured Headers for HTTP
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 1]
+Nottingham & Kamp       Expires November 17, 2018               [Page 1]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -61,7 +61,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 16, 2018.
+   This Internet-Draft will expire on November 17, 2018.
 
 Copyright Notice
 
@@ -99,17 +99,17 @@ Table of Contents
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  17
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  17
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  18
-     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  19
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  18
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  19
      A.1.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  19
      A.2.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  19
      A.3.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  19
      A.4.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  19
-     A.5.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  20
+     A.5.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  19
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 2]
+Nottingham & Kamp       Expires November 17, 2018               [Page 2]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -165,7 +165,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 3]
+Nottingham & Kamp       Expires November 17, 2018               [Page 3]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -221,7 +221,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 4]
+Nottingham & Kamp       Expires November 17, 2018               [Page 4]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -277,7 +277,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 5]
+Nottingham & Kamp       Expires November 17, 2018               [Page 5]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -333,7 +333,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 6]
+Nottingham & Kamp       Expires November 17, 2018               [Page 6]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -389,7 +389,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 7]
+Nottingham & Kamp       Expires November 17, 2018               [Page 7]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -445,7 +445,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 8]
+Nottingham & Kamp       Expires November 17, 2018               [Page 8]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -501,7 +501,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018               [Page 9]
+Nottingham & Kamp       Expires November 17, 2018               [Page 9]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -557,7 +557,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018              [Page 10]
+Nottingham & Kamp       Expires November 17, 2018              [Page 10]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -613,7 +613,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018              [Page 11]
+Nottingham & Kamp       Expires November 17, 2018              [Page 11]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -669,7 +669,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018              [Page 12]
+Nottingham & Kamp       Expires November 17, 2018              [Page 12]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -725,7 +725,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018              [Page 13]
+Nottingham & Kamp       Expires November 17, 2018              [Page 13]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -781,7 +781,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018              [Page 14]
+Nottingham & Kamp       Expires November 17, 2018              [Page 14]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -810,11 +810,11 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 4.8.  Identifiers
 
-   Identifiers are short (one to 256 characters) textual identifiers;
-   their abstract model is identical to their expression in the textual
-   HTTP serialisation.
+   Identifiers are short textual identifiers; their abstract model is
+   identical to their expression in the textual HTTP serialisation.
+   Parsers MUST support identifiers with at least 64 characters.
 
-   identifier = lcalpha 0*255( lcalpha / DIGIT / "_" / "-"/ "*" / "/" )
+   identifier = lcalpha 1*( lcalpha / DIGIT / "_" / "-"/ "*" / "/" )
    lcalpha    = %x61-7A ; a-z
 
    Note that identifiers can only contain lowercase letters.
@@ -837,7 +837,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
 
 
-Nottingham & Kamp       Expires November 16, 2018              [Page 15]
+Nottingham & Kamp       Expires November 17, 2018              [Page 15]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
@@ -849,9 +849,6 @@ Internet-Draft         Structured Headers for HTTP              May 2018
            2.  Return output_string.
 
        3.  Append char to output_string.
-
-       4.  If output_string contains more than 256 characters, fail
-           parsing.
 
    4.  Return output_string.
 
@@ -888,20 +885,18 @@ Internet-Draft         Structured Headers for HTTP              May 2018
    Parsers MUST support binary content with at least 16384 octets after
    decoding.
 
-
-
-
-
-
-Nottingham & Kamp       Expires November 16, 2018              [Page 16]
-
-Internet-Draft         Structured Headers for HTTP              May 2018
-
-
 4.9.1.  Parsing Binary Content from Text
 
    Given an ASCII string input_string, return binary content.
    input_string is modified to remove the parsed value.
+
+
+
+
+Nottingham & Kamp       Expires November 17, 2018              [Page 16]
+
+Internet-Draft         Structured Headers for HTTP              May 2018
+
 
    1.  If the first character of input_string is not "*", fail parsing.
 
@@ -945,19 +940,19 @@ Internet-Draft         Structured Headers for HTTP              May 2018
               RFC 20, DOI 10.17487/RFC0020, October 1969,
               <https://www.rfc-editor.org/info/rfc20>.
 
-
-
-
-
-Nottingham & Kamp       Expires November 16, 2018              [Page 17]
-
-Internet-Draft         Structured Headers for HTTP              May 2018
-
-
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
+
+
+
+
+
+Nottingham & Kamp       Expires November 17, 2018              [Page 17]
+
+Internet-Draft         Structured Headers for HTTP              May 2018
+
 
    [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
               Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
@@ -1001,20 +996,19 @@ Internet-Draft         Structured Headers for HTTP              May 2018
               DOI 10.17487/RFC7540, May 2015,
               <https://www.rfc-editor.org/info/rfc7540>.
 
-
-
-
-
-Nottingham & Kamp       Expires November 16, 2018              [Page 18]
-
-Internet-Draft         Structured Headers for HTTP              May 2018
-
-
 7.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
    [2] https://httpwg.github.io/
+
+
+
+
+Nottingham & Kamp       Expires November 17, 2018              [Page 18]
+
+Internet-Draft         Structured Headers for HTTP              May 2018
+
 
    [3] https://github.com/httpwg/http-extensions/labels/header-structure
 
@@ -1056,16 +1050,6 @@ A.4.  Since draft-ietf-httpbis-header-structure-01
 
    o  Replaced with draft-nottingham-structured-headers.
 
-
-
-
-
-
-Nottingham & Kamp       Expires November 16, 2018              [Page 19]
-
-Internet-Draft         Structured Headers for HTTP              May 2018
-
-
 A.5.  Since draft-ietf-httpbis-header-structure-00
 
    o  Added signed 64bit integer type.
@@ -1074,6 +1058,13 @@ A.5.  Since draft-ietf-httpbis-header-structure-00
       unicode-string.
 
    o  Change h1_blob delimiter to ":" since "'" is valid t_char
+
+
+
+Nottingham & Kamp       Expires November 17, 2018              [Page 19]
+
+Internet-Draft         Structured Headers for HTTP              May 2018
+
 
 Authors' Addresses
 
@@ -1117,4 +1108,13 @@ Authors' Addresses
 
 
 
-Nottingham & Kamp       Expires November 16, 2018              [Page 20]
+
+
+
+
+
+
+
+
+
+Nottingham & Kamp       Expires November 17, 2018              [Page 20]
