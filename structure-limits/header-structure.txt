@@ -814,7 +814,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
    identical to their expression in the textual HTTP serialisation.
    Parsers MUST support identifiers with at least 64 characters.
 
-   identifier = lcalpha 1*( lcalpha / DIGIT / "_" / "-"/ "*" / "/" )
+   identifier = lcalpha *( lcalpha / DIGIT / "_" / "-"/ "*" / "/" )
    lcalpha    = %x61-7A ; a-z
 
    Note that identifiers can only contain lowercase letters.
