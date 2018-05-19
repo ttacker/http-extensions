@@ -120,9 +120,10 @@ Internet-Draft                  Expect-CT                       May 2018
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  18
      9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  18
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  18
-     A.1.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  18
-     A.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  18
-     A.3.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  18
+     A.1.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  18
+     A.2.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  18
+     A.3.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  18
+     A.4.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  19
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  19
 
 1.  Introduction
@@ -159,7 +160,6 @@ Internet-Draft                  Expect-CT                       May 2018
    unlogged certificates after the initial communication, and 2)
    allowing web hosts to be confident that UAs are only trusting
    publicly-auditable certificates.
-
 
 
 
@@ -982,7 +982,11 @@ Internet-Draft                  Expect-CT                       May 2018
 
 Appendix A.  Changes
 
-A.1.  Since -02
+A.1.  Since -03
+
+   o  Editorial changes
+
+A.2.  Since -02
 
    o  Add concept of test reports and specify that servers must respond
       with 2xx status codes to valid reports.
@@ -990,17 +994,13 @@ A.1.  Since -02
    o  Add "failure-mode" key to reports to allow report servers to
       distinguish report-only from enforced failures.
 
-A.2.  Since -01
+A.3.  Since -01
 
    o  Change SCT reporting format to support both RFC 6962 and 6962-bis
       SCTs.
 
-A.3.  Since -00
 
-   o  Editorial changes
 
-   o  Change Content-Type header of reports to 'application/expect-ct-
-      report+json'
 
 
 
@@ -1009,6 +1009,13 @@ Stark                   Expires November 20, 2018              [Page 18]
 
 Internet-Draft                  Expect-CT                       May 2018
 
+
+A.4.  Since -00
+
+   o  Editorial changes
+
+   o  Change Content-Type header of reports to 'application/expect-ct-
+      report+json'
 
    o  Update header field syntax to match convention (issue #327)
 
@@ -1020,13 +1027,6 @@ Author's Address
    Google
 
    Email: estark@google.com
-
-
-
-
-
-
-
 
 
 
