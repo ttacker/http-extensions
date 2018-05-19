@@ -12486,17 +12486,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2017-11-17T16:41:36Z",
-    "updated_at": "2018-04-06T02:01:21Z",
-    "closed_at": null,
+    "updated_at": "2018-05-19T15:58:16Z",
+    "closed_at": "2018-05-19T15:58:16Z",
     "author_association": "NONE",
     "body": "It would provide immense security value and ease of deployment.\r\n\r\nCookies are sent across all sub domains; so if example.com has auth cookies, a malicious actor can compromise a CA and create a \"$random.example.com\" cert and serve it to get a user's cookies. Since example.com never knew about nor had ever served $random.example.com, the UA won't enforce CT requirement on this domain. This would mean a cert that's not on a CT log would work fine to get the user's cookies.\r\n"
   },
@@ -15058,7 +15058,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -15067,8 +15067,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2017-08-15T07:25:00Z",
-    "updated_at": "2018-05-07T23:09:27Z",
-    "closed_at": null,
+    "updated_at": "2018-05-19T16:18:54Z",
+    "closed_at": "2018-05-19T16:18:54Z",
     "author_association": "MEMBER",
     "body": "The spec currently references both HTML-the-living-spec (with potentially incorrect author information), and HTML 4.01. Only the latter is actually used."
   },
@@ -16631,7 +16631,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "estark37",
@@ -16676,8 +16676,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2017-06-19T23:06:35Z",
-    "updated_at": "2017-06-19T23:06:35Z",
-    "closed_at": null,
+    "updated_at": "2018-05-19T16:00:31Z",
+    "closed_at": "2018-05-19T16:00:31Z",
     "author_association": "MEMBER",
     "body": "To support both 6962 and 6962-bis clients, we should allow Expect-CT reports to contain both v1 and v2 SCTs. One way to do that is include SCTs as a JSON object:\r\n```\r\nversion: 1 / 2,\r\nserialized_sct: <base64-encoded serialized SignedCertificateTimestamp from 6962> / <base64-encoded serialized TransItem struct from 6962-bis>\r\n```"
   },
@@ -16784,17 +16784,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 14,
+    "comments": 15,
     "created_at": "2017-05-30T17:38:57Z",
-    "updated_at": "2017-07-19T14:32:32Z",
-    "closed_at": null,
+    "updated_at": "2018-05-19T15:59:52Z",
+    "closed_at": "2018-05-19T15:59:52Z",
     "author_association": "MEMBER",
     "body": "Background for this issue is in https://github.com/bifurcation/expect-ct/issues/18, where it is argued that Expect-CT reports should have a special Content-Type, like Content Security Policy reports, but it is also argued that they should be sent with CORS preflights when Expect-CT is implemented by a web browser, since they are not a whitelisted safe request.\r\n\r\nUnfortunately, implementing preflights for Expect-CT reports probably can't be done in Chrome in any reasonable amount of time, and would probably be difficult for other implementors as well. Expect-CT is checked at connection setup time, completely divorced from any context from which we can construct an `Origin` header.\r\n\r\nTherefore I think we need to resort to using `application/x-www-form-urlencoded` for reports, if we want Expect-CT to be reasonably implementable in a web browser without violating the SOP.\r\n\r\n@scotthelme @mikewest @eranmes"
   },
