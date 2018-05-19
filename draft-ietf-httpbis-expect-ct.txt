@@ -181,42 +181,42 @@ Internet-Draft                  Expect-CT                       May 2018
 
    Terminology is defined in this section.
 
-   Certificate Transparency Policy  is a policy defined by the UA
+   o  "Certificate Transparency Policy" is a policy defined by the UA
       concerning the number, sources, and delivery mechanisms of Signed
       Certificate Timestamps that are served on TLS connections.  The
       policy defines the properties of a connection that must be met in
       order for the UA to consider it CT-qualified.
 
-   Certificate Transparency Qualified  describes a TLS connection for
-      which the UA has determined that a sufficient quantity and quality
-      of Signed Certificate Timestamps have been provided.
+   o  "Certificate Transparency Qualified" describes a TLS connection
+      for which the UA has determined that a sufficient quantity and
+      quality of Signed Certificate Timestamps have been provided.
 
-   CT-qualified  See Certificate Transparency Qualified.
+   o  "CT-qualified" is an abbreviation for "Certificate Transparency
+      Qualified".
 
-   CT Policy  See Certificate Transparency Policy.
+   o  "CT Policy" is an abbreviation for "Certificate Transparency
+      Policy".
 
-   Effective Expect-CT Date  is the time at which a UA observed a valid
-      Expect-CT header field for a given host.
+   o  "Effective Expect-CT Date" is the time at which a UA observed a
+      valid Expect-CT header field for a given host.
 
-   Expect-CT Host  See HTTP Expect-CT Host.
+   o  "Expect-CT Host" is a conformant host implementing the HTTP server
+      aspects of Expect-CT.  This means that an Expect-CT Host returns
+      the "Expect-CT" HTTP response header field in its HTTP response
+      messages sent over secure transport.
 
-   HTTP Expect-CT  is the overall name for the combined UA- and server-
-      side security policy defined by this specification.
+   o  "Known Expect-CT Host" is an Expect-CT Host that the UA has noted
+      as such.  See Section 2.3.3 for particulars.
 
-   HTTP Expect-CT Host  is a conformant host implementing the HTTP
-      server aspects of HTTP Expect-CT.  This means that an Expect-CT
-      Host returns the "Expect-CT" HTTP response header field in its
-      HTTP response messages sent over secure transport.
-
-   Known Expect-CT Host  is an Expect-CT Host that the UA has noted as
-      such.  See Section 2.3.3 for particulars.
-
-   UA is an acronym for "user agent".  For the purposes of this
+   o  UA is an acronym for "user agent".  For the purposes of this
       specification, a UA is an HTTP client application typically
       actively manipulated by a user [RFC7230].
 
-   Unknown Expect-CT Host  is an Expect-CT Host that the UA has not
+   o  "Unknown Expect-CT Host" is an Expect-CT Host that the UA has not
       noted.
+
+
+
 
 
 
@@ -365,9 +365,9 @@ Internet-Draft                  Expect-CT                       May 2018
    The following examples demonstrate valid Expect-CT response header
    fields:
 
-Expect-CT: max-age=86400,enforce
+Expect-CT: max-age=86400, enforce
 
-Expect-CT: max-age=86400, enforce, report-uri="https://foo.example/report"
+Expect-CT: max-age=86400,enforce,report-uri="https://foo.example/report"
 
 Expect-CT: max-age=86400,report-uri="https://foo.example/report"
 
