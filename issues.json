@@ -2626,7 +2626,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -2635,8 +2635,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-04-12T02:07:49Z",
-    "updated_at": "2018-05-16T04:01:31Z",
-    "closed_at": null,
+    "updated_at": "2018-05-21T06:49:47Z",
+    "closed_at": "2018-05-21T06:49:47Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/578",
@@ -15065,9 +15065,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2017-08-15T07:25:00Z",
-    "updated_at": "2018-05-19T16:18:54Z",
+    "updated_at": "2018-05-21T06:05:39Z",
     "closed_at": "2018-05-19T16:18:54Z",
     "author_association": "MEMBER",
     "body": "The spec currently references both HTML-the-living-spec (with potentially incorrect author information), and HTML 4.01. Only the latter is actually used."
