@@ -115,14 +115,14 @@ Internet-Draft                  Expect-CT                       May 2018
 
 
      8.1.  HTTP Header . . . . . . . . . . . . . . . . . . . . . . .  16
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  16
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  16
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  17
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  17
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  18
      9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  18
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  18
-     A.1.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  18
-     A.2.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  18
-     A.3.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  18
+     A.1.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  19
+     A.2.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  19
+     A.3.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  19
      A.4.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  19
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  19
 
@@ -854,7 +854,21 @@ Internet-Draft                  Expect-CT                       May 2018
 
 6.  IANA Considerations
 
-   TBD
+   This document registers the "Expect-CT" header field in the "Message
+   Headers" registry located at https://www.iana.org/assignments/
+   message-headers [4].
+
+   Header field name:  Expect-CT
+
+   Applicable protocol:  http
+
+   Status:  standard
+
+   Author/Change controller:  IETF
+
+   Specification document(s):  This document
+
+   Related information:  (empty)
 
 7.  Usability Considerations
 
@@ -876,6 +890,14 @@ Internet-Draft                  Expect-CT                       May 2018
    requires certificate authorities to support them, and new TLS
    extensions require server software updates, including possibly to
    servers outside of the site owner's direct control (such as in the
+
+
+
+Stark                   Expires November 24, 2018              [Page 16]
+
+Internet-Draft                  Expect-CT                       May 2018
+
+
    case of a third-party CDN).  Ease of deployment is a high priority
    for Expect-CT because it is intended as a temporary transition
    mechanism for user agents that are transitioning to universal
@@ -890,13 +912,6 @@ Internet-Draft                  Expect-CT                       May 2018
               Stradling, "Certificate Transparency Version 2.0", draft-
               ietf-trans-rfc6962-bis-27 (work in progress), October
               2017.
-
-
-
-Stark                   Expires November 24, 2018              [Page 16]
-
-Internet-Draft                  Expect-CT                       May 2018
-
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -930,6 +945,15 @@ Internet-Draft                  Expect-CT                       May 2018
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
               <https://www.rfc-editor.org/info/rfc6962>.
 
+
+
+
+
+Stark                   Expires November 24, 2018              [Page 17]
+
+Internet-Draft                  Expect-CT                       May 2018
+
+
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
@@ -943,16 +967,6 @@ Internet-Draft                  Expect-CT                       May 2018
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
               April 2015, <https://www.rfc-editor.org/info/rfc7468>.
-
-
-
-
-
-
-Stark                   Expires November 24, 2018              [Page 17]
-
-Internet-Draft                  Expect-CT                       May 2018
-
 
 9.2.  Informative References
 
@@ -980,7 +994,21 @@ Internet-Draft                  Expect-CT                       May 2018
 
    [3] https://github.com/httpwg/http-extensions/labels/expect-ct
 
+   [4] https://www.iana.org/assignments/message-headers
+
 Appendix A.  Changes
+
+
+
+
+
+
+
+
+Stark                   Expires November 24, 2018              [Page 18]
+
+Internet-Draft                  Expect-CT                       May 2018
+
 
 A.1.  Since -03
 
@@ -999,17 +1027,6 @@ A.3.  Since -01
    o  Change SCT reporting format to support both RFC 6962 and 6962-bis
       SCTs.
 
-
-
-
-
-
-
-Stark                   Expires November 24, 2018              [Page 18]
-
-Internet-Draft                  Expect-CT                       May 2018
-
-
 A.4.  Since -00
 
    o  Editorial changes
@@ -1027,23 +1044,6 @@ Author's Address
    Google
 
    Email: estark@google.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
