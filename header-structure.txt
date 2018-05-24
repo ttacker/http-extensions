@@ -1033,6 +1033,8 @@ A.1.  Since draft-ietf-httpbis-header-structure-04
 
    o  Remove most limits on sizes.
 
+   o  Refine number parsing.
+
 A.2.  Since draft-ietf-httpbis-header-structure-03
 
    o  Strengthen language around failure handling.
@@ -1056,8 +1058,6 @@ A.3.  Since draft-ietf-httpbis-header-structure-02
    o  Require parsers to combine header fields before processing.
 
    o  Throw an error on trailing garbage.
-
-
 
 
 
