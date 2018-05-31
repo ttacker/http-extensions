@@ -37,6 +37,9 @@ Note to Readers
    Tests for implementations are collected at https://github.com/httpwg/
    structured-header-tests [4].
 
+   Implementations are tracked at https://github.com/httpwg/wiki/wiki/
+   Structured-Headers [5].
+
 Status of This Memo
 
    This Internet-Draft is submitted in full conformance with the
@@ -47,9 +50,6 @@ Status of This Memo
    working documents as Internet-Drafts.  The list of current Internet-
    Drafts is at https://datatracker.ietf.org/drafts/current/.
 
-   Internet-Drafts are draft documents valid for a maximum of six months
-   and may be updated, replaced, or obsoleted by other documents at any
-
 
 
 
@@ -58,6 +58,8 @@ Nottingham & Kamp       Expires December 2, 2018                [Page 1]
 Internet-Draft         Structured Headers for HTTP              May 2018
 
 
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
@@ -104,8 +106,6 @@ Table of Contents
      A.1.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  19
      A.2.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  19
      A.3.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  19
-     A.4.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  20
-     A.5.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  20
 
 
 
@@ -114,6 +114,8 @@ Nottingham & Kamp       Expires December 2, 2018                [Page 2]
 Internet-Draft         Structured Headers for HTTP              May 2018
 
 
+     A.4.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  20
+     A.5.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  20
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  20
 
 1.  Introduction
@@ -157,8 +159,6 @@ Internet-Draft         Structured Headers for HTTP              May 2018
    Those abstract types can be serialised into textual headers - such as
    those used in HTTP/1 and HTTP/2 - using the algorithms described in
    Section 3.
-
-
 
 
 
@@ -990,7 +990,7 @@ Internet-Draft         Structured Headers for HTTP              May 2018
               ISBN 978-0-7381-5752-8, August 2008,
               <http://ieeexplore.ieee.org/document/4610935/>.
 
-              See also http://grouper.ieee.org/groups/754/ [5].
+              See also http://grouper.ieee.org/groups/754/ [6].
 
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
@@ -1025,6 +1025,8 @@ Internet-Draft         Structured Headers for HTTP              May 2018
 
    [4] https://github.com/httpwg/structured-header-tests
 
+   [5] https://github.com/httpwg/wiki/wiki/Structured-Headers
+
 Appendix A.  Changes
 
 A.1.  Since draft-ietf-httpbis-header-structure-04
@@ -1057,14 +1059,14 @@ A.3.  Since draft-ietf-httpbis-header-structure-02
 
    o  Require parsers to combine header fields before processing.
 
-   o  Throw an error on trailing garbage.
-
 
 
 Nottingham & Kamp       Expires December 2, 2018               [Page 19]
 
 Internet-Draft         Structured Headers for HTTP              May 2018
 
+
+   o  Throw an error on trailing garbage.
 
 A.4.  Since draft-ietf-httpbis-header-structure-01
 
@@ -1092,8 +1094,6 @@ Authors' Addresses
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
 
 
 
