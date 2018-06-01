@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                              May 31, 2018
+Internet-Draft                                              June 1, 2018
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: December 2, 2018
+Expires: December 3, 2018
 
 
                       Building Protocols with HTTP
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 2, 2018.
+   This Internet-Draft will expire on December 3, 2018.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Nottingham              Expires December 2, 2018                [Page 1]
+Nottingham              Expires December 3, 2018                [Page 1]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham              Expires December 2, 2018                [Page 2]
+Nottingham              Expires December 3, 2018                [Page 2]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  29
@@ -165,9 +165,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018                [Page 3]
+Nottingham              Expires December 3, 2018                [Page 3]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    o  How can the maximum value be extracted from the use of HTTP?
@@ -221,9 +221,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018                [Page 4]
+Nottingham              Expires December 3, 2018                [Page 4]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    An application might not be using HTTP according to this definition,
@@ -277,9 +277,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018                [Page 5]
+Nottingham              Expires December 3, 2018                [Page 5]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    semantics are expressed in the payload; mostly, in the body, but also
@@ -333,9 +333,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018                [Page 6]
+Nottingham              Expires December 3, 2018                [Page 6]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    Using links also offers a form of cache invalidation that's seen on
@@ -389,9 +389,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018                [Page 7]
+Nottingham              Expires December 3, 2018                [Page 7]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 4.1.  Specifying the Use of HTTP
@@ -445,9 +445,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018                [Page 8]
+Nottingham              Expires December 3, 2018                [Page 8]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    o  The behaviour of resources, as identified by link relations
@@ -501,9 +501,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018                [Page 9]
+Nottingham              Expires December 3, 2018                [Page 9]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    o  Certificates - Applications using HTTP MUST specify that TLS
@@ -557,9 +557,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 10]
+Nottingham              Expires December 3, 2018               [Page 10]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 4.4.1.  Initial URL Discovery
@@ -613,9 +613,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 11]
+Nottingham              Expires December 3, 2018               [Page 11]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
       using a new scheme to assure that requests don't get sent to a
@@ -669,9 +669,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 12]
+Nottingham              Expires December 3, 2018               [Page 12]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    While historically some applications (e.g., [RFC4791]) have defined
@@ -725,9 +725,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 13]
+Nottingham              Expires December 3, 2018               [Page 13]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 4.5.2.  OPTIONS
@@ -781,9 +781,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 14]
+Nottingham              Expires December 3, 2018               [Page 14]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    present, when an implementation is overloaded, or it thinks it is
@@ -837,9 +837,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 15]
+Nottingham              Expires December 3, 2018               [Page 15]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    When authors believe that a new status code is required, they are
@@ -893,9 +893,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 16]
+Nottingham              Expires December 3, 2018               [Page 16]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    Generally, when a redirected request is made, its header fields are
@@ -949,9 +949,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 17]
+Nottingham              Expires December 3, 2018               [Page 17]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    that the "Location" header has a special meaning in a certain
@@ -1005,9 +1005,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 18]
+Nottingham              Expires December 3, 2018               [Page 18]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    Stale responses can be refreshed by assigning a validator, saving
@@ -1061,9 +1061,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 19]
+Nottingham              Expires December 3, 2018               [Page 19]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    When an application has a need to express a lifetime that's separate
@@ -1117,9 +1117,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 20]
+Nottingham              Expires December 3, 2018               [Page 20]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 4.12.  Co-Existing with Web Browsing
@@ -1173,9 +1173,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 21]
+Nottingham              Expires December 3, 2018               [Page 21]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
       compression space; if the attacker has access to the path of the
@@ -1229,9 +1229,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 22]
+Nottingham              Expires December 3, 2018               [Page 22]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    To enable this, when specifying the use of Cookies, HTTP
@@ -1285,9 +1285,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 23]
+Nottingham              Expires December 3, 2018               [Page 23]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    Applications using server push directly need to enforce the
@@ -1341,9 +1341,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 24]
+Nottingham              Expires December 3, 2018               [Page 24]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    result that they do not benefit from patches and other security
@@ -1397,9 +1397,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 25]
+Nottingham              Expires December 3, 2018               [Page 25]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    [RFC7232]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
@@ -1453,9 +1453,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 26]
+Nottingham              Expires December 3, 2018               [Page 26]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
@@ -1466,8 +1466,8 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
-              draft-ietf-httpbis-header-structure-04 (work in progress),
-              March 2018.
+              draft-ietf-httpbis-header-structure-05 (work in progress),
+              May 2018.
 
    [REFERRER-POLICY]
               Eisinger, J. and E. Stark, "Referrer Policy", World Wide
@@ -1509,9 +1509,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 27]
+Nottingham              Expires December 3, 2018               [Page 27]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    [RFC6415]  Hammer-Lahav, E., Ed. and B. Cook, "Web Host Metadata",
@@ -1565,9 +1565,9 @@ Internet-Draft        Building Protocols with HTTP              May 2018
 
 
 
-Nottingham              Expires December 2, 2018               [Page 28]
+Nottingham              Expires December 3, 2018               [Page 28]
 
-Internet-Draft        Building Protocols with HTTP              May 2018
+Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
@@ -1621,4 +1621,4 @@ Author's Address
 
 
 
-Nottingham              Expires December 2, 2018               [Page 29]
+Nottingham              Expires December 3, 2018               [Page 29]
