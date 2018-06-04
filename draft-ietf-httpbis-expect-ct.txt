@@ -105,7 +105,7 @@ Table of Contents
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
    7.  Usability Considerations  . . . . . . . . . . . . . . . . . .  16
    8.  Authoring Considerations  . . . . . . . . . . . . . . . . . .  16
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  17
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  16
 
 
 
@@ -114,15 +114,16 @@ Stark                   Expires December 6, 2018                [Page 2]
 Internet-Draft                  Expect-CT                      June 2018
 
 
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  17
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  16
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  18
      9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  18
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  18
-     A.1.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  18
-     A.2.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  18
-     A.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  18
-     A.4.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  19
-     A.5.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  19
+     A.1.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  18
+     A.2.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  18
+     A.3.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  18
+     A.4.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  19
+     A.5.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  19
+     A.6.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  19
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  19
 
 1.  Introduction
@@ -159,7 +160,6 @@ Internet-Draft                  Expect-CT                      June 2018
    unlogged certificates after the initial communication, and 2)
    allowing web hosts to be confident that UAs are only trusting
    publicly-auditable certificates.
-
 
 
 
@@ -203,7 +203,8 @@ Internet-Draft                  Expect-CT                      June 2018
    o  "Expect-CT Host" is a conformant host implementing the HTTP server
       aspects of Expect-CT.  This means that an Expect-CT Host returns
       the "Expect-CT" HTTP response header field in its HTTP response
-      messages sent over secure transport.
+      messages sent over secure transport.  The term "host" is
+      equivalent to "server" in this specification.
 
    o  "Known Expect-CT Host" is an Expect-CT Host that the UA has noted
       as such.  See Section 2.3.2 for particulars.
@@ -214,7 +215,6 @@ Internet-Draft                  Expect-CT                      June 2018
 
    o  "Unknown Expect-CT Host" is an Expect-CT Host that the UA has not
       noted.
-
 
 
 
@@ -536,17 +536,13 @@ Internet-Draft                  Expect-CT                      June 2018
 2.4.  Evaluating Expect-CT Connections for CT Compliance
 
    When a UA connects to a Known Expect-CT Host using a TLS connection,
-   if the TLS connection has errors, the UA MUST terminate the
-   connection without allowing the user to proceed anyway.  (This
-   behavior is the same as that required by [RFC6797].)
-
-   If the connection has no errors, then the UA will apply an additional
-   correctness check: compliance with a CT Policy.  A UA should evaluate
-   compliance with its CT Policy whenever connecting to a Known Expect-
-   CT Host, as soon as possible.  It is acceptable to skip this CT
-   compliance check for some hosts according to local policy.  For
-   example, a UA may disable CT compliance checks for hosts whose
-   validated certificate chain terminates at a user-defined trust
+   if the TLS connection has no errors, then the UA will apply an
+   additional correctness check: compliance with a CT Policy.  A UA
+   should evaluate compliance with its CT Policy whenever connecting to
+   a Known Expect-CT Host, as soon as possible.  It is acceptable to
+   skip this CT compliance check for some hosts according to local
+   policy.  For example, a UA may disable CT compliance checks for hosts
+   whose validated certificate chain terminates at a user-defined trust
    anchor, rather than a trust anchor built-in to the UA (or underlying
    platform).
 
@@ -555,6 +551,10 @@ Internet-Draft                  Expect-CT                      June 2018
    CT Hosts in its cache and not treat such hosts as Known Expect-CT
    hosts.
 
+   If a connection to a Known Expect-CT Host violates the UA's CT policy
+   (i.e., the connection is not CT-qualified), and if the Known Expect-
+   CT Host's Expect-CT metadata indicates an "enforce" configuration,
+
 
 
 Stark                   Expires December 6, 2018               [Page 10]
@@ -562,9 +562,6 @@ Stark                   Expires December 6, 2018               [Page 10]
 Internet-Draft                  Expect-CT                      June 2018
 
 
-   If a connection to a Known Expect-CT Host violates the UA's CT policy
-   (i.e., the connection is not CT-qualified), and if the Known Expect-
-   CT Host's Expect-CT metadata indicates an "enforce" configuration,
    the UA MUST treat the CT compliance failure as a non-recoverable
    error.
 
@@ -597,7 +594,7 @@ Internet-Draft                  Expect-CT                      June 2018
 3.1.  Generating a violation report
 
    To generate a violation report object, the UA constructs a JSON
-   object with the following keys and values:
+   [RFC8259] object with the following keys and values:
 
    o  "date-time": the value for this key indicates the time the UA
       observed the CT compliance failure.  The value is a string
@@ -608,6 +605,9 @@ Internet-Draft                  Expect-CT                      June 2018
       original request that failed the CT compliance check.  The value
       is provided as a string.
 
+   o  "port": the value is the port to which the UA made the original
+      request that failed the CT compliance check.  The value is
+      provided as an integer.
 
 
 
@@ -617,10 +617,6 @@ Stark                   Expires December 6, 2018               [Page 11]
 
 Internet-Draft                  Expect-CT                      June 2018
 
-
-   o  "port": the value is the port to which the UA made the original
-      request that failed the CT compliance check.  The value is
-      provided as an integer.
 
    o  "effective-expiration-date": the value indicates the Effective
       Expiration Date (see Section 2.3.3) for the Expect-CT Host that
@@ -666,6 +662,10 @@ Internet-Draft                  Expect-CT                      June 2018
 
       *  The "source" key, with a string value that indicates from where
          the UA obtained the SCT, as defined in Section 3 of [RFC6962]
+         and Section 6 of [I-D.ietf-trans-rfc6962-bis].  The UA MUST set
+         the value to one of "tls-extension", "ocsp", or "embedded".
+
+
 
 
 
@@ -673,9 +673,6 @@ Stark                   Expires December 6, 2018               [Page 12]
 
 Internet-Draft                  Expect-CT                      June 2018
 
-
-         and Section 6 of [I-D.ietf-trans-rfc6962-bis].  The UA MUST set
-         the value to one of "tls-extension", "ocsp", or "embedded".
 
       *  The "serialized_sct" key, with a string value.  If the value of
          the "version" key is "1", the UA MUST set this value to the
@@ -722,6 +719,9 @@ Internet-Draft                  Expect-CT                      June 2018
        header field of "application/expect-ct-report+json", and an
        entity body consisting of "report body".
 
+   The UA MAY perform other operations as part of sending the HTTP POST
+   request, for example sending a CORS preflight as part of [FETCH].
+
 
 
 
@@ -729,9 +729,6 @@ Stark                   Expires December 6, 2018               [Page 13]
 
 Internet-Draft                  Expect-CT                      June 2018
 
-
-   The UA MAY perform other operations as part of sending the HTTP POST
-   request, for example sending a CORS preflight as part of [FETCH].
 
 3.3.  Receiving a violation report
 
@@ -778,6 +775,9 @@ Internet-Draft                  Expect-CT                      June 2018
    There is a security trade-off in that low maximum values provide a
    narrow window of protection for users that visit the Known Expect-CT
    Host only infrequently, while high maximum values might result in a
+   denial of service to a UA in the event of a hostile header attack, or
+   simply an error on the part of the site-owner.
+
 
 
 
@@ -785,9 +785,6 @@ Stark                   Expires December 6, 2018               [Page 14]
 
 Internet-Draft                  Expect-CT                      June 2018
 
-
-   denial of service to a UA in the event of a hostile header attack, or
-   simply an error on the part of the site-owner.
 
    There is probably no ideal maximum for the "max-age" directive.
    Since Expect-CT is primarily a policy-expansion and investigation
@@ -833,6 +830,9 @@ Internet-Draft                  Expect-CT                      June 2018
 
    Because Expect-CT causes remotely-detectable behavior, it's advisable
    that UAs offer a way for privacy-sensitive users to clear currently
+   noted Expect-CT hosts, and allow users to query the current state of
+   Known Expect-CT Hosts.
+
 
 
 
@@ -841,9 +841,6 @@ Stark                   Expires December 6, 2018               [Page 15]
 
 Internet-Draft                  Expect-CT                      June 2018
 
-
-   noted Expect-CT hosts, and allow users to query the current state of
-   Known Expect-CT Hosts.
 
 6.  IANA Considerations
 
@@ -886,6 +883,9 @@ Internet-Draft                  Expect-CT                      June 2018
    mechanism for user agents that are transitioning to universal
    Certificate Transparency requirements.
 
+9.  References
+
+9.1.  Normative References
 
 
 
@@ -897,10 +897,6 @@ Stark                   Expires December 6, 2018               [Page 16]
 
 Internet-Draft                  Expect-CT                      June 2018
 
-
-9.  References
-
-9.1.  Normative References
 
    [I-D.ietf-trans-rfc6962-bis]
               Laurie, B., Langley, A., Kasper, E., Messeri, E., and R.
@@ -945,6 +941,10 @@ Internet-Draft                  Expect-CT                      June 2018
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <https://www.rfc-editor.org/info/rfc7230>.
 
+   [RFC7234]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
+              Ed., "Hypertext Transfer Protocol (HTTP/1.1): Caching",
+              RFC 7234, DOI 10.17487/RFC7234, June 2014,
+              <https://www.rfc-editor.org/info/rfc7234>.
 
 
 
@@ -954,14 +954,14 @@ Stark                   Expires December 6, 2018               [Page 17]
 Internet-Draft                  Expect-CT                      June 2018
 
 
-   [RFC7234]  Fielding, R., Ed., Nottingham, M., Ed., and J. Reschke,
-              Ed., "Hypertext Transfer Protocol (HTTP/1.1): Caching",
-              RFC 7234, DOI 10.17487/RFC7234, June 2014,
-              <https://www.rfc-editor.org/info/rfc7234>.
-
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
               April 2015, <https://www.rfc-editor.org/info/rfc7468>.
+
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/info/rfc8259>.
 
 9.2.  Informative References
 
@@ -985,21 +985,21 @@ Internet-Draft                  Expect-CT                      June 2018
 
 Appendix A.  Changes
 
-A.1.  Since -04
+A.1.  Since -05
+
+   o  Remove SHOULD requirement that UAs disallow certificate error
+      overrides for Known Expect-CT Hosts.
 
    o  Editorial changes
 
-A.2.  Since -03
+A.2.  Since -04
 
    o  Editorial changes
 
-A.3.  Since -02
+A.3.  Since -03
 
-   o  Add concept of test reports and specify that servers must respond
-      with 2xx status codes to valid reports.
+   o  Editorial changes
 
-   o  Add "failure-mode" key to reports to allow report servers to
-      distinguish report-only from enforced failures.
 
 
 
@@ -1010,12 +1010,20 @@ Stark                   Expires December 6, 2018               [Page 18]
 Internet-Draft                  Expect-CT                      June 2018
 
 
-A.4.  Since -01
+A.4.  Since -02
+
+   o  Add concept of test reports and specify that servers must respond
+      with 2xx status codes to valid reports.
+
+   o  Add "failure-mode" key to reports to allow report servers to
+      distinguish report-only from enforced failures.
+
+A.5.  Since -01
 
    o  Change SCT reporting format to support both RFC 6962 and 6962-bis
       SCTs.
 
-A.5.  Since -00
+A.6.  Since -00
 
    o  Editorial changes
 
@@ -1032,14 +1040,6 @@ Author's Address
    Google
 
    Email: estark@google.com
-
-
-
-
-
-
-
-
 
 
 
