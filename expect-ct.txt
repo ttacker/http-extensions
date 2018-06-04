@@ -596,8 +596,8 @@ Internet-Draft                  Expect-CT                      June 2018
    To generate a violation report object, the UA constructs a JSON
    [RFC8259] object with the following keys and values:
 
-   o  "date-time": the value for this key indicates the time the UA
-      observed the CT compliance failure.  The value is a string
+   o  "date-time": the value for this key indicates the UTC time that
+      the UA observed the CT compliance failure.  The value is a string
       formatted according to Section 5.6, "Internet Date/Time Format",
       of [RFC3339].
 
@@ -620,9 +620,9 @@ Internet-Draft                  Expect-CT                      June 2018
 
    o  "effective-expiration-date": the value indicates the Effective
       Expiration Date (see Section 2.3.3) for the Expect-CT Host that
-      failed the CT compliance check.  The value is provided as a string
-      formatted according to Section 5.6 of [RFC3339] ("Internet Date/
-      Time Format").
+      failed the CT compliance check, in UTC.  The value is provided as
+      a string formatted according to Section 5.6 of [RFC3339]
+      ("Internet Date/Time Format").
 
    o  "served-certificate-chain": the value is the certificate chain as
       served by the Expect-CT Host during TLS session setup.  The value
