@@ -709,9 +709,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
    4.  For each character char in input:
 
-       1.  If char is "" or DQUOTE:
+       1.  If char is "\" or DQUOTE:
 
-           1.  Append "" to output.
+           1.  Append "\" to output.
 
        2.  Append char to output, using ASCII encoding [RFC0020].
 
