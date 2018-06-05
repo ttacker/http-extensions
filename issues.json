@@ -1,6 +1,208 @@
 [
 
   {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/644",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/644/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/644/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/644/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/644",
+    "id": 329213267,
+    "node_id": "MDU6SXNzdWUzMjkyMTMyNjc=",
+    "number": 644,
+    "title": "Reorganize Sections 2.3 and 2.4",
+    "user": {
+      "login": "estark37",
+      "id": 602511,
+      "node_id": "MDQ6VXNlcjYwMjUxMQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/602511?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/estark37",
+      "html_url": "https://github.com/estark37",
+      "followers_url": "https://api.github.com/users/estark37/followers",
+      "following_url": "https://api.github.com/users/estark37/following{/other_user}",
+      "gists_url": "https://api.github.com/users/estark37/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/estark37/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/estark37/subscriptions",
+      "organizations_url": "https://api.github.com/users/estark37/orgs",
+      "repos_url": "https://api.github.com/users/estark37/repos",
+      "events_url": "https://api.github.com/users/estark37/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/estark37/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 111000923,
+        "node_id": "MDU6TGFiZWwxMTEwMDA5MjM=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/editorial",
+        "name": "editorial",
+        "color": "009800",
+        "default": false
+      },
+      {
+        "id": 533812693,
+        "node_id": "MDU6TGFiZWw1MzM4MTI2OTM=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/expect-ct",
+        "name": "expect-ct",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": {
+      "login": "estark37",
+      "id": 602511,
+      "node_id": "MDQ6VXNlcjYwMjUxMQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/602511?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/estark37",
+      "html_url": "https://github.com/estark37",
+      "followers_url": "https://api.github.com/users/estark37/followers",
+      "following_url": "https://api.github.com/users/estark37/following{/other_user}",
+      "gists_url": "https://api.github.com/users/estark37/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/estark37/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/estark37/subscriptions",
+      "organizations_url": "https://api.github.com/users/estark37/orgs",
+      "repos_url": "https://api.github.com/users/estark37/repos",
+      "events_url": "https://api.github.com/users/estark37/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/estark37/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "assignees": [
+      {
+        "login": "estark37",
+        "id": 602511,
+        "node_id": "MDQ6VXNlcjYwMjUxMQ==",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/602511?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/estark37",
+        "html_url": "https://github.com/estark37",
+        "followers_url": "https://api.github.com/users/estark37/followers",
+        "following_url": "https://api.github.com/users/estark37/following{/other_user}",
+        "gists_url": "https://api.github.com/users/estark37/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/estark37/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/estark37/subscriptions",
+        "organizations_url": "https://api.github.com/users/estark37/orgs",
+        "repos_url": "https://api.github.com/users/estark37/repos",
+        "events_url": "https://api.github.com/users/estark37/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/estark37/received_events",
+        "type": "User",
+        "site_admin": false
+      }
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-06-04T20:54:56Z",
+    "updated_at": "2018-06-04T21:56:55Z",
+    "closed_at": "2018-06-04T21:56:55Z",
+    "author_association": "MEMBER",
+    "body": "Suggestions from http://lists.w3.org/Archives/Public/ietf-http-wg/2018AprJun/0238.html:\r\n\r\n> 2.3.1 contains two lead-ins to the list.  I think that the processing\r\n> order is a little misleading.  In particular, the second lead-in\r\n> doesn't say that Expect-CT is present.  You want to say something like\r\n> \"If a host is CT-qualified, then process a response that contains a\r\n> Expect-CT header field in one of the two following ways:\"\r\n> \r\n> Overall, I think that 2.3 could be structured differently.  This\r\n> section includes cases for when the Expect-CT header field is\r\n> malformed (equivalent to not being present) as well as for when the\r\n> host is CT-qualified.  I would move the processing for absent and\r\n> invalid Expect-CT header fields into another section that simply says\r\n> that no change is made to the value of \"Expect-CT metadata\" for that\r\n> host.  Then you only have to worry about updating Expect-CT metadata -\r\n> which can be moved to 2.3.2, and reporting, which deserves its own\r\n> section.\r\n> \r\n> Something like:\r\n> \r\n> - Responses Without Expect-CT\r\n>   When the header is absent or malformed, the status of the host is\r\n> unchanged.  That is, any Expect-CT metadata for the host is unchanged.\r\n> \r\n> - Updating Expect-CT Metadata\r\n>   The Expect-CT header field is ignored if a connection is not\r\n> CT-qualified (see previous section), but it might generate a report\r\n> (see next section).\r\n>   If the connection is CT-qualified, then CT-metadata is created or\r\n> updated for the corresponding host based on the value of the Expect-CT\r\n> header field.\r\n> \r\n> - Reporting Expect-CT Problems\r\n>   If a connection is not CT-qualified, but the Expect-CT header field\r\n> is present and contains a report-uri, then a report is generated\r\n> (Section 3).\r\n\r\n> For 2.4, I would start by saying that when evaluating a connection,\r\n> the UA determines if the UA is a Known Expect-CT Host.  It does this\r\n> by looking for records that aren't expired.  Then talk about the extra\r\n> checks.  The current arrangement of paragraphs doesn't have a\r\n> consistent flow, it's currently: extra-checks, expiration, not\r\n> CT-qualified, more on reporting for not-CT-qualified hosts,\r\n> extra-checks again, disabling CT.  The bit on disabling CT belongs\r\n> elsewhere, I think, because it risks being missed."
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/643",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/643/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/643/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/643/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/643",
+    "id": 329212803,
+    "node_id": "MDU6SXNzdWUzMjkyMTI4MDM=",
+    "number": 643,
+    "title": "Section 3.1: fix date-time to Zulu time zone",
+    "user": {
+      "login": "estark37",
+      "id": 602511,
+      "node_id": "MDQ6VXNlcjYwMjUxMQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/602511?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/estark37",
+      "html_url": "https://github.com/estark37",
+      "followers_url": "https://api.github.com/users/estark37/followers",
+      "following_url": "https://api.github.com/users/estark37/following{/other_user}",
+      "gists_url": "https://api.github.com/users/estark37/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/estark37/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/estark37/subscriptions",
+      "organizations_url": "https://api.github.com/users/estark37/orgs",
+      "repos_url": "https://api.github.com/users/estark37/repos",
+      "events_url": "https://api.github.com/users/estark37/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/estark37/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 111000923,
+        "node_id": "MDU6TGFiZWwxMTEwMDA5MjM=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/editorial",
+        "name": "editorial",
+        "color": "009800",
+        "default": false
+      },
+      {
+        "id": 533812693,
+        "node_id": "MDU6TGFiZWw1MzM4MTI2OTM=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/expect-ct",
+        "name": "expect-ct",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": {
+      "login": "estark37",
+      "id": 602511,
+      "node_id": "MDQ6VXNlcjYwMjUxMQ==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/602511?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/estark37",
+      "html_url": "https://github.com/estark37",
+      "followers_url": "https://api.github.com/users/estark37/followers",
+      "following_url": "https://api.github.com/users/estark37/following{/other_user}",
+      "gists_url": "https://api.github.com/users/estark37/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/estark37/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/estark37/subscriptions",
+      "organizations_url": "https://api.github.com/users/estark37/orgs",
+      "repos_url": "https://api.github.com/users/estark37/repos",
+      "events_url": "https://api.github.com/users/estark37/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/estark37/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "assignees": [
+      {
+        "login": "estark37",
+        "id": 602511,
+        "node_id": "MDQ6VXNlcjYwMjUxMQ==",
+        "avatar_url": "https://avatars3.githubusercontent.com/u/602511?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/estark37",
+        "html_url": "https://github.com/estark37",
+        "followers_url": "https://api.github.com/users/estark37/followers",
+        "following_url": "https://api.github.com/users/estark37/following{/other_user}",
+        "gists_url": "https://api.github.com/users/estark37/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/estark37/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/estark37/subscriptions",
+        "organizations_url": "https://api.github.com/users/estark37/orgs",
+        "repos_url": "https://api.github.com/users/estark37/repos",
+        "events_url": "https://api.github.com/users/estark37/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/estark37/received_events",
+        "type": "User",
+        "site_admin": false
+      }
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-06-04T20:53:26Z",
+    "updated_at": "2018-06-04T21:21:31Z",
+    "closed_at": "2018-06-04T21:21:31Z",
+    "author_association": "MEMBER",
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/642",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
     "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/642/labels{/name}",
@@ -49,7 +251,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "estark37",
@@ -94,10 +296,10 @@
       }
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-06-04T20:52:40Z",
-    "updated_at": "2018-06-04T20:52:40Z",
-    "closed_at": null,
+    "updated_at": "2018-06-04T21:18:06Z",
+    "closed_at": "2018-06-04T21:18:05Z",
     "author_association": "MEMBER",
     "body": ""
   },
@@ -198,7 +400,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "estark37",
@@ -245,8 +447,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-06-02T00:16:15Z",
-    "updated_at": "2018-06-02T00:16:15Z",
-    "closed_at": null,
+    "updated_at": "2018-06-04T21:04:32Z",
+    "closed_at": "2018-06-04T21:04:32Z",
     "author_association": "MEMBER",
     "body": "\"2.2.1, the \"SHOULD\" here isn't a real requirement.  You can drop it\r\nand just say \"an Expect-CT host includes exactly one Expect-CT header\r\nfield in its response\".  A host that isn't Expect-CT won't include the\r\nheader field.\" (http://lists.w3.org/Archives/Public/ietf-http-wg/2018AprJun/0238.html)"
   },
@@ -299,7 +501,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "estark37",
@@ -346,8 +548,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-06-02T00:13:31Z",
-    "updated_at": "2018-06-02T00:13:31Z",
-    "closed_at": null,
+    "updated_at": "2018-06-04T20:59:14Z",
+    "closed_at": "2018-06-04T20:59:14Z",
     "author_association": "MEMBER",
     "body": ""
   },
@@ -400,7 +602,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "estark37",
@@ -447,8 +649,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-06-02T00:11:56Z",
-    "updated_at": "2018-06-02T00:11:56Z",
-    "closed_at": null,
+    "updated_at": "2018-06-04T21:17:45Z",
+    "closed_at": "2018-06-04T21:17:45Z",
     "author_association": "MEMBER",
     "body": "In section 1.2, note that \"host\" is meant to be equivalent to \"server\", and not a client."
   },
@@ -501,7 +703,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "estark37",
@@ -548,8 +750,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-06-01T23:41:09Z",
-    "updated_at": "2018-06-01T23:49:51Z",
-    "closed_at": null,
+    "updated_at": "2018-06-04T21:17:45Z",
+    "closed_at": "2018-06-04T21:17:45Z",
     "author_association": "MEMBER",
     "body": "Paragraph 1 of Section 2.4 was cribbed from HSTS and HPKP, but probably doesn't make sense for Expect-CT, especially while CT is young and misconfigurations may be common. (Chrome doesn't actually implement this, either.)"
   },
@@ -594,7 +796,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -603,8 +805,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-06-01T06:11:51Z",
-    "updated_at": "2018-06-02T05:37:45Z",
-    "closed_at": null,
+    "updated_at": "2018-06-05T08:51:46Z",
+    "closed_at": "2018-06-05T08:51:36Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/636",
@@ -2023,7 +2225,10 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "This isn't mentioned in the client authentication section.  It's a practice that is used quite often, so it should be mentioned.  That naturally means addressing some of the (many) shortcomings though."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/614",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -2141,10 +2346,7 @@
     "closed_at": "2018-05-07T23:26:39Z",
     "author_association": "MEMBER",
     "body": "section 4.3.2\r\n\r\n> HTTP-specific features such as cookies [RFC6265], authentication [RFC7235], caching [RFC7234], and CORS [FETCH] might or might not work correctly, depending on how they are defined and implemented. Generally, they are designed and implemented with an assumption that the URL will always be “http” or “https”.\r\n\r\nlikely worth working HSTS into that list.. we've seen it fail to provide its security benefit when mixed on hosts that provide ftp resources\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/612",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3808,7 +4010,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/585.patch"
     },
     "body": "....instead of RFC defining it."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/584",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3918,10 +4123,7 @@
     "closed_at": "2018-04-30T06:20:53Z",
     "author_association": "MEMBER",
     "body": "Source: https://www.mnot.net/blog/2007/08/07/etags"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/582",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5653,7 +5855,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/555.patch"
     },
     "body": "This just fixes a typo, but this text has more problems.\r\n\r\nI'm having trouble connecting this final sentence to the text that precedes it.  I think that the point is that including a body on GET is unwise because it might cause explosions.  A point about side effects needs far more exposition, especially since GET is defined to be free from overt side effects (safe, idempotent, and all that business).  If this were just another statement and the \"As a result\" is dropped, that's different."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/554",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5762,10 +5967,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/553.patch"
     },
     "body": "These were wreaking havoc with my syntax highlighting."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/552",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7458,7 +7660,10 @@
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The security issues motivating CSP Cookie Controls (https://www.w3.org/TR/csp-cookies/) still exist.   We at a minimum we should list this as a security consideration.   In particular, an origin is unable to restrict non-HTTP APIs from setting cookies on a host or domain.  While perhaps this is a nice-to-have for hosts (APIs operating in the origin context can do lots of other things), it is a major problem unique to cookies for domains.  \r\n\r\nA multi-tenant domain (with independent origins under it) has no in-band way to prevent cookies from being set on the entire domain (ie, to restrict cookies to same-site).  The only option available there is to put the domain on a public-suffix list which isn't always scale-able or operationally maintainable.\r\n\r\nIt may also be worth considering a response header that servers could send to constrain all cookies to same-site as part of this, either with \"Content-Security-Policy: cookie-scope host\" or as a separate response header specific to this use-case.  For example, a \"Restrict-Cookies\" response header with tokens matching the new features of 6265bis (same-site, secure-only, none) that would constrain behaviors of non-HTTP APIs.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/524",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7614,10 +7819,7 @@
     "closed_at": "2018-03-20T17:17:15Z",
     "author_association": "MEMBER",
     "body": "What do you do?  What certificates apply to these?  Are the connections independent.\r\n\r\nWhat if these are resumptions?  What from the previous connection do you use in that context?\r\n\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/522",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -9496,7 +9698,10 @@
     "closed_at": "2018-02-22T08:20:21Z",
     "author_association": "MEMBER",
     "body": "I'm not sure I understand the ban on '=' in binary content, how can that confuse dictionaries, when the binary content doesn't end until the final '*' ?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/494",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -9622,10 +9827,7 @@
     "closed_at": "2018-03-29T23:37:09Z",
     "author_association": "MEMBER",
     "body": "Is it good practice to use RFC2119 requirements in a BCP like this?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/492",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -11428,7 +11630,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/465.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/464",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -11581,10 +11786,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/463.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/462",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -13415,7 +13617,10 @@
     "closed_at": "2018-02-01T06:56:39Z",
     "author_association": "MEMBER",
     "body": "Should parameters on parameterised labels be ordered or unordered?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/434",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -13541,10 +13746,7 @@
     "closed_at": "2018-05-23T02:37:29Z",
     "author_association": "MEMBER",
     "body": "The current draft puts specific size limits on each type (e.g., lengths of strings, number of items in an array).\r\n\r\nThe rationale for including (generous) limits is that header authors often don't specify any limits, which puts implementations in an awkward position of deciding how much is \"too much\", leading to interoperability problems.\r\n\r\nIdeally each header author would define their own limits, tighter limits where necessary, making these a catch-all. \r\n\r\nWith that said, two questions:\r\n\r\n1)  Should we have such limits?\r\n\r\n2) If so, are the current limits correct? "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/432",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -15740,7 +15942,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/405.patch"
     },
     "body": "@mcmanus was confused by the text here and I confess that I don't remember why\r\nit was added.  There are actually esoteric cases where you get server data that\r\nyou can read before the handshake is complete (QUIC tends to enable that sort\r\nof mess), but there is no circumstance where the client can read the 425 but\r\ncan't also determine whether that the handshake is not done to its\r\nsatisfaction.  The client might decide that it wants to abort and not provide a\r\ncertificate or something, but most implementations don't really allow that sort\r\nof messing around."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/404",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -15916,10 +16121,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/403.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/402",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -17831,7 +18033,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/375.patch"
     },
     "body": "following the discussion on [this thread](https://lists.w3.org/Archives/Public/ietf-http-wg/2017JulSep/0164.html)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/374",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -17940,10 +18145,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/373.patch"
     },
     "body": "WIP, based on discussion in #372."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/372",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -20024,7 +20226,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/345.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/344",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -20186,10 +20391,7 @@
     "closed_at": "2017-08-07T11:49:35Z",
     "author_association": "MEMBER",
     "body": "See the annotation in https://greenbytes.de/tech/webdav/rfc6265.html#RFC3490 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/342",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22073,7 +22275,10 @@
     "closed_at": "2017-03-21T00:22:24Z",
     "author_association": "MEMBER",
     "body": "Do we want to allow clients to remember origin sets for when they resume?  Coalescing for 0-RTT could be a significant win."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/314",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22190,10 +22395,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/313.patch"
     },
     "body": "Closes #307 and #306."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/312",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -24074,7 +24276,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/285.patch"
     },
     "body": "- Relax DNS requirements when ORIGIN is received\r\n- Change the initial origin set to just SNI"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/284",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -24206,10 +24411,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/283.patch"
     },
     "body": "Following the discussion on the list."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/282",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -25950,7 +26152,10 @@
     "closed_at": "2017-06-20T00:00:13Z",
     "author_association": "MEMBER",
     "body": "We need to evaluate and possibly pare down / adjust the flags in the frame, based upon real-world use cases.\r\n\r\nSee Kazuho's evaluation:\r\n  https://github.com/HTTPWorkshop/workshop2016/blob/master/talks/cache-digests.pdf"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/254",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -26082,10 +26287,7 @@
     "closed_at": "2016-10-30T23:57:27Z",
     "author_association": "MEMBER",
     "body": "Just a reminder to update the list since we've had a fair bit of new input on this recently.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/252",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -27854,7 +28056,10 @@
     "closed_at": "2016-12-25T17:19:55Z",
     "author_association": "MEMBER",
     "body": "Based on the various discussion at [IETF](https://github.com/httpwg/wg-materials/blob/gh-pages/ietf96/minutes.md#jfv), HTTP Workshop, and [mailing lists](https://www.ietf.org/mail-archive/web/httpbisa/current/msg26788.html), JFV may not be the right long-term \"replacement\" header encoding format. However, while [sketches are being pushed around](https://lists.w3.org/Archives/Public/ietf-http-wg/2016JulSep/thread.html#msg292), it's not clear if and when such a format will come either… In the meantime, I believe we can shape JFV (with minor modifications) into a format that is immediately useful and addresses many of the current pain points for **new** header fields. Specifically: \n- UA's want a reusable and tested parser. Today we end up hand-rolling parsers for most every field (due to ABNF quirks, past implementation mistakes, etc), which leads to interop problems, security issues, and so on. Also, this is not a Chrome specific problem, all major UA's have the same pain points, and we all need to do better.\n- At the same time, all UA's have well-tested JSON parsers. Reusing existing code helps cut down on attack surface area, helps with interop, etc. As such, JFV format is a strong plus.\n- JSON parsers are easy to come by on the server side and all the same benefits and motivation is just as applicable.\n\nThat said, as others have already pointed out, we do need additional restrictions on JFV beyond what is currently in the spec. Also, it just so happens that browsers already follow the [ECMA-262 spec](http://www.ecma-international.org/ecma-262/6.0/index.html), which addresses most of the  raised concerns:\n- Specify how to deal with repeated fields:\n  - [InternalizeJSONProperty(holder, \n    name)](http://www.ecma-international.org/ecma-262/6.0/#sec-internalizejsonproperty): \n    _\"In the case where there are duplicate name Strings within an object, \n    lexically preceding values for the same key shall be overwritten.\"_ All \n    browsers already do this.\n- Specify number encoding format\n  - [4.3.20 Number \n    value](http://www.ecma-international.org/ecma-262/6.0/#sec-terms-and-definitions-number-value): \n    Number value is primitive value corresponding to a double-precision 64-bit \n    binary format IEEE 754-2008 value.\n  - [11.8.3 Numeric \n    Literals](http://www.ecma-international.org/ecma-262/6.0/#sec-literals-numeric-literals)\n- Specify date encoding format\n  - [20.3.1.16 Date Time String \n    Format](http://www.ecma-international.org/ecma-262/6.0/#sec-date-time-string-format), \n    [Date.parse()](http://www.ecma-international.org/ecma-262/6.0/#sec-date.parse)\n    - We can require ISO 8601 Extended format.\n- Specify character encoding\n  - UTF-8 [[RFC3629](https://tools.ietf.org/html/rfc3629)]\n\nAre there other issues that were brought up that are not addressed above? \n\nMy proposal is that we update JFV to spec above ECMA-262 restrictions and requirements. Doing so would enable UA's to adopt JFV with minimal work.\n\n_p.s. in progress specs and browser features that plan on leveraging JFV: [Clear-Site-Data](https://www.w3.org/TR/clear-site-data/), [Feature Policy](http://wicg.github.io/feature-policy/), [Reporting](http://w3c.github.io/reporting/), [Network Error Logging](http://w3c.github.io/network-error-logging/), … and I'm sure we'll see more soon._\n\n/cc @reschke @mnot @mcmanus \n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/224",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -28002,10 +28207,7 @@
     "closed_at": "2016-09-08T09:37:13Z",
     "author_association": "NONE",
     "body": "In [section 3](https://tools.ietf.org/html/draft-ietf-httpbis-cookie-alone-00#section-3), after the line \"Before step 11, execute the following step\", the new step intentionally ignores the path.  A note says that \"The intent is to allow the 'secure' flag to supercede the 'path' restrictions to protect sites against cookie fixing attacks.\"  However this change breaks backwards compatibility in the following common scenario:\n1. https://example.com/login/ sets a Secure cookie named SESSIONID with the path /login/.\n2. http://example.com/foo/ sets a non-secure cookie named SESSIONID with the path /foo/, which will be ignored.\n\nThis is the cause of https://bugs.chromium.org/p/chromium/issues/detail?id=580770.  If the draft is adopted as currently written, it will effectively force any website that hosts secure and insecure applications under the same host name to rename cookies in each application to avoid conflicts.  To date, using path provided sufficient scoping to avoid cross-application conflicts.\n\nEven if the second cookie was allowed to be set in the scenario above, it would not have resulted in a fixation vulnerability because one path was not a path-match of the other.  It might be possible to fine-tune the algorithm to only block non-secure cookies if and only if a secure cookie already exists that is a [path-match](https://tools.ietf.org/html/rfc6265#section-5.1.4) of the insecure cookie.  However, that assumes that the cookie order algorithm in https://tools.ietf.org/html/rfc6265#section-5.4 is changed from SHOULD to MUST, and that servers only trust the first cookie.  It also wouldn't help improve backwards compatibility in this scenario:\n1. https://example.com/ sets a Secure cookie named SESSIONID with the path /.\n2. http://example.com/foo/ sets a non-secure cookie named SESSIONID with the path /foo/, which will be ignored.\n\nBoth the draft as written, and the path-match variant proposed above suffer from fixation attacks when an HTTP resource is visited first.  There are other ways that these types of attacks can be mitigated without breaking backwards compatibility, and cover more attack scenarios, at the expense of being opt-in by the server.  These might include the __Secure- prefix (assuming no one is using this in the wild), or introducing a new cookie header, like Cookie-Attributes, that servers could inspect to determine whether or not to trust a cookie.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/222",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -29915,7 +30117,10 @@
     "closed_at": "2016-06-22T03:47:32Z",
     "author_association": "CONTRIBUTOR",
     "body": "`draft-ietf-httpbis-encryption-encoding.md`:\n\n> This memo registers the \"encrypted\" HTTP content-coding\n\nshould be:\n\n> This memo registers the \"aesgcm\" HTTP content-coding\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/194",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -30017,10 +30222,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/193.patch"
     },
     "body": "…ng authentication\n\nCloses #191 if Erik is cool with it.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/192",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -31688,7 +31890,10 @@
     "closed_at": "2016-05-10T06:04:20Z",
     "author_association": "MEMBER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/164",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -31796,10 +32001,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/163.patch"
     },
     "body": "https://lists.w3.org/Archives/Public/ietf-http-wg/2016JanMar/0519.html\n\nOutstanding issues:\n- [x] reference User-Agent header field definition\n- [x] reference cookie spec\n- [x] make \"proactive content negotiation [RFC7231]\" reference more specific\n- [ ] most of the \"this document uses...\" references do not seem to be used; cleanup.\n- [x]  drop \"common syntax\" leftover from previous drafts.\n- [x] make \"Vary\" reference more specific\n- [x] reference HTML spec\n- [x] include a reference to \"CSS px\"\n- [x] include a reference to \"layout viewport\"\n- [ ] clarify whether this is for user agents or all clients \n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/162",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -33438,7 +33640,10 @@
     "closed_at": "2016-04-04T19:22:44Z",
     "author_association": "CONTRIBUTOR",
     "body": "Each record currently includes between 1 and 256 octets of padding, while the default record size is set to 4096 octets. This is in many cases not sufficient, for example in the pad-to-next-power-of-two case.\n\nExtending the padding length to two octets will allow up to 65537 octets (65KB) of padding.\n\nI raised this on the ietf-http-wg list here:\n    https://lists.w3.org/Archives/Public/ietf-http-wg/2016JanMar/0171.html\n\nMartin [raises a good point](https://lists.w3.org/Archives/Public/ietf-http-wg/2016JanMar/0175.html) about an upgrade path for existing users. I'll reply on the mailing list to not split the discussion. \n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/134",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -33555,10 +33760,7 @@
     "closed_at": "2016-06-03T03:59:19Z",
     "author_association": "MEMBER",
     "body": "Get advice from CFRG on crypto choices.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/132",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -35254,7 +35456,10 @@
     "closed_at": "2018-04-03T23:40:24Z",
     "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/67\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/104",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -35418,10 +35623,7 @@
     "closed_at": "2015-11-16T00:13:44Z",
     "author_association": "MEMBER",
     "body": "Amos raises:\n\n\"for use when a server operator has a received a legal demand to deny\naccess to a resource\"\n\nThis is a lot more restrictive than what I understood was being agreed\nto. This phrasing implies that a specific-URL DMCA type notice is\nrequired before the status may be used.\n\nIt would be a lot more reasonable to also allow the status to be used\nwhen a blanket law requirement was levelled on the operator. For example\nschools following laws on porn fitering, or national level restrictions\non categories of traffic. In cases like these operators dont receive\nper-resource demands, they often receive a one-off notice \"law X applies\nto you\" and are then expected to censor proactively to the best of their\nability and face the court on overlooked URLs.\n\nProbably this can be resolved with s/legal demand/legal requirement/.\n\nThere are other \"legal demand\" phrase uses elsewhere to keep in sync.\n\nIf \"legal demand\" is being used with a meaning other than a specific\nwarrant DMCA takedown etc. Then that definitely needs to be explained.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/102",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -37200,7 +37402,10 @@
     "closed_at": "2015-09-01T16:04:28Z",
     "author_association": "MEMBER",
     "body": "Why does the spec explicitly allow the alternate to simultaneously send you an alternate list (which we trust, because the alternate is authoritative for this origin) and a status code telling us this host is not authoritative for this origin?\n\nIt seems like 421 should automatically remove the alternate (as stated) and cause the user agent to fall back to the origin server.  While one can also envision a scenario where the server says \"I'm not authoritative, but I know who might be....\", that way lies loops.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/74",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -37398,10 +37603,7 @@
     "closed_at": "2015-10-06T19:37:13Z",
     "author_association": "MEMBER",
     "body": "Someone who controls any resource on an origin can issue directives that affect all resources on that origin.  (Thinking of the server the CS/CE students could work with in college, where we all had pages at server.example.edu/~username.)  Sure, I can’t change the host because I don’t have the server cert, but I can change ports without that requirement.\n\nThe guidance in 9.1 just says “don’t let people do that,” which is easier said than done on systems that already exist.  People can run apps listening on ephemeral ports, and people can control their home pages.  With this combination, everyone else's home pages can be hijacked unless the server admin reads this draft before any students do and promptly prohibits pages from emitting headers named Alt-Svc.\n\nThe way to partially fix this is to require strong auth for changes of port as well.  Resources can still slow down access by causing attempts to access an alternate, but the alternate won't be able to supply fake resources.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/72",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39122,7 +39324,10 @@
     "closed_at": "2015-02-18T13:03:44Z",
     "author_association": "CONTRIBUTOR",
     "body": "(In the Readme)\nJust shows GitHub Pages' default 404 site.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/44",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39248,10 +39453,7 @@
     "closed_at": "2015-08-14T16:33:50Z",
     "author_association": "NONE",
     "body": "ALPN identifiers from the ALPN spec have been defined in the context of negotiating the application protocol in TLS. In this context, they imply a layering above TLS.\nWhen used outside this context, there is an ambiguity, mainly for the http/1.1 token: does it refer to HTTP/1.1 over TLS, or can it refer also to HTTP/1.1 over TCP?\nThe draft should resolve this ambiguity by stating that the http/1.1 identifier is used to identify HTTP/1.1 over TLS.\n\nIn addition, a new identifier, h1c for example, could be defined to identify HTTP/1.1 over cleartext TCP, in order to allow using Alt-Svc to be used to target an HTTP/1.1 server over cleartext TCP.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/42",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -41014,7 +41216,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/15.patch"
     },
     "body": "For httpwg/http-extensions#8.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/14",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -41138,10 +41343,7 @@
     "closed_at": "2014-08-18T01:06:44Z",
     "author_association": "MEMBER",
     "body": "Section 9.4 - is this still necessary, now that it's just one bit? At a minimum, this section should be toned down.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/12",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
