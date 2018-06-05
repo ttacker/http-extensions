@@ -182,12 +182,19 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    [RFC5234], including the DIGIT, ALPHA and DQUOTE rules from that
    document.  It also includes the OWS rule from [RFC7230].
 
-   This document uses algorithms to specify normative parsing/
-   serialisation behaviours, and ABNF to illustrate expected syntax.
-   Implementations MUST follow the normative algorithms, but MAY vary in
-   implementation so as the behaviours are indistinguishable from
-   specified behaviour.  If there is disagreement between the algorithms
-   and ABNF, the specified algorithms take precedence.
+   This document uses algorithms to specify parsing and serialisation
+   behaviours, and ABNF to illustrate expected syntax.
+
+   For parsing, implementations MUST follow the algorithms, but MAY vary
+   in implementation so as the behaviours are indistinguishable from
+   specified behaviour.  If there is disagreement between the parsing
+   algorithms and ABNF, the specified algorithms take precedence.
+
+   For serialisation, the ABNF illustrates the range of acceptable wire
+   representations with as much fidelity as possible, and the algorithms
+   define the recommended way to produce them.  Implementations MAY vary
+   from the specified behaviour so long as the output still matches the
+   ABNF.
 
 2.  Defining New Structured Headers
 
@@ -211,13 +218,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
    Note that a header field definition cannot relax the requirements of
    a structure or its processing; they can only add additional
-   constraints, because doing so would preclude handling by generic
-   software.
-
-   For example:
-
-
-
 
 
 
@@ -225,6 +225,11 @@ Nottingham & Kamp       Expires December 7, 2018                [Page 4]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   constraints, because doing so would preclude handling by generic
+   software.
+
+   For example:
 
    # Foo-Example Header
 
@@ -269,11 +274,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    should be aware that HTTP implementations do impose various limits on
    the size of individual header fields, the total number of fields,
    and/or the size of the entire header block.
-
-
-
-
-
 
 
 
