@@ -117,7 +117,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
      A.2.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  24
      A.3.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  24
      A.4.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  24
-     A.5.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  24
+     A.5.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  25
      A.6.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  25
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
 
@@ -1300,6 +1300,9 @@ A.1.  Since draft-ietf-httpbis-header-structure-05
 
    o  Define serialisation algorithms.
 
+   o  Refine relationship between ABNF, parsing and serialisation
+      algorithms.
+
 A.2.  Since draft-ietf-httpbis-header-structure-04
 
    o  Remove identifiers from item.
@@ -1332,9 +1335,6 @@ A.4.  Since draft-ietf-httpbis-header-structure-02
 
    o  Throw an error on trailing garbage.
 
-A.5.  Since draft-ietf-httpbis-header-structure-01
-
-   o  Replaced with draft-nottingham-structured-headers.
 
 
 
@@ -1345,6 +1345,10 @@ Nottingham & Kamp       Expires December 7, 2018               [Page 24]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+A.5.  Since draft-ietf-httpbis-header-structure-01
+
+   o  Replaced with draft-nottingham-structured-headers.
 
 A.6.  Since draft-ietf-httpbis-header-structure-00
 
@@ -1368,10 +1372,6 @@ Authors' Addresses
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
-
-
 
 
 
