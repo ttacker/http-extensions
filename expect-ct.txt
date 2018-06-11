@@ -104,8 +104,8 @@ Table of Contents
      4.2.  Avoiding amplification attacks  . . . . . . . . . . . . .  15
    5.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .  16
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
-   7.  Usability Considerations  . . . . . . . . . . . . . . . . . .  17
-   8.  Authoring Considerations  . . . . . . . . . . . . . . . . . .  17
+     6.1.  Header Field Registry . . . . . . . . . . . . . . . . . .  16
+     6.2.  Media Types Registry  . . . . . . . . . . . . . . . . . .  17
 
 
 
@@ -114,18 +114,20 @@ Stark                   Expires December 13, 2018               [Page 2]
 Internet-Draft                  Expect-CT                      June 2018
 
 
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  17
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  17
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  18
-     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  19
-   Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  19
-     A.1.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  19
-     A.2.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  19
-     A.3.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  19
-     A.4.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  19
-     A.5.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  19
-     A.6.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  20
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  20
+   7.  Usability Considerations  . . . . . . . . . . . . . . . . . .  18
+   8.  Authoring Considerations  . . . . . . . . . . . . . . . . . .  18
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  19
+     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  20
+   Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  20
+     A.1.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.2.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.3.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.4.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.5.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  21
+     A.6.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  21
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  21
 
 1.  Introduction
 
@@ -159,8 +161,6 @@ Internet-Draft                  Expect-CT                      June 2018
    thwart an attack on the UA's first connection to the host.  Still,
    Expect-CT provides value by 1) allowing UAs to detect the use of
    unlogged certificates after the initial communication, and 2)
-   allowing web hosts to be confident that UAs are only trusting
-   publicly-auditable certificates.
 
 
 
@@ -169,6 +169,9 @@ Stark                   Expires December 13, 2018               [Page 3]
 
 Internet-Draft                  Expect-CT                      June 2018
 
+
+   allowing web hosts to be confident that UAs are only trusting
+   publicly-auditable certificates.
 
 1.1.  Requirements Language
 
@@ -215,9 +218,6 @@ Internet-Draft                  Expect-CT                      June 2018
 
    o  "Unknown Expect-CT Host" is an Expect-CT Host that the UA has not
       noted.
-
-
-
 
 
 
@@ -877,6 +877,8 @@ Internet-Draft                  Expect-CT                      June 2018
 
 6.  IANA Considerations
 
+6.1.  Header Field Registry
+
    This document registers the "Expect-CT" header field in the "Message
    Headers" registry located at https://www.iana.org/assignments/
    message-headers [4].
@@ -889,8 +891,6 @@ Internet-Draft                  Expect-CT                      June 2018
 
    Author/Change controller:  IETF
 
-   Specification document(s):  This document
-
 
 
 Stark                   Expires December 13, 2018              [Page 16]
@@ -898,7 +898,63 @@ Stark                   Expires December 13, 2018              [Page 16]
 Internet-Draft                  Expect-CT                      June 2018
 
 
+   Specification document(s):  This document
+
    Related information:  (empty)
+
+6.2.  Media Types Registry
+
+   The MIME media type for Expect-CT violation reports is "application/
+   expect-ct-report+json" (which uses the suffix established in
+   [RFC6839]).
+
+   Type name:  application
+
+   Subtype name:  expect-ct-report+json
+
+   Required parameters:  n/a
+
+   Optional parameters:  n/a
+
+   Encoding considerations:  binary
+
+   Security considerations:  See Section 4
+
+   Interoperability considerations:  n/a
+
+   Published specification:  This document
+
+   Applications that use this media type:  UAs that implement
+      Certificate Transparency compliance checks and reporting
+
+   Additional information:
+
+      Deprecated alias names for this type: n/a
+
+      Magic number(s): n/a
+
+      File extension(s): n/a
+
+      Macintosh file type code(s): n/a
+
+   Person & email address to contact for further information:  Emily
+      Stark (estark@google.com)
+
+   Intended usage:  COMMON
+
+   Restrictions on usage:  none
+
+   Author:  Emily Stark (estark@google.com)
+
+
+
+
+Stark                   Expires December 13, 2018              [Page 17]
+
+Internet-Draft                  Expect-CT                      June 2018
+
+
+   Change controller:  IETF
 
 7.  Usability Considerations
 
@@ -949,7 +1005,7 @@ Internet-Draft                  Expect-CT                      June 2018
 
 
 
-Stark                   Expires December 13, 2018              [Page 17]
+Stark                   Expires December 13, 2018              [Page 18]
 
 Internet-Draft                  Expect-CT                      June 2018
 
@@ -967,6 +1023,11 @@ Internet-Draft                  Expect-CT                      June 2018
               Transport Security (HSTS)", RFC 6797,
               DOI 10.17487/RFC6797, November 2012,
               <https://www.rfc-editor.org/info/rfc6797>.
+
+   [RFC6839]  Hansen, T. and A. Melnikov, "Additional Media Type
+              Structured Syntax Suffixes", RFC 6839,
+              DOI 10.17487/RFC6839, January 2013,
+              <https://www.rfc-editor.org/info/rfc6839>.
 
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
@@ -996,19 +1057,19 @@ Internet-Draft                  Expect-CT                      June 2018
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
               <https://fetch.spec.whatwg.org>.
 
+
+
+
+
+Stark                   Expires December 13, 2018              [Page 19]
+
+Internet-Draft                  Expect-CT                      June 2018
+
+
    [RFC5246]  Dierks, T. and E. Rescorla, "The Transport Layer Security
               (TLS) Protocol Version 1.2", RFC 5246,
               DOI 10.17487/RFC5246, August 2008,
               <https://www.rfc-editor.org/info/rfc5246>.
-
-
-
-
-
-Stark                   Expires December 13, 2018              [Page 18]
-
-Internet-Draft                  Expect-CT                      June 2018
-
 
    [RFC7469]  Evans, C., Palmer, C., and R. Sleevi, "Public Key Pinning
               Extension for HTTP", RFC 7469, DOI 10.17487/RFC7469, April
@@ -1049,22 +1110,22 @@ A.4.  Since -02
    o  Add "failure-mode" key to reports to allow report servers to
       distinguish report-only from enforced failures.
 
+
+
+
+
+
+
+
+Stark                   Expires December 13, 2018              [Page 20]
+
+Internet-Draft                  Expect-CT                      June 2018
+
+
 A.5.  Since -01
 
    o  Change SCT reporting format to support both RFC 6962 and 6962-bis
       SCTs.
-
-
-
-
-
-
-
-
-Stark                   Expires December 13, 2018              [Page 19]
-
-Internet-Draft                  Expect-CT                      June 2018
-
 
 A.6.  Since -00
 
@@ -1112,9 +1173,4 @@ Author's Address
 
 
 
-
-
-
-
-
-Stark                   Expires December 13, 2018              [Page 20]
+Stark                   Expires December 13, 2018              [Page 21]
