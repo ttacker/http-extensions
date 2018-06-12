@@ -5,10 +5,10 @@
 HTTP Working Group                                             M. Bishop
 Internet-Draft                                                    Akamai
 Intended status: Standards Track                             N. Sullivan
-Expires: November 25, 2018                                    Cloudflare
+Expires: December 14, 2018                                    Cloudflare
                                                               M. Thomson
                                                                  Mozilla
-                                                            May 24, 2018
+                                                           June 12, 2018
 
 
              Secondary Certificate Authentication in HTTP/2
@@ -46,16 +46,16 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 25, 2018.
+   This Internet-Draft will expire on December 14, 2018.
 
 
 
 
 
 
-Bishop, et al.          Expires November 25, 2018               [Page 1]
+Bishop, et al.          Expires December 14, 2018               [Page 1]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Bishop, et al.          Expires November 25, 2018               [Page 2]
+Bishop, et al.          Expires December 14, 2018               [Page 2]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
      6.3.  New HTTP/2 Error Codes  . . . . . . . . . . . . . . . . .  20
@@ -120,8 +120,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  21
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  22
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  22
-     A.1.  Since draft-ietf-httpbis-http2-secondary-certs-00:  . . .  22
-     A.2.  Since draft-bishop-httpbis-http2-additional-certs-05: . .  22
+     A.1.  Since draft-ietf-httpbis-http2-secondary-certs-01:  . . .  22
+     A.2.  Since draft-ietf-httpbis-http2-secondary-certs-00:  . . .  22
+     A.3.  Since draft-bishop-httpbis-http2-additional-certs-05: . .  22
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  22
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
 
@@ -160,16 +161,17 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
    (for TLS) if the certificate presented by the server contains the
    origin in the Subject Alternative Names field.
 
+
+
+
+
+Bishop, et al.          Expires December 14, 2018               [Page 3]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
+
+
    [RFC7838] enables a step of abstraction from the DNS resolution.  If
    both hosts have provided an Alternative Service at hostnames which
-
-
-
-Bishop, et al.          Expires November 25, 2018               [Page 3]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
-
-
    resolve to the IP address of the server, they are considered
    authoritative just as if DNS resolved the origin itself to that
    address.  However, the server's one TLS certificate is still required
@@ -215,17 +217,18 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
    information about the resource to construct an appropriate TLS
    CertificateRequest message during the initial handshake.
 
+
+
+
+
+Bishop, et al.          Expires December 14, 2018               [Page 4]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
+
+
    Consequently, client certificates are requested at connection
    establishment time only in cases where all clients are expected or
    required to have a single certificate that is used for all resources.
-
-
-
-Bishop, et al.          Expires November 25, 2018               [Page 4]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
-
-
    Many other uses for client certificates are reactive, that is,
    certificates are requested in response to the client making a
    request.
@@ -274,12 +277,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-
-
-
-Bishop, et al.          Expires November 25, 2018               [Page 5]
+Bishop, et al.          Expires December 14, 2018               [Page 5]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    When the handshake completes, the server performs any authorization
@@ -333,9 +333,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018               [Page 6]
+Bishop, et al.          Expires December 14, 2018               [Page 6]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    extension or update to HTTP/2, such an identifier could be added to
@@ -389,9 +389,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018               [Page 7]
+Bishop, et al.          Expires December 14, 2018               [Page 7]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    defines the required frame types, which parallel the TLS 1.3 message
@@ -445,9 +445,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018               [Page 8]
+Bishop, et al.          Expires December 14, 2018               [Page 8]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
 2.2.  Making certificates or requests available
@@ -501,9 +501,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018               [Page 9]
+Bishop, et al.          Expires December 14, 2018               [Page 9]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
 2.3.1.  Requiring additional server certificates
@@ -524,10 +524,13 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
    the certificate is provided.
 
    If the server does not have the desired certificate, it MUST send an
-   empty "USE_CERTIFICATE" frame for stream zero.  In this case, or if
-   the server has not advertised support for HTTP-layer certificates,
-   the client MUST NOT send any requests for resources in that origin on
-   the current connection.
+   Empty Authenticator, as described in Section 5 of
+   [I-D.ietf-tls-exported-authenticator], in a "CERTIFICATE" frame in
+   response to the request, followed by a "USE_CERTIFICATE" frame for
+   stream zero which references the Empty Authenticator.  In this case,
+   or if the server has not advertised support for HTTP-layer
+   certificates, the client MUST NOT send any requests for resources in
+   that origin on the current connection.
 
    Client                                      Server
       <----------------------- (stream 0) ORIGIN --
@@ -554,12 +557,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-
-
-
-Bishop, et al.          Expires November 25, 2018              [Page 10]
+Bishop, et al.          Expires December 14, 2018              [Page 10]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    Client                                      Server
@@ -613,9 +613,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 11]
+Bishop, et al.          Expires December 14, 2018              [Page 11]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    "Request-ID" and "Cert-ID" are independent and sender-local.  The use
@@ -669,9 +669,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 12]
+Bishop, et al.          Expires December 14, 2018              [Page 12]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    The "CERTIFICATE_NEEDED" frame MUST NOT be sent to a peer which has
@@ -725,9 +725,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 13]
+Bishop, et al.          Expires December 14, 2018              [Page 13]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    The "UNSOLICITED" flag MAY be set by clients on the first
@@ -781,9 +781,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 14]
+Bishop, et al.          Expires December 14, 2018              [Page 14]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
      0                   1                   2                   3
@@ -837,9 +837,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 15]
+Bishop, et al.          Expires December 14, 2018              [Page 15]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
      0                   1                   2                   3
@@ -893,9 +893,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 16]
+Bishop, et al.          Expires December 14, 2018              [Page 16]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    Once the authenticator is accepted, the endpoint can perform any
@@ -949,9 +949,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 17]
+Bishop, et al.          Expires December 14, 2018              [Page 17]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
 5.1.  Impersonation
@@ -1005,9 +1005,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 18]
+Bishop, et al.          Expires December 14, 2018              [Page 18]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    implementation MAY instead disable HTTP-layer certificates for the
@@ -1061,9 +1061,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 19]
+Bishop, et al.          Expires December 14, 2018              [Page 19]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
 6.2.  New HTTP/2 Frames
@@ -1117,9 +1117,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 20]
+Bishop, et al.          Expires December 14, 2018              [Page 20]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
    [I-D.ietf-tls-tls13]
@@ -1173,9 +1173,9 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-Bishop, et al.          Expires November 25, 2018              [Page 21]
+Bishop, et al.          Expires December 14, 2018              [Page 21]
 
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
 
 
 7.3.  URIs
@@ -1191,7 +1191,12 @@ Appendix A.  Change Log
       *RFC Editor's Note:* Please remove this section prior to
       publication of a final version of this document.
 
-A.1.  Since draft-ietf-httpbis-http2-secondary-certs-00:
+A.1.  Since draft-ietf-httpbis-http2-secondary-certs-01:
+
+   o  Clients can send "CERTIFICATE_NEEDED" for stream 0 rather than
+      speculatively reserving a stream for an origin.
+
+A.2.  Since draft-ietf-httpbis-http2-secondary-certs-00:
 
    o  All frames sent on stream zero; replaced "AUTOMATIC_USE" on
       "CERTIFICATE" with "UNSOLICITED" on "USE_CERTIFICATE". (#482,#566)
@@ -1199,7 +1204,7 @@ A.1.  Since draft-ietf-httpbis-http2-secondary-certs-00:
    o  "CERTIFICATE_NEEDED" and "USE_CERTIFICATE" can reference stream
       zero.  (#564,#586)
 
-A.2.  Since draft-bishop-httpbis-http2-additional-certs-05:
+A.3.  Since draft-bishop-httpbis-http2-additional-certs-05:
 
    o  Adopted as draft-ietf-httpbis-http2-secondary-certs
 
@@ -1219,19 +1224,20 @@ Authors' Addresses
    Email: mbishop@evequefou.be
 
 
+
+
+
+
+
+Bishop, et al.          Expires December 14, 2018              [Page 22]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
+
+
    Nick Sullivan
    Cloudflare
 
    Email: nick@cloudflare.com
-
-
-
-
-
-
-Bishop, et al.          Expires November 25, 2018              [Page 22]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
    Martin Thomson
@@ -1279,10 +1285,4 @@ Internet-Draft        Secondary Cert Auth in HTTP/2             May 2018
 
 
 
-
-
-
-
-
-
-Bishop, et al.          Expires November 25, 2018              [Page 23]
+Bishop, et al.          Expires December 14, 2018              [Page 23]
