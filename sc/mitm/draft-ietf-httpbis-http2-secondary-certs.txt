@@ -479,7 +479,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2            June 2018
    most significant bit indicates whether the value is derived from an
    early exporter.  Each endpoint will compute the expected value from
    their peer.  If the setting is not received, or if the value received
-   is not the expected value, the frames defined in this document MUST
+   is not the expected value, the frames defined in this document SHOULD
    NOT be sent.
 
 2.2.  Making certificates or requests available
