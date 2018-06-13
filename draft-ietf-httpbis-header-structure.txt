@@ -116,12 +116,12 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  24
      B.1.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  24
-     B.2.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  24
+     B.2.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  25
      B.3.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  25
      B.4.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  25
      B.5.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  25
      B.6.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  25
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
 
 1.  Introduction
 
@@ -1309,6 +1309,9 @@ A.1.  Why Not JSON?
 
    o  Difficulties specifying field values using ABNF [RFC5234]
 
+   o  Need to encode JSON to appear in HTTP headers, thereby making it
+      not-JSON
+
    o  Reluctance to embed a JSON parser in some HTTP implementations
       (e.g., servers and intermediaries)
 
@@ -1332,11 +1335,8 @@ B.1.  Since draft-ietf-httpbis-header-structure-05
    o  Refine relationship between ABNF, parsing and serialisation
       algorithms.
 
-B.2.  Since draft-ietf-httpbis-header-structure-04
 
-   o  Remove identifiers from item.
 
-   o  Remove most limits on sizes.
 
 
 
@@ -1345,6 +1345,12 @@ Nottingham & Kamp       Expires December 15, 2018              [Page 24]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+B.2.  Since draft-ietf-httpbis-header-structure-04
+
+   o  Remove identifiers from item.
+
+   o  Remove most limits on sizes.
 
    o  Refine number parsing.
 
@@ -1385,13 +1391,7 @@ B.6.  Since draft-ietf-httpbis-header-structure-00
 
    o  Change h1_blob delimiter to ":" since "'" is valid t_char
 
-Authors' Addresses
 
-   Mark Nottingham
-   Fastly
-
-   Email: mnot@mnot.net
-   URI:   https://www.mnot.net/
 
 
 
@@ -1402,19 +1402,19 @@ Nottingham & Kamp       Expires December 15, 2018              [Page 25]
 Internet-Draft         Structured Headers for HTTP             June 2018
 
 
+Authors' Addresses
+
+   Mark Nottingham
+   Fastly
+
+   Email: mnot@mnot.net
+   URI:   https://www.mnot.net/
+
+
    Poul-Henning Kamp
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
-
-
-
-
-
-
-
 
 
 
