@@ -585,10 +585,10 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
    Then the sorted-variants would be:
 
- [
-   ["fr", "en"]           // prefers French, will accept English
-   ["gzip", "identity"]   // prefers gzip encoding, will accept identity
- ]
+   [
+     ["fr", "en"]         // prefers French, will accept English
+     ["gzip", "identity"] // prefers gzip encoding, will accept identity
+   ]
 
    Which means that the sorted-keys would be:
 
