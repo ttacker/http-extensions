@@ -5,8 +5,8 @@
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P-H. Kamp
-Expires: December 13, 2018                     The Varnish Cache Project
-                                                           June 11, 2018
+Expires: December 15, 2018                     The Varnish Cache Project
+                                                           June 13, 2018
 
 
                       Structured Headers for HTTP
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham & Kamp       Expires December 13, 2018               [Page 1]
+Nottingham & Kamp       Expires December 15, 2018               [Page 1]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -63,7 +63,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 13, 2018.
+   This Internet-Draft will expire on December 15, 2018.
 
 Copyright Notice
 
@@ -104,21 +104,23 @@ Table of Contents
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  22
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  23
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  23
-   Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  24
-     A.1.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  24
+   Appendix A.  Frequently Asked Questions . . . . . . . . . . . . .  24
+     A.1.  Why Not JSON? . . . . . . . . . . . . . . . . . . . . . .  24
 
 
 
-Nottingham & Kamp       Expires December 13, 2018               [Page 2]
+Nottingham & Kamp       Expires December 15, 2018               [Page 2]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
 
-     A.2.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  24
-     A.3.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  24
-     A.4.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  24
-     A.5.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  25
-     A.6.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  25
+   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  24
+     B.1.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  24
+     B.2.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  24
+     B.3.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  25
+     B.4.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  25
+     B.5.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  25
+     B.6.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  25
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
 
 1.  Introduction
@@ -163,9 +165,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-
-
-Nottingham & Kamp       Expires December 13, 2018               [Page 3]
+Nottingham & Kamp       Expires December 15, 2018               [Page 3]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -221,7 +221,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018               [Page 4]
+Nottingham & Kamp       Expires December 15, 2018               [Page 4]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -277,7 +277,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018               [Page 5]
+Nottingham & Kamp       Expires December 15, 2018               [Page 5]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -333,7 +333,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018               [Page 6]
+Nottingham & Kamp       Expires December 15, 2018               [Page 6]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -389,7 +389,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018               [Page 7]
+Nottingham & Kamp       Expires December 15, 2018               [Page 7]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -445,7 +445,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018               [Page 8]
+Nottingham & Kamp       Expires December 15, 2018               [Page 8]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -501,7 +501,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018               [Page 9]
+Nottingham & Kamp       Expires December 15, 2018               [Page 9]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -557,7 +557,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 10]
+Nottingham & Kamp       Expires December 15, 2018              [Page 10]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -613,7 +613,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 11]
+Nottingham & Kamp       Expires December 15, 2018              [Page 11]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -669,7 +669,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 12]
+Nottingham & Kamp       Expires December 15, 2018              [Page 12]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -725,7 +725,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 13]
+Nottingham & Kamp       Expires December 15, 2018              [Page 13]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -781,7 +781,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 14]
+Nottingham & Kamp       Expires December 15, 2018              [Page 14]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -837,7 +837,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 15]
+Nottingham & Kamp       Expires December 15, 2018              [Page 15]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -893,7 +893,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 16]
+Nottingham & Kamp       Expires December 15, 2018              [Page 16]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -949,7 +949,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 17]
+Nottingham & Kamp       Expires December 15, 2018              [Page 17]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -1005,7 +1005,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 18]
+Nottingham & Kamp       Expires December 15, 2018              [Page 18]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -1061,7 +1061,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 19]
+Nottingham & Kamp       Expires December 15, 2018              [Page 19]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -1117,7 +1117,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 20]
+Nottingham & Kamp       Expires December 15, 2018              [Page 20]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -1173,7 +1173,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 21]
+Nottingham & Kamp       Expires December 15, 2018              [Page 21]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -1229,7 +1229,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 22]
+Nottingham & Kamp       Expires December 15, 2018              [Page 22]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
@@ -1271,11 +1271,24 @@ Internet-Draft         Structured Headers for HTTP             June 2018
               HTTP/2", RFC 7541, DOI 10.17487/RFC7541, May 2015,
               <https://www.rfc-editor.org/info/rfc7541>.
 
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/info/rfc8259>.
+
 7.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
    [2] https://httpwg.github.io/
+
+
+
+
+Nottingham & Kamp       Expires December 15, 2018              [Page 23]
+
+Internet-Draft         Structured Headers for HTTP             June 2018
+
 
    [3] https://github.com/httpwg/http-extensions/labels/header-structure
 
@@ -1283,18 +1296,32 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
    [5] https://github.com/httpwg/wiki/wiki/Structured-Headers
 
+Appendix A.  Frequently Asked Questions
 
+A.1.  Why Not JSON?
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 23]
-
-Internet-Draft         Structured Headers for HTTP             June 2018
+   Earlier proposals for structured headers were based upon JSON
+   [RFC8259], but failed to get traction for a variety of reasons,
+   including:
 
+   o  Interoperability issues (e.g., regarding large numbers and objects
+      with duplicate members)
 
-Appendix A.  Changes
+   o  Difficulties specifying field values using ABNF [RFC5234]
+
+   o  Reluctance to embed a JSON parser in some HTTP implementations
+      (e.g., servers and intermediaries)
+
+   o  Concerns about JSON's ability to nest to arbitrary depths, and the
+      resulting memory commitment that might involve
+
+   o  Feelings that JSON doesn't "look right" in HTTP headers
+
+Appendix B.  Changes
 
    _RFC Editor: Please remove this section before publication._
 
-A.1.  Since draft-ietf-httpbis-header-structure-05
+B.1.  Since draft-ietf-httpbis-header-structure-05
 
    o  Reorganise specification to separate parsing out.
 
@@ -1305,19 +1332,27 @@ A.1.  Since draft-ietf-httpbis-header-structure-05
    o  Refine relationship between ABNF, parsing and serialisation
       algorithms.
 
-A.2.  Since draft-ietf-httpbis-header-structure-04
+B.2.  Since draft-ietf-httpbis-header-structure-04
 
    o  Remove identifiers from item.
 
    o  Remove most limits on sizes.
 
+
+
+
+Nottingham & Kamp       Expires December 15, 2018              [Page 24]
+
+Internet-Draft         Structured Headers for HTTP             June 2018
+
+
    o  Refine number parsing.
 
-A.3.  Since draft-ietf-httpbis-header-structure-03
+B.3.  Since draft-ietf-httpbis-header-structure-03
 
    o  Strengthen language around failure handling.
 
-A.4.  Since draft-ietf-httpbis-header-structure-02
+B.4.  Since draft-ietf-httpbis-header-structure-02
 
    o  Split Numbers into Integers and Floats.
 
@@ -1337,20 +1372,11 @@ A.4.  Since draft-ietf-httpbis-header-structure-02
 
    o  Throw an error on trailing garbage.
 
-
-
-
-
-Nottingham & Kamp       Expires December 13, 2018              [Page 24]
-
-Internet-Draft         Structured Headers for HTTP             June 2018
-
-
-A.5.  Since draft-ietf-httpbis-header-structure-01
+B.5.  Since draft-ietf-httpbis-header-structure-01
 
    o  Replaced with draft-nottingham-structured-headers.
 
-A.6.  Since draft-ietf-httpbis-header-structure-00
+B.6.  Since draft-ietf-httpbis-header-structure-00
 
    o  Added signed 64bit integer type.
 
@@ -1366,6 +1392,14 @@ Authors' Addresses
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
+
+
+
+
+
+Nottingham & Kamp       Expires December 15, 2018              [Page 25]
+
+Internet-Draft         Structured Headers for HTTP             June 2018
 
 
    Poul-Henning Kamp
@@ -1397,4 +1431,26 @@ Authors' Addresses
 
 
 
-Nottingham & Kamp       Expires December 13, 2018              [Page 25]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nottingham & Kamp       Expires December 15, 2018              [Page 26]
