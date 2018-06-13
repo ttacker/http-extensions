@@ -211,7 +211,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
       rules beginning with "sh-" defined in this specification.
 
    o  Specify any additional constraints upon the syntax of the
-      structured sued, as well as the consequences when those
+      structured used, as well as the consequences when those
       constraints are violated.  When Structured Headers parsing fails,
       the header is discarded (see Section 4.2); in most situations,
       header-specific constraints should do likewise.
