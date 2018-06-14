@@ -103,7 +103,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -112,8 +112,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-06-12T20:28:27Z",
-    "updated_at": "2018-06-13T23:48:01Z",
-    "closed_at": null,
+    "updated_at": "2018-06-13T23:50:45Z",
+    "closed_at": "2018-06-13T23:50:39Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/651",
@@ -2581,7 +2581,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -2590,8 +2590,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-05-10T02:15:33Z",
-    "updated_at": "2018-05-12T00:42:09Z",
-    "closed_at": null,
+    "updated_at": "2018-06-13T23:50:39Z",
+    "closed_at": "2018-06-13T23:50:39Z",
     "author_association": "MEMBER",
     "body": "Secondary certs depends on there not being a MitM.  And sadly, they still exist in some places.\r\n\r\nNow, as an advisory extra, the failure mode isn't fatal to the connection, but it could mean a lot of wasted effort.  So we could pack the setting with 32 bits extracted from the exporter as confirmation that the mechanism works, or design a new mechanism to reduce the chance that we waste effort on creating authenticators that we can't use.\r\n\r\nEither way, it's probably worth mentioning this possibility."
   },
@@ -4407,7 +4407,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -4416,8 +4416,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-04-13T18:04:10Z",
-    "updated_at": "2018-06-12T19:05:10Z",
-    "closed_at": null,
+    "updated_at": "2018-06-14T16:54:40Z",
+    "closed_at": "2018-06-13T23:56:02Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/586",
@@ -5817,7 +5817,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -5826,8 +5826,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-04-06T23:09:10Z",
-    "updated_at": "2018-04-06T23:10:06Z",
-    "closed_at": null,
+    "updated_at": "2018-06-13T23:56:02Z",
+    "closed_at": "2018-06-13T23:56:02Z",
     "author_association": "MEMBER",
     "body": "In the current draft, the client ties up a stream for a pending request on an unproven domain so that it can send a `NEEDED` frame, permitting the server to respond with `USE`.  This is rather awkward.\r\n\r\nHowever, the alternative is also somewhat unappealing.  In the process of updating #480, I'm adding a suggestion that servers SHOULD respond to `REQUEST` with an appropriate certificate if they have one, which makes this flow much cleaner.  However, there's current no way to *reject* a certificate request without a request stream."
   },
@@ -8139,9 +8139,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-03-20T16:55:50Z",
-    "updated_at": "2018-04-30T06:18:15Z",
+    "updated_at": "2018-06-14T07:46:06Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The security issues motivating CSP Cookie Controls (https://www.w3.org/TR/csp-cookies/) still exist.   We at a minimum we should list this as a security consideration.   In particular, an origin is unable to restrict non-HTTP APIs from setting cookies on a host or domain.  While perhaps this is a nice-to-have for hosts (APIs operating in the origin context can do lots of other things), it is a major problem unique to cookies for domains.  \r\n\r\nA multi-tenant domain (with independent origins under it) has no in-band way to prevent cookies from being set on the entire domain (ie, to restrict cookies to same-site).  The only option available there is to put the domain on a public-suffix list which isn't always scale-able or operationally maintainable.\r\n\r\nIt may also be worth considering a response header that servers could send to constrain all cookies to same-site as part of this, either with \"Content-Security-Policy: cookie-scope host\" or as a separate response header specific to this use-case.  For example, a \"Restrict-Cookies\" response header with tokens matching the new features of 6265bis (same-site, secure-only, none) that would constrain behaviors of non-HTTP APIs.\r\n"
