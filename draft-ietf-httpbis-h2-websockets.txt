@@ -212,11 +212,11 @@ Internet-Draft                H2 Websockets                    June 2018
    "https" for "wss" schemed WebSockets and "http" for "ws" schemed
    WebSockets.  The remainder of the Target URI is the same as the
    websocket URI.  The websocket URI is still used for proxy
-   autoconfiguration.
+   autoconfiguration.  The security requirements for the HTTP/2
+   connection used by this specification are established by [RFC7540]
+   for https requests and [RFC8164] for http requests.
 
-   [RFC6455] requires the use of Connection and Upgrade header fields
-   that are not part of HTTP/2.  They MUST NOT be included in the
-   CONNECT request defined here.
+
 
 
 
@@ -225,6 +225,10 @@ McManus                 Expires December 17, 2018               [Page 4]
 
 Internet-Draft                H2 Websockets                    June 2018
 
+
+   [RFC6455] requires the use of Connection and Upgrade header fields
+   that are not part of HTTP/2.  They MUST NOT be included in the
+   CONNECT request defined here.
 
    [RFC6455] requires the use of a Host header field which is also not
    part of HTTP/2.  The Host information is conveyed as part of the
@@ -255,10 +259,6 @@ Internet-Draft                H2 Websockets                    June 2018
    the CANCEL ([RFC7540], Section 7) error code.
 
 5.1.  Example
-
-
-
-
 
 
 
@@ -404,6 +404,10 @@ Internet-Draft                H2 Websockets                    June 2018
               DOI 10.17487/RFC7540, May 2015,
               <https://www.rfc-editor.org/info/rfc7540>.
 
+   [RFC8164]  Nottingham, M. and M. Thomson, "Opportunistic Security for
+              HTTP/2", RFC 8164, DOI 10.17487/RFC8164, May 2017,
+              <https://www.rfc-editor.org/info/rfc8164>.
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -420,10 +424,6 @@ Author's Address
    Mozilla
 
    Email: mcmanus@ducksong.com
-
-
-
-
 
 
 
