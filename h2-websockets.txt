@@ -4,9 +4,9 @@
 
 HTTP Working Group                                            P. McManus
 Internet-Draft                                                   Mozilla
-Updates: 6455 (if approved)                                June 13, 2018
+Updates: 6455 (if approved)                                June 15, 2018
 Intended status: Standards Track
-Expires: December 15, 2018
+Expires: December 17, 2018
 
 
                   Bootstrapping WebSockets with HTTP/2
@@ -32,7 +32,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 15, 2018.
+   This Internet-Draft will expire on December 17, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-McManus                 Expires December 15, 2018               [Page 1]
+McManus                 Expires December 17, 2018               [Page 1]
 
 Internet-Draft                H2 Websockets                    June 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-McManus                 Expires December 15, 2018               [Page 2]
+McManus                 Expires December 17, 2018               [Page 2]
 
 Internet-Draft                H2 Websockets                    June 2018
 
@@ -165,7 +165,7 @@ Internet-Draft                H2 Websockets                    June 2018
 
 
 
-McManus                 Expires December 15, 2018               [Page 3]
+McManus                 Expires December 17, 2018               [Page 3]
 
 Internet-Draft                H2 Websockets                    June 2018
 
@@ -183,13 +183,15 @@ Internet-Draft                H2 Websockets                    June 2018
       tokens.xhtml [1].
 
    o  On requests bearing the :protocol pseudo-header, the :scheme and
-      :path pseudo-header fields MUST be included.
+      :path pseudo-header fields of the target URI (See Section 5) MUST
+      be included.
 
    o  On requests bearing the :protocol pseudo-header, the :authority
       pseudo-header field is interpreted according to Section 8.1.2.3 of
-      [RFC7540] instead of Section 8.3 of [RFC7540].  In particular the
-      server MUST NOT make a new TCP connection to the host and port
-      indicated by the :authority.
+      [RFC7540] instead of Section 8.3 of [RFC7540].  In particular, the
+      server MUST NOT create a tunnel to the host indicated by the
+      :authority as it would with a CONNECT method request that was not
+      modified by this extension.
 
    Upon receiving a CONNECT request bearing the :protocol pseudo-header
    the server establishes a tunnel to another service of the protocol
@@ -206,25 +208,27 @@ Internet-Draft                H2 Websockets                    June 2018
    the GET-based request in [RFC6455] and is used to process the
    WebSockets opening handshake.
 
-   The scheme of the Target URI (Section 5.1 of [RFC7230]) MUST be
+   The scheme of the target URI (Section 5.1 of [RFC7230]) MUST be
    "https" for "wss" schemed WebSockets and "http" for "ws" schemed
-   WebSockets.  The websocket URI is still used for proxy
+   WebSockets.  The remainder of the Target URI is the same as the
+   websocket URI.  The websocket URI is still used for proxy
    autoconfiguration.
 
    [RFC6455] requires the use of Connection and Upgrade headers that are
    not part of HTTP/2.  They MUST NOT be included in the CONNECT request
    defined here.
 
-   [RFC6455] requires the use of a Host header which is also not part of
-   HTTP/2.  The Host information is conveyed as part of the :authority
-   pseudo-header which is required on every HTTP/2 transaction.
 
 
 
-McManus                 Expires December 15, 2018               [Page 4]
+McManus                 Expires December 17, 2018               [Page 4]
 
 Internet-Draft                H2 Websockets                    June 2018
 
+
+   [RFC6455] requires the use of a Host header which is also not part of
+   HTTP/2.  The Host information is conveyed as part of the :authority
+   pseudo-header which is required on every HTTP/2 transaction.
 
    Implementations using this extended CONNECT to bootstrap WebSockets
    do not do the processing of the [RFC6455] Sec-WebSocket-Key and Sec-
@@ -273,11 +277,7 @@ Internet-Draft                H2 Websockets                    June 2018
 
 
 
-
-
-
-
-McManus                 Expires December 15, 2018               [Page 5]
+McManus                 Expires December 17, 2018               [Page 5]
 
 Internet-Draft                H2 Websockets                    June 2018
 
@@ -333,7 +333,7 @@ WebSocket Data
 
 
 
-McManus                 Expires December 15, 2018               [Page 6]
+McManus                 Expires December 17, 2018               [Page 6]
 
 Internet-Draft                H2 Websockets                    June 2018
 
@@ -389,7 +389,7 @@ Internet-Draft                H2 Websockets                    June 2018
 
 
 
-McManus                 Expires December 15, 2018               [Page 7]
+McManus                 Expires December 17, 2018               [Page 7]
 
 Internet-Draft                H2 Websockets                    June 2018
 
@@ -445,4 +445,4 @@ Author's Address
 
 
 
-McManus                 Expires December 15, 2018               [Page 8]
+McManus                 Expires December 17, 2018               [Page 8]
