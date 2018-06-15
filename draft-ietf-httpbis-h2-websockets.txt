@@ -353,6 +353,12 @@ Internet-Draft                H2 Websockets                    June 2018
       specific and HTTP/2 does not ever allow to be created outside of
       the protocol stack.
 
+   The security considerations of [RFC6455] section 10 continue to apply
+   to the use of the WebSocket Protocol when using this specification
+   with the exception of 10.8.  That section is not relevant because it
+   is specific to the boostrapping handshake that is changed in this
+   document.
+
 9.  IANA Considerations
 
    This document establishes an entry for the HTTP/2 Settings Registry
@@ -379,12 +385,6 @@ Internet-Draft                H2 Websockets                    June 2018
               DOI 10.17487/RFC6454, December 2011,
               <https://www.rfc-editor.org/info/rfc6454>.
 
-   [RFC6455]  Fette, I. and A. Melnikov, "The WebSocket Protocol",
-              RFC 6455, DOI 10.17487/RFC6455, December 2011,
-              <https://www.rfc-editor.org/info/rfc6455>.
-
-
-
 
 
 
@@ -393,6 +393,10 @@ McManus                 Expires December 17, 2018               [Page 7]
 
 Internet-Draft                H2 Websockets                    June 2018
 
+
+   [RFC6455]  Fette, I. and A. Melnikov, "The WebSocket Protocol",
+              RFC 6455, DOI 10.17487/RFC6455, December 2011,
+              <https://www.rfc-editor.org/info/rfc6455>.
 
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
@@ -425,10 +429,6 @@ Author's Address
    Mozilla
 
    Email: mcmanus@ducksong.com
-
-
-
-
 
 
 
