@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                                 June 7, 2018
+Updates: 7234 (if approved)                                June 27, 2018
 Intended status: Standards Track
-Expires: December 9, 2018
+Expires: December 29, 2018
 
 
                       HTTP Representation Variants
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 9, 2018.
+   This Internet-Draft will expire on December 29, 2018.
 
 
 
-Nottingham              Expires December 9, 2018                [Page 1]
+Nottingham              Expires December 29, 2018               [Page 1]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham              Expires December 9, 2018                [Page 2]
+Nottingham              Expires December 29, 2018               [Page 2]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -118,7 +118,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
    HTTP proactive content negotiation ([RFC7231], Section 3.4.1) is
    seeing renewed interest, both for existing request headers like
-   Content-Language and for newer ones (for example, see
+   Accept-Language and for newer ones (for example, see
    [I-D.ietf-httpbis-client-hints]).
 
    Successfully reusing negotiated responses that have been stored in a
@@ -165,7 +165,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018                [Page 3]
+Nottingham              Expires December 29, 2018               [Page 3]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -221,7 +221,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018                [Page 4]
+Nottingham              Expires December 29, 2018               [Page 4]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -277,7 +277,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018                [Page 5]
+Nottingham              Expires December 29, 2018               [Page 5]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -333,7 +333,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018                [Page 6]
+Nottingham              Expires December 29, 2018               [Page 6]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -366,12 +366,12 @@ Internet-Draft        HTTP Representation Variants             June 2018
    a list member, to indicate that the response can be used to satisfy
    requests with any of those values.  For example:
 
-   Variants: Content-Encoding;gzip;br, Content-Language;en ;fr
+   Variants: Accept-Encoding;gzip;br, Accept-Language;en ;fr
    Variant-Key: gzip;identity, fr
 
-   indicates that this response can be used for requests whose Content-
+   indicates that this response can be used for requests whose Accept-
    Encoding algorithm selects "gzip" or "identity", as long as the
-   Content-Language algorithm selects "fr" - perhaps because there is no
+   Accept-Language algorithm selects "fr" - perhaps because there is no
    gzip-compressed French representation.
 
    This highlights an important aspect of Variant-Key; it is only used
@@ -389,7 +389,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018                [Page 7]
+Nottingham              Expires December 29, 2018               [Page 7]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -445,7 +445,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018                [Page 8]
+Nottingham              Expires December 29, 2018               [Page 8]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -501,7 +501,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018                [Page 9]
+Nottingham              Expires December 29, 2018               [Page 9]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -557,7 +557,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018               [Page 10]
+Nottingham              Expires December 29, 2018              [Page 10]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -585,10 +585,10 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
    Then the sorted-variants would be:
 
- [
-   ["fr", "en"]           // prefers French, will accept English
-   ["gzip", "identity"]   // prefers gzip encoding, will accept identity
- ]
+   [
+     ["fr", "en"]         // prefers French, will accept English
+     ["gzip", "identity"] // prefers gzip encoding, will accept identity
+   ]
 
    Which means that the sorted-keys would be:
 
@@ -613,7 +613,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018               [Page 11]
+Nottingham              Expires December 29, 2018              [Page 11]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -669,14 +669,14 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018               [Page 12]
+Nottingham              Expires December 29, 2018              [Page 12]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
 
    Upon receipt of this response, the cache knows that two
-   representations of this resource are available, one with a Content-
-   Language of "en", and another whose Content-Language is "de".
+   representations of this resource are available, one with a language
+   of "en", and another whose language is "de".
 
    Subsequent requests (while this response is fresh) will cause the
    cache to either reuse this response or forward the request, depending
@@ -718,14 +718,14 @@ Internet-Draft        HTTP Representation Variants             June 2018
    Transfer-Encoding: chunked
 
    Here, the cache knows that there are two axes that the response
-   varies upon; Content-Language and Content-Encoding.  Thus, there are
-   a total of nine possible representations for the resource (including
-   the identity encoding), and the cache needs to consider the selection
-   algorithms for both axes.
+   varies upon; language and encoding.  Thus, there are a total of nine
+   possible representations for the resource (including the identity
+   encoding), and the cache needs to consider the selection algorithms
+   for both axes.
 
 
 
-Nottingham              Expires December 9, 2018               [Page 13]
+Nottingham              Expires December 29, 2018              [Page 13]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -737,7 +737,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 5.1.3.  Partial Coverage
 
    Now, consider the previous example, but where only one of the Vary'd
-   axes (Content-Encoding) is listed in Variants:
+   axes (encoding) is listed in Variants:
 
    GET /bar HTTP/1.1
    Host: www.example.net
@@ -781,7 +781,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018               [Page 14]
+Nottingham              Expires December 29, 2018              [Page 14]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -837,7 +837,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018               [Page 15]
+Nottingham              Expires December 29, 2018              [Page 15]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -893,7 +893,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 9, 2018               [Page 16]
+Nottingham              Expires December 29, 2018              [Page 16]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -949,7 +949,7 @@ A.1.  Accept
 
 
 
-Nottingham              Expires December 9, 2018               [Page 17]
+Nottingham              Expires December 29, 2018              [Page 17]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -1005,7 +1005,7 @@ A.2.  Accept-Encoding
 
 
 
-Nottingham              Expires December 9, 2018               [Page 18]
+Nottingham              Expires December 29, 2018              [Page 18]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -1061,7 +1061,7 @@ Acknowledgements
 
 
 
-Nottingham              Expires December 9, 2018               [Page 19]
+Nottingham              Expires December 29, 2018              [Page 19]
 
 Internet-Draft        HTTP Representation Variants             June 2018
 
@@ -1117,4 +1117,4 @@ Author's Address
 
 
 
-Nottingham              Expires December 9, 2018               [Page 20]
+Nottingham              Expires December 29, 2018              [Page 20]

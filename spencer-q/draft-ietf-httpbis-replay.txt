@@ -5,10 +5,10 @@
 HTTP Working Group                                            M. Thomson
 Internet-Draft                                                   Mozilla
 Intended status: Standards Track                           M. Nottingham
-Expires: December 9, 2018                                         Fastly
+Expires: December 29, 2018                                        Fastly
                                                               W. Tarreau
                                                     HAProxy Technologies
-                                                           June 07, 2018
+                                                           June 27, 2018
 
 
                         Using Early Data in HTTP
@@ -23,6 +23,8 @@ Abstract
    mitigate the risk of replay.
 
 Note to Readers
+
+   RFC Editor: Please remove this section before publication.
 
    Discussion of this draft takes place on the HTTP working group
    mailing list (ietf-http-wg@w3.org), which is archived at
@@ -47,13 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 9, 2018.
+   This Internet-Draft will expire on December 29, 2018.
 
 
 
-
-
-Thomson, et al.         Expires December 9, 2018                [Page 1]
+Thomson, et al.         Expires December 29, 2018               [Page 1]
 
 Internet-Draft               HTTP Early Data                   June 2018
 
@@ -84,10 +84,10 @@ Table of Contents
      5.1.  The Early-Data Header Field . . . . . . . . . . . . . . .   7
      5.2.  The 425 (Too Early) Status Code . . . . . . . . . . . . .   8
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
-     6.1.  Gateways and Early Data . . . . . . . . . . . . . . . . .   8
+     6.1.  Gateways and Early Data . . . . . . . . . . . . . . . . .   9
      6.2.  Consistent Handling of Early Data . . . . . . . . . . . .   9
      6.3.  Denial of Service . . . . . . . . . . . . . . . . . . . .   9
-     6.4.  Out of Order Delivery . . . . . . . . . . . . . . . . . .   9
+     6.4.  Out of Order Delivery . . . . . . . . . . . . . . . . . .  10
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
@@ -101,7 +101,7 @@ Table of Contents
    TLS 1.3 [TLS13] introduces the concept of early data (also known as
    zero round trip data or 0-RTT data).  Early data allows a client to
    send data to a server in the first round trip of a connection,
-   without waiting for the TLS handshake to complete if the client has
+   without waiting for the TLS handshake to complete, if the client has
    spoken to the same server recently.
 
    When used with HTTP [HTTP], early data allows clients to send
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Thomson, et al.         Expires December 9, 2018                [Page 2]
+Thomson, et al.         Expires December 29, 2018               [Page 2]
 
 Internet-Draft               HTTP Early Data                   June 2018
 
@@ -165,7 +165,7 @@ Internet-Draft               HTTP Early Data                   June 2018
 
 
 
-Thomson, et al.         Expires December 9, 2018                [Page 3]
+Thomson, et al.         Expires December 29, 2018               [Page 3]
 
 Internet-Draft               HTTP Early Data                   June 2018
 
@@ -191,23 +191,26 @@ Internet-Draft               HTTP Early Data                   June 2018
        receives multiple requests in early data, it can determine
        whether to defer HTTP processing on a per-request basis.
 
-   3.  The server can cause a client to retry each request and not use
-       early data by responding with the 425 (Too Early) status code
-       (Section 5.2), in cases where the risk of replay is judged too
-       great.
+   3.  The server can cause a client to retry individual requests and
+       not use early data by responding with the 425 (Too Early) status
+       code (Section 5.2), in cases where the risk of replay is judged
+       too great.
 
    Any of these techniques is equally effective and a server can use the
    method that best suits it.
 
    For a given request, the level of tolerance to replay risk is
    specific to the resource it operates upon (and therefore only known
-   to the origin server).  In general, if processing a request does not
-   have state-changing side effects, the consequences of replay are not
-   significant.
+   to the origin server).  The primary risk associated with using early
+   data is in the actions a server takes when processing a request;
+   processing a duplicated request might result in duplicated effects
+   and side effects.  Appendix E.5 of [TLS13] also describes other
+   effects produced by processing duplicated requests.
 
    The request method's safety ([RFC7231], Section 4.2.1) is one way to
-   determine this.  However, some resources do elect to associate side
-   effects with safe methods, so this cannot be universally relied upon.
+   determine if a request is free from side effects.  However, some
+   resources do elect to associate side effects with safe methods, so
+   this cannot be universally relied upon.
 
    It is RECOMMENDED that origin servers allow resources to explicitly
    configure whether early data is appropriate in requests.  Absent such
@@ -215,17 +218,17 @@ Internet-Draft               HTTP Early Data                   June 2018
    implement the techniques described in this document for ensuring that
    requests are not processed prior to TLS handshake completion.
 
-   A request might be sent partially in early data with the remainder of
-   the request being sent after the handshake completes.  This does not
-   necessarily affect handling of that request; what matters is when the
 
 
 
-Thomson, et al.         Expires December 9, 2018                [Page 4]
+Thomson, et al.         Expires December 29, 2018               [Page 4]
 
 Internet-Draft               HTTP Early Data                   June 2018
 
 
+   A request might be sent partially in early data with the remainder of
+   the request being sent after the handshake completes.  This does not
+   necessarily affect handling of that request; what matters is when the
    server starts acting upon the contents of a request.  Any time any
    server instance might initiate processing prior to completion of the
    handshake, all server instances need to consider how a possible
@@ -237,11 +240,11 @@ Internet-Draft               HTTP Early Data                   June 2018
    request routing is likely to be safe from side-effects, but other
    actions might not be.
 
-   Intermediary servers do not have sufficient information to make this
-   determination, so Section 5.2 describes a way for the origin to
-   signal to them that a particular request isn't appropriate for early
-   data.  Intermediaries that accept early data MUST implement that
-   mechanism.
+   Intermediary servers do not have sufficient information to decide
+   whether early data can be processed, so Section 5.2 describes a way
+   for the origin to signal to them that a particular request isn't
+   appropriate for early data.  Intermediaries that accept early data
+   MUST implement that mechanism.
 
    Note that a server cannot choose to selectively reject early data at
    the TLS layer.  TLS only permits a server to accept all early data,
@@ -252,9 +255,7 @@ Internet-Draft               HTTP Early Data                   June 2018
    A server can limit the amount of early data with the
    "max_early_data_size" field of the "early_data" TLS extension.  This
    can be used to avoid committing an arbitrary amount of memory for
-   deferred requests.  A server SHOULD ensure that when it accepts early
-   data, it can defer processing of requests until after the TLS
-   handshake completes.
+   requests that it might defer until the handshake completes.
 
 4.  Using Early Data in HTTP Clients
 
@@ -265,36 +266,39 @@ Internet-Draft               HTTP Early Data                   June 2018
    sent in early data - thereby giving the client control over risk of
    replay.  Absent other information, clients MAY send requests with
    safe HTTP methods (see [RFC7231], Section 4.2.1) in early data when
-   it is available, and SHOULD NOT send unsafe methods (or methods whose
+   it is available, and MUST NOT send unsafe methods (or methods whose
    safety is not known) in early data.
 
    If the server rejects early data at the TLS layer, a client MUST
-   start sending again as though the connection was new.  This could
+   start sending again as though the connection were new.  This could
    entail using a different negotiated protocol [ALPN] than the one
    optimistically used for the early data.  Any requests sent in early
-   data MUST be sent again, unless the client decides to abandon those
-   requests.
 
 
 
-Thomson, et al.         Expires December 9, 2018                [Page 5]
+
+Thomson, et al.         Expires December 29, 2018               [Page 5]
 
 Internet-Draft               HTTP Early Data                   June 2018
 
 
+   data will need to be sent again, unless the client decides to abandon
+   those requests.
+
    Automatic retry creates the potential for a replay attack.  An
    attacker intercepts a connection that uses early data and copies the
    early data to another server instance.  The second server instance
-   accepts and processes the early data.  The attacker then allows the
-   original connection to complete.  Even if the early data is detected
-   as a duplicate and rejected, the first server instance might allow
-   the connection to complete.  If the client then retries requests that
+   accepts and processes the early data, even though it will not
+   complete the TLS handshake.  The attacker then allows the original
+   connection to complete.  Even if the early data is detected as a
+   duplicate and rejected, the first server instance might allow the
+   connection to complete.  If the client then retries requests that
    were sent in early data, the request will be processed twice.
 
    Replays are also possible if there are multiple server instances that
    will accept early data, or if the same server accepts early data
-   multiple times (though this would be in violation of requirements in
-   Section 8 of [TLS13]).
+   multiple times (though the latter would be in violation of
+   requirements in Section 8 of [TLS13]).
 
    Clients that use early data MUST retry requests upon receipt of a 425
    (Too Early) status code; see Section 5.2.
@@ -326,17 +330,18 @@ Internet-Draft               HTTP Early Data                   June 2018
       indicate that a request could not be processed due to the
       consequences of a possible replay attack.
 
+
+
+
+Thomson, et al.         Expires December 29, 2018               [Page 6]
+
+Internet-Draft               HTTP Early Data                   June 2018
+
+
    They are designed to enable better coordination of the use of early
    data between the user agent and origin server, and also when a
    gateway (also "reverse proxy", "Content Delivery Network", or
    "surrogate") is present.
-
-
-
-Thomson, et al.         Expires December 9, 2018                [Page 6]
-
-Internet-Draft               HTTP Early Data                   June 2018
-
 
    Gateways typically don't have specific information about whether a
    given request can be processed safely when it is sent in early data.
@@ -367,7 +372,7 @@ Internet-Draft               HTTP Early Data                   June 2018
    header field set to "1" (i.e., it adds it if not present in the
    request).  An intermediary MUST use the "Early-Data" header field if
    it might have forwarded the request prior to handshake completion
-   (see Section 6.2 for details).
+   (Section 6.2 describes considerations for clusters of servers).
 
    An intermediary MUST NOT remove this header field if it is present in
    a request.  "Early-Data" MUST NOT appear in a "Connection" header
@@ -380,19 +385,21 @@ Internet-Draft               HTTP Early Data                   June 2018
    code.  A user agent that sends a request in early data does not need
    to include the "Early-Data" header field.
 
+
+
+
+
+Thomson, et al.         Expires December 29, 2018               [Page 7]
+
+Internet-Draft               HTTP Early Data                   June 2018
+
+
    A server cannot make a request that contains the Early-Data header
    field safe for processing by waiting for the handshake to complete.
    A request that is marked with Early-Data was sent in early data on a
    previous hop.  Requests that contain the Early-Data field and cannot
    be safely processed MUST be rejected using the 425 (Too Early) status
    code.
-
-
-
-Thomson, et al.         Expires December 9, 2018                [Page 7]
-
-Internet-Draft               HTTP Early Data                   June 2018
-
 
    The "Early-Data" header field carries a single bit of information and
    clients MUST include at most one instance.  Multiple or invalid
@@ -434,7 +441,18 @@ Internet-Draft               HTTP Early Data                   June 2018
    replayed.  A retried or replayed request can produce different side
    effects on the server.  In addition to those side effects, replays
    and retries might be used for traffic analysis to recover information
-   about requests or the resources those requests target.
+   about requests or the resources those requests target.  In
+
+
+
+Thomson, et al.         Expires December 29, 2018               [Page 8]
+
+Internet-Draft               HTTP Early Data                   June 2018
+
+
+   particular, a request that is replayed might result in a different
+   response, which might be observable from the length of protected data
+   even if the content remains confidential.
 
 6.1.  Gateways and Early Data
 
@@ -442,14 +460,6 @@ Internet-Draft               HTTP Early Data                   June 2018
    MUST only do so if it knows that the origin server that receives
    those requests understands the "Early-Data" header field and will
    correctly generate a 425 (Too Early) status code.  A gateway that is
-
-
-
-Thomson, et al.         Expires December 9, 2018                [Page 8]
-
-Internet-Draft               HTTP Early Data                   June 2018
-
-
    uncertain about origin server support for a given request SHOULD
    either delay forwarding the request until the TLS handshake with its
    client completes, or send a 425 (Too Early) status code in response.
@@ -488,6 +498,14 @@ Internet-Draft               HTTP Early Data                   June 2018
    through the replay of requests that are expensive to handle.  A
    server that is under load SHOULD prefer rejecting TLS early data as a
    whole rather than accepting early data and selectively processing
+
+
+
+Thomson, et al.         Expires December 29, 2018               [Page 9]
+
+Internet-Draft               HTTP Early Data                   June 2018
+
+
    requests.  Generating a 503 (Service Unavailable) or 425 (Too Early)
    status code often leads to clients retrying requests, which could
    result in increased load.
@@ -497,15 +515,6 @@ Internet-Draft               HTTP Early Data                   June 2018
    In protocols that deliver data out of order (such as QUIC [HQ]) early
    data can arrive after the handshake completes.  A server MAY process
    requests received in early data after handshake completion only if it
-
-
-
-
-Thomson, et al.         Expires December 9, 2018                [Page 9]
-
-Internet-Draft               HTTP Early Data                   June 2018
-
-
    can rely on other instances correctly handling replays of the same
    requests.
 
@@ -546,21 +555,17 @@ Internet-Draft               HTTP Early Data                   June 2018
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
 
+
+
+Thomson, et al.         Expires December 29, 2018              [Page 10]
+
+Internet-Draft               HTTP Early Data                   June 2018
+
+
    [HTTP]     Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <https://www.rfc-editor.org/info/rfc7230>.
-
-
-
-
-
-
-
-Thomson, et al.         Expires December 9, 2018               [Page 10]
-
-Internet-Draft               HTTP Early Data                   June 2018
-
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -606,17 +611,14 @@ Internet-Draft               HTTP Early Data                   June 2018
 
    [4] https://www.iana.org/assignments/message-headers
 
-   [5] https://www.iana.org/assignments/http-status-codes
 
 
-
-
-
-
-Thomson, et al.         Expires December 9, 2018               [Page 11]
+Thomson, et al.         Expires December 29, 2018              [Page 11]
 
 Internet-Draft               HTTP Early Data                   June 2018
 
+
+   [5] https://www.iana.org/assignments/http-status-codes
 
 Acknowledgments
 
@@ -667,6 +669,4 @@ Authors' Addresses
 
 
 
-
-
-Thomson, et al.         Expires December 9, 2018               [Page 12]
+Thomson, et al.         Expires December 29, 2018              [Page 12]
