@@ -170,33 +170,34 @@ Thomson, et al.         Expires December 29, 2018               [Page 3]
 Internet-Draft               HTTP Early Data                   June 2018
 
 
+   TLS [TLS13] mandates the use of replay detection strategies that
+   reduce the ability of an attacker to successfully replay early data.
+   These anti-replay techniques reduce but don't completely eliminate
+   the chance of data being replayed and ensure a fixed upper limit to
+   the number of replays.
+
    When a server enables early data, there are a number of techniques it
    can use to mitigate the risks of replay:
 
-   1.  TLS [TLS13] mandates the use of replay detection strategies that
-       reduce the ability of an attacker to successfully replay early
-       data.  These anti-replay techniques reduce but don't completely
-       eliminate the chance of data being replayed and ensure a fixed
-       upper limit to the number of replays.
-
-   2.  The server can reject early data at the TLS layer.  A server
+   1.  The server can reject early data at the TLS layer.  A server
        cannot selectively reject early data, so this results in all
        requests sent in early data being discarded.
 
-   3.  The server can choose to delay processing of early data until
+   2.  The server can choose to delay processing of early data until
        after the TLS handshake completes.  By deferring processing, it
        can ensure that only a successfully completed connection is used
        for the request(s) therein.  This provides the server with some
-       assurance that the early data was not replayed.
+       assurance that the early data was not replayed.  If the server
+       receives multiple requests in early data, it can determine
+       whether to defer HTTP processing on a per-request basis.
 
-   4.  If the server receives multiple requests in early data, it can
-       determine whether to defer HTTP processing on a per-request
-       basis.
-
-   5.  The server can cause a client to retry individual requests and
+   3.  The server can cause a client to retry individual requests and
        not use early data by responding with the 425 (Too Early) status
        code (Section 5.2), in cases where the risk of replay is judged
        too great.
+
+   Any of these techniques is equally effective and a server can use the
+   method that best suits it.
 
    For a given request, the level of tolerance to replay risk is
    specific to the resource it operates upon (and therefore only known
@@ -216,7 +217,6 @@ Internet-Draft               HTTP Early Data                   June 2018
    explicit information, origin servers MUST either reject early data or
    implement the techniques described in this document for ensuring that
    requests are not processed prior to TLS handshake completion.
-
 
 
 
@@ -315,10 +315,10 @@ Internet-Draft               HTTP Early Data                   June 2018
 
    Because HTTP requests can span multiple "hops", it is necessary to
    explicitly communicate whether a request has been sent in early data
-   on a previous connection.  Likewise, some means of explicitly
-   triggering a retry when early data is not desirable is necessary.
-   Finally, it is necessary to know whether the client will actually
-   perform such a retry.
+   on a previous hop.  Likewise, some means of explicitly triggering a
+   retry when early data is not desirable is necessary.  Finally, it is
+   necessary to know whether the client will actually perform such a
+   retry.
 
    To meet these needs, two signalling mechanisms are defined:
 
@@ -414,9 +414,10 @@ Internet-Draft               HTTP Early Data                   June 2018
    A 425 (Too Early) status code indicates that the server is unwilling
    to risk processing a request that might be replayed.
 
-   User agents that send a request in early data MUST automatically
-   retry the request when receiving a 425 (Too Early) response status
-   code.  Such retries MUST NOT be sent in early data.
+   User agents that send a request in early data are expected to retry
+   the request when receiving a 425 (Too Early) response status code.  A
+   user agent MAY do so automatically, but any retries MUST NOT be sent
+   in early data.
 
    In all cases, an intermediary can forward a 425 (Too Early) status
    code.  Intermediaries MUST forward a 425 (Too Early) status code if
@@ -441,7 +442,6 @@ Internet-Draft               HTTP Early Data                   June 2018
    effects on the server.  In addition to those side effects, replays
    and retries might be used for traffic analysis to recover information
    about requests or the resources those requests target.  In
-   particular, a request that is replayed might result in a different
 
 
 
@@ -450,6 +450,7 @@ Thomson, et al.         Expires December 29, 2018               [Page 8]
 Internet-Draft               HTTP Early Data                   June 2018
 
 
+   particular, a request that is replayed might result in a different
    response, which might be observable from the length of protected data
    even if the content remains confidential.
 
@@ -497,7 +498,6 @@ Internet-Draft               HTTP Early Data                   June 2018
    through the replay of requests that are expensive to handle.  A
    server that is under load SHOULD prefer rejecting TLS early data as a
    whole rather than accepting early data and selectively processing
-   requests.  Generating a 503 (Service Unavailable) or 425 (Too Early)
 
 
 
@@ -506,6 +506,7 @@ Thomson, et al.         Expires December 29, 2018               [Page 9]
 Internet-Draft               HTTP Early Data                   June 2018
 
 
+   requests.  Generating a 503 (Service Unavailable) or 425 (Too Early)
    status code often leads to clients retrying requests, which could
    result in increased load.
 
@@ -513,8 +514,8 @@ Internet-Draft               HTTP Early Data                   June 2018
 
    In protocols that deliver data out of order (such as QUIC [HQ]) early
    data can arrive after the handshake completes.  A server MAY process
-   requests received in early data after handshake completion if it can
-   rely on other instances correctly handling replays of the same
+   requests received in early data after handshake completion only if it
+   can rely on other instances correctly handling replays of the same
    requests.
 
 7.  IANA Considerations
@@ -553,7 +554,6 @@ Internet-Draft               HTTP Early Data                   June 2018
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
-
 
 
 
