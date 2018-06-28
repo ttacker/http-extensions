@@ -1381,9 +1381,11 @@ Appendix B.  Changes
 
 B.1.  Since draft-ietf-httpbis-header-structure-06
 
-   o  FAQ
+   o  Add a FAQ.
 
    o  Allow non-zero pad bits.
+
+   o  Explicitly check for integers that violate constraints.
 
 B.2.  Since draft-ietf-httpbis-header-structure-05
 
@@ -1392,8 +1394,6 @@ B.2.  Since draft-ietf-httpbis-header-structure-05
    o  Allow referencing specs to use ABNF.
 
    o  Define serialisation algorithms.
-
-
 
 
 
