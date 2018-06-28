@@ -1047,17 +1047,17 @@ Internet-Draft         Structured Headers for HTTP             June 2018
         6.  If type is "float" and input_number contains more than 16
             characters, fail parsing.
 
-   8.   If type is "integer", parse input_number as an integer and let
-        output_number be the result.
+   8.   If type is "integer":
+
+        1.  Parse input_number as an integer and let output_number be
+            the result.
+
+        2.  If output_number is outside the range defined in
+            Section 3.5, fail parsing.
 
    9.   Otherwise:
 
         1.  If the final character of input_number is ".", fail parsing.
-
-        2.  Parse input_number as a float and let output_number be the
-            result.
-
-   10.  Return the product of output_number and sign.
 
 
 
@@ -1066,13 +1066,10 @@ Nottingham & Kamp       Expires December 30, 2018              [Page 19]
 Internet-Draft         Structured Headers for HTTP             June 2018
 
 
-   Parsers that encounter an integer outside the range defined in
-   Section 3.5 MUST fail parsing.  Therefore, the value
-   "9223372036854775808" would be invalid.  Likewise, values that do not
-   conform to the ABNF above are invalid, and MUST fail parsing.
+        2.  Parse input_number as a float and let output_number be the
+            result.
 
-   Parsers that encounter a float that does not conform to the ABNF in
-   Section 3.6 MUST fail parsing.
+   10.  Return the product of output_number and sign.
 
 4.2.7.  Parsing a String from Text
 
@@ -1112,6 +1109,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
        5.  Else, append char to output_string.
 
    5.  Otherwise, fail parsing.
+
+
+
 
 
 
