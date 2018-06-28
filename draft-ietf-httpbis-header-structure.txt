@@ -761,8 +761,11 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    6.  Return output.
 
    The encoded data is required to be padded with "=", as per [RFC4648],
-   Section 3.2.  Likewise, encoded data is required to have pad bits set
-   to zero, as per [RFC4648], Section 3.5.
+   Section 3.2.
+
+   Likewise, encoded data SHOULD have pad bits set to zero, as per
+   [RFC4648], Section 3.5, unless it is not possible to do so due to
+   implementation constraints.
 
 4.2.  Parsing HTTP/1 Header Fields into Structured Headers
 
@@ -776,15 +779,14 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    header's field-value, and header_type, one of "dictionary", "list",
    "param-list", or "item", return the parsed header value.
 
-   1.  Discard any leading OWS from input_string.
-
-
 
 
 Nottingham & Kamp       Expires December 30, 2018              [Page 14]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   1.  Discard any leading OWS from input_string.
 
    2.  If header_type is "dictionary", let output be the result of
        Parsing a Dictionary from Text (Section 4.2.1).
@@ -832,8 +834,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    Given an ASCII string input_string, return a mapping of (identifier,
    item). input_string is modified to remove the parsed value.
 
-   1.  Let dictionary be an empty, unordered mapping.
-
 
 
 
@@ -841,6 +841,8 @@ Nottingham & Kamp       Expires December 30, 2018              [Page 15]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   1.  Let dictionary be an empty, unordered mapping.
 
    2.  While input_string is not empty:
 
@@ -888,8 +890,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
        4.  If input_string is empty, return items.
 
-       5.  Consume the first character of input_string; if it is not
-           COMMA, fail parsing.
 
 
 
@@ -897,6 +897,9 @@ Nottingham & Kamp       Expires December 30, 2018              [Page 16]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+       5.  Consume the first character of input_string; if it is not
+           COMMA, fail parsing.
 
        6.  Discard any leading OWS from input_string.
 
@@ -944,15 +947,14 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
    3.  In a loop:
 
-       1.  Discard any leading OWS from input_string.
-
-
 
 
 Nottingham & Kamp       Expires December 30, 2018              [Page 17]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+       1.  Discard any leading OWS from input_string.
 
        2.  If the first character of input_string is not ";", exit the
            loop.
@@ -999,8 +1001,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
        result.
 
    5.  Otherwise, fail parsing.
-
-
 
 
 
@@ -1184,9 +1184,10 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    encoded data that is not properly padded, although this might not be
    possible in some base64 implementations.
 
-   As per [RFC4648], Section 3.5, it is RECOMMENDED that parsers fail on
-   encoded data that has non-zero pad bits, although this might not be
-   possible in some base64 implementations.
+   Because some implementations of base64 do not allow rejection of
+   encoded data that has non-zero pad bits (see [RFC4648], Section 3.5),
+   parsers SHOULD NOT fail when it is present, unless they cannot be
+   configured to handle it.
 
    This specification does not relax the requirements in [RFC4648],
    Section 3.1 and 3.3; therefore, parsers MUST fail on characters
@@ -1225,7 +1226,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
               Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
               <https://www.rfc-editor.org/info/rfc4648>.
-
 
 
 
@@ -1383,6 +1383,8 @@ B.1.  Since draft-ietf-httpbis-header-structure-06
 
    o  FAQ
 
+   o  Allow non-zero pad bits.
+
 B.2.  Since draft-ietf-httpbis-header-structure-05
 
    o  Reorganise specification to separate parsing out.
@@ -1391,8 +1393,6 @@ B.2.  Since draft-ietf-httpbis-header-structure-05
 
    o  Define serialisation algorithms.
 
-   o  Refine relationship between ABNF, parsing and serialisation
-      algorithms.
 
 
 
@@ -1401,6 +1401,9 @@ Nottingham & Kamp       Expires December 30, 2018              [Page 25]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   o  Refine relationship between ABNF, parsing and serialisation
+      algorithms.
 
 B.3.  Since draft-ietf-httpbis-header-structure-04
 
@@ -1446,9 +1449,6 @@ B.7.  Since draft-ietf-httpbis-header-structure-00
       unicode-string.
 
    o  Change h1_blob delimiter to ":" since "'" is valid t_char
-
-
-
 
 
 
