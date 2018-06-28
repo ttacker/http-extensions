@@ -4,8 +4,8 @@
 
 HTTP Working Group                                           I. Grigorik
 Internet-Draft                                                    Google
-Intended status: Experimental                              June 27, 2018
-Expires: December 29, 2018
+Intended status: Experimental                              June 28, 2018
+Expires: December 30, 2018
 
 
                            HTTP Client Hints
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 29, 2018.
+   This Internet-Draft will expire on December 30, 2018.
 
 
 
-Grigorik                Expires December 29, 2018               [Page 1]
+Grigorik                Expires December 30, 2018               [Page 1]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Grigorik                Expires December 29, 2018               [Page 2]
+Grigorik                Expires December 30, 2018               [Page 2]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -165,7 +165,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018               [Page 3]
+Grigorik                Expires December 30, 2018               [Page 3]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -197,7 +197,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
    their default settings, user configuration, and server preferences.
    The client and server can use an opt-in mechanism outlined below to
    negotiate which fields should be sent to allow for efficient content
-   adaption, and optinally use additional mechanisms to negotiate
+   adaption, and optionally use additional mechanisms to negotiate
    delegation policies that control access of third parties to same
    fields.
 
@@ -221,7 +221,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018               [Page 4]
+Grigorik                Expires December 30, 2018               [Page 4]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -277,20 +277,20 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018               [Page 5]
+Grigorik                Expires December 30, 2018               [Page 5]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
 
    For example, based on the Accept-CH and Accept-CH-Lifetime example
-   above, which is received from "https://bar.example.com" in response
-   to a resource request initiated by "https://foo.example.com", both
-   delivered over a secure transport: a user agent SHOULD persist an
-   Accept-CH preference bound to "https://foo.example.com", for requests
-   initiated to "https://bar.example.com" from
-   "https://foo.example.com", for up to 86400 seconds (1 day).  This
-   preference SHOULD NOT extend to requests initiated to
-   "https://bar.example.com" from other origins.
+   above, which is received in response to a user agent navigating to
+   "https://example.com", and delivered over a secure transport: a user
+   agent SHOULD persist an Accept-CH preference bound to
+   "https://example.com" for up to 86400 seconds (1 day), and use it for
+   user agent navigations to "https://example.com" and any same-origin
+   resource requests initiated by the page constructed from the
+   navigation's response.  This preference SHOULD NOT extend to resource
+   requests initiated to "https://example.com" from other origins.
 
    If Accept-CH-Lifetime occurs in a message more than once, the last
    value overrides all previous occurrences.
@@ -333,7 +333,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018               [Page 6]
+Grigorik                Expires December 30, 2018               [Page 6]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -389,7 +389,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018               [Page 7]
+Grigorik                Expires December 30, 2018               [Page 7]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -445,7 +445,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018               [Page 8]
+Grigorik                Expires December 30, 2018               [Page 8]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -501,7 +501,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018               [Page 9]
+Grigorik                Expires December 30, 2018               [Page 9]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -557,7 +557,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018              [Page 10]
+Grigorik                Expires December 30, 2018              [Page 10]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -613,7 +613,7 @@ Internet-Draft              HTTP Client Hints                  June 2018
 
 
 
-Grigorik                Expires December 29, 2018              [Page 11]
+Grigorik                Expires December 30, 2018              [Page 11]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -669,7 +669,7 @@ B.1.  Since -00
 
 
 
-Grigorik                Expires December 29, 2018              [Page 12]
+Grigorik                Expires December 30, 2018              [Page 12]
 
 Internet-Draft              HTTP Client Hints                  June 2018
 
@@ -725,4 +725,4 @@ Author's Address
 
 
 
-Grigorik                Expires December 29, 2018              [Page 13]
+Grigorik                Expires December 30, 2018              [Page 13]
