@@ -90,7 +90,7 @@ Table of Contents
      3.2.  Lists . . . . . . . . . . . . . . . . . . . . . . . . . .   6
      3.3.  Parameterised Lists . . . . . . . . . . . . . . . . . . .   7
      3.4.  Items . . . . . . . . . . . . . . . . . . . . . . . . . .   7
-     3.5.  Integers  . . . . . . . . . . . . . . . . . . . . . . . .   7
+     3.5.  Integers  . . . . . . . . . . . . . . . . . . . . . . . .   8
      3.6.  Floats  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      3.7.  Strings . . . . . . . . . . . . . . . . . . . . . . . . .   8
      3.8.  Identifiers . . . . . . . . . . . . . . . . . . . . . . .   9
@@ -105,7 +105,7 @@ Table of Contents
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  23
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  24
    Appendix A.  Frequently Asked Questions . . . . . . . . . . . . .  24
-     A.1.  Why Not JSON? . . . . . . . . . . . . . . . . . . . . . .  24
+     A.1.  Why not JSON? . . . . . . . . . . . . . . . . . . . . . .  24
 
 
 
@@ -114,14 +114,16 @@ Nottingham & Kamp       Expires December 30, 2018               [Page 2]
 Internet-Draft         Structured Headers for HTTP             June 2018
 
 
+     A.2.  Structured Headers don't "fit" my data. . . . . . . . . .  25
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  25
-     B.1.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  25
-     B.2.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  25
-     B.3.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  25
-     B.4.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  25
-     B.5.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  26
-     B.6.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  26
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
+     B.1.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  25
+     B.2.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  25
+     B.3.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  26
+     B.4.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  26
+     B.5.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  26
+     B.6.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  26
+     B.7.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  26
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  27
 
 1.  Introduction
 
@@ -159,9 +161,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    Section 3 defines a number of abstract data types that can be used in
    Structured Headers.
 
-   Those abstract types can be serialised into and parsed from textual
-   headers - such as those used in HTTP/1 - using the algorithms
-   described in Section 4.
+
 
 
 
@@ -169,6 +169,10 @@ Nottingham & Kamp       Expires December 30, 2018               [Page 3]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   Those abstract types can be serialised into and parsed from textual
+   headers - such as those used in HTTP/1 - using the algorithms
+   described in Section 4.
 
 1.1.  Notational Conventions
 
@@ -213,11 +217,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    o  Specify any additional constraints upon the syntax of the
       structured used, as well as the consequences when those
       constraints are violated.  When Structured Headers parsing fails,
-      the header is discarded (see Section 4.2); in most situations,
-      header-specific constraints should do likewise.
 
-   Note that a header field definition cannot relax the requirements of
-   a structure or its processing; they can only add additional
 
 
 
@@ -226,6 +226,11 @@ Nottingham & Kamp       Expires December 30, 2018               [Page 4]
 Internet-Draft         Structured Headers for HTTP             June 2018
 
 
+      the header is discarded (see Section 4.2); in most situations,
+      header-specific constraints should do likewise.
+
+   Note that a header field definition cannot relax the requirements of
+   a structure or its processing; they can only add additional
    constraints, because doing so would preclude handling by generic
    software.
 
@@ -268,12 +273,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    Section 4.2), it MUST be resolved ([RFC3986], Section 5) before
    being used.
 
-   This specification defines minimums for the length or number of
-   various structures supported by Structured Headers implementations.
-   It does not specify maximum sizes in most cases, but header authors
-   should be aware that HTTP implementations do impose various limits on
-   the size of individual header fields, the total number of fields,
-   and/or the size of the entire header block.
+
 
 
 
@@ -281,6 +281,13 @@ Nottingham & Kamp       Expires December 30, 2018               [Page 5]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   This specification defines minimums for the length or number of
+   various structures supported by Structured Headers implementations.
+   It does not specify maximum sizes in most cases, but header authors
+   should be aware that HTTP implementations do impose various limits on
+   the size of individual header fields, the total number of fields,
+   and/or the size of the entire header block.
 
 3.  Structured Header Data Types
 
@@ -324,19 +331,18 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    sh-list     = list-member *( OWS "," OWS list-member )
    list-member = sh-item
 
-   In HTTP/1, each member is separated by a comma and optional
-   whitespace.  For example, a header field whose value is defined as a
-   list of strings could look like:
-
-   Example-StrListHeader: "foo", "bar", "It was the best of times."
-
-
 
 
 Nottingham & Kamp       Expires December 30, 2018               [Page 6]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   In HTTP/1, each member is separated by a comma and optional
+   whitespace.  For example, a header field whose value is defined as a
+   list of strings could look like:
+
+   Example-StrListHeader: "foo", "bar", "It was the best of times."
 
    Header specifications can constrain the types of individual values if
    necessary.
@@ -379,12 +385,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
    sh-item = sh-integer / sh-float / sh-string / sh-binary
 
-3.5.  Integers
-
-   Integers have a range of -9,223,372,036,854,775,808 to
-   9,223,372,036,854,775,807 inclusive (i.e., a 64-bit signed integer).
-
-   The ABNF for integers is:
 
 
 
@@ -393,6 +393,13 @@ Nottingham & Kamp       Expires December 30, 2018               [Page 7]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+3.5.  Integers
+
+   Integers have a range of -9,223,372,036,854,775,808 to
+   9,223,372,036,854,775,807 inclusive (i.e., a 64-bit signed integer).
+
+   The ABNF for integers is:
 
    sh-integer = ["-"] 1*19DIGIT
 
@@ -436,19 +443,17 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
    The ABNF for strings is:
 
-   sh-string = DQUOTE *(chr) DQUOTE
-   chr       = unescaped / escaped
-   unescaped = %x20-21 / %x23-5B / %x5D-7E
-   escaped   = "\" ( DQUOTE / "\" )
-
-
-
 
 
 Nottingham & Kamp       Expires December 30, 2018               [Page 8]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   sh-string = DQUOTE *(chr) DQUOTE
+   chr       = unescaped / escaped
+   unescaped = %x20-21 / %x23-5B / %x5D-7E
+   escaped   = "\" ( DQUOTE / "\" )
 
    In HTTP/1 headers, strings are delimited with double quotes, using a
    backslash ("\") to escape double quotes and backslashes.  For
@@ -492,11 +497,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    sh-binary = "*" *(base64) "*"
    base64    = ALPHA / DIGIT / "+" / "/" / "="
 
-   In HTTP/1 headers, binary content is delimited with asterisks and
-   encoded using base64 ([RFC4648], Section 4).  For example:
-
-   Example-BinaryHdr: *cHJldGVuZCB0aGlzIGlzIGJpbmFyeSBjb250ZW50Lg==*
-
 
 
 
@@ -505,6 +505,11 @@ Nottingham & Kamp       Expires December 30, 2018               [Page 9]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   In HTTP/1 headers, binary content is delimited with asterisks and
+   encoded using base64 ([RFC4648], Section 4).  For example:
+
+   Example-BinaryHdr: *cHJldGVuZCB0aGlzIGlzIGJpbmFyeSBjb250ZW50Lg==*
 
    Parsers MUST support binary content with at least 16384 octets after
    decoding.
@@ -548,12 +553,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
        3.  Append "=" to output.
 
-       4.  Let value be the result of applying Serialising an Item
-           Section 4.1.4 to mem's member-value.
 
-       5.  Append value to output.
-
-   3.  Return output.
 
 
 
@@ -561,6 +561,13 @@ Nottingham & Kamp       Expires December 30, 2018              [Page 10]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+       4.  Let value be the result of applying Serialising an Item
+           Section 4.1.4 to mem's member-value.
+
+       5.  Append value to output.
+
+   3.  Return output.
 
 4.1.2.  Serialising a List
 
@@ -603,13 +610,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
            2.  Append name to output.
 
-           3.  If parameter has a param-value:
-
-               1.  Let value be the result of applying Serialising an
-                   Item Section 4.1.4 to parameter's param-value.
-
-               2.  Append "=" to output.
-
 
 
 
@@ -617,6 +617,13 @@ Nottingham & Kamp       Expires December 30, 2018              [Page 11]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+           3.  If parameter has a param-value:
+
+               1.  Let value be the result of applying Serialising an
+                   Item Section 4.1.4 to parameter's param-value.
+
+               2.  Append "=" to output.
 
                3.  Append value to output.
 
@@ -660,19 +667,14 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    4.  Append input's numeric value represented in base 10 using only
        decimal digits to output.
 
-   5.  Return output.
-
-
-
-
-
-
 
 
 Nottingham & Kamp       Expires December 30, 2018              [Page 12]
 
 Internet-Draft         Structured Headers for HTTP             June 2018
 
+
+   5.  Return output.
 
 4.1.6.  Serialising a Float
 
@@ -717,8 +719,6 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    5.  Append DQUOTE to output.
 
    6.  Return output.
-
-
 
 
 
@@ -1304,17 +1304,12 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 Appendix A.  Frequently Asked Questions
 
-A.1.  Why Not JSON?
+A.1.  Why not JSON?
 
    Earlier proposals for structured headers were based upon JSON
    [RFC8259].  However, constraining its use to make it suitable for
-   HTTP header fields requires senders and recipients to implement
+   HTTP header fields required senders and recipients to implement
    specific additional handling.
-
-   Because of JSON's broad adoption and implementation, it is difficult
-   to impose such additional constraints across all implementations;
-   some deployments would fail to enforce them, thereby harming
-   interoperability.
 
    For example, JSON has specification issues around large numbers and
    objects with duplicate members.  Although advice for avoiding these
@@ -1333,6 +1328,11 @@ A.1.  Why Not JSON?
    specified, it's likely that some header field definition will find a
    need to violate it.
 
+   Because of JSON's broad adoption and implementation, it is difficult
+   to impose such additional constraints across all implementations;
+   some deployments would fail to enforce them, thereby harming
+   interoperability.
+
    Since a major goal for Structured Headers is to improve
    interoperability and simplify implementation, these concerns led to a
    format that requires a dedicated parser and serialiser.
@@ -1346,14 +1346,44 @@ Nottingham & Kamp       Expires December 30, 2018              [Page 24]
 Internet-Draft         Structured Headers for HTTP             June 2018
 
 
-   Finally, there were widely shared feelings that JSON doesn't "look
-   right" in HTTP headers.
+   Additionally, there were widely shared feelings that JSON doesn't
+   "look right" in HTTP headers.
+
+A.2.  Structured Headers don't "fit" my data.
+
+   Structured headers intentionally limits the complexity of data
+   structures, to assure that it can be processed in a performant manner
+   with little overhead.  This means that work is necessary to fit some
+   data types into them.
+
+   Sometimes, this can be achieved by creating limited substructures in
+   values, and/or using more than one header.  For example, consider:
+
+   Example-Thing: name="Widget", cost=89.2, descriptions="foo bar"
+   Example-Description: foo; url="https://example.net"; context=123,
+                        bar; url="https://example.org"; context=456
+
+   Since the description contains a list of key/value pairs, we use a
+   Parameterised List to represent them, with the identifier for each
+   item in the list used to identify it in the "descriptions" member of
+   the Example-Thing header.
+
+   When specifying more than one header, it's important to remember to
+   describe what a processor's behaviour should be when one of the
+   headers is missing.
+
+   If you need to fit arbitrarily complex data into a header, Structured
+   Headers is probably a poor fit for your use case.
 
 Appendix B.  Changes
 
    _RFC Editor: Please remove this section before publication._
 
-B.1.  Since draft-ietf-httpbis-header-structure-05
+B.1.  Since draft-ietf-httpbis-header-structure-06
+
+   o  FAQ
+
+B.2.  Since draft-ietf-httpbis-header-structure-05
 
    o  Reorganise specification to separate parsing out.
 
@@ -1364,7 +1394,15 @@ B.1.  Since draft-ietf-httpbis-header-structure-05
    o  Refine relationship between ABNF, parsing and serialisation
       algorithms.
 
-B.2.  Since draft-ietf-httpbis-header-structure-04
+
+
+
+Nottingham & Kamp       Expires December 30, 2018              [Page 25]
+
+Internet-Draft         Structured Headers for HTTP             June 2018
+
+
+B.3.  Since draft-ietf-httpbis-header-structure-04
 
    o  Remove identifiers from item.
 
@@ -1372,11 +1410,11 @@ B.2.  Since draft-ietf-httpbis-header-structure-04
 
    o  Refine number parsing.
 
-B.3.  Since draft-ietf-httpbis-header-structure-03
+B.4.  Since draft-ietf-httpbis-header-structure-03
 
    o  Strengthen language around failure handling.
 
-B.4.  Since draft-ietf-httpbis-header-structure-02
+B.5.  Since draft-ietf-httpbis-header-structure-02
 
    o  Split Numbers into Integers and Floats.
 
@@ -1394,21 +1432,13 @@ B.4.  Since draft-ietf-httpbis-header-structure-02
 
    o  Require parsers to combine header fields before processing.
 
-
-
-
-Nottingham & Kamp       Expires December 30, 2018              [Page 25]
-
-Internet-Draft         Structured Headers for HTTP             June 2018
-
-
    o  Throw an error on trailing garbage.
 
-B.5.  Since draft-ietf-httpbis-header-structure-01
+B.6.  Since draft-ietf-httpbis-header-structure-01
 
    o  Replaced with draft-nottingham-structured-headers.
 
-B.6.  Since draft-ietf-httpbis-header-structure-00
+B.7.  Since draft-ietf-httpbis-header-structure-00
 
    o  Added signed 64bit integer type.
 
@@ -1416,6 +1446,17 @@ B.6.  Since draft-ietf-httpbis-header-structure-00
       unicode-string.
 
    o  Change h1_blob delimiter to ":" since "'" is valid t_char
+
+
+
+
+
+
+
+Nottingham & Kamp       Expires December 30, 2018              [Page 26]
+
+Internet-Draft         Structured Headers for HTTP             June 2018
+
 
 Authors' Addresses
 
@@ -1453,4 +1494,19 @@ Authors' Addresses
 
 
 
-Nottingham & Kamp       Expires December 30, 2018              [Page 26]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nottingham & Kamp       Expires December 30, 2018              [Page 27]
