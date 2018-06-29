@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                             June 28, 2018
+Internet-Draft                                             June 29, 2018
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: December 30, 2018
+Expires: December 31, 2018
 
 
                       Building Protocols with HTTP
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 30, 2018.
+   This Internet-Draft will expire on December 31, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Nottingham              Expires December 30, 2018               [Page 1]
+Nottingham              Expires December 31, 2018               [Page 1]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -101,20 +101,21 @@ Table of Contents
      4.15. Versioning and Evolution  . . . . . . . . . . . . . . . .  24
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  24
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  24
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  25
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  25
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .  26
-     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  29
-   Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  29
+     6.1.  Privacy Considerations  . . . . . . . . . . . . . . . . .  25
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  26
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  26
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .  27
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  30
 
 
 
-Nottingham              Expires December 30, 2018               [Page 2]
+Nottingham              Expires December 31, 2018               [Page 2]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
 
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  29
+   Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  30
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  30
 
 1.  Introduction
 
@@ -160,15 +161,17 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
    o  Should it define a new URL scheme?  Use new ports?
 
-   o  Should it use standard HTTP methods and status codes, or define
-      new ones?
 
 
 
-Nottingham              Expires December 30, 2018               [Page 3]
+
+Nottingham              Expires December 31, 2018               [Page 3]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
+
+   o  Should it use standard HTTP methods and status codes, or define
+      new ones?
 
    o  How can the maximum value be extracted from the use of HTTP?
 
@@ -214,17 +217,17 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
    When an application is using HTTP, all of the requirements of the
    HTTP protocol suite are in force (including but not limited to
-   [RFC7230], [RFC7231], [RFC7232], [RFC7233], [RFC7234], [RFC7235] and
-   [RFC7540]).
 
 
 
 
-
-Nottingham              Expires December 30, 2018               [Page 4]
+Nottingham              Expires December 31, 2018               [Page 4]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
+
+   [RFC7230], [RFC7231], [RFC7232], [RFC7233], [RFC7234], [RFC7235] and
+   [RFC7540]).
 
    An application might not be using HTTP according to this definition,
    but still relying upon the HTTP specifications in some manner.  For
@@ -270,18 +273,18 @@ Internet-Draft        Building Protocols with HTTP             June 2018
    status code might differ in a real deployment.  If the client does
    not anticipate this, the application's deployment is brittle.
 
-   Much of the value of HTTP is in its generic semantics - that is, the
-   protocol elements defined by HTTP are potentially applicable to every
-   resource, not specific to a particular context.  Application-specific
 
 
 
 
-Nottingham              Expires December 30, 2018               [Page 5]
+Nottingham              Expires December 31, 2018               [Page 5]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
 
+   Much of the value of HTTP is in its generic semantics - that is, the
+   protocol elements defined by HTTP are potentially applicable to every
+   resource, not specific to a particular context.  Application-specific
    semantics are expressed in the payload; mostly, in the body, but also
    in header fields.
 
@@ -326,17 +329,17 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
    It also becomes possible to "mix and match" different applications on
    the same server, and offers a natural mechanism for extensibility,
-   versioning and capability management, since the document containing
-   the links can also contain information about their targets.
 
 
 
 
-
-Nottingham              Expires December 30, 2018               [Page 6]
+Nottingham              Expires December 31, 2018               [Page 6]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
+
+   versioning and capability management, since the document containing
+   the links can also contain information about their targets.
 
    Using links also offers a form of cache invalidation that's seen on
    the Web; when a resource's state changes, the application can change
@@ -386,10 +389,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-
-
-
-Nottingham              Expires December 30, 2018               [Page 7]
+Nottingham              Expires December 31, 2018               [Page 7]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -445,7 +445,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018               [Page 8]
+Nottingham              Expires December 31, 2018               [Page 8]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -501,7 +501,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018               [Page 9]
+Nottingham              Expires December 31, 2018               [Page 9]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -557,7 +557,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 10]
+Nottingham              Expires December 31, 2018              [Page 10]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -613,7 +613,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 11]
+Nottingham              Expires December 31, 2018              [Page 11]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -669,7 +669,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 12]
+Nottingham              Expires December 31, 2018              [Page 12]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -725,7 +725,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 13]
+Nottingham              Expires December 31, 2018              [Page 13]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -781,7 +781,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 14]
+Nottingham              Expires December 31, 2018              [Page 14]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -837,7 +837,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 15]
+Nottingham              Expires December 31, 2018              [Page 15]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -893,7 +893,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 16]
+Nottingham              Expires December 31, 2018              [Page 16]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -949,7 +949,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 17]
+Nottingham              Expires December 31, 2018              [Page 17]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 18]
+Nottingham              Expires December 31, 2018              [Page 18]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -1061,7 +1061,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 19]
+Nottingham              Expires December 31, 2018              [Page 19]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -1117,7 +1117,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 20]
+Nottingham              Expires December 31, 2018              [Page 20]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 21]
+Nottingham              Expires December 31, 2018              [Page 21]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 22]
+Nottingham              Expires December 31, 2018              [Page 22]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 23]
+Nottingham              Expires December 31, 2018              [Page 23]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
@@ -1341,13 +1341,66 @@ Internet-Draft        Building Protocols with HTTP             June 2018
 
 
 
-Nottingham              Expires December 30, 2018              [Page 24]
+Nottingham              Expires December 31, 2018              [Page 24]
 
 Internet-Draft        Building Protocols with HTTP             June 2018
 
 
    result that they do not benefit from patches and other security
    improvements incorporated upstream.
+
+6.1.  Privacy Considerations
+
+   HTTP clients can expose a variety of information to servers.  Besides
+   information that's explicitly sent as part of an application's
+   operation (for example, names and other user-entered data), and "on
+   the wire" (which is one of the reasons https is recommended in
+   Section 4.4.2), other information can be gathered through less
+   obvious means - often by connecting activities of a user over time.
+
+   This includes session information, tracking the client through
+   fingerprinting, and mobile code.
+
+   Session information includes things like the IP address of the
+   client, TLS session tickets, Cookies, ETags stored in the client's
+   cache, and other stateful mechanisms.  Applications are advised to
+   avoid using session mechanisms unless they are unavoidable or
+   necessary for operation, in which case these risks needs to be
+   documented.  When they are used, implementations should be encouraged
+   to allow clearing such state.
+
+   Fingerprinting uses unique aspects of a client's messages and
+   behaviours to connect disparate requests and connections.  For
+   example, the User-Agent request header conveys specific information
+   about the implementation; the Accept-Language request header conveys
+   the users' preferred language.  In combination, a number of these
+   markers can be used to uniquely identify a client, impacting its
+   control over its data.  As a result, applications are advised to
+   specify that clients should only emit the information they need to
+   function in requests.
+
+   Finally, if an application exposes the ability to run mobile code,
+   great care needs to be taken, since any ability to observe its
+   environment can be used as an opportunity to both fingerprint the
+   client and to obtain and manipulate private data (including session
+   information).  For example, access to high-resolution timers (even
+   indirectly) can be used to profile the underlying hardware, creating
+   a unique identifier for the system.  Applications are advised avoid
+   allowing the use of mobile code where possible; when it cannot be
+   avoided, the resulting system's security properties need be carefully
+   scrutinised.
+
+
+
+
+
+
+
+
+Nottingham              Expires December 31, 2018              [Page 25]
+
+Internet-Draft        Building Protocols with HTTP             June 2018
+
 
 7.  References
 
@@ -1392,20 +1445,18 @@ Internet-Draft        Building Protocols with HTTP             June 2018
               DOI 10.17487/RFC7231, June 2014,
               <https://www.rfc-editor.org/info/rfc7231>.
 
-
-
-
-
-
-Nottingham              Expires December 30, 2018              [Page 25]
-
-Internet-Draft        Building Protocols with HTTP             June 2018
-
-
    [RFC7232]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Conditional Requests", RFC 7232,
               DOI 10.17487/RFC7232, June 2014,
               <https://www.rfc-editor.org/info/rfc7232>.
+
+
+
+
+Nottingham              Expires December 31, 2018              [Page 26]
+
+Internet-Draft        Building Protocols with HTTP             June 2018
+
 
    [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
               "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
@@ -1450,19 +1501,18 @@ Internet-Draft        Building Protocols with HTTP             June 2018
               Web Consortium WD WD-CSP3-20160913, September 2016,
               <https://www.w3.org/TR/2016/WD-CSP3-20160913>.
 
-
-
-
-Nottingham              Expires December 30, 2018              [Page 26]
-
-Internet-Draft        Building Protocols with HTTP             June 2018
-
-
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
               <https://fetch.spec.whatwg.org>.
 
    [HTML5]    WHATWG, "HTML - Living Standard", n.d.,
               <https://html.spec.whatwg.org>.
+
+
+
+Nottingham              Expires December 31, 2018              [Page 27]
+
+Internet-Draft        Building Protocols with HTTP             June 2018
+
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
@@ -1504,16 +1554,6 @@ Internet-Draft        Building Protocols with HTTP             June 2018
               DOI 10.17487/RFC5785, April 2010,
               <https://www.rfc-editor.org/info/rfc5785>.
 
-
-
-
-
-
-Nottingham              Expires December 30, 2018              [Page 27]
-
-Internet-Draft        Building Protocols with HTTP             June 2018
-
-
    [RFC5861]  Nottingham, M., "HTTP Cache-Control Extensions for Stale
               Content", RFC 5861, DOI 10.17487/RFC5861, May 2010,
               <https://www.rfc-editor.org/info/rfc5861>.
@@ -1521,6 +1561,14 @@ Internet-Draft        Building Protocols with HTTP             June 2018
    [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
               DOI 10.17487/RFC6265, April 2011,
               <https://www.rfc-editor.org/info/rfc6265>.
+
+
+
+
+Nottingham              Expires December 31, 2018              [Page 28]
+
+Internet-Draft        Building Protocols with HTTP             June 2018
+
 
    [RFC6415]  Hammer-Lahav, E., Ed. and B. Cook, "Web Host Metadata",
               RFC 6415, DOI 10.17487/RFC6415, October 2011,
@@ -1561,15 +1609,6 @@ Internet-Draft        Building Protocols with HTTP             June 2018
               RFC 7617, DOI 10.17487/RFC7617, September 2015,
               <https://www.rfc-editor.org/info/rfc7617>.
 
-
-
-
-
-Nottingham              Expires December 30, 2018              [Page 28]
-
-Internet-Draft        Building Protocols with HTTP             June 2018
-
-
    [RFC7807]  Nottingham, M. and E. Wilde, "Problem Details for HTTP
               APIs", RFC 7807, DOI 10.17487/RFC7807, March 2016,
               <https://www.rfc-editor.org/info/rfc7807>.
@@ -1578,6 +1617,14 @@ Internet-Draft        Building Protocols with HTTP             June 2018
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/info/rfc8259>.
+
+
+
+
+Nottingham              Expires December 31, 2018              [Page 29]
+
+Internet-Draft        Building Protocols with HTTP             June 2018
+
 
    [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
               RFC 8297, DOI 10.17487/RFC8297, December 2017,
@@ -1621,4 +1668,13 @@ Author's Address
 
 
 
-Nottingham              Expires December 30, 2018              [Page 29]
+
+
+
+
+
+
+
+
+
+Nottingham              Expires December 31, 2018              [Page 30]
