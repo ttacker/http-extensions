@@ -74,32 +74,32 @@ Table of Contents
      1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   3
    2.  The CACHE_DIGEST Frame  . . . . . . . . . . . . . . . . . . .   3
      2.1.  Client Behavior . . . . . . . . . . . . . . . . . . . . .   4
-       2.1.1.  Creating a digest . . . . . . . . . . . . . . . . . .   5
-       2.1.2.  Adding a URL to the Digest-Value  . . . . . . . . . .   6
+       2.1.1.  Creating a digest . . . . . . . . . . . . . . . . . .   4
+       2.1.2.  Adding a URL to the Digest-Value  . . . . . . . . . .   5
        2.1.3.  Removing a URL to the Digest-Value  . . . . . . . . .   7
        2.1.4.  Computing a fingerprint value . . . . . . . . . . . .   8
        2.1.5.  Computing the key . . . . . . . . . . . . . . . . . .   9
-       2.1.6.  Computing a Hash Value  . . . . . . . . . . . . . . .  10
-       2.1.7.  Computing an Alternative Hash Value . . . . . . . . .  10
+       2.1.6.  Computing a Hash Value  . . . . . . . . . . . . . . .   9
+       2.1.7.  Computing an Alternative Hash Value . . . . . . . . .   9
      2.2.  Server Behavior . . . . . . . . . . . . . . . . . . . . .  10
-       2.2.1.  Querying the Digest for a Value . . . . . . . . . . .  11
-   3.  The SETTINGS_SENDING_CACHE_DIGEST SETTINGS Parameter  . . . .  12
+       2.2.1.  Querying the Digest for a Value . . . . . . . . . . .  10
+   3.  The SETTINGS_SENDING_CACHE_DIGEST SETTINGS Parameter  . . . .  11
    4.  The SETTINGS_ACCEPT_CACHE_DIGEST SETTINGS Parameter . . . . .  12
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  13
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  14
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  14
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  14
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .  15
-     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  16
-   Appendix A.  Encoding the CACHE_DIGEST frame as an HTTP Header  .  16
-   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  17
-     B.1.  Since draft-ietf-httpbis-cache-digest-04  . . . . . . . .  17
-     B.2.  Since draft-ietf-httpbis-cache-digest-03  . . . . . . . .  17
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  12
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  13
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  13
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  13
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .  14
+     7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  15
+   Appendix A.  Encoding the CACHE_DIGEST frame as an HTTP Header  .  15
+   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  16
+     B.1.  Since draft-ietf-httpbis-cache-digest-04  . . . . . . . .  16
+     B.2.  Since draft-ietf-httpbis-cache-digest-03  . . . . . . . .  16
      B.3.  Since draft-ietf-httpbis-cache-digest-02  . . . . . . . .  17
-     B.4.  Since draft-ietf-httpbis-cache-digest-01  . . . . . . . .  18
-     B.5.  Since draft-ietf-httpbis-cache-digest-00  . . . . . . . .  18
-   Appendix C.  Acknowledgements . . . . . . . . . . . . . . . . . .  18
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  18
+     B.4.  Since draft-ietf-httpbis-cache-digest-01  . . . . . . . .  17
+     B.5.  Since draft-ietf-httpbis-cache-digest-00  . . . . . . . .  17
+   Appendix C.  Acknowledgements . . . . . . . . . . . . . . . . . .  17
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  17
 
 1.  Introduction
 
@@ -125,9 +125,9 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    capacity even then.
 
    This specification defines a HTTP/2 frame type to allow clients to
-   inform the server of their cache's contents using a Cuckoo-filter
-   [Cuckoo] based digest.  Servers can then use this to inform their
-   choices of what to push to clients.
+   inform the server of their freshly cached contents using a Cuckoo-
+   filter [Cuckoo] based digest.  Servers can then use this to inform
+   their choices of what to push to clients.
 
 1.1.  Notational Conventions
 
@@ -172,15 +172,7 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    o  *COMPLETE* (0x2): When set, indicates that the currently valid set
       of cache digests held by the server constitutes a complete
-      representation of the cache's state regarding that origin, for the
-      type of cached response indicated by the "STALE" flag.
-
-   o  *VALIDATORS* (0x4): When set, indicates that the "validators"
-      boolean in Section 2.1.5 is true.
-
-   o  *STALE* (0x8): When set, indicates that all cached responses
-      represented in the digest-value are stale [RFC7234] at the point
-      in them that the digest was generated; otherwise, all are fresh.
+      representation of the cache's state regarding that origin.
 
 2.1.  Client Behavior
 
@@ -200,42 +192,18 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    the server to stop using previously sent CACHE_DIGESTs, it can send a
    CACHE_DIGEST with the RESET flag set.
 
-   When generating CACHE_DIGEST, a client MUST NOT include cached
-   responses whose URLs do not share origins [RFC6454] with the
-   indicated origin.  Clients MUST NOT send CACHE_DIGEST frames on
+   When generating CACHE_DIGEST, a client MUST NOT include stale-cached
+   responses or responses whose URLs do not share origins [RFC6454] with
+   the indicated origin.  Clients MUST NOT send CACHE_DIGEST frames on
    connections that are not authoritative (as defined in [RFC7540],
    10.1) for the indicated origin.
 
-   CACHE_DIGEST allows the client to indicate whether the set of URLs
-   used to compute the digest represent fresh or stale stored responses,
-   using the STALE flag.  Clients MAY decide whether to only send
-   CACHE_DIGEST frames representing their fresh stored responses, their
-   stale stored responses, or both.
-
-   Clients can choose to only send a subset of the suitable stored
-   responses of each type (fresh or stale).  However, when the
-   CACHE_DIGEST frames sent represent the complete set of stored
-   responses of a given type, the last such frame SHOULD have a COMPLETE
-   flag set, to indicate to the server that it has all relevant state of
-   that type.  Note that for the purposes of COMPLETE, responses cached
-
-
-
-Oku & Weiss              Expires January 2, 2019                [Page 4]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
-
-   since the beginning of the connection or the last RESET flag on a
-   CACHE_DIGEST frame need not be included.
-
-   CACHE_DIGEST can be computed to include cached responses' ETags, as
-   indicated by the VALIDATORS flag.  This information can be used by
-   servers to decide what kinds of responses to push to clients; for
-   example, a stale response that hasn't changed could be refreshed with
-   a 304 (Not Modified) response; one that has changed can be replaced
-   with a 200 (OK) response, whether the cached response was fresh or
-   stale.
+   When the CACHE_DIGEST frames sent represent the complete set of
+   stored responses, the last such frame SHOULD have a COMPLETE flag
+   set, to indicate to the server that it has all relevant state.  Note
+   that for the purposes of COMPLETE, responses cached since the
+   beginning of the connection or the last RESET flag on a CACHE_DIGEST
+   frame need not be included.
 
    CACHE_DIGEST has no defined meaning when sent from servers, and
    SHOULD be ignored by clients.
@@ -249,6 +217,14 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    o  "N", an integer that represents the number of entries - a prime
       number smaller than 2**32
+
+
+
+
+Oku & Weiss              Expires January 2, 2019                [Page 4]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
 
    1.  Let "f" be the number of bits per fingerprint, calculated as "P +
        3"
@@ -274,14 +250,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    Note: "allocated" is necessary due to the nature of the way Cuckoo
    filters are creating the secondary hash, by XORing the initial hash
-
-
-
-Oku & Weiss              Expires January 2, 2019                [Page 5]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
-
    and the fingerprint's hash.  The XOR operation means that secondary
    hash can pick an entry beyond the initial number of entries, up to
    the next power of 2.  In order to avoid issues there, we allocate the
@@ -296,10 +264,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    o  "URL" a string corresponding to the Effective Request URI
       ([RFC7230], Section 5.5) of a cached response [RFC7234]
 
-   o  "ETag" a string corresponding to the entity-tag [RFC7232] of a
-      cached response [RFC7234] (if the ETag is available; otherwise,
-      null);
-
    o  "maxcount" - max number of cuckoo hops
 
    o  "digest-value"
@@ -311,8 +275,15 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    3.   Let "N" be the value of the second to fifth bytes of "digest-
         value" in big endian form.
 
-   4.   Let "key" be the return value of Section 2.1.5 with "URL" and
-        "ETag" as inputs.
+
+
+Oku & Weiss              Expires January 2, 2019                [Page 5]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
+   4.   Let "key" be the return value of Section 2.1.5 with "URL" as
+        input.
 
    5.   Let "h1" be the return value of Section 2.1.6 with "key" and "N"
         as inputs.
@@ -330,13 +301,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
         1.   Let "position_start" be 40 + "h" * "f" * "b".
 
         2.   Let "position_end" be "position_start" + "f" * "b".
-
-
-
-Oku & Weiss              Expires January 2, 2019                [Page 6]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
         3.   While "position_start" < "position_end":
 
@@ -366,6 +330,14 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
         11.  Subtract 1 from "maxcount".
 
+
+
+
+Oku & Weiss              Expires January 2, 2019                [Page 6]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
    10.  Subtract "f" from "position_start".
 
    11.  Let "fingerprint" be the "f" bits starting at "position_start".
@@ -385,19 +357,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    o  "URL" a string corresponding to the Effective Request URI
       ([RFC7230], Section 5.5) of a cached response [RFC7234]
 
-
-
-
-
-Oku & Weiss              Expires January 2, 2019                [Page 7]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
-
-   o  "ETag" a string corresponding to the entity-tag [RFC7232] of a
-      cached response [RFC7234] (if the ETag is available; otherwise,
-      null);
-
    o  "digest-value"
 
    1.  Let "f" be the value of the first byte of "digest-value".
@@ -407,8 +366,8 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    3.  Let "N" be the value of the second to fifth bytes of "digest-
        value" in big endian form.
 
-   4.  Let "key" be the return value of Section 2.1.5 with "URL" and
-       "ETag" as inputs.
+   4.  Let "key" be the return value of Section 2.1.5 with "URL" as
+       input.
 
    5.  Let "h1" be the return value of Section 2.1.6 with "key" and "N"
        as inputs.
@@ -427,6 +386,14 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
        2.  Let "position_end" be "position_start" + "f" * "b".
 
+
+
+
+Oku & Weiss              Expires January 2, 2019                [Page 7]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
        3.  While "position_start" < "position_end":
 
            1.  Let "bits" be "f" bits from "digest_value" starting at
@@ -442,13 +409,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    Given the following inputs:
 
    o  "key", an array of characters
-
-
-
-Oku & Weiss              Expires January 2, 2019                [Page 8]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
    o  "f", an integer indicating the number of output bits
 
@@ -479,36 +439,27 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    value" of 1 compared to all other values.  This is not a problem for
    any practical purpose.
 
+
+
+
+
+
+
+Oku & Weiss              Expires January 2, 2019                [Page 8]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
 2.1.5.  Computing the key
 
    Given the following inputs:
 
    o  "URL", an array of characters
 
-   o  "ETag", an array of characters
-
-   o  "validators", a boolean indicating whether validators ([RFC7232])
-      are to be included in the digest
-
    1.  Let "key" be "URL" converted to an ASCII string by percent-
        encoding as appropriate [RFC3986].
 
-   2.  If "validators" is true and "ETag" is not null:
-
-       1.  Append "ETag" to "key" as an ASCII string, including both the
-           "weak" indicator (if present) and double quotes, as per
-           [RFC7232], Section 2.3.
-
-
-
-Oku & Weiss              Expires January 2, 2019                [Page 9]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
-
-   3.  Return "key"
-
-   TODO: Add an example of the ETag and the key calcuations.
+   2.  Return "key"
 
 2.1.6.  Computing a Hash Value
 
@@ -543,28 +494,31 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    3.  Return "hash2".
 
+
+
+
+
+
+
+
+Oku & Weiss              Expires January 2, 2019                [Page 9]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
 2.2.  Server Behavior
 
    In typical use, a server will query (as per Section 2.2.1) the
    CACHE_DIGESTs received on a given connection to inform what it pushes
    to that client;
 
-   o  If a given URL and ETag combination has a match in a current
-      CACHE_DIGEST, a complete response need not be pushed; The server
-      MAY push a 304 response for that resource, indicating the client
-      that it hasn't changed.
+   o  If a given URL has a match in a current CACHE_DIGEST, a complete
+      response need not be pushed; The server MAY push a 304 response
+      for that resource, indicating the client that it hasn't changed.
 
-
-
-
-Oku & Weiss              Expires January 2, 2019               [Page 10]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
-
-   o  If a given URL and ETag has no match in any current CACHE_DIGEST,
-      the client does not have a cached copy, and a complete response
-      can be pushed.
+   o  If a given URL has no match in any current CACHE_DIGEST, the
+      client does not have a cached copy, and a complete response can be
+      pushed.
 
    Servers MAY use all CACHE_DIGESTs received for a given origin as
    current, as long as they do not have the RESET flag set; a
@@ -589,12 +543,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    o  "URL" a string corresponding to the Effective Request URI
       ([RFC7230], Section 5.5) of a cached response [RFC7234].
 
-   o  "ETag" a string corresponding to the entity-tag [RFC7232] of a
-      cached response [RFC7234] (if the ETag is available; otherwise,
-      null).
-
-   o  "validators", a boolean
-
    o  "digest-value", an array of bits.
 
    1.   Let "f" be the value of the first byte of "digest-value".
@@ -604,19 +552,18 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    3.   Let "N" be the value of the second to fifth bytes of "digest-
         value" in big endian form.
 
-   4.   Let "key" be the return value of Section 2.1.5 with "URL" and
-        "ETag" as inputs.
-
-   5.   Let "h1" be the return value of Section 2.1.6 with "key" and "N"
-        as inputs.
+   4.   Let "key" be the return value of Section 2.1.5 with "URL" as
+        input.
 
 
 
-
-Oku & Weiss              Expires January 2, 2019               [Page 11]
+Oku & Weiss              Expires January 2, 2019               [Page 10]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   5.   Let "h1" be the return value of Section 2.1.6 with "key" and "N"
+        as inputs.
 
    6.   Let "fingerprint" be the return value of Section 2.1.4 with
         "key" and "f" as inputs.
@@ -660,20 +607,22 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    The initial value of the parameter is zero (0x0) meaning that the
    client has no digest to send the server.
 
+
+
+
+
+
+
+Oku & Weiss              Expires January 2, 2019               [Page 11]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
 4.  The SETTINGS_ACCEPT_CACHE_DIGEST SETTINGS Parameter
 
    A server can notify its support for CACHE_DIGEST frame by sending the
    SETTINGS_ACCEPT_CACHE_DIGEST (0x7) SETTINGS parameter.  If the server
    is tempted to making optimizations based on CACHE_DIGEST frames, it
-
-
-
-
-Oku & Weiss              Expires January 2, 2019               [Page 12]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
-
    SHOULD send the SETTINGS parameter immediately after the connection
    is established.
 
@@ -717,18 +666,19 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    This document registers the following entry in the HTTP/2 Frame Type
    Registry, as per [RFC7540]:
 
+
+
+
+Oku & Weiss              Expires January 2, 2019               [Page 12]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
    o  Frame Type: CACHE_DIGEST
 
    o  Code: 0xd
 
    o  Specification: [this document]
-
-
-
-Oku & Weiss              Expires January 2, 2019               [Page 13]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
    This document registers the following entry in the HTTP/2 Settings
    Registry, as per [RFC7540]:
@@ -772,19 +722,18 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+
+
+
+Oku & Weiss              Expires January 2, 2019               [Page 13]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
               <https://www.rfc-editor.org/info/rfc3986>.
-
-
-
-
-
-Oku & Weiss              Expires January 2, 2019               [Page 14]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
    [RFC6234]  Eastlake 3rd, D. and T. Hansen, "US Secure Hash Algorithms
               (SHA and SHA-based HMAC and HKDF)", RFC 6234,
@@ -828,19 +777,19 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
               Version 1.3", draft-ietf-tls-tls13-22 (work in progress),
               November 2017.
 
+
+
+
+
+Oku & Weiss              Expires January 2, 2019               [Page 14]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
    [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
               Procedures for Message Header Fields", BCP 90, RFC 3864,
               DOI 10.17487/RFC3864, September 2004,
               <https://www.rfc-editor.org/info/rfc3864>.
-
-
-
-
-
-Oku & Weiss              Expires January 2, 2019               [Page 15]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
    [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
               Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
@@ -884,19 +833,19 @@ Appendix A.  Encoding the CACHE_DIGEST frame as an HTTP Header
    [RFC5234] with the list rule extension defined in [RFC7230],
    Section 7.
 
+
+
+
+
+Oku & Weiss              Expires January 2, 2019               [Page 15]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
      Cache-Digest  = 1#digest-entity
      digest-entity = digest-value *(OWS ";" OWS digest-flag)
      digest-value  = <Digest-Value encoded using base64url>
      digest-flag   = token
-
-
-
-
-
-Oku & Weiss              Expires January 2, 2019               [Page 16]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
    A Cache-Digest request header is defined as a list construct of
    cache-digest-entities.  Each cache-digest-entity corresponds to a
@@ -911,8 +860,8 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    Cache-Digest headers containing digests that belong to the origin
    specified by the HTTP request.
 
-   The example below contains one digest of fresh resource and has only
-   the "COMPLETE" flag set.
+   The example below contains a digest of one resource and has only the
+   "COMPLETE" flag set.
 
      Cache-Digest: AfdA; complete
 
@@ -938,21 +887,20 @@ B.2.  Since draft-ietf-httpbis-cache-digest-03
 
    o  Yoav becomes an author; Mark steps down.
 
-B.3.  Since draft-ietf-httpbis-cache-digest-02
-
-   o  Switch to Cuckoo Filter.
 
 
 
 
 
 
-
-
-Oku & Weiss              Expires January 2, 2019               [Page 17]
+Oku & Weiss              Expires January 2, 2019               [Page 16]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+B.3.  Since draft-ietf-httpbis-cache-digest-02
+
+   o  Switch to Cuckoo Filter.
 
 B.4.  Since draft-ietf-httpbis-cache-digest-01
 
@@ -1001,8 +949,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-Oku & Weiss              Expires January 2, 2019               [Page 18]
+Oku & Weiss              Expires January 2, 2019               [Page 17]
