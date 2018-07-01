@@ -92,13 +92,13 @@ Table of Contents
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  15
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  16
    Appendix A.  Encoding the CACHE_DIGEST frame as an HTTP Header  .  16
-   Appendix B.  Acknowledgements . . . . . . . . . . . . . . . . . .  17
-   Appendix C.  Changes  . . . . . . . . . . . . . . . . . . . . . .  17
-     C.1.  Since draft-ietf-httpbis-cache-digest-04  . . . . . . . .  17
-     C.2.  Since draft-ietf-httpbis-cache-digest-03  . . . . . . . .  17
-     C.3.  Since draft-ietf-httpbis-cache-digest-02  . . . . . . . .  18
-     C.4.  Since draft-ietf-httpbis-cache-digest-01  . . . . . . . .  18
-     C.5.  Since draft-ietf-httpbis-cache-digest-00  . . . . . . . .  18
+   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  17
+     B.1.  Since draft-ietf-httpbis-cache-digest-04  . . . . . . . .  17
+     B.2.  Since draft-ietf-httpbis-cache-digest-03  . . . . . . . .  17
+     B.3.  Since draft-ietf-httpbis-cache-digest-02  . . . . . . . .  17
+     B.4.  Since draft-ietf-httpbis-cache-digest-01  . . . . . . . .  18
+     B.5.  Since draft-ietf-httpbis-cache-digest-00  . . . . . . . .  18
+   Appendix C.  Acknowledgements . . . . . . . . . . . . . . . . . .  18
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  18
 
 1.  Introduction
@@ -928,19 +928,19 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    proxy.  The header may represent the cache state of a client or that
    of a proxy, depending on how the proxy handles the header.
 
-Appendix B.  Acknowledgements
+Appendix B.  Changes
 
-   Thanks to Stefan Eissing for his suggestions.
-
-Appendix C.  Changes
-
-C.1.  Since draft-ietf-httpbis-cache-digest-04
+B.1.  Since draft-ietf-httpbis-cache-digest-04
 
    o  None yet.
 
-C.2.  Since draft-ietf-httpbis-cache-digest-03
+B.2.  Since draft-ietf-httpbis-cache-digest-03
 
    o  Yoav becomes an author; Mark steps down.
+
+B.3.  Since draft-ietf-httpbis-cache-digest-02
+
+   o  Switch to Cuckoo Filter.
 
 
 
@@ -954,11 +954,7 @@ Oku & Weiss              Expires January 2, 2019               [Page 17]
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
 
-C.3.  Since draft-ietf-httpbis-cache-digest-02
-
-   o  Switch to Cuckoo Filter.
-
-C.4.  Since draft-ietf-httpbis-cache-digest-01
+B.4.  Since draft-ietf-httpbis-cache-digest-01
 
    o  Added definition of the Cache-Digest header.
 
@@ -966,9 +962,15 @@ C.4.  Since draft-ietf-httpbis-cache-digest-01
 
    o  Change intended status from Standard to Experimental.
 
-C.5.  Since draft-ietf-httpbis-cache-digest-00
+B.5.  Since draft-ietf-httpbis-cache-digest-00
 
    o  Make the scope of a digest frame explicit and shift to stream 0.
+
+Appendix C.  Acknowledgements
+
+   +{:numbered="false"}
+
+   Thanks to Stefan Eissing for his suggestions.
 
 Authors' Addresses
 
@@ -983,8 +985,6 @@ Authors' Addresses
 
    Email: yoav@yoav.ws
    URI:   https://blog.yoav.ws/
-
-
 
 
 
