@@ -121,12 +121,13 @@ Internet-Draft                  Expect-CT                      July 2018
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  19
      9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  19
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  20
-     A.1.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  20
-     A.2.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  20
-     A.3.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  20
-     A.4.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  20
-     A.5.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  20
-     A.6.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.1.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.2.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.3.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.4.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.5.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.6.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     A.7.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  20
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  21
 
 1.  Introduction
@@ -161,7 +162,6 @@ Internet-Draft                  Expect-CT                      July 2018
    thwart an attack on the UA's first connection to the host.  Still,
    Expect-CT provides value by 1) allowing UAs to detect the use of
    unlogged certificates after the initial communication, and 2)
-
 
 
 
@@ -1072,7 +1072,11 @@ Internet-Draft                  Expect-CT                      July 2018
 
 Appendix A.  Changes
 
-A.1.  Since -05
+A.1.  Since -06
+
+   o  None yet
+
+A.2.  Since -05
 
    o  Remove SHOULD requirement that UAs disallow certificate error
       overrides for Known Expect-CT Hosts.
@@ -1081,15 +1085,15 @@ A.1.  Since -05
 
    o  Editorial changes
 
-A.2.  Since -04
+A.3.  Since -04
 
    o  Editorial changes
 
-A.3.  Since -03
+A.4.  Since -03
 
    o  Editorial changes
 
-A.4.  Since -02
+A.5.  Since -02
 
    o  Add concept of test reports and specify that servers must respond
       with 2xx status codes to valid reports.
@@ -1097,12 +1101,12 @@ A.4.  Since -02
    o  Add "failure-mode" key to reports to allow report servers to
       distinguish report-only from enforced failures.
 
-A.5.  Since -01
+A.6.  Since -01
 
    o  Change SCT reporting format to support both RFC 6962 and 6962-bis
       SCTs.
 
-A.6.  Since -00
+A.7.  Since -00
 
    o  Editorial changes
 
@@ -1111,10 +1115,6 @@ A.6.  Since -00
 
    o  Update header field syntax to match convention (issue #327)
 
-   o  Reference RFC 6962-bis instead of RFC 6962
-
-
-
 
 
 Stark                    Expires January 2, 2019               [Page 20]
@@ -1122,14 +1122,14 @@ Stark                    Expires January 2, 2019               [Page 20]
 Internet-Draft                  Expect-CT                      July 2018
 
 
+   o  Reference RFC 6962-bis instead of RFC 6962
+
 Author's Address
 
    Emily Stark
    Google
 
    Email: estark@google.com
-
-
 
 
 
