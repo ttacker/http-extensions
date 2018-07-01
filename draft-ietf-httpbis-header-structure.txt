@@ -5,8 +5,8 @@
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P-H. Kamp
-Expires: December 31, 2018                     The Varnish Cache Project
-                                                           June 29, 2018
+Expires: January 2, 2019                       The Varnish Cache Project
+                                                            July 1, 2018
 
 
                       Structured Headers for HTTP
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 1]
+Nottingham & Kamp        Expires January 2, 2019                [Page 1]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    Internet-Drafts are draft documents valid for a maximum of six months
@@ -63,7 +63,7 @@ Internet-Draft         Structured Headers for HTTP             June 2018
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 31, 2018.
+   This Internet-Draft will expire on January 2, 2019.
 
 Copyright Notice
 
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 2]
+Nottingham & Kamp        Expires January 2, 2019                [Page 2]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
      A.2.  Structured Headers don't "fit" my data. . . . . . . . . .  25
@@ -165,9 +165,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 3]
+Nottingham & Kamp        Expires January 2, 2019                [Page 3]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    Those abstract types can be serialised into and parsed from textual
@@ -221,9 +221,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 4]
+Nottingham & Kamp        Expires January 2, 2019                [Page 4]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
       the header is discarded (see Section 4.2); in most situations,
@@ -277,9 +277,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 5]
+Nottingham & Kamp        Expires January 2, 2019                [Page 5]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    This specification defines minimums for the length or number of
@@ -333,9 +333,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 6]
+Nottingham & Kamp        Expires January 2, 2019                [Page 6]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    In HTTP/1, each member is separated by a comma and optional
@@ -389,9 +389,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 7]
+Nottingham & Kamp        Expires January 2, 2019                [Page 7]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
 3.5.  Integers
@@ -445,9 +445,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 8]
+Nottingham & Kamp        Expires January 2, 2019                [Page 8]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    sh-string = DQUOTE *(chr) DQUOTE
@@ -501,9 +501,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018               [Page 9]
+Nottingham & Kamp        Expires January 2, 2019                [Page 9]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    In HTTP/1 headers, binary content is delimited with asterisks and
@@ -557,9 +557,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 10]
+Nottingham & Kamp        Expires January 2, 2019               [Page 10]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
        4.  Let value be the result of applying Serialising an Item
@@ -613,9 +613,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 11]
+Nottingham & Kamp        Expires January 2, 2019               [Page 11]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
            3.  If parameter has a param-value:
@@ -669,9 +669,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 12]
+Nottingham & Kamp        Expires January 2, 2019               [Page 12]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    5.  Return output.
@@ -725,9 +725,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 13]
+Nottingham & Kamp        Expires January 2, 2019               [Page 13]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
 4.1.8.  Serialising an Identifier
@@ -781,9 +781,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 14]
+Nottingham & Kamp        Expires January 2, 2019               [Page 14]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    1.  Discard any leading OWS from input_string.
@@ -837,9 +837,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 15]
+Nottingham & Kamp        Expires January 2, 2019               [Page 15]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    1.  Let dictionary be an empty, unordered mapping.
@@ -893,9 +893,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 16]
+Nottingham & Kamp        Expires January 2, 2019               [Page 16]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
        5.  Consume the first character of input_string; if it is not
@@ -949,9 +949,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 17]
+Nottingham & Kamp        Expires January 2, 2019               [Page 17]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
        1.  Discard any leading OWS from input_string.
@@ -1005,9 +1005,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 18]
+Nottingham & Kamp        Expires January 2, 2019               [Page 18]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
 4.2.6.  Parsing a Number from Text
@@ -1061,9 +1061,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 19]
+Nottingham & Kamp        Expires January 2, 2019               [Page 19]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
         2.  Parse input_number as a float and let output_number be the
@@ -1117,9 +1117,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 20]
+Nottingham & Kamp        Expires January 2, 2019               [Page 20]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
 4.2.8.  Parsing an Identifier from Text
@@ -1173,9 +1173,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 21]
+Nottingham & Kamp        Expires January 2, 2019               [Page 21]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    7.  Return binary_content.
@@ -1229,9 +1229,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 22]
+Nottingham & Kamp        Expires January 2, 2019               [Page 22]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
@@ -1285,9 +1285,9 @@ Internet-Draft         Structured Headers for HTTP             June 2018
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 23]
+Nottingham & Kamp        Expires January 2, 2019               [Page 23]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
 7.3.  URIs
@@ -1341,9 +1341,9 @@ A.1.  Why not JSON?
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 24]
+Nottingham & Kamp        Expires January 2, 2019               [Page 24]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    Additionally, there were widely shared feelings that JSON doesn't
@@ -1397,9 +1397,9 @@ B.2.  Since draft-ietf-httpbis-header-structure-05
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 25]
+Nottingham & Kamp        Expires January 2, 2019               [Page 25]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
    o  Refine relationship between ABNF, parsing and serialisation
@@ -1453,9 +1453,9 @@ B.7.  Since draft-ietf-httpbis-header-structure-00
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 26]
+Nottingham & Kamp        Expires January 2, 2019               [Page 26]
 
-Internet-Draft         Structured Headers for HTTP             June 2018
+Internet-Draft         Structured Headers for HTTP             July 2018
 
 
 Authors' Addresses
@@ -1509,4 +1509,4 @@ Authors' Addresses
 
 
 
-Nottingham & Kamp       Expires December 31, 2018              [Page 27]
+Nottingham & Kamp        Expires January 2, 2019               [Page 27]
