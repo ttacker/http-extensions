@@ -8569,7 +8569,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "kazuho",
@@ -8614,10 +8614,10 @@
       }
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-03-20T17:05:49Z",
-    "updated_at": "2018-03-27T03:00:54Z",
-    "closed_at": null,
+    "updated_at": "2018-07-01T15:19:45Z",
+    "closed_at": "2018-07-01T15:19:35Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/526",
@@ -9212,7 +9212,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "kazuho",
@@ -9259,8 +9259,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-03-18T12:18:24Z",
-    "updated_at": "2018-03-27T03:00:54Z",
-    "closed_at": null,
+    "updated_at": "2018-07-01T15:50:20Z",
+    "closed_at": "2018-07-01T15:50:20Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/517",
@@ -9311,7 +9311,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -9320,8 +9320,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-03-18T12:17:43Z",
-    "updated_at": "2018-04-30T06:17:32Z",
-    "closed_at": null,
+    "updated_at": "2018-07-01T15:50:20Z",
+    "closed_at": "2018-07-01T15:50:20Z",
     "author_association": "CONTRIBUTOR",
     "body": "Having ETags as part of the digest key adds a lot of complexity to the Cache Digest implementation both on the client and the server:\r\n* Clients may not have the ETag readily available at removal time, which would mean removal from the digest introduces I/O operations and slowness.\r\n* Servers may not have the ETag readily available when they want to send down push promises, forcing them to make those conditional on I/O operations (and again, slowness).\r\n\r\nI [ran an HTTPArchive analysis](https://discuss.httparchive.org/t/cacheability-of-render-critical-resources/1278) and it seems that from the render-critical resources that are push candidates, 77.26% of them are cacheable for at least 24 hours.\r\nSame query with 30 days minimal freshness gives us 52.32% of the resources.\r\n\r\nSo it seems that servers can in many cases have enough render-critical resources to push even without the ETag info.\r\nTherefore I suggest removing it, to simplify implementations. If we'd see that it becomes an issue in the future, we could add it back as optional.\r\n\r\nThoughts?"
   },
