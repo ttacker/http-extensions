@@ -10,7 +10,7 @@ Expires: January 3, 2019                                          Akamai
 
 
                         Cache Digests for HTTP/2
-                 draft-ietf-httpbis-cache-digest-latest
+                   draft-ietf-httpbis-cache-digest-05
 
 Abstract
 
@@ -881,13 +881,13 @@ Appendix B.  Changes
 
 B.1.  Since draft-ietf-httpbis-cache-digest-04
 
+   o  Remove ETag from the digest key calculations.
+
    o  Add SETTINGS_ prefix to parameter names.
 
 B.2.  Since draft-ietf-httpbis-cache-digest-03
 
    o  Yoav becomes an author; Mark steps down.
-
-
 
 
 
