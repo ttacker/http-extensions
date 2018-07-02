@@ -10,7 +10,7 @@ Expires: January 3, 2019                                          Akamai
 
 
                         Cache Digests for HTTP/2
-                   draft-ietf-httpbis-cache-digest-05
+                 draft-ietf-httpbis-cache-digest-latest
 
 Abstract
 
@@ -70,11 +70,11 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
 Table of Contents
 
-   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
      1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   3
    2.  The CACHE_DIGEST Frame  . . . . . . . . . . . . . . . . . . .   3
      2.1.  Client Behavior . . . . . . . . . . . . . . . . . . . . .   4
-       2.1.1.  Creating a digest . . . . . . . . . . . . . . . . . .   4
+       2.1.1.  Creating a digest . . . . . . . . . . . . . . . . . .   5
        2.1.2.  Adding a URL to the Digest-Value  . . . . . . . . . .   5
        2.1.3.  Removing a URL to the Digest-Value  . . . . . . . . .   7
        2.1.4.  Computing a fingerprint value . . . . . . . . . . . .   8
@@ -88,24 +88,24 @@ Table of Contents
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  12
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  13
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  13
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  13
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  14
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  14
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  15
    Appendix A.  Encoding the CACHE_DIGEST frame as an HTTP Header  .  15
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  16
-     B.1.  Since draft-ietf-httpbis-cache-digest-04  . . . . . . . .  16
-     B.2.  Since draft-ietf-httpbis-cache-digest-03  . . . . . . . .  16
-     B.3.  Since draft-ietf-httpbis-cache-digest-02  . . . . . . . .  17
-     B.4.  Since draft-ietf-httpbis-cache-digest-01  . . . . . . . .  17
-     B.5.  Since draft-ietf-httpbis-cache-digest-00  . . . . . . . .  17
+     B.1.  Since draft-ietf-httpbis-cache-digest-05  . . . . . . . .  16
+     B.2.  Since draft-ietf-httpbis-cache-digest-04  . . . . . . . .  17
+     B.3.  Since draft-ietf-httpbis-cache-digest-03  . . . . . . . .  17
+     B.4.  Since draft-ietf-httpbis-cache-digest-02  . . . . . . . .  17
+     B.5.  Since draft-ietf-httpbis-cache-digest-01  . . . . . . . .  17
+     B.6.  Since draft-ietf-httpbis-cache-digest-00  . . . . . . . .  17
    Appendix C.  Acknowledgements . . . . . . . . . . . . . . . . . .  17
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  17
 
-1.  Introduction
 
-   HTTP/2 [RFC7540] allows a server to "push" synthetic request/response
-   pairs into a client's cache optimistically.  While there is strong
-   interest in using this facility to improve perceived Web browsing
+
+
+
 
 
 
@@ -114,6 +114,11 @@ Oku & Weiss              Expires January 3, 2019                [Page 2]
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
 
+1.  Introduction
+
+   HTTP/2 [RFC7540] allows a server to "push" synthetic request/response
+   pairs into a client's cache optimistically.  While there is strong
+   interest in using this facility to improve perceived Web browsing
    performance, it is sometimes counterproductive because the client
    might already have cached the "pushed" response.
 
@@ -157,11 +162,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    Digest-Value:  A sequence of octets containing the digest as computed
       in Section 2.1.1 and Section 2.1.2.
 
-   The CACHE_DIGEST frame defines the following flags:
-
-   o  *RESET* (0x1): When set, indicates that any and all cache digests
-      for the applicable origin held by the recipient MUST be considered
-      invalid.
 
 
 
@@ -169,6 +169,12 @@ Oku & Weiss              Expires January 3, 2019                [Page 3]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   The CACHE_DIGEST frame defines the following flags:
+
+   o  *RESET* (0x1): When set, indicates that any and all cache digests
+      for the applicable origin held by the recipient MUST be considered
+      invalid.
 
    o  *COMPLETE* (0x2): When set, indicates that the currently valid set
       of cache digests held by the server constitutes a complete
@@ -208,6 +214,18 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    CACHE_DIGEST has no defined meaning when sent from servers, and
    SHOULD be ignored by clients.
 
+
+
+
+
+
+
+
+Oku & Weiss              Expires January 3, 2019                [Page 4]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
 2.1.1.  Creating a digest
 
    Given the following inputs:
@@ -217,14 +235,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    o  "N", an integer that represents the number of entries - a prime
       number smaller than 2**32
-
-
-
-
-Oku & Weiss              Expires January 3, 2019                [Page 4]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
    1.  Let "f" be the number of bits per fingerprint, calculated as "P +
        3"
@@ -264,6 +274,14 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    o  "URL" a string corresponding to the Effective Request URI
       ([RFC7230], Section 5.5) of a cached response [RFC7234]
 
+
+
+
+Oku & Weiss              Expires January 3, 2019                [Page 5]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
    o  "maxcount" - max number of cuckoo hops
 
    o  "digest-value"
@@ -274,13 +292,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    3.   Let "N" be the value of the second to fifth bytes of "digest-
         value" in big endian form.
-
-
-
-Oku & Weiss              Expires January 3, 2019                [Page 5]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
    4.   Let "key" be the return value of Section 2.1.5 with "URL" as
         input.
@@ -319,6 +330,14 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
         6.   Let "bits" be "f" bits from "digest_value" starting at
              "position_start".
 
+
+
+
+Oku & Weiss              Expires January 3, 2019                [Page 6]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
         7.   Let "fingerprint" be the value of bits, read as big endian.
 
         8.   Set "bits" to "dest_fingerprint".
@@ -329,14 +348,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
              "N" as inputs.
 
         11.  Subtract 1 from "maxcount".
-
-
-
-
-Oku & Weiss              Expires January 3, 2019                [Page 6]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
    10.  Subtract "f" from "position_start".
 
@@ -375,6 +386,14 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    6.  Let "fingerprint" be the return value of Section 2.1.4 with "key"
        and "f" as inputs.
 
+
+
+
+Oku & Weiss              Expires January 3, 2019                [Page 7]
+
+Internet-Draft          Cache Digests for HTTP/2               July 2018
+
+
    7.  Let "h2" be the return value of Section 2.1.7 with "h1",
        "fingerprint" and "N" as inputs.
 
@@ -385,14 +404,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
        1.  Let "position_start" be 40 + "h" * "f" * "b".
 
        2.  Let "position_end" be "position_start" + "f" * "b".
-
-
-
-
-Oku & Weiss              Expires January 3, 2019                [Page 7]
-
-Internet-Draft          Cache Digests for HTTP/2               July 2018
-
 
        3.  While "position_start" < "position_end":
 
@@ -431,17 +442,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    5.  If "fingerprint-value" is 0, let "fingerprint-value" be 1.
 
-   6.  Return "fingerprint-value".
-
-   Note: Step 5 is to handle the extremely unlikely case where a SHA-256
-   digest of "key" is all zeros.  The implications of it means that
-   there's an infitisimaly larger probability of getting a "fingerprint-
-   value" of 1 compared to all other values.  This is not a problem for
-   any practical purpose.
-
-
-
-
 
 
 
@@ -449,6 +449,14 @@ Oku & Weiss              Expires January 3, 2019                [Page 8]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   6.  Return "fingerprint-value".
+
+   Note: Step 5 is to handle the extremely unlikely case where a SHA-256
+   digest of "key" is all zeros.  The implications of it means that
+   there's an infitisimaly larger probability of getting a "fingerprint-
+   value" of 1 compared to all other values.  This is not a problem for
+   any practical purpose.
 
 2.1.5.  Computing the key
 
@@ -489,14 +497,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
    1.  Let "fingerprint-string" be the value of "fingerprint" in base
        10, expressed as a string.
 
-   2.  Let "hash2" be the return value of Section 2.1.6 with
-       "fingerprint-string" and "N" as inputs, XORed with "hash1".
-
-   3.  Return "hash2".
-
-
-
-
 
 
 
@@ -505,6 +505,11 @@ Oku & Weiss              Expires January 3, 2019                [Page 9]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   2.  Let "hash2" be the return value of Section 2.1.6 with
+       "fingerprint-string" and "N" as inputs, XORed with "hash1".
+
+   3.  Return "hash2".
 
 2.2.  Server Behavior
 
@@ -549,11 +554,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    2.   Let "b" be the bucket size, defined as 4.
 
-   3.   Let "N" be the value of the second to fifth bytes of "digest-
-        value" in big endian form.
-
-   4.   Let "key" be the return value of Section 2.1.5 with "URL" as
-        input.
 
 
 
@@ -561,6 +561,12 @@ Oku & Weiss              Expires January 3, 2019               [Page 10]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   3.   Let "N" be the value of the second to fifth bytes of "digest-
+        value" in big endian form.
+
+   4.   Let "key" be the return value of Section 2.1.5 with "URL" as
+        input.
 
    5.   Let "h1" be the return value of Section 2.1.6 with "key" and "N"
         as inputs.
@@ -604,12 +610,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    Rest of the bits MUST be ignored and MUST be left unset when sending.
 
-   The initial value of the parameter is zero (0x0) meaning that the
-   client has no digest to send the server.
-
-
-
-
 
 
 
@@ -617,6 +617,9 @@ Oku & Weiss              Expires January 3, 2019               [Page 11]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   The initial value of the parameter is zero (0x0) meaning that the
+   client has no digest to send the server.
 
 4.  The SETTINGS_ACCEPT_CACHE_DIGEST SETTINGS Parameter
 
@@ -663,9 +666,6 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    o  Specification document(s): [this document]
 
-   This document registers the following entry in the HTTP/2 Frame Type
-   Registry, as per [RFC7540]:
-
 
 
 
@@ -673,6 +673,9 @@ Oku & Weiss              Expires January 3, 2019               [Page 12]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   This document registers the following entry in the HTTP/2 Frame Type
+   Registry, as per [RFC7540]:
 
    o  Frame Type: CACHE_DIGEST
 
@@ -715,12 +718,9 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
 7.  References
 
-7.1.  Normative References
 
-   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
-              Requirement Levels", BCP 14, RFC 2119,
-              DOI 10.17487/RFC2119, March 1997,
-              <https://www.rfc-editor.org/info/rfc2119>.
+
+
 
 
 
@@ -729,6 +729,13 @@ Oku & Weiss              Expires January 3, 2019               [Page 13]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+7.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
 
    [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
               Resource Identifier (URI): Generic Syntax", STD 66,
@@ -772,19 +779,17 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
    [Fetch]    "Fetch Standard", n.d., <https://fetch.spec.whatwg.org/>.
 
-   [I-D.ietf-tls-tls13]
-              Rescorla, E., "The Transport Layer Security (TLS) Protocol
-              Version 1.3", draft-ietf-tls-tls13-22 (work in progress),
-              November 2017.
-
-
-
 
 
 Oku & Weiss              Expires January 3, 2019               [Page 14]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   [I-D.ietf-tls-tls13]
+              Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", draft-ietf-tls-tls13-22 (work in progress),
+              November 2017.
 
    [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
               Procedures for Message Header Fields", BCP 90, RFC 3864,
@@ -829,11 +834,6 @@ Appendix A.  Encoding the CACHE_DIGEST frame as an HTTP Header
    defines how a CACHE_DIGEST frame can be encoded as an HTTP header
    named "Cache-Digest".
 
-   The definition uses the Augmented Backus-Naur Form (ABNF) notation of
-   [RFC5234] with the list rule extension defined in [RFC7230],
-   Section 7.
-
-
 
 
 
@@ -841,6 +841,10 @@ Oku & Weiss              Expires January 3, 2019               [Page 15]
 
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
+
+   The definition uses the Augmented Backus-Naur Form (ABNF) notation of
+   [RFC5234] with the list rule extension defined in [RFC7230],
+   Section 7.
 
      Cache-Digest  = 1#digest-entity
      digest-entity = digest-value *(OWS ";" OWS digest-flag)
@@ -879,15 +883,11 @@ Internet-Draft          Cache Digests for HTTP/2               July 2018
 
 Appendix B.  Changes
 
-B.1.  Since draft-ietf-httpbis-cache-digest-04
+B.1.  Since draft-ietf-httpbis-cache-digest-05
 
-   o  Remove ETag from the digest key calculations.
+   o  None yet.
 
-   o  Add SETTINGS_ prefix to parameter names.
 
-B.2.  Since draft-ietf-httpbis-cache-digest-03
-
-   o  Yoav becomes an author; Mark steps down.
 
 
 
@@ -898,11 +898,21 @@ Oku & Weiss              Expires January 3, 2019               [Page 16]
 Internet-Draft          Cache Digests for HTTP/2               July 2018
 
 
-B.3.  Since draft-ietf-httpbis-cache-digest-02
+B.2.  Since draft-ietf-httpbis-cache-digest-04
+
+   o  Remove ETag from the digest key calculations.
+
+   o  Add SETTINGS_ prefix to parameter names.
+
+B.3.  Since draft-ietf-httpbis-cache-digest-03
+
+   o  Yoav becomes an author; Mark steps down.
+
+B.4.  Since draft-ietf-httpbis-cache-digest-02
 
    o  Switch to Cuckoo Filter.
 
-B.4.  Since draft-ietf-httpbis-cache-digest-01
+B.5.  Since draft-ietf-httpbis-cache-digest-01
 
    o  Added definition of the Cache-Digest header.
 
@@ -910,7 +920,7 @@ B.4.  Since draft-ietf-httpbis-cache-digest-01
 
    o  Change intended status from Standard to Experimental.
 
-B.5.  Since draft-ietf-httpbis-cache-digest-00
+B.6.  Since draft-ietf-httpbis-cache-digest-00
 
    o  Make the scope of a digest frame explicit and shift to stream 0.
 
@@ -933,16 +943,6 @@ Authors' Addresses
 
    Email: yoav@yoav.ws
    URI:   https://blog.yoav.ws/
-
-
-
-
-
-
-
-
-
-
 
 
 
