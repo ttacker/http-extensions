@@ -4,8 +4,8 @@
 
 HTTP Working Group                                              E. Stark
 Internet-Draft                                                    Google
-Intended status: Experimental                               July 2, 2018
-Expires: January 3, 2019
+Intended status: Experimental                               July 6, 2018
+Expires: January 7, 2019
 
 
                       Expect-CT Extension for HTTP
@@ -16,12 +16,7 @@ Abstract
    This document defines a new HTTP header field, named Expect-CT, that
    allows web host operators to instruct user agents to expect valid
    Signed Certificate Timestamps (SCTs) to be served on connections to
-   these hosts.  When configured in enforcement mode, user agents (UAs)
-   will remember that hosts expect SCTs and will refuse connections that
-   do not conform to the UA's Certificate Transparency policy.  When
-   configured in report-only mode, UAs will report the lack of valid
-   SCTs to a URI configured by the host, but will allow the connection.
-   By turning on Expect-CT, web host operators can discover
+   these hosts.  Expect-CT allows web host operators to discover
    misconfigurations in their Certificate Transparency deployments and
    ensure that misissued certificates accepted by UAs are discoverable
    in Certificate Transparency logs.
@@ -51,14 +46,17 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
+   This Internet-Draft will expire on January 7, 2019.
 
 
-Stark                    Expires January 3, 2019                [Page 1]
+
+
+
+
+Stark                    Expires January 7, 2019                [Page 1]
 
 Internet-Draft                  Expect-CT                      July 2018
 
-
-   This Internet-Draft will expire on January 3, 2019.
 
 Copyright Notice
 
@@ -106,16 +104,16 @@ Table of Contents
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
      6.1.  Header Field Registry . . . . . . . . . . . . . . . . . .  16
      6.2.  Media Types Registry  . . . . . . . . . . . . . . . . . .  16
+   7.  Usability Considerations  . . . . . . . . . . . . . . . . . .  17
+   8.  Authoring Considerations  . . . . . . . . . . . . . . . . . .  17
 
 
 
-Stark                    Expires January 3, 2019                [Page 2]
+Stark                    Expires January 7, 2019                [Page 2]
 
 Internet-Draft                  Expect-CT                      July 2018
 
 
-   7.  Usability Considerations  . . . . . . . . . . . . . . . . . .  17
-   8.  Authoring Considerations  . . . . . . . . . . . . . . . . . .  17
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  19
@@ -162,16 +160,15 @@ Internet-Draft                  Expect-CT                      July 2018
    thwart an attack on the UA's first connection to the host.  Still,
    Expect-CT provides value by 1) allowing UAs to detect the use of
    unlogged certificates after the initial communication, and 2)
+   allowing web hosts to be confident that UAs are only trusting
+   publicly-auditable certificates.
 
 
 
-Stark                    Expires January 3, 2019                [Page 3]
+Stark                    Expires January 7, 2019                [Page 3]
 
 Internet-Draft                  Expect-CT                      July 2018
 
-
-   allowing web hosts to be confident that UAs are only trusting
-   publicly-auditable certificates.
 
 1.1.  Requirements Language
 
@@ -221,7 +218,10 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019                [Page 4]
+
+
+
+Stark                    Expires January 7, 2019                [Page 4]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -277,7 +277,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019                [Page 5]
+Stark                    Expires January 7, 2019                [Page 5]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -333,7 +333,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019                [Page 6]
+Stark                    Expires January 7, 2019                [Page 6]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -389,7 +389,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019                [Page 7]
+Stark                    Expires January 7, 2019                [Page 7]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -445,7 +445,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019                [Page 8]
+Stark                    Expires January 7, 2019                [Page 8]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -501,7 +501,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019                [Page 9]
+Stark                    Expires January 7, 2019                [Page 9]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -557,7 +557,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 10]
+Stark                    Expires January 7, 2019               [Page 10]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -613,7 +613,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 11]
+Stark                    Expires January 7, 2019               [Page 11]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -669,7 +669,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 12]
+Stark                    Expires January 7, 2019               [Page 12]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -725,7 +725,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 13]
+Stark                    Expires January 7, 2019               [Page 13]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -781,7 +781,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 14]
+Stark                    Expires January 7, 2019               [Page 14]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -837,7 +837,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 15]
+Stark                    Expires January 7, 2019               [Page 15]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -861,9 +861,9 @@ Internet-Draft                  Expect-CT                      July 2018
 
 6.1.  Header Field Registry
 
-   This document registers the "Expect-CT" header field in the "Message
-   Headers" registry located at https://www.iana.org/assignments/
-   message-headers [4].
+   This document registers the "Expect-CT" header field in the
+   "Permanent Message Header Field Names" registry located at
+   https://www.iana.org/assignments/message-headers [4].
 
    Header field name:  Expect-CT
 
@@ -893,7 +893,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 16]
+Stark                    Expires January 7, 2019               [Page 16]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -949,7 +949,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 17]
+Stark                    Expires January 7, 2019               [Page 17]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -1005,7 +1005,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 18]
+Stark                    Expires January 7, 2019               [Page 18]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -1061,7 +1061,7 @@ Internet-Draft                  Expect-CT                      July 2018
 
 
 
-Stark                    Expires January 3, 2019               [Page 19]
+Stark                    Expires January 7, 2019               [Page 19]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -1074,7 +1074,7 @@ Appendix A.  Changes
 
 A.1.  Since -06
 
-   o  None yet
+   o  Editorial changes
 
 A.2.  Since -05
 
@@ -1117,7 +1117,7 @@ A.7.  Since -00
 
 
 
-Stark                    Expires January 3, 2019               [Page 20]
+Stark                    Expires January 7, 2019               [Page 20]
 
 Internet-Draft                  Expect-CT                      July 2018
 
@@ -1173,4 +1173,4 @@ Author's Address
 
 
 
-Stark                    Expires January 3, 2019               [Page 21]
+Stark                    Expires January 7, 2019               [Page 21]
