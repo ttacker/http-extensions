@@ -605,10 +605,10 @@ Internet-Draft         Structured Headers for HTTP             July 2018
 
        3.  For each parameter in mem's parameters:
 
-           1.  Let name be the result of applying Serialising an
-               Identifier Section 4.1.8 to parameter's param-name.
+           1.  Append ";" to output.
 
-           2.  Append name to output.
+           2.  Let name be the result of applying Serialising an
+               Identifier Section 4.1.8 to parameter's param-name.
 
 
 
@@ -618,7 +618,9 @@ Nottingham & Kamp       Expires January 16, 2019               [Page 11]
 Internet-Draft         Structured Headers for HTTP             July 2018
 
 
-           3.  If parameter has a param-value:
+           3.  Append name to output.
+
+           4.  If parameter has a param-value:
 
                1.  Let value be the result of applying Serialising an
                    Item Section 4.1.4 to parameter's param-value.
@@ -664,8 +666,6 @@ Internet-Draft         Structured Headers for HTTP             July 2018
 
    3.  If input is less than (but not equal to) 0, append "-" to output.
 
-   4.  Append input's numeric value represented in base 10 using only
-       decimal digits to output.
 
 
 
@@ -673,6 +673,9 @@ Nottingham & Kamp       Expires January 16, 2019               [Page 12]
 
 Internet-Draft         Structured Headers for HTTP             July 2018
 
+
+   4.  Append input's numeric value represented in base 10 using only
+       decimal digits to output.
 
    5.  Return output.
 
@@ -719,9 +722,6 @@ Internet-Draft         Structured Headers for HTTP             July 2018
    5.  Append DQUOTE to output.
 
    6.  Return output.
-
-
-
 
 
 
