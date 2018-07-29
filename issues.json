@@ -34,17 +34,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-07-26T06:45:55Z",
-    "updated_at": "2018-07-27T01:32:07Z",
-    "closed_at": null,
+    "updated_at": "2018-07-29T23:17:15Z",
+    "closed_at": "2018-07-29T23:17:10Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/674",
@@ -97,7 +97,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-07-26T06:44:56Z",
-    "updated_at": "2018-07-27T19:44:40Z",
+    "updated_at": "2018-07-28T12:59:27Z",
     "closed_at": "2018-07-27T19:44:36Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -194,7 +194,14 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 499581321,
+        "node_id": "MDU6TGFiZWw0OTk1ODEzMjE=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/header-structure",
+        "name": "header-structure",
+        "color": "fbca04",
+        "default": false
+      }
     ],
     "state": "open",
     "locked": false,
@@ -205,7 +212,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-07-24T23:27:49Z",
-    "updated_at": "2018-07-24T23:35:26Z",
+    "updated_at": "2018-07-29T02:00:44Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "https://httpwg.org/http-extensions/draft-ietf-httpbis-header-structure.html#parse-binary talks about returning \"binary content\" where Infra would say \"[byte sequence](https://infra.spec.whatwg.org/#byte-sequence)\". I think this is the only one where pedantic readers might wonder whether there's a semantic difference.\r\n\r\nhttps://httpwg.org/http-extensions/draft-ietf-httpbis-header-structure.html#string uses \"String\" where Infra would use \"[ASCII string](https://infra.spec.whatwg.org/#ascii-string)\".\r\n\r\nAdopting #659 would match Infra's [ordered maps](https://infra.spec.whatwg.org/#maps), but I'm happy to keep the semantic argument out of this issue. :smiley: "
