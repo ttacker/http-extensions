@@ -4,8 +4,8 @@
 
 HTTP Working Group                                              E. Stark
 Internet-Draft                                                    Google
-Intended status: Experimental                             August 6, 2018
-Expires: February 7, 2019
+Intended status: Experimental                             August 7, 2018
+Expires: February 8, 2019
 
 
                       Expect-CT Extension for HTTP
@@ -46,14 +46,14 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 7, 2019.
+   This Internet-Draft will expire on February 8, 2019.
 
 
 
 
 
 
-Stark                   Expires February 7, 2019                [Page 1]
+Stark                   Expires February 8, 2019                [Page 1]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -80,12 +80,12 @@ Table of Contents
      1.2.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   4
    2.  Server and Client Behavior  . . . . . . . . . . . . . . . . .   5
      2.1.  Response Header Field Syntax  . . . . . . . . . . . . . .   5
-       2.1.1.  The report-uri Directive  . . . . . . . . . . . . . .   6
+       2.1.1.  The report-uri Directive  . . . . . . . . . . . . . .   5
        2.1.2.  The enforce Directive . . . . . . . . . . . . . . . .   6
        2.1.3.  The max-age Directive . . . . . . . . . . . . . . . .   7
        2.1.4.  Examples  . . . . . . . . . . . . . . . . . . . . . .   7
      2.2.  Server Processing Model . . . . . . . . . . . . . . . . .   7
-       2.2.1.  HTTP-over-Secure-Transport Request Type . . . . . . .   8
+       2.2.1.  HTTP-over-Secure-Transport Request Type . . . . . . .   7
        2.2.2.  HTTP Request Type . . . . . . . . . . . . . . . . . .   8
      2.3.  User Agent Processing Model . . . . . . . . . . . . . . .   8
        2.3.1.  Missing or Malformed Expect-CT Header Fields  . . . .   8
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Stark                   Expires February 7, 2019                [Page 2]
+Stark                   Expires February 8, 2019                [Page 2]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -165,7 +165,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019                [Page 3]
+Stark                   Expires February 8, 2019                [Page 3]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -221,7 +221,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019                [Page 4]
+Stark                   Expires February 8, 2019                [Page 4]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -246,10 +246,6 @@ Internet-Draft                  Expect-CT                    August 2018
 
               Figure 1: Syntax of the Expect-CT header field
 
-   Optional white space ("OWS") is used as defined in Section 3.2.3 of
-   [RFC7230]. "token" and "quoted-string" are used as defined in
-   Section 3.2.6 of [RFC7230].
-
    The directives defined in this specification are described below.
    The overall requirements for directives are:
 
@@ -273,20 +269,18 @@ Internet-Draft                  Expect-CT                    August 2018
        requirements (1 through 5), the UA MUST process the directives it
        recognizes.
 
-
-
-
-
-Stark                   Expires February 7, 2019                [Page 5]
-
-Internet-Draft                  Expect-CT                    August 2018
-
-
 2.1.1.  The report-uri Directive
 
    The OPTIONAL "report-uri" directive indicates the URI to which the UA
    SHOULD report Expect-CT failures (Section 2.4).  The UA POSTs the
    reports to the given URI as described in Section 3.
+
+
+
+Stark                   Expires February 8, 2019                [Page 5]
+
+Internet-Draft                  Expect-CT                    August 2018
+
 
    The "report-uri" directive is REQUIRED to have a directive value, for
    which the syntax is defined in Figure 2.
@@ -300,8 +294,8 @@ Internet-Draft                  Expect-CT                    August 2018
    Hosts may set "report-uri"s that use HTTP or HTTPS.  If the scheme in
    the "report-uri" is one that uses TLS (e.g., HTTPS), UAs MUST check
    Expect-CT compliance when the host in the "report-uri" is a Known
-   Expect-CT Host; similarly, UAs MUST apply HSTS if the host in the
-   "report-uri" is a Known HSTS Host.
+   Expect-CT Host; similarly, UAs MUST apply HSTS [RFC6797] if the host
+   in the "report-uri" is a Known HSTS Host.
 
    Note that the report-uri need not necessarily be in the same Internet
    domain or web origin as the host being reported about.
@@ -318,7 +312,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
    UAs SHOULD limit the rate at which they send reports.  For example,
    it is unnecessary to send the same report to the same "report-uri"
-   more than once.
+   more than once in the same web browsing session.
 
 2.1.2.  The enforce Directive
 
@@ -329,17 +323,20 @@ Internet-Draft                  Expect-CT                    August 2018
    Policy.  When both the "enforce" directive and "report-uri" directive
    (as defined in Figure 2) are present, the configuration is referred
    to as an "enforce-and-report" configuration, signalling to the UA
+   both that compliance to the CT Policy should be enforced and that
+   violations should be reported.
 
 
 
 
-Stark                   Expires February 7, 2019                [Page 6]
+
+
+
+
+Stark                   Expires February 8, 2019                [Page 6]
 
 Internet-Draft                  Expect-CT                    August 2018
 
-
-   both that compliance to the CT Policy should be enforced and that
-   violations should be reported.
 
 2.1.3.  The max-age Directive
 
@@ -384,20 +381,18 @@ Internet-Draft                  Expect-CT                    August 2018
    HTTP request messages received over non-secure transports, such as
    TCP.
 
-
-
-
-
-
-Stark                   Expires February 7, 2019                [Page 7]
-
-Internet-Draft                  Expect-CT                    August 2018
-
-
 2.2.1.  HTTP-over-Secure-Transport Request Type
 
    An Expect-CT Host includes an Expect-CT header field in its response.
    The header field MUST satisfy the grammar specified in Section 2.1.
+
+
+
+
+Stark                   Expires February 8, 2019                [Page 7]
+
+Internet-Draft                  Expect-CT                    August 2018
+
 
    Establishing a given host as an Expect-CT Host, in the context of a
    given UA, is accomplished as follows:
@@ -442,17 +437,18 @@ Internet-Draft                  Expect-CT                    August 2018
 
    If the connection does not comply with the UA's CT Policy (i.e., the
    connection is not CT-qualified), then the UA MUST NOT update any
-
-
-
-Stark                   Expires February 7, 2019                [Page 8]
-
-Internet-Draft                  Expect-CT                    August 2018
-
-
    Expect-CT metadata.  If the header field includes a "report-uri"
    directive, the UA SHOULD send a report to the specified "report-uri"
    (Section 2.3.3).
+
+
+
+
+
+Stark                   Expires February 8, 2019                [Page 8]
+
+Internet-Draft                  Expect-CT                    August 2018
+
 
    If the connection complies with the UA's CT Policy (i.e., the
    connection is CT-qualified), then the UA MUST either:
@@ -498,18 +494,18 @@ Internet-Draft                  Expect-CT                    August 2018
 
    o  whether the "enforce" directive is present
 
-
-
-
-Stark                   Expires February 7, 2019                [Page 9]
-
-Internet-Draft                  Expect-CT                    August 2018
-
-
    o  the Effective Expiration Date, which is the Effective Expect-CT
       Date plus the value of the "max-age" directive.  Alternatively,
       the UA MAY cache enough information to calculate the Effective
       Expiration Date.  The Effective Expiration Date is calculated from
+
+
+
+Stark                   Expires February 8, 2019                [Page 9]
+
+Internet-Draft                  Expect-CT                    August 2018
+
+
       when the UA observed the Expect-CT header field and is independent
       of when the response was generated.
 
@@ -554,18 +550,18 @@ Internet-Draft                  Expect-CT                    August 2018
    additional correctness check: compliance with a CT Policy.  A UA
    should evaluate compliance with its CT Policy whenever connecting to
    a Known Expect-CT Host, as soon as possible.  However, the check can
-
-
-
-Stark                   Expires February 7, 2019               [Page 10]
-
-Internet-Draft                  Expect-CT                    August 2018
-
-
    be skipped for local policy reasons (as discussed in Section 2.4.1),
    or in the event that other checks cause the UA to terminate the
    connection before CT compliance is evaluated.  For example, a Public
    Key Pinning failure [RFC7469] could cause the UA to terminate the
+
+
+
+Stark                   Expires February 8, 2019               [Page 10]
+
+Internet-Draft                  Expect-CT                    August 2018
+
+
    connection before CT compliance is checked.  Similarly, if the UA
    terminates the connection due to an Expect-CT failure, this could
    cause the UA to skip subsequent correctness checks.  When the CT
@@ -613,7 +609,11 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 11]
+
+
+
+
+Stark                   Expires February 8, 2019               [Page 11]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -669,7 +669,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 12]
+Stark                   Expires February 8, 2019               [Page 12]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -725,7 +725,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 13]
+Stark                   Expires February 8, 2019               [Page 13]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -781,7 +781,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 14]
+Stark                   Expires February 8, 2019               [Page 14]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -837,7 +837,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 15]
+Stark                   Expires February 8, 2019               [Page 15]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -869,7 +869,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
    Applicable protocol:  http
 
-   Status:  standard
+   Status:  experimental
 
    Author/Change controller:  IETF
 
@@ -893,7 +893,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 16]
+Stark                   Expires February 8, 2019               [Page 16]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -949,7 +949,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 17]
+Stark                   Expires February 8, 2019               [Page 17]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -1005,7 +1005,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 18]
+Stark                   Expires February 8, 2019               [Page 18]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -1061,7 +1061,7 @@ Internet-Draft                  Expect-CT                    August 2018
 
 
 
-Stark                   Expires February 7, 2019               [Page 19]
+Stark                   Expires February 8, 2019               [Page 19]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -1074,7 +1074,7 @@ Appendix A.  Changes
 
 A.1.  Since -07
 
-   o  None yet
+   o  Editorial changes
 
 A.2.  Since -06
 
@@ -1117,7 +1117,7 @@ A.7.  Since -01
 
 
 
-Stark                   Expires February 7, 2019               [Page 20]
+Stark                   Expires February 8, 2019               [Page 20]
 
 Internet-Draft                  Expect-CT                    August 2018
 
@@ -1173,4 +1173,4 @@ Author's Address
 
 
 
-Stark                   Expires February 7, 2019               [Page 21]
+Stark                   Expires February 8, 2019               [Page 21]
