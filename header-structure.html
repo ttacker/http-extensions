@@ -350,7 +350,7 @@ dict-member    = member-name "=" member-value
 member-name    = identifier
 member-value   = sh-item
 </pre></div><div id="rfc.section.3.1.p.3" class="avoidbreakafter"><p>In HTTP/1, keys and values are separated by “=” (without whitespace), and key/value pairs are separated by a comma with optional whitespace. For example:</p></div><div id="rfc.figure.u.3"><pre class="text">
-Example-DictHeader: en="Applepie", da=*w4ZibGV0w6ZydGUK=*
+Example-DictHeader: en="Applepie", da=*w4ZibGV0w6ZydGU=*
 </pre></div><div id="rfc.section.3.1.p.4"><p>Typically, a header field specification will define the semantics of individual keys, as well as whether their presence is required or optional. Recipients MUST ignore keys that are undefined or unknown, unless the header field’s specification specifically disallows them.</p></div><div id="rfc.section.3.1.p.5"><p>Parsers MUST support dictionaries containing at least 1024 key/value pairs.</p></div></section><section id="list"><h3 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#list">Lists</a></h3><div id="rfc.section.3.2.p.1"><p>Lists are arrays of items (<a href="#item" title="Items">Section 3.4</a>) with one or more members.</p></div><div id="rfc.section.3.2.p.2" class="avoidbreakafter"><p>The ABNF for lists is:</p></div><div id="rfc.figure.u.4"><pre class="inline">
 sh-list     = list-member *( OWS "," OWS list-member )
 list-member = sh-item
@@ -363,7 +363,7 @@ parameter     = OWS ";" OWS param-name [ "=" param-value ]
 param-name    = identifier
 param-value   = sh-item
 </pre></div><div id="rfc.section.3.3.p.4" class="avoidbreakafter"><p>In HTTP/1, each param-id is separated by a comma and optional whitespace (as in Lists), and the parameters are separated by semicolons. For example:</p></div><div id="rfc.figure.u.7"><pre class="text">
-Example-ParamListHeader: abc_123;a=1;b=2; cdef_456, ghi;q="9";r=w
+Example-ParamListHeader: abc_123;a=1;b=2; cdef_456, ghi;q="9";r="w"
 </pre></div><div id="rfc.section.3.3.p.5"><p>Parsers MUST support parameterised lists containing at least 1024 members, and support members with at least 256 parameters.</p></div></section><section id="item"><h3 id="rfc.section.3.4"><a href="#rfc.section.3.4">3.4.</a> <a href="#item">Items</a></h3><div id="rfc.section.3.4.p.1"><p>An item is can be a integer (<a href="#integer" title="Integers">Section 3.5</a>), float (<a href="#float" title="Floats">Section 3.6</a>), string (<a href="#string" title="Strings">Section 3.7</a>), or binary content (<a href="#binary" title="Binary Content">Section 3.9</a>).</p></div><div id="rfc.section.3.4.p.2" class="avoidbreakafter"><p>The ABNF for items is:</p></div><div id="rfc.figure.u.8"><pre class="inline">
 sh-item = sh-integer / sh-float / sh-string / sh-binary
 </pre></div></section><section id="integer"><h3 id="rfc.section.3.5"><a href="#rfc.section.3.5">3.5.</a> <a href="#integer">Integers</a></h3><div id="rfc.section.3.5.p.1"><p>Integers have a range of −9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 inclusive (i.e., a 64-bit signed integer).</p></div><div id="rfc.section.3.5.p.2" class="avoidbreakafter"><p>The ABNF for integers is:</p></div><div id="rfc.figure.u.9"><pre class="inline">

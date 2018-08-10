@@ -312,7 +312,7 @@ Internet-Draft         Structured Headers for HTTP           August 2018
    and key/value pairs are separated by a comma with optional
    whitespace.  For example:
 
-   Example-DictHeader: en="Applepie", da=*w4ZibGV0w6ZydGUK=*
+   Example-DictHeader: en="Applepie", da=*w4ZibGV0w6ZydGU=*
 
    Typically, a header field specification will define the semantics of
    individual keys, as well as whether their presence is required or
@@ -371,7 +371,7 @@ Internet-Draft         Structured Headers for HTTP           August 2018
    whitespace (as in Lists), and the parameters are separated by
    semicolons.  For example:
 
-   Example-ParamListHeader: abc_123;a=1;b=2; cdef_456, ghi;q="9";r=w
+   Example-ParamListHeader: abc_123;a=1;b=2; cdef_456, ghi;q="9";r="w"
 
    Parsers MUST support parameterised lists containing at least 1024
    members, and support members with at least 256 parameters.
