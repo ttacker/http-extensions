@@ -143,7 +143,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -152,8 +152,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-08-08T06:04:32Z",
-    "updated_at": "2018-08-08T06:12:23Z",
-    "closed_at": null,
+    "updated_at": "2018-08-09T04:06:14Z",
+    "closed_at": "2018-08-09T04:06:14Z",
     "author_association": "NONE",
     "body": "In contract to headers like `Content-Type`, `Content-Security-Policy`, `Feature-Policy`, `Public-Key-Pins`, `Strict-Transport-Security`, etc., the `Expect-CT` header uses a comma delimiter instead of a semicolon. What's the reason for that?\r\n\r\n```\r\nContent-Type: text/html; charset=UTF-8\r\n                       ^ Semicolon\r\n\r\nContent-Security-Policy: default-src 'none'; script-src 'self'\r\n                                           ^ Semicolon\r\n\r\nStrict-Transport-Security: max-age=31536000; includeSubDomains; preload\r\n                                           ^ Semicolon        ^ Semicolon\r\n\r\nExpect-CT: enforce, max-age=86400\r\n                  ^ Comma\r\n```"
   },
@@ -299,17 +299,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-08-03T07:46:42Z",
-    "updated_at": "2018-08-03T07:46:42Z",
-    "closed_at": null,
+    "updated_at": "2018-08-10T01:30:00Z",
+    "closed_at": "2018-08-10T01:29:53Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/677",
@@ -360,9 +360,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-08-03T06:46:30Z",
-    "updated_at": "2018-08-03T06:46:30Z",
+    "updated_at": "2018-08-10T01:28:59Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
