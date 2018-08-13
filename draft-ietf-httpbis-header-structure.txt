@@ -1131,7 +1131,8 @@ Internet-Draft         Structured Headers for HTTP           August 2018
 
        5.  Else, append char to output_string.
 
-   5.  Otherwise, fail parsing.
+   5.  Reached the end of input_string without finding a closing DQUOTE;
+       fail parsing.
 
 4.2.8.  Parsing an Identifier from Text
 
@@ -1169,7 +1170,6 @@ Internet-Draft         Structured Headers for HTTP           August 2018
 
    3.  Let b64_content be the result of removing content of input_string
        up to but not including the first instance of the character "*".
-
 
 
 
