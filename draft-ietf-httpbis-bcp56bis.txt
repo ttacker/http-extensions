@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                           August 10, 2018
+Internet-Draft                                           August 13, 2018
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: February 11, 2019
+Expires: February 14, 2019
 
 
                       Building Protocols with HTTP
@@ -16,7 +16,8 @@ Abstract
 
    HTTP is often used as a substrate for other application protocols
    (a.k.a.  HTTP-based APIs).  This document specifies best practices
-   for these protocols' use of HTTP.
+   for such protocols' use of HTTP when they are defined for diverse
+   implementation and broad deployment (e.g., in standards efforts).
 
 Note to Readers
 
@@ -43,20 +44,24 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 11, 2019.
+   This Internet-Draft will expire on February 14, 2019.
+
+
+
+
+
+
+
+
+Nottingham              Expires February 14, 2019               [Page 1]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
 
 Copyright Notice
 
    Copyright (c) 2018 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
-
-
-
-
-Nottingham              Expires February 11, 2019               [Page 1]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
@@ -77,18 +82,18 @@ Table of Contents
      3.1.  Generic Semantics . . . . . . . . . . . . . . . . . . . .   5
      3.2.  Links . . . . . . . . . . . . . . . . . . . . . . . . . .   6
      3.3.  Rich Functionality  . . . . . . . . . . . . . . . . . . .   7
-   4.  Best Practices for Using HTTP . . . . . . . . . . . . . . . .   7
+   4.  Best Practices for Using HTTP . . . . . . . . . . . . . . . .   8
      4.1.  Specifying the Use of HTTP  . . . . . . . . . . . . . . .   8
-     4.2.  Defining HTTP Resources . . . . . . . . . . . . . . . . .   8
+     4.2.  Defining HTTP Resources . . . . . . . . . . . . . . . . .   9
      4.3.  Specifying Client Behaviours  . . . . . . . . . . . . . .   9
      4.4.  HTTP URLs . . . . . . . . . . . . . . . . . . . . . . . .  10
        4.4.1.  Initial URL Discovery . . . . . . . . . . . . . . . .  11
        4.4.2.  URL Schemes . . . . . . . . . . . . . . . . . . . . .  11
        4.4.3.  Transport Ports . . . . . . . . . . . . . . . . . . .  12
-     4.5.  HTTP Methods  . . . . . . . . . . . . . . . . . . . . . .  12
+     4.5.  HTTP Methods  . . . . . . . . . . . . . . . . . . . . . .  13
        4.5.1.  GET . . . . . . . . . . . . . . . . . . . . . . . . .  13
        4.5.2.  OPTIONS . . . . . . . . . . . . . . . . . . . . . . .  14
-     4.6.  HTTP Status Codes . . . . . . . . . . . . . . . . . . . .  14
+     4.6.  HTTP Status Codes . . . . . . . . . . . . . . . . . . . .  15
        4.6.1.  Redirection . . . . . . . . . . . . . . . . . . . . .  16
      4.7.  HTTP Header Fields  . . . . . . . . . . . . . . . . . . .  17
      4.8.  Defining Message Payloads . . . . . . . . . . . . . . . .  18
@@ -101,19 +106,19 @@ Table of Contents
      4.15. Versioning and Evolution  . . . . . . . . . . . . . . . .  24
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  24
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  24
+
+
+
+Nottingham              Expires February 14, 2019               [Page 2]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
      6.1.  Privacy Considerations  . . . . . . . . . . . . . . . . .  25
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  26
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  26
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  27
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  30
-
-
-
-Nottingham              Expires February 11, 2019               [Page 2]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
-
    Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  30
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  30
 
@@ -142,33 +147,33 @@ Internet-Draft        Building Protocols with HTTP           August 2018
 
    These protocols are often ad hoc; they are intended for only
    deployment by one or a few servers, and consumption by a limited set
-   of clients.  As a result, a body of practices and tools has arisen
-   around defining HTTP-based APIs that favours these conditions.
+   of clients.  Perhaps because of the factors cited above, a body of
+   practices and tools has arisen around defining HTTP-based APIs that
+   favours these conditions.
 
-   However, when such a protocol is standarised, it is typically
-   deployed on multiple uncoordinated servers, implemented a number of
-   times, and consumed by a broader variety of clients.  Such diversity
-   brings a different set of concerns, and tools and practices intended
-   for a single-server deployment might not be suitable.
+   However, when such a protocol has separate implementations of the
+   service, is deployed on multiple uncoordinated servers, and is
+   consumed by diverse clients - as is often the case for standards
+   efforts to define new HTTP APIs - tools and practices intended for
+   limited deployment can become unsuitable.
 
-   For example, HTTP-based APIs deployed in these circumstances need to
-   more carefully consider how extensibility and evolution of the
-   service will be handled, how different deployment requirements will
-   be accommodated, and how clients will evolve with the API.
+   For example, because implementations (both client and server) will
+   implement and evolve at different paces, a HTTP-based API might need
+   to more carefully consider how extensibility of the service will be
+   handled, and how different deployment requirements will be
+   accommodated.
+
+
+
+Nottingham              Expires February 14, 2019               [Page 3]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
 
    More generally, application protocols using HTTP face a number of
    design decisions, including:
 
    o  Should it define a new URL scheme?  Use new ports?
-
-
-
-
-
-Nottingham              Expires February 11, 2019               [Page 3]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    o  Should it use standard HTTP methods and status codes, or define
       new ones?
@@ -213,19 +218,18 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    o  The ALPN protocol ID [RFC7301] generically identifies HTTP (e.g.,
       "http/1.1", "h2", "h2c"), or
 
-   o  The IANA registries defined for HTTP are updated or modified.
-
-   When an application is using HTTP, all of the requirements of the
-   HTTP protocol suite are in force (including but not limited to
 
 
 
-
-Nottingham              Expires February 11, 2019               [Page 4]
+Nottingham              Expires February 14, 2019               [Page 4]
 
 Internet-Draft        Building Protocols with HTTP           August 2018
 
 
+   o  The IANA registries defined for HTTP are updated or modified.
+
+   When an application is using HTTP, all of the requirements of the
+   HTTP protocol suite are in force (including but not limited to
    [RFC7230], [RFC7231], [RFC7232], [RFC7233], [RFC7234], [RFC7235] and
    [RFC7540]).
 
@@ -270,17 +274,16 @@ Internet-Draft        Building Protocols with HTTP           August 2018
 
    This forms an expectation in the client that the response will always
    be "201 Created", when in fact there are a number of reasons why the
-   status code might differ in a real deployment.  If the client does
-   not anticipate this, the application's deployment is brittle.
 
 
 
-
-
-Nottingham              Expires February 11, 2019               [Page 5]
+Nottingham              Expires February 14, 2019               [Page 5]
 
 Internet-Draft        Building Protocols with HTTP           August 2018
 
+
+   status code might differ in a real deployment.  If the client does
+   not anticipate this, the application's deployment is brittle.
 
    Much of the value of HTTP is in its generic semantics - that is, the
    protocol elements defined by HTTP are potentially applicable to every
@@ -327,17 +330,16 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    a different server without the overhead of a redirection, thereby
    supporting deployment across machines well.
 
-   It also becomes possible to "mix and match" different applications on
-   the same server, and offers a natural mechanism for extensibility,
 
 
 
-
-Nottingham              Expires February 11, 2019               [Page 6]
+Nottingham              Expires February 14, 2019               [Page 6]
 
 Internet-Draft        Building Protocols with HTTP           August 2018
 
 
+   It also becomes possible to "mix and match" different applications on
+   the same server, and offers a natural mechanism for extensibility,
    versioning and capability management, since the document containing
    the links can also contain information about their targets.
 
@@ -381,18 +383,22 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    to a given situation.  However, following the practices in Section 4
    is a good starting point.
 
+
+
+
+
+
+
+Nottingham              Expires February 14, 2019               [Page 7]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
 4.  Best Practices for Using HTTP
 
    This section contains best practices regarding the use of HTTP by
    applications, including practices for specific HTTP protocol
    elements.
-
-
-
-Nottingham              Expires February 11, 2019               [Page 7]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
 4.1.  Specifying the Use of HTTP
 
@@ -433,6 +439,17 @@ Internet-Draft        Building Protocols with HTTP           August 2018
 
    [payload here]
 
+
+
+
+
+
+
+Nottingham              Expires February 14, 2019               [Page 8]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
 4.2.  Defining HTTP Resources
 
    Applications that use HTTP should focus on defining the following
@@ -442,13 +459,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
       as JSON [RFC8259],
 
    o  HTTP header fields, as per Section 4.7, and
-
-
-
-Nottingham              Expires February 11, 2019               [Page 8]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    o  The behaviour of resources, as identified by link relations
       [RFC8288].
@@ -487,6 +497,15 @@ Internet-Draft        Building Protocols with HTTP           August 2018
 
    HTTP does not mandate some behaviours that have nevertheless become
    very common; if these are not explicitly specified by applications
+
+
+
+
+Nottingham              Expires February 14, 2019               [Page 9]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    using HTTP, there may be confusion and interoperability problems.
    This section recommends default handling for these mechanisms.
 
@@ -495,16 +514,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
 
    o  Cookies - Applications using HTTP MUST explicitly reference the
       Cookie specification [RFC6265] if they are required.
-
-
-
-
-
-
-Nottingham              Expires February 11, 2019               [Page 9]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    o  Certificates - Applications using HTTP MUST specify that TLS
       certificates are to be checked according to [RFC2818] when HTTPS
@@ -544,23 +553,21 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    document" is bad practice.  Likewise, specifying "The widget API is
    at the path /bar" violates [RFC7320].
 
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 10]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    Instead, applications that use HTTP are encouraged to ensure that
    URLs are discovered at runtime, allowing HTTP-based services to
    describe their own capabilities.  One way to do this is to use typed
    links [RFC8288] to convey the URIs that are in use, as well as the
    semantics of the resources that they identify.  See Section 4.2 for
    details.
-
-
-
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 10]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
 4.4.1.  Initial URL Discovery
 
@@ -602,6 +609,15 @@ Internet-Draft        Building Protocols with HTTP           August 2018
       cache might refuse to store the response, and a proxy might fail
       to forward the request.
 
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 11]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    o  Because URLs occur in HTTP artefacts commonly, often being
       generated automatically (e.g., in the "Location" response header),
       it can be difficult to assure that the new scheme is used
@@ -610,14 +626,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    o  The resources identified by the new scheme will still be available
       using "http" and/or "https" URLs.  Those URLs can "leak" into use,
       which can present security and operability issues.  For example,
-
-
-
-Nottingham              Expires February 11, 2019              [Page 11]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
-
       using a new scheme to assure that requests don't get sent to a
       "normal" Web site is likely to fail.
 
@@ -656,6 +664,16 @@ Internet-Draft        Building Protocols with HTTP           August 2018
 
    See [RFC7605] for further guidance.
 
+
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 12]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
 4.5.  HTTP Methods
 
    Applications that use HTTP MUST confine themselves to using
@@ -665,14 +683,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    IETF Review (see [RFC7232]), and are also required to be generic.
    That means that they need to be potentially applicable to all
    resources, not just those of one application.
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 12]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    While historically some applications (e.g., [RFC4791]) have defined
    non-generic methods, [RFC7231] now forbids this.
@@ -713,6 +723,13 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    HTTP that feel a need to allow POST queries ought consider allowing
    both methods.
 
+
+
+Nottingham              Expires February 14, 2019              [Page 13]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    Applications that use HTTP SHOULD NOT define GET requests to have
    side effects, since implementations can and do retry HTTP GET
    requests that fail.
@@ -721,14 +738,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    syntactically, this is done only to allow parsers to be generic; as
    per [RFC7231], Section 4.3.1, a body on a GET has no meaning, and
    will be either ignored or rejected by generic HTTP software.
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 13]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
 4.5.2.  OPTIONS
 
@@ -770,6 +779,13 @@ Internet-Draft        Building Protocols with HTTP           August 2018
       client wants to discover a resource's capabilities before they
       interact with it.
 
+
+
+Nottingham              Expires February 14, 2019              [Page 14]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
 4.6.  HTTP Status Codes
 
    The primary function of a HTTP status code is to convey semantics for
@@ -778,14 +794,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
 
    In particular, status codes are often generated or overwritten by
    intermediaries, as well as server and client implementations; for
-
-
-
-Nottingham              Expires February 11, 2019              [Page 14]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
-
    example, when network errors are encountered, a captive portal is
    present, when an implementation is overloaded, or it thinks it is
    under attack.  As a result, the status code that a server-side
@@ -827,20 +835,19 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    by implementations, and the reason phrase is not carried at all in
    the [RFC7540] message format.
 
+
+
+Nottingham              Expires February 14, 2019              [Page 15]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    Applications that use HTTP MUST only use registered HTTP status
    codes.  As with methods, new HTTP status codes are rare, and required
    (by [RFC7231]) to be registered with IETF review.  Similarly, HTTP
    status codes are generic; they are required (by [RFC7231]) to be
    potentially applicable to all resources, not just to those of one
    application.
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 15]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    When authors believe that a new status code is required, they are
    encouraged to engage with the HTTP community early, and document
@@ -882,21 +889,21 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    follow a 3xx redirect that has a Location response header field, even
    if they don't understand the semantics of the specific status code.
    However, they aren't required to do so; therefore, if an application
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 16]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    using HTTP desires redirects to be automatically followed, it needs
    to explicitly specify the circumstances when this is required.
 
    Applications using HTTP SHOULD specify that 301 and 302 responses
    change the subsequent request method from POST (but no other method)
    to GET, to be compatible with browsers.
-
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 16]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    Generally, when a redirected request is made, its header fields are
    copied from the original request's.  However, they can be modified by
@@ -939,6 +946,14 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    For example, if the "example" application needs to create three
    headers, they might be called "example-foo", "example-bar" and
    "example-baz".  Note that the primary motivation here is to avoid
+
+
+
+Nottingham              Expires February 14, 2019              [Page 17]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    consuming more generic header names, not to reserve a portion of the
    namespace for the application; see [RFC6648] for related
    considerations.
@@ -946,14 +961,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    The semantics of existing HTTP header fields MUST NOT be re-defined
    without updating their registration or defining an extension to them
    (if allowed).  For example, an application using HTTP cannot specify
-
-
-
-Nottingham              Expires February 11, 2019              [Page 17]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
-
    that the "Location" header has a special meaning in a certain
    context.
 
@@ -994,6 +1001,15 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    response directive ([RFC7234], Section 5.2.2.8).  The Expires header
    ([RFC7234], Section 5.3) can also be used, but it is not necessary to
    specify it; all modern cache implementations support Cache-Control,
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 18]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    and specifying freshness as a delta is both more convenient in most
    cases, and less error-prone.
 
@@ -1002,13 +1018,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    server; this can be useful for handling network issues.  See
    [RFC7234], Section 4.2.4, and also [RFC5861] for additional controls
    over stale content.
-
-
-
-Nottingham              Expires February 11, 2019              [Page 18]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    Stale responses can be refreshed by assigning a validator, saving
    both transfer bandwidth and latency for large responses; see
@@ -1049,6 +1058,14 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    be stored, just not reused by a cache; it does not prevent caching
    (despite its name).
 
+
+
+
+Nottingham              Expires February 14, 2019              [Page 19]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    For example, this response cannot be stored or reused by a cache:
 
    HTTP/1.1 200 OK
@@ -1056,15 +1073,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    Cache-Control: no-store
 
    [content]
-
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 19]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    When an application has a need to express a lifetime that's separate
    from the freshness lifetime, this should be expressed separately,
@@ -1105,6 +1113,15 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    unless the underlying transport is similarly secure, or the chosen
    hash algorithm is not "MD5".
 
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 20]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    With HTTPS, clients might also be authenticated using certificates
    [RFC5246].
 
@@ -1113,14 +1130,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    capabilities (e.g., by acting as an ambient authority), exploits are
    possible.  Mitigations include using a request-specific token to
    assure the intent of the client.
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 20]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
 4.12.  Co-Existing with Web Browsing
 
@@ -1161,6 +1170,14 @@ Internet-Draft        Building Protocols with HTTP           August 2018
       of active content (such as HTML [HTML5]), thereby mitigating
       Cross-Site Scripting attacks
 
+
+
+
+Nottingham              Expires February 14, 2019              [Page 21]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    o  Using Referrer-Policy [REFERRER-POLICY] to prevent sensitive data
       in URLs from being leaked in the Referer request header
 
@@ -1170,14 +1187,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    o  Avoiding use of compression on any sensitive information (e.g.,
       authentication tokens, passwords), as the scripting environment
       offered by Web browsers allows an attacker to repeatedly probe the
-
-
-
-Nottingham              Expires February 11, 2019              [Page 21]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
-
       compression space; if the attacker has access to the path of the
       communication, they can use this capability to recover that
       information.
@@ -1218,6 +1227,13 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    other applications on the origin.  This can lead to security issues,
    as well as collision in cookie names.
 
+
+
+Nottingham              Expires February 14, 2019              [Page 22]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    One solution to these issues is to require a dedicated hostname for
    the application, so that it has a unique origin.  However, it is
    often desirable to allow multiple applications to be deployed on a
@@ -1225,14 +1241,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    and enables them to be "mixed" together (See [RFC7320] for details).
    Therefore, applications using HTTP should strive to allow multiple
    applications on an origin.
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 22]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    To enable this, when specifying the use of Cookies, HTTP
    authentication realms [RFC7235], or other origin-wide HTTP
@@ -1273,6 +1281,15 @@ Internet-Draft        Building Protocols with HTTP           August 2018
 
    o  Server push is not supported in HTTP/1.1 or HTTP/1.0.
 
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 23]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    o  Server push does not form part of the "core" semantics of HTTP,
       and therefore might not be supported by future versions of the
       protocol.
@@ -1281,14 +1298,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    work related to requests before the full response is available (e.g.,
    fetching links for things likely to be contained within) might
    benefit from using the 103 (Early Hints) status code; see [RFC8297].
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 23]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    Applications using server push directly need to enforce the
    requirements regarding authority in [RFC7540], Section 8.2, to avoid
@@ -1330,6 +1339,13 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    Section 4.13 discusses the issues that arise when applications are
    deployed on the same origin as Web sites (and other applications).
 
+
+
+Nottingham              Expires February 14, 2019              [Page 24]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    Section 4.14 highlights risks of using HTTP/2 server push in a manner
    other than specified.
 
@@ -1337,15 +1353,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    implementations - for example, requiring support for a new URL
    scheme, or a non-standard method - risk having those implementations
    "fork" from their parent HTTP implementations, with the possible
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 24]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
-
    result that they do not benefit from patches and other security
    improvements incorporated upstream.
 
@@ -1387,20 +1394,16 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    indirectly) can be used to profile the underlying hardware, creating
    a unique identifier for the system.  Applications are advised avoid
    allowing the use of mobile code where possible; when it cannot be
-   avoided, the resulting system's security properties need be carefully
-   scrutinised.
 
 
 
-
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 25]
+Nottingham              Expires February 14, 2019              [Page 25]
 
 Internet-Draft        Building Protocols with HTTP           August 2018
 
+
+   avoided, the resulting system's security properties need be carefully
+   scrutinised.
 
 7.  References
 
@@ -1445,18 +1448,20 @@ Internet-Draft        Building Protocols with HTTP           August 2018
               DOI 10.17487/RFC7231, June 2014,
               <https://www.rfc-editor.org/info/rfc7231>.
 
+
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 26]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    [RFC7232]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Conditional Requests", RFC 7232,
               DOI 10.17487/RFC7232, June 2014,
               <https://www.rfc-editor.org/info/rfc7232>.
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 26]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
               "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
@@ -1501,18 +1506,19 @@ Internet-Draft        Building Protocols with HTTP           August 2018
               Web Consortium WD WD-CSP3-20160913, September 2016,
               <https://www.w3.org/TR/2016/WD-CSP3-20160913>.
 
+
+
+
+Nottingham              Expires February 14, 2019              [Page 27]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
               <https://fetch.spec.whatwg.org>.
 
    [HTML5]    WHATWG, "HTML - Living Standard", n.d.,
               <https://html.spec.whatwg.org>.
-
-
-
-Nottingham              Expires February 11, 2019              [Page 27]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
@@ -1554,6 +1560,16 @@ Internet-Draft        Building Protocols with HTTP           August 2018
               DOI 10.17487/RFC5785, April 2010,
               <https://www.rfc-editor.org/info/rfc5785>.
 
+
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 28]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    [RFC5861]  Nottingham, M., "HTTP Cache-Control Extensions for Stale
               Content", RFC 5861, DOI 10.17487/RFC5861, May 2010,
               <https://www.rfc-editor.org/info/rfc5861>.
@@ -1561,14 +1577,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
    [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
               DOI 10.17487/RFC6265, April 2011,
               <https://www.rfc-editor.org/info/rfc6265>.
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 28]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    [RFC6415]  Hammer-Lahav, E., Ed. and B. Cook, "Web Host Metadata",
               RFC 6415, DOI 10.17487/RFC6415, October 2011,
@@ -1609,6 +1617,15 @@ Internet-Draft        Building Protocols with HTTP           August 2018
               RFC 7617, DOI 10.17487/RFC7617, September 2015,
               <https://www.rfc-editor.org/info/rfc7617>.
 
+
+
+
+
+Nottingham              Expires February 14, 2019              [Page 29]
+
+Internet-Draft        Building Protocols with HTTP           August 2018
+
+
    [RFC7807]  Nottingham, M. and E. Wilde, "Problem Details for HTTP
               APIs", RFC 7807, DOI 10.17487/RFC7807, March 2016,
               <https://www.rfc-editor.org/info/rfc7807>.
@@ -1617,14 +1634,6 @@ Internet-Draft        Building Protocols with HTTP           August 2018
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/info/rfc8259>.
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 29]
-
-Internet-Draft        Building Protocols with HTTP           August 2018
-
 
    [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
               RFC 8297, DOI 10.17487/RFC8297, December 2017,
@@ -1668,13 +1677,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-Nottingham              Expires February 11, 2019              [Page 30]
+Nottingham              Expires February 14, 2019              [Page 30]
