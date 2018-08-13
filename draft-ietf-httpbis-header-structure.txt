@@ -649,21 +649,21 @@ Internet-Draft         Structured Headers for HTTP           August 2018
    1.  If input is a type other than an integer, float, string or binary
        content, fail serialisation.
 
-   2.  Let output be an empty string.
+   2.  If input is an integer, return the result of applying Serialising
+       an Integer Section 4.1.5 to input.
 
-   3.  If input is an integer, let value be the result of applying
-       Serialising an Integer Section 4.1.5 to input.
+   3.  If input is a float, return the result of applying Serialising a
+       Float Section 4.1.6 to input.
 
-   4.  If input is a float, let value be the result of applying
-       Serialising a Float Section 4.1.6 to input.
+   4.  If input is a string, return the result of applying Serialising a
+       String Section 4.1.7 to input.
 
-   5.  If input is a string, let value be the result of applying
-       Serialising a String Section 4.1.7 to input.
+   5.  Otherwise, return the result of applying Serialising Binary
+       Content Section 4.1.9 to input.
 
-   6.  If input is binary content, let value be the result of applying
-       Serialising Binary Content Section 4.1.9 to input.
+4.1.5.  Serialising an Integer
 
-   7.  Return output.
+   Given an integer as input:
 
 
 
@@ -673,10 +673,6 @@ Nottingham & Kamp       Expires February 14, 2019              [Page 12]
 
 Internet-Draft         Structured Headers for HTTP           August 2018
 
-
-4.1.5.  Serialising an Integer
-
-   Given an integer as input:
 
    1.  If input is not an integer in the range of
        -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
@@ -723,16 +719,16 @@ Internet-Draft         Structured Headers for HTTP           August 2018
 
    3.  Append DQUOTE to output.
 
+   4.  For each character char in input:
+
+       1.  If char is "\" or DQUOTE:
+
 
 
 Nottingham & Kamp       Expires February 14, 2019              [Page 13]
 
 Internet-Draft         Structured Headers for HTTP           August 2018
 
-
-   4.  For each character char in input:
-
-       1.  If char is "\" or DQUOTE:
 
            1.  Append "\" to output.
 
@@ -778,6 +774,10 @@ Internet-Draft         Structured Headers for HTTP           August 2018
    Likewise, encoded data SHOULD have pad bits set to zero, as per
    [RFC4648], Section 3.5, unless it is not possible to do so due to
    implementation constraints.
+
+
+
+
 
 
 
