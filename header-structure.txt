@@ -1196,14 +1196,15 @@ Internet-Draft         Structured Headers for HTTP           August 2018
 
    7.  Return binary_content.
 
-   As per [RFC4648], Section 3.2, it is RECOMMENDED that parsers reject
-   encoded data that is not properly padded, although this might not be
-   possible in some base64 implementations.
+   Because some implementations of base64 do not allow reject of encoded
+   data that is not properly "=" padded (see [RFC4648], Section 3.2),
+   parsers SHOULD NOT fail when it is not present, unless they cannot be
+   configured to do so.
 
    Because some implementations of base64 do not allow rejection of
    encoded data that has non-zero pad bits (see [RFC4648], Section 3.5),
    parsers SHOULD NOT fail when it is present, unless they cannot be
-   configured to handle it.
+   configured to do so.
 
    This specification does not relax the requirements in [RFC4648],
    Section 3.1 and 3.3; therefore, parsers MUST fail on characters
@@ -1225,7 +1226,6 @@ Internet-Draft         Structured Headers for HTTP           August 2018
    fields to change the meaning of a Structured Header.  In some
    circumstances, this will cause parsing to fail, but it is not
    possible to reliably fail in all such circumstances.
-
 
 
 
@@ -1411,6 +1411,8 @@ B.1.  Since draft-ietf-httpbis-header-structure-07
 
    o  Changed "mapping" to "map" for #671.
 
+   o  Don't fail if byte sequences aren't "=" padded (#658).
+
 B.2.  Since draft-ietf-httpbis-header-structure-06
 
    o  Add a FAQ.
@@ -1448,8 +1450,6 @@ B.6.  Since draft-ietf-httpbis-header-structure-02
 
    o  Define number parsing.
 
-   o  Tighten up binary parsing and give it an explicit end delimiter.
-
 
 
 
@@ -1457,6 +1457,8 @@ Nottingham & Kamp       Expires February 20, 2019              [Page 26]
 
 Internet-Draft         Structured Headers for HTTP           August 2018
 
+
+   o  Tighten up binary parsing and give it an explicit end delimiter.
 
    o  Clarify that mappings are unordered.
 
@@ -1496,8 +1498,6 @@ Authors' Addresses
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
 
 
 
