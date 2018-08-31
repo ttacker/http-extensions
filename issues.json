@@ -32,19 +32,26 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 329793151,
+        "node_id": "MDU6TGFiZWwzMjk3OTMxNTE=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/6265bis",
+        "name": "6265bis",
+        "color": "fbca04",
+        "default": false
+      }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 5,
     "created_at": "2018-08-27T15:33:06Z",
-    "updated_at": "2018-08-27T15:33:06Z",
-    "closed_at": null,
+    "updated_at": "2018-08-31T06:48:08Z",
+    "closed_at": "2018-08-31T06:48:04Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/693",
@@ -10397,7 +10404,7 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-03-20T16:55:50Z",
-    "updated_at": "2018-07-22T13:56:19Z",
+    "updated_at": "2018-08-27T18:53:09Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The security issues motivating CSP Cookie Controls (https://www.w3.org/TR/csp-cookies/) still exist.   We at a minimum we should list this as a security consideration.   In particular, an origin is unable to restrict non-HTTP APIs from setting cookies on a host or domain.  While perhaps this is a nice-to-have for hosts (APIs operating in the origin context can do lots of other things), it is a major problem unique to cookies for domains.  \r\n\r\nA multi-tenant domain (with independent origins under it) has no in-band way to prevent cookies from being set on the entire domain (ie, to restrict cookies to same-site).  The only option available there is to put the domain on a public-suffix list which isn't always scale-able or operationally maintainable.\r\n\r\nIt may also be worth considering a response header that servers could send to constrain all cookies to same-site as part of this, either with \"Content-Security-Policy: cookie-scope host\" or as a separate response header specific to this use-case.  For example, a \"Restrict-Cookies\" response header with tokens matching the new features of 6265bis (same-site, secure-only, none) that would constrain behaviors of non-HTTP APIs.\r\n"
@@ -32635,7 +32642,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -32644,8 +32651,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2016-06-14T19:00:14Z",
-    "updated_at": "2016-07-22T08:40:28Z",
-    "closed_at": null,
+    "updated_at": "2018-08-31T06:48:04Z",
+    "closed_at": "2018-08-31T06:48:04Z",
     "author_association": "NONE",
     "body": "RFC 6265 section 5.3 defines a cookie by the name, domain, and path.  However, given these two headers in a response from a request to http://contoso.com/:\n\nSet-Cookie: mycookie=nothostonly; domain=contoso.com\nSet-Cookie: mycookie=hostonly\n\nMost browsers will have two cookies since they include host-only-flag in their definition of a unique cookie.  I'd like to update section 4.1.2 and 5.3 to reflect the behavior of modern browsers with regards to host-only-flag.\n"
   },
