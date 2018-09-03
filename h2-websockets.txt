@@ -4,9 +4,9 @@
 
 HTTP Working Group                                            P. McManus
 Internet-Draft                                                   Mozilla
-Updates: 6455 (if approved)                              August 31, 2018
+Updates: 6455 (if approved)                            September 3, 2018
 Intended status: Standards Track
-Expires: March 4, 2019
+Expires: March 7, 2019
 
 
                   Bootstrapping WebSockets with HTTP/2
@@ -32,7 +32,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 4, 2019.
+   This Internet-Draft will expire on March 7, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-McManus                   Expires March 4, 2019                 [Page 1]
+McManus                   Expires March 7, 2019                 [Page 1]
 
-Internet-Draft                H2 Websockets                  August 2018
+Internet-Draft                H2 Websockets               September 2018
 
 
 Table of Contents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-McManus                   Expires March 4, 2019                 [Page 2]
+McManus                   Expires March 7, 2019                 [Page 2]
 
-Internet-Draft                H2 Websockets                  August 2018
+Internet-Draft                H2 Websockets               September 2018
 
 
    This tunneled stream will be multiplexed with other regular streams
@@ -165,9 +165,9 @@ Internet-Draft                H2 Websockets                  August 2018
 
 
 
-McManus                   Expires March 4, 2019                 [Page 3]
+McManus                   Expires March 7, 2019                 [Page 3]
 
-Internet-Draft                H2 Websockets                  August 2018
+Internet-Draft                H2 Websockets               September 2018
 
 
 4.  The Extended CONNECT Method
@@ -221,9 +221,9 @@ Internet-Draft                H2 Websockets                  August 2018
 
 
 
-McManus                   Expires March 4, 2019                 [Page 4]
+McManus                   Expires March 7, 2019                 [Page 4]
 
-Internet-Draft                H2 Websockets                  August 2018
+Internet-Draft                H2 Websockets               September 2018
 
 
    [RFC6455] requires the use of Connection and Upgrade header fields
@@ -277,9 +277,9 @@ Internet-Draft                H2 Websockets                  August 2018
 
 
 
-McManus                   Expires March 4, 2019                 [Page 5]
+McManus                   Expires March 7, 2019                 [Page 5]
 
-Internet-Draft                H2 Websockets                  August 2018
+Internet-Draft                H2 Websockets               September 2018
 
 
 [[ From Client ]]                       [[ From Server ]]
@@ -333,9 +333,9 @@ WebSocket Data
 
 
 
-McManus                   Expires March 4, 2019                 [Page 6]
+McManus                   Expires March 7, 2019                 [Page 6]
 
-Internet-Draft                H2 Websockets                  August 2018
+Internet-Draft                H2 Websockets               September 2018
 
 
 8.  Security Considerations
@@ -389,9 +389,9 @@ Internet-Draft                H2 Websockets                  August 2018
 
 
 
-McManus                   Expires March 4, 2019                 [Page 7]
+McManus                   Expires March 7, 2019                 [Page 7]
 
-Internet-Draft                H2 Websockets                  August 2018
+Internet-Draft                H2 Websockets               September 2018
 
 
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
@@ -445,4 +445,4 @@ Author's Address
 
 
 
-McManus                   Expires March 4, 2019                 [Page 8]
+McManus                   Expires March 7, 2019                 [Page 8]
