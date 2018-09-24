@@ -4,8 +4,8 @@
 
 HTTP Working Group                                              E. Stark
 Internet-Draft                                                    Google
-Intended status: Experimental                          September 4, 2018
-Expires: March 8, 2019
+Intended status: Experimental                         September 24, 2018
+Expires: March 28, 2019
 
 
                       Expect-CT Extension for HTTP
@@ -46,14 +46,14 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 8, 2019.
+   This Internet-Draft will expire on March 28, 2019.
 
 
 
 
 
 
-Stark                     Expires March 8, 2019                 [Page 1]
+Stark                    Expires March 28, 2019                 [Page 1]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Stark                     Expires March 8, 2019                 [Page 2]
+Stark                    Expires March 28, 2019                 [Page 2]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -126,7 +126,7 @@ Internet-Draft                  Expect-CT                 September 2018
      A.5.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  20
      A.6.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  20
      A.7.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  20
-     A.8.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  21
+     A.8.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  20
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  21
 
 1.  Introduction
@@ -165,7 +165,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                 [Page 3]
+Stark                    Expires March 28, 2019                 [Page 3]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -221,7 +221,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                 [Page 4]
+Stark                    Expires March 28, 2019                 [Page 4]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -277,7 +277,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                 [Page 5]
+Stark                    Expires March 28, 2019                 [Page 5]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -333,7 +333,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                 [Page 6]
+Stark                    Expires March 28, 2019                 [Page 6]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -389,7 +389,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                 [Page 7]
+Stark                    Expires March 28, 2019                 [Page 7]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -445,7 +445,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                 [Page 8]
+Stark                    Expires March 28, 2019                 [Page 8]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -501,7 +501,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                 [Page 9]
+Stark                    Expires March 28, 2019                 [Page 9]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -557,7 +557,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                [Page 10]
+Stark                    Expires March 28, 2019                [Page 10]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -613,7 +613,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                [Page 11]
+Stark                    Expires March 28, 2019                [Page 11]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -669,7 +669,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                [Page 12]
+Stark                    Expires March 28, 2019                [Page 12]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -725,7 +725,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                [Page 13]
+Stark                    Expires March 28, 2019                [Page 13]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -781,7 +781,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                [Page 14]
+Stark                    Expires March 28, 2019                [Page 14]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -837,7 +837,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                [Page 15]
+Stark                    Expires March 28, 2019                [Page 15]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -893,7 +893,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                [Page 16]
+Stark                    Expires March 28, 2019                [Page 16]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -949,7 +949,7 @@ Internet-Draft                  Expect-CT                 September 2018
 
 
 
-Stark                     Expires March 8, 2019                [Page 17]
+Stark                    Expires March 28, 2019                [Page 17]
 
 Internet-Draft                  Expect-CT                 September 2018
 
@@ -968,8 +968,7 @@ Internet-Draft                  Expect-CT                 September 2018
    [I-D.ietf-trans-rfc6962-bis]
               Laurie, B., Langley, A., Kasper, E., Messeri, E., and R.
               Stradling, "Certificate Transparency Version 2.0", draft-
-              ietf-trans-rfc6962-bis-27 (work in progress), October
-              2017.
+              ietf-trans-rfc6962-bis-28 (work in progress), March 2018.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -999,21 +998,17 @@ Internet-Draft                  Expect-CT                 September 2018
               DOI 10.17487/RFC6797, November 2012,
               <https://www.rfc-editor.org/info/rfc6797>.
 
-
-
-
-
-
-
-Stark                     Expires March 8, 2019                [Page 18]
-
-Internet-Draft                  Expect-CT                 September 2018
-
-
    [RFC6839]  Hansen, T. and A. Melnikov, "Additional Media Type
               Structured Syntax Suffixes", RFC 6839,
               DOI 10.17487/RFC6839, January 2013,
               <https://www.rfc-editor.org/info/rfc6839>.
+
+
+
+Stark                    Expires March 28, 2019                [Page 18]
+
+Internet-Draft                  Expect-CT                 September 2018
+
 
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
@@ -1058,17 +1053,18 @@ Internet-Draft                  Expect-CT                 September 2018
 
    [2] http://httpwg.github.io/
 
-
-
-
-Stark                     Expires March 8, 2019                [Page 19]
-
-Internet-Draft                  Expect-CT                 September 2018
-
-
    [3] https://github.com/httpwg/http-extensions/labels/expect-ct
 
    [4] https://www.iana.org/assignments/message-headers
+
+
+
+
+
+Stark                    Expires March 28, 2019                [Page 19]
+
+Internet-Draft                  Expect-CT                 September 2018
+
 
 Appendix A.  Changes
 
@@ -1110,18 +1106,6 @@ A.7.  Since -01
    o  Change SCT reporting format to support both RFC 6962 and 6962-bis
       SCTs.
 
-
-
-
-
-
-
-
-Stark                     Expires March 8, 2019                [Page 20]
-
-Internet-Draft                  Expect-CT                 September 2018
-
-
 A.8.  Since -00
 
    o  Editorial changes
@@ -1130,6 +1114,13 @@ A.8.  Since -00
       report+json'
 
    o  Update header field syntax to match convention (issue #327)
+
+
+
+Stark                    Expires March 28, 2019                [Page 20]
+
+Internet-Draft                  Expect-CT                 September 2018
+
 
    o  Reference RFC 6962-bis instead of RFC 6962
 
@@ -1173,4 +1164,13 @@ Author's Address
 
 
 
-Stark                     Expires March 8, 2019                [Page 21]
+
+
+
+
+
+
+
+
+
+Stark                    Expires March 28, 2019                [Page 21]
