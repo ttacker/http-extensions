@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                        September 24, 2018
+Internet-Draft                                           October 2, 2018
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: March 28, 2019
+Expires: April 5, 2019
 
 
                       Building Protocols with HTTP
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 28, 2019.
+   This Internet-Draft will expire on April 5, 2019.
 
 
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 1]
+Nottingham                Expires April 5, 2019                 [Page 1]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 2]
+Nottingham                Expires April 5, 2019                 [Page 2]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
      6.1.  Privacy Considerations  . . . . . . . . . . . . . . . . .  25
@@ -165,9 +165,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 3]
+Nottingham                Expires April 5, 2019                 [Page 3]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    More generally, application protocols using HTTP face a number of
@@ -221,9 +221,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 4]
+Nottingham                Expires April 5, 2019                 [Page 4]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    o  The IANA registries defined for HTTP are updated or modified.
@@ -277,9 +277,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 5]
+Nottingham                Expires April 5, 2019                 [Page 5]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    status code might differ in a real deployment.  If the client does
@@ -333,9 +333,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 6]
+Nottingham                Expires April 5, 2019                 [Page 6]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    It also becomes possible to "mix and match" different applications on
@@ -389,9 +389,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 7]
+Nottingham                Expires April 5, 2019                 [Page 7]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
 4.  Best Practices for Using HTTP
@@ -445,9 +445,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 8]
+Nottingham                Expires April 5, 2019                 [Page 8]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
 4.2.  Defining HTTP Resources
@@ -501,9 +501,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                 [Page 9]
+Nottingham                Expires April 5, 2019                 [Page 9]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    using HTTP, there may be confusion and interoperability problems.
@@ -557,9 +557,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 10]
+Nottingham                Expires April 5, 2019                [Page 10]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    Instead, applications that use HTTP are encouraged to ensure that
@@ -613,9 +613,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 11]
+Nottingham                Expires April 5, 2019                [Page 11]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    o  Because URLs occur in HTTP artefacts commonly, often being
@@ -669,9 +669,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 12]
+Nottingham                Expires April 5, 2019                [Page 12]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
 4.5.  HTTP Methods
@@ -725,9 +725,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 13]
+Nottingham                Expires April 5, 2019                [Page 13]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    Applications that use HTTP SHOULD NOT define GET requests to have
@@ -781,9 +781,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 14]
+Nottingham                Expires April 5, 2019                [Page 14]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
 4.6.  HTTP Status Codes
@@ -837,9 +837,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 15]
+Nottingham                Expires April 5, 2019                [Page 15]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    Applications that use HTTP MUST only use registered HTTP status
@@ -893,9 +893,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 16]
+Nottingham                Expires April 5, 2019                [Page 16]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    using HTTP desires redirects to be automatically followed, it needs
@@ -949,9 +949,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 17]
+Nottingham                Expires April 5, 2019                [Page 17]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    consuming more generic header names, not to reserve a portion of the
@@ -1005,9 +1005,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 18]
+Nottingham                Expires April 5, 2019                [Page 18]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    and specifying freshness as a delta is both more convenient in most
@@ -1061,9 +1061,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 19]
+Nottingham                Expires April 5, 2019                [Page 19]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    For example, this response cannot be stored or reused by a cache:
@@ -1117,9 +1117,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 20]
+Nottingham                Expires April 5, 2019                [Page 20]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    With HTTPS, clients might also be authenticated using certificates
@@ -1173,9 +1173,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 21]
+Nottingham                Expires April 5, 2019                [Page 21]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    o  Using Referrer-Policy [REFERRER-POLICY] to prevent sensitive data
@@ -1229,9 +1229,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 22]
+Nottingham                Expires April 5, 2019                [Page 22]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    One solution to these issues is to require a dedicated hostname for
@@ -1285,9 +1285,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 23]
+Nottingham                Expires April 5, 2019                [Page 23]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    o  Server push does not form part of the "core" semantics of HTTP,
@@ -1341,9 +1341,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 24]
+Nottingham                Expires April 5, 2019                [Page 24]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    Section 4.14 highlights risks of using HTTP/2 server push in a manner
@@ -1397,9 +1397,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 25]
+Nottingham                Expires April 5, 2019                [Page 25]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    avoided, the resulting system's security properties need be carefully
@@ -1453,9 +1453,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 26]
+Nottingham                Expires April 5, 2019                [Page 26]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    [RFC7232]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
@@ -1509,9 +1509,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 27]
+Nottingham                Expires April 5, 2019                [Page 27]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    [FETCH]    WHATWG, "Fetch - Living Standard", n.d.,
@@ -1565,9 +1565,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 28]
+Nottingham                Expires April 5, 2019                [Page 28]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    [RFC5861]  Nottingham, M., "HTTP Cache-Control Extensions for Stale
@@ -1621,9 +1621,9 @@ Internet-Draft        Building Protocols with HTTP        September 2018
 
 
 
-Nottingham               Expires March 28, 2019                [Page 29]
+Nottingham                Expires April 5, 2019                [Page 29]
 
-Internet-Draft        Building Protocols with HTTP        September 2018
+Internet-Draft        Building Protocols with HTTP          October 2018
 
 
    [RFC7807]  Nottingham, M. and E. Wilde, "Problem Details for HTTP
@@ -1677,4 +1677,4 @@ Author's Address
 
 
 
-Nottingham               Expires March 28, 2019                [Page 30]
+Nottingham                Expires April 5, 2019                [Page 30]
