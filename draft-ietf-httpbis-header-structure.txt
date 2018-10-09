@@ -1054,10 +1054,10 @@ Internet-Draft         Structured Headers for HTTP          October 2018
 
    3.  In a loop:
 
-       1.  Discard any leading OWS from input_string.
-
-       2.  If the first character of input_string is not ";", exit the
+       1.  If the first character of input_string is not ";", exit the
            loop.
+
+       2.  Consume a ";" character from the beginning of input_string.
 
 
 
@@ -1066,18 +1066,16 @@ Nottingham & Kamp        Expires April 12, 2019                [Page 19]
 Internet-Draft         Structured Headers for HTTP          October 2018
 
 
-       3.  Consume a ";" character from the beginning of input_string.
+       3.  Discard any leading OWS from input_string.
 
-       4.  Discard any leading OWS from input_string.
-
-       5.  let param_name be the result of Parsing an Identifier from
+       4.  let param_name be the result of Parsing an Identifier from
            Text (Section 4.2.8) from input_string.
 
-       6.  If param_name is already present in parameters, fail parsing.
+       5.  If param_name is already present in parameters, fail parsing.
 
-       7.  Let param_value be a null value.
+       6.  Let param_value be a null value.
 
-       8.  If the first character of input_string is "=":
+       7.  If the first character of input_string is "=":
 
            1.  Consume the "=" character at the beginning of
                input_string.
@@ -1085,7 +1083,7 @@ Internet-Draft         Structured Headers for HTTP          October 2018
            2.  Let param_value be the result of Parsing an Item from
                Text (Section 4.2.5) from input_string.
 
-       9.  Insert (param_name, param_value) into parameters.
+       8.  Insert (param_name, param_value) into parameters.
 
    4.  Return the tuple (primary_identifier, parameters).
 
@@ -1114,6 +1112,8 @@ Internet-Draft         Structured Headers for HTTP          October 2018
        input_string as an identifier (Section 4.2.8) and return the
        result.
 
+   7.  Otherwise, fail parsing.
+
 
 
 
@@ -1121,8 +1121,6 @@ Nottingham & Kamp        Expires April 12, 2019                [Page 20]
 
 Internet-Draft         Structured Headers for HTTP          October 2018
 
-
-   7.  Otherwise, fail parsing.
 
 4.2.6.  Parsing a Number from Text
 
@@ -1171,14 +1169,14 @@ Internet-Draft         Structured Headers for HTTP          October 2018
 
    9.   Otherwise:
 
+        1.  If the final character of input_number is ".", fail parsing.
+
 
 
 Nottingham & Kamp        Expires April 12, 2019                [Page 21]
 
 Internet-Draft         Structured Headers for HTTP          October 2018
 
-
-        1.  If the final character of input_number is ".", fail parsing.
 
         2.  Parse input_number as a float and let output_number be the
             product of the result and sign.
@@ -1224,6 +1222,8 @@ Internet-Draft         Structured Headers for HTTP          October 2018
 
    5.  Reached the end of input_string without finding a closing DQUOTE;
        fail parsing.
+
+
 
 
 
@@ -1533,6 +1533,8 @@ B.1.  Since draft-ietf-httpbis-header-structure-07
 
    o  Allow identifiers in items again (#629).
 
+   o  Disallowed whitespace before items (#703).
+
 B.2.  Since draft-ietf-httpbis-header-structure-06
 
    o  Add a FAQ.
@@ -1559,8 +1561,6 @@ B.4.  Since draft-ietf-httpbis-header-structure-04
    o  Remove most limits on sizes.
 
    o  Refine number parsing.
-
-
 
 
 
