@@ -440,8 +440,8 @@ Internet-Draft         Structured Headers for HTTP          October 2018
 
    The ABNF for items in HTTP/1 headers is:
 
-sh-item = sh-integer / sh-float / sh-string / sh-identifier / sh-binary / sh-boolean
-
+ sh-item = sh-integer / sh-float / sh-string / sh-identifier / sh-binary
+           / sh-boolean
 
 
 
