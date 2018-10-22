@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                             October 10, 2018
+Updates: 7234 (if approved)                             October 22, 2018
 Intended status: Standards Track
-Expires: April 13, 2019
+Expires: April 25, 2019
 
 
                       HTTP Representation Variants
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 13, 2019.
+   This Internet-Draft will expire on April 25, 2019.
 
 
 
-Nottingham               Expires April 13, 2019                 [Page 1]
+Nottingham               Expires April 25, 2019                 [Page 1]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham               Expires April 13, 2019                 [Page 2]
+Nottingham               Expires April 25, 2019                 [Page 2]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -165,7 +165,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                 [Page 3]
+Nottingham               Expires April 25, 2019                 [Page 3]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -221,7 +221,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                 [Page 4]
+Nottingham               Expires April 25, 2019                 [Page 4]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -277,7 +277,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                 [Page 5]
+Nottingham               Expires April 25, 2019                 [Page 5]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -333,7 +333,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                 [Page 6]
+Nottingham               Expires April 25, 2019                 [Page 6]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -347,37 +347,37 @@ Internet-Draft        HTTP Representation Variants          October 2018
    Variant-Key      = 1#available-values
    available-values = available-value *( ";" available-value )
 
-   Each member of the list contains the selected available-value(s), in
-   the same order as the variants listed in the Variants header field.
+   Each member of the list contains a set of selected available-value(s)
+   that identify this representation, in the same order as the variants
+   listed in the Variants header field.
 
-   Therefore, Variant-Key MUST be the same length (in comma-separated
-   members) as Variants, and each member MUST correspond in position to
-   its companion in Variants.
+   Therefore, each member of Variant-Key MUST be the same length (in
+   semicolon-separated members) as Variants, and each member's
+   available-values MUST correspond in position to their companions in
+   Variants.
 
    For example:
 
    Variants: Accept-Encoding;gzip;br, Accept-Language;en ;fr
-   Variant-Key: gzip, fr
+   Variant-Key: gzip;fr
 
    This header pair indicates that the representation has a "gzip"
    content-coding and "fr" content-language.
 
-   A more complex example involves listing multiple available-values in
-   a list member, to indicate that the response can be used to satisfy
-   requests with any of those values.  For example:
+   If the response can be used to satisfy more than one request), they
+   can be listed in additional members.  For example:
 
    Variants: Accept-Encoding;gzip;br, Accept-Language;en ;fr
-   Variant-Key: gzip;identity, fr
+   Variant-Key: gzip;fr, identity;fr
 
    indicates that this response can be used for requests whose Accept-
    Encoding algorithm selects "gzip" or "identity", as long as the
    Accept-Language algorithm selects "fr" - perhaps because there is no
    gzip-compressed French representation.
 
-   This highlights an important aspect of Variant-Key; it is only used
-   to indicate what request attributes are associated with the response
-   containing it; this is different from headers like Content-Encoding,
-   which indicate attributes of the response itself.
+   When more than one Variant-Key value is in a response, the first one
+   present MUST indicate the variant-key for the response it occurs
+   within.
 
 3.1.  Generating a Variant-Key List
 
@@ -389,7 +389,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                 [Page 7]
+Nottingham               Expires April 25, 2019                 [Page 7]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -411,12 +411,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
        1.  Remove all whitespace from value.
 
-       2.  Let items be the result of splitting value on ";".
+       2.  Append value to variant-keys.
 
-       3.  append items to variant-keys.
-
-   5.  Return the result of running Compute Possible Keys (Section 4.1)
-       on variant-keys, an empty string and an empty list.
+   5.  Return variant-keys.
 
 4.  Cache Behaviour
 
@@ -443,15 +440,16 @@ Internet-Draft        HTTP Representation Variants          October 2018
    4.  If the freshest member of stored-responses (as per [RFC7234],
        Section 4.2) has one or more "Variants" header field(s):
 
+       1.  Select one member of stored-responses and let variants-header
+           be its "Variants" header field-value(s).  This SHOULD be the
 
 
-Nottingham               Expires April 13, 2019                 [Page 8]
+
+Nottingham               Expires April 25, 2019                 [Page 8]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
 
-       1.  Select one member of stored-responses and let variants-header
-           be its "Variants" header field-value(s).  This SHOULD be the
            most recent response, but MAY be from an older one as long as
            it is still fresh.
 
@@ -498,15 +496,15 @@ Internet-Draft        HTTP Representation Variants          October 2018
    Given key-facets (a list of lists), and key-stub (a string
    representing a partial key), and possible-keys (a list):
 
+   1.  Let values be the first member of key-facets.
 
 
 
-Nottingham               Expires April 13, 2019                 [Page 9]
+
+Nottingham               Expires April 25, 2019                 [Page 9]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
-
-   1.  Let values be the first member of key-facets.
 
    2.  For each value in values:
 
@@ -517,7 +515,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
            1.  Let this-key be a copy of key-stub.
 
-           2.  Append a comma (",") to this-key.
+           2.  Append a semicolon (";") to this-key.
 
            3.  Append value to this-key.
 
@@ -555,14 +553,14 @@ Internet-Draft        HTTP Representation Variants          October 2018
        filtered-vary for the value of the "Vary" response header, return
        True.
 
+   5.  Return False.
 
 
-Nottingham               Expires April 13, 2019                [Page 10]
+
+Nottingham               Expires April 25, 2019                [Page 10]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
-
-   5.  Return False.
 
    This returns a Boolean that indicates whether stored-response can be
    used to satisfy the request.
@@ -613,7 +611,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                [Page 11]
+
+
+Nottingham               Expires April 25, 2019                [Page 11]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -669,7 +669,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                [Page 12]
+Nottingham               Expires April 25, 2019                [Page 12]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -713,7 +713,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
    Content-Encoding: br
    Variants: Accept-Language;en;jp;de
    Variants: Accept-Encoding;br;gzip
-   Variant-Key: en, br
+   Variant-Key: en;br
    Vary: Accept-Language, Accept-Encoding
    Transfer-Encoding: chunked
 
@@ -725,7 +725,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                [Page 13]
+Nottingham               Expires April 25, 2019                [Page 13]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -781,7 +781,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                [Page 14]
+Nottingham               Expires April 25, 2019                [Page 14]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -837,7 +837,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                [Page 15]
+Nottingham               Expires April 25, 2019                [Page 15]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -893,7 +893,7 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham               Expires April 13, 2019                [Page 16]
+Nottingham               Expires April 25, 2019                [Page 16]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -949,7 +949,7 @@ A.1.  Accept
 
 
 
-Nottingham               Expires April 13, 2019                [Page 17]
+Nottingham               Expires April 25, 2019                [Page 17]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -1005,7 +1005,7 @@ A.2.  Accept-Encoding
 
 
 
-Nottingham               Expires April 13, 2019                [Page 18]
+Nottingham               Expires April 25, 2019                [Page 18]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
@@ -1061,13 +1061,13 @@ Acknowledgements
 
 
 
-Nottingham               Expires April 13, 2019                [Page 19]
+Nottingham               Expires April 25, 2019                [Page 19]
 
 Internet-Draft        HTTP Representation Variants          October 2018
 
 
-   Thanks to Hooman Beheshti, Ilya Grigorik and Jeffrey Yasskin for
-   their review and input.
+   Thanks to Hooman Beheshti, Ilya Grigorik, Leif Hedstrom, and Jeffrey
+   Yasskin for their review and input.
 
 Author's Address
 
@@ -1117,4 +1117,4 @@ Author's Address
 
 
 
-Nottingham               Expires April 13, 2019                [Page 20]
+Nottingham               Expires April 25, 2019                [Page 20]
