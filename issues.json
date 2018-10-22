@@ -172,9 +172,9 @@
 
     ],
     "milestone": null,
-    "comments": 4,
+    "comments": 5,
     "created_at": "2018-10-08T07:28:23Z",
-    "updated_at": "2018-10-09T08:54:41Z",
+    "updated_at": "2018-10-10T23:50:55Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "Looking through existing headers, it seems like it would be good to consider expanding the range of characters allowable in identifiers. \r\n\r\n- [ ] `.` -- gives us hostnames like in `Origin` and `Host`\r\n- [ ] `:` -- gives us host:port structures like in `Alt-Used` and `Access-Control-Allow-Origin`, as well as IPv6 addresses\r\n- [ ] `%` -- gives us percent-encoded data like in `ALPN`\r\n- [ ] uppercase alpha -- gives us methods, like in `Access-Control-Request-Method`, `Access-Control-Allow-Methods`\r\n\r\nThe main constraint here is making it possible to reliably recognise identifiers. Currently they're denoted by a starting `lcapha`. It may be possible to expand that to include uppercase but continue to preclude other characters from the starting character without affecting too many use cases.\r\n"
@@ -189,7 +189,7 @@
     "id": 366919058,
     "node_id": "MDU6SXNzdWUzNjY5MTkwNTg=",
     "number": 701,
-    "title": "Considering adding Downlink-Max as a client hint header?",
+    "title": "Consider adding Downlink-Max as a client hint header?",
     "user": {
       "login": "malchata",
       "id": 1635238,
@@ -220,17 +220,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 7,
+    "comments": 10,
     "created_at": "2018-10-04T18:39:58Z",
-    "updated_at": "2018-10-08T17:15:05Z",
-    "closed_at": null,
+    "updated_at": "2018-10-18T06:39:26Z",
+    "closed_at": "2018-10-18T06:39:26Z",
     "author_association": "NONE",
     "body": "Pretty much all of what's available in [netinfo](https://wicg.github.io/netinfo/) has been brought into client hints, _except_ for the `downlinkMax` attribute. Is this a reason this hasn't occurred? Is it targeted for eventual removal in netinfo? If not, it may be worth bringing this hint into client hints as `Downlink-Max` so we can determine on the server side what the fastest recorded downlink speed is for that page load cycle."
   },
@@ -320,9 +320,9 @@
       }
     ],
     "milestone": null,
-    "comments": 10,
+    "comments": 11,
     "created_at": "2018-09-29T22:28:31Z",
-    "updated_at": "2018-10-10T18:29:08Z",
+    "updated_at": "2018-10-17T20:07:29Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "Migrating [feedback from Kari Hurtta](https://lists.w3.org/Archives/Public/ietf-http-wg/2018JulSep/0137.html).. \r\n\r\n> On Wed, Jul 25, 2018 at 9:14 AM HTTP Working Group <ietf-http-wg@w3.org>\r\n> wrote:\r\n> \r\n> > |   If DPR occurs in a message more than once, the last value overrides\r\n> > |   all previous occurrences.\r\n> \r\n> So is that saying that if there is several DPR values on\r\n> > DPR Header Field, last value is used ?\r\n> >\r\n> \r\n> Yes, that's the intent.\r\n> \r\n> If that in interpreted only that if last DPR header field is used,\r\n> > and header field is ignored if it does not fit\r\n> >\r\n> >    DPR = 1*DIGIT [ \".\" 1*DIGIT ]\r\n> >\r\n> > syntax, result is different is recipient combines multiple\r\n> > DPR headers.\r\n> \r\n> \r\n> The intent was to specify that last valid value (regardless if it is within\r\n> a combined or separate header) is the one that should be used by the\r\n> client. My read of the current wording is that it matches this intent, but\r\n> I'll defer to the experts here on how to best word this if that's not the\r\n> case.\r\n> \r\n> Mark, Julian: any guidance on this one?\r\n> \r\n> \r\n> > |   If <X> occurs in a message more than once, the last value\r\n> > |   overrides all previous occurrences.\r\n> >\r\n> > So it should mention that on these header fields also last value\r\n> > is used when values are ',' -separated.\r\n> >\r\n> \r\n> My understanding is that this is implicit, but if that's not the case,\r\n> happy to rework the wording.\r\n\r\n--- \r\n\r\nJulian:\r\n> No, it's not implicit, so yes, a clarification would be good. I don't think we have good text yet."
@@ -1043,9 +1043,9 @@
 
     ],
     "milestone": null,
-    "comments": 11,
+    "comments": 13,
     "created_at": "2018-08-20T09:23:18Z",
-    "updated_at": "2018-10-08T05:16:54Z",
+    "updated_at": "2018-10-18T07:11:54Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "See https://github.com/w3c/preload/issues/114.\r\n\r\nIt seems like Early Hints could potentially violate policies. Or perhaps 1xx responses need to be recommended to also include CSP policies?"
@@ -1098,9 +1098,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-08-20T06:51:33Z",
-    "updated_at": "2018-10-08T05:17:29Z",
+    "updated_at": "2018-10-16T09:03:35Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "We should point out that if there are multiple headers of the same name, any blank header among them will be ignored.\r\n\r\nI should really add some API tests for this as well as I kinda doubt this is how they work..."
@@ -1153,9 +1153,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-08-19T07:25:55Z",
-    "updated_at": "2018-10-08T07:33:57Z",
+    "updated_at": "2018-10-14T04:03:37Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "It would get some use, if we could figure out how to back port."
@@ -2193,7 +2193,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-07-14T01:53:27Z",
-    "updated_at": "2018-07-15T15:04:34Z",
+    "updated_at": "2018-10-19T23:29:09Z",
     "closed_at": "2018-07-15T15:04:24Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -2247,7 +2247,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-07-13T21:51:38Z",
-    "updated_at": "2018-07-15T15:02:53Z",
+    "updated_at": "2018-10-19T23:29:11Z",
     "closed_at": "2018-07-15T15:02:49Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -11098,9 +11098,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 1,
     "created_at": "2018-03-20T16:55:50Z",
-    "updated_at": "2018-08-27T18:53:09Z",
+    "updated_at": "2018-10-21T01:24:19Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The security issues motivating CSP Cookie Controls (https://www.w3.org/TR/csp-cookies/) still exist.   We at a minimum we should list this as a security consideration.   In particular, an origin is unable to restrict non-HTTP APIs from setting cookies on a host or domain.  While perhaps this is a nice-to-have for hosts (APIs operating in the origin context can do lots of other things), it is a major problem unique to cookies for domains.  \r\n\r\nA multi-tenant domain (with independent origins under it) has no in-band way to prevent cookies from being set on the entire domain (ie, to restrict cookies to same-site).  The only option available there is to put the domain on a public-suffix list which isn't always scale-able or operationally maintainable.\r\n\r\nIt may also be worth considering a response header that servers could send to constrain all cookies to same-site as part of this, either with \"Content-Security-Policy: cookie-scope host\" or as a separate response header specific to this use-case.  For example, a \"Restrict-Cookies\" response header with tokens matching the new features of 6265bis (same-site, secure-only, none) that would constrain behaviors of non-HTTP APIs.\r\n"
