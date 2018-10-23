@@ -921,9 +921,11 @@ Internet-Draft         Structured Headers for HTTP          October 2018
    For Lists, Parameterised Lists and Dictionaries, this has the effect
    of correctly concatenating all instances of the header field.
 
-   Strings can but SHOULD NOT be split across multiple header instances,
-   because comma(s) inserted upon combination will become part of the
-   string output by the parser.
+   Strings split across multiple header instances will have
+   unpredictable results, because comma(s) and whitespace inserted upon
+   combination will become part of the string output by the parser.
+   Since concatenation might be done by an upstream intermediary, the
+   results are not under the control of the serialiser or the parser.
 
    Integers, Floats and Byte Sequences cannot be split across multiple
    headers because the inserted commas will cause parsing to fail.
@@ -944,8 +946,6 @@ Internet-Draft         Structured Headers for HTTP          October 2018
 
    1.  Let dictionary be an empty, ordered map.
 
-   2.  While input_string is not empty:
-
 
 
 
@@ -953,6 +953,8 @@ Nottingham & Kamp        Expires April 26, 2019                [Page 17]
 
 Internet-Draft         Structured Headers for HTTP          October 2018
 
+
+   2.  While input_string is not empty:
 
        1.   Let this_key be the result of running Parse Identifier from
             Text (Section 4.2.8) with input_string.
@@ -1001,14 +1003,14 @@ Internet-Draft         Structured Headers for HTTP          October 2018
        5.  Consume the first character of input_string; if it is not
            COMMA, fail parsing.
 
-       6.  Discard any leading OWS from input_string.
-
 
 
 Nottingham & Kamp        Expires April 26, 2019                [Page 18]
 
 Internet-Draft         Structured Headers for HTTP          October 2018
 
+
+       6.  Discard any leading OWS from input_string.
 
        7.  If input_string is empty, fail parsing.
 
@@ -1057,14 +1059,14 @@ Internet-Draft         Structured Headers for HTTP          October 2018
        1.  If the first character of input_string is not ";", exit the
            loop.
 
-       2.  Consume a ";" character from the beginning of input_string.
-
 
 
 Nottingham & Kamp        Expires April 26, 2019                [Page 19]
 
 Internet-Draft         Structured Headers for HTTP          October 2018
 
+
+       2.  Consume a ";" character from the beginning of input_string.
 
        3.  Discard any leading OWS from input_string.
 
@@ -1112,8 +1114,6 @@ Internet-Draft         Structured Headers for HTTP          October 2018
        input_string as an identifier (Section 4.2.8) and return the
        result.
 
-   7.  Otherwise, fail parsing.
-
 
 
 
@@ -1121,6 +1121,8 @@ Nottingham & Kamp        Expires April 26, 2019                [Page 20]
 
 Internet-Draft         Structured Headers for HTTP          October 2018
 
+
+   7.  Otherwise, fail parsing.
 
 4.2.6.  Parsing a Number from Text
 
@@ -1169,14 +1171,14 @@ Internet-Draft         Structured Headers for HTTP          October 2018
 
    9.   Otherwise:
 
-        1.  If the final character of input_number is ".", fail parsing.
-
 
 
 Nottingham & Kamp        Expires April 26, 2019                [Page 21]
 
 Internet-Draft         Structured Headers for HTTP          October 2018
 
+
+        1.  If the final character of input_number is ".", fail parsing.
 
         2.  Parse input_number as a float and let output_number be the
             product of the result and sign.
@@ -1222,8 +1224,6 @@ Internet-Draft         Structured Headers for HTTP          October 2018
 
    5.  Reached the end of input_string without finding a closing DQUOTE;
        fail parsing.
-
-
 
 
 
@@ -1535,6 +1535,9 @@ B.1.  Since draft-ietf-httpbis-header-structure-07
 
    o  Disallowed whitespace before items (#703).
 
+   o  Explain the consequences of splitting a string across multiple
+      headers (#686).
+
 B.2.  Since draft-ietf-httpbis-header-structure-06
 
    o  Add a FAQ.
@@ -1560,15 +1563,14 @@ B.4.  Since draft-ietf-httpbis-header-structure-04
 
    o  Remove most limits on sizes.
 
-   o  Refine number parsing.
-
-
 
 
 Nottingham & Kamp        Expires April 26, 2019                [Page 28]
 
 Internet-Draft         Structured Headers for HTTP          October 2018
 
+
+   o  Refine number parsing.
 
 B.5.  Since draft-ietf-httpbis-header-structure-03
 
@@ -1614,8 +1616,6 @@ Authors' Addresses
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
-
-
 
 
 
