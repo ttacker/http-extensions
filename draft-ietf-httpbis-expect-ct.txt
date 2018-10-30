@@ -4,8 +4,8 @@
 
 HTTP Working Group                                              E. Stark
 Internet-Draft                                                    Google
-Intended status: Experimental                           October 29, 2018
-Expires: May 2, 2019
+Intended status: Experimental                           October 30, 2018
+Expires: May 3, 2019
 
 
                       Expect-CT Extension for HTTP
@@ -46,14 +46,14 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 2, 2019.
+   This Internet-Draft will expire on May 3, 2019.
 
 
 
 
 
 
-Stark                      Expires May 2, 2019                  [Page 1]
+Stark                      Expires May 3, 2019                  [Page 1]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Stark                      Expires May 2, 2019                  [Page 2]
+Stark                      Expires May 3, 2019                  [Page 2]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -149,11 +149,11 @@ Internet-Draft                  Expect-CT                   October 2018
    legitimate certificate that is not logged in Certificate Transparency
    logs, or if a web host operator believes their certificate to conform
    to all UAs' CT policies but is mistaken).  Web host operators are
-   advised to deploy Expect-CT with caution, by using the reporting
-   feature and gradually increasing the interval where the UA remembers
-   the host as a Known Expect-CT Host.  These precautions can help web
-   host operators gain confidence that their Expect-CT deployment is not
-   causing unwanted connection failures.
+   advised to deploy Expect-CT with precautions, by using the reporting
+   feature and gradually increasing the time interval during which the
+   UA regards the host as a Known Expect-CT Host.  These precautions can
+   help web host operators gain confidence that their Expect-CT
+   deployment is not causing unwanted connection failures.
 
    Expect-CT is a trust-on-first-use (TOFU) mechanism.  The first time a
    UA connects to a host, it lacks the information necessary to require
@@ -165,7 +165,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                  [Page 3]
+Stark                      Expires May 3, 2019                  [Page 3]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -221,7 +221,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                  [Page 4]
+Stark                      Expires May 3, 2019                  [Page 4]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -277,7 +277,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                  [Page 5]
+Stark                      Expires May 3, 2019                  [Page 5]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -333,7 +333,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                  [Page 6]
+Stark                      Expires May 3, 2019                  [Page 6]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -389,7 +389,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                  [Page 7]
+Stark                      Expires May 3, 2019                  [Page 7]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -445,7 +445,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                  [Page 8]
+Stark                      Expires May 3, 2019                  [Page 8]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -501,7 +501,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                  [Page 9]
+Stark                      Expires May 3, 2019                  [Page 9]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -557,7 +557,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                 [Page 10]
+Stark                      Expires May 3, 2019                 [Page 10]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -613,7 +613,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                 [Page 11]
+Stark                      Expires May 3, 2019                 [Page 11]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -669,7 +669,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                 [Page 12]
+Stark                      Expires May 3, 2019                 [Page 12]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -725,16 +725,16 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                 [Page 13]
+Stark                      Expires May 3, 2019                 [Page 13]
 
 Internet-Draft                  Expect-CT                   October 2018
 
 
    o  "test-report": the value is set to true if the report is being
-      sent by a testing client to verify that the reporting server
-      behaves correctly.  The value is provided as a boolean, and MUST
-      be set to true if the report serves to test the server's behavior
-      and can be discarded.
+      sent by a testing client to verify that the report server behaves
+      correctly.  The value is provided as a boolean, and MUST be set to
+      true if the report serves to test the server's behavior and can be
+      discarded.
 
 3.2.  Sending a violation report
 
@@ -781,7 +781,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                 [Page 14]
+Stark                      Expires May 3, 2019                 [Page 14]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -793,8 +793,9 @@ Internet-Draft                  Expect-CT                   October 2018
 4.  Usability Considerations
 
    When the UA detects a Known Expect-CT Host in violation of the UA's
-   CT Policy, users will experience denials of service.  It is advisable
-   for UAs to explain the reason why.
+   CT Policy, end users will experience denials of service.  It is
+   advisable for UAs to explain to users why they cannot access the
+   Expect-CT Host.
 
 5.  Authoring Considerations
 
@@ -833,22 +834,22 @@ Internet-Draft                  Expect-CT                   October 2018
    Violation reports, as noted in Section 3, contain information about
    the certificate chain that has violated the CT policy.  In some
    cases, such as organization-wide compromise of the end-to-end
-   security of TLS, this may include information about the interception
 
 
 
-Stark                      Expires May 2, 2019                 [Page 15]
+Stark                      Expires May 3, 2019                 [Page 15]
 
 Internet-Draft                  Expect-CT                   October 2018
 
 
+   security of TLS, this may include information about the interception
    tools and design used by the organization that the organization would
    otherwise prefer not be disclosed.
 
    Because Expect-CT causes remotely-detectable behavior, it's advisable
-   that UAs offer a way for privacy-sensitive users to clear currently
-   noted Expect-CT hosts, and allow users to query the current state of
-   Known Expect-CT Hosts.
+   that UAs offer a way for privacy-sensitive end users to clear
+   currently noted Expect-CT hosts, and allow users to query the current
+   state of Known Expect-CT Hosts.
 
 7.  Security Considerations
 
@@ -892,8 +893,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-
-Stark                      Expires May 2, 2019                 [Page 16]
+Stark                      Expires May 3, 2019                 [Page 16]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -949,7 +949,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                 [Page 17]
+Stark                      Expires May 3, 2019                 [Page 17]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -1005,7 +1005,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                 [Page 18]
+Stark                      Expires May 3, 2019                 [Page 18]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -1061,7 +1061,7 @@ Internet-Draft                  Expect-CT                   October 2018
 
 
 
-Stark                      Expires May 2, 2019                 [Page 19]
+Stark                      Expires May 3, 2019                 [Page 19]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -1117,7 +1117,7 @@ A.4.  Since -04
 
 
 
-Stark                      Expires May 2, 2019                 [Page 20]
+Stark                      Expires May 3, 2019                 [Page 20]
 
 Internet-Draft                  Expect-CT                   October 2018
 
@@ -1173,4 +1173,4 @@ Author's Address
 
 
 
-Stark                      Expires May 2, 2019                 [Page 21]
+Stark                      Expires May 3, 2019                 [Page 21]
