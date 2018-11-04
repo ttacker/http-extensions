@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                             October 30, 2018
+Updates: 7234 (if approved)                             November 4, 2018
 Intended status: Standards Track
-Expires: May 3, 2019
+Expires: May 8, 2019
 
 
                       HTTP Representation Variants
@@ -49,13 +49,13 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 3, 2019.
+   This Internet-Draft will expire on May 8, 2019.
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 1]
+Nottingham                 Expires May 8, 2019                  [Page 1]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 2]
+Nottingham                 Expires May 8, 2019                  [Page 2]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
 1.  Introduction
@@ -165,9 +165,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 3]
+Nottingham                 Expires May 8, 2019                  [Page 3]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    to properly satisfy requests - either by selecting a response from
@@ -221,9 +221,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 4]
+Nottingham                 Expires May 8, 2019                  [Page 4]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    This specification uses the Augmented Backus-Naur Form (ABNF)
@@ -277,9 +277,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 5]
+Nottingham                 Expires May 8, 2019                  [Page 5]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    Here, recipients can infer that two content-codings in addition to
@@ -333,9 +333,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 6]
+Nottingham                 Expires May 8, 2019                  [Page 6]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
 3.  The "Variant-Key" HTTP Header Field
@@ -389,9 +389,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 7]
+Nottingham                 Expires May 8, 2019                  [Page 7]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    Given stored-headers (a set of headers from a stored response), a
@@ -445,9 +445,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 8]
+Nottingham                 Expires May 8, 2019                  [Page 8]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
            most recent response, but MAY be from an older one as long as
@@ -501,9 +501,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                  [Page 9]
+Nottingham                 Expires May 8, 2019                  [Page 9]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    2.  For each value in values:
@@ -557,9 +557,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 10]
+Nottingham                 Expires May 8, 2019                 [Page 10]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    This returns a Boolean that indicates whether stored-response can be
@@ -613,9 +613,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 11]
+Nottingham                 Expires May 8, 2019                 [Page 11]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
 5.  Origin Server Behaviour
@@ -669,9 +669,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 12]
+Nottingham                 Expires May 8, 2019                 [Page 12]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    Upon receipt of this response, the cache knows that two
@@ -725,9 +725,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 13]
+Nottingham                 Expires May 8, 2019                 [Page 13]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    Upon a subsequent request, if both selection algorithms return a
@@ -781,9 +781,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 14]
+Nottingham                 Expires May 8, 2019                 [Page 14]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    Appendix A fulfils these requirements for some existing proactive
@@ -837,9 +837,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 15]
+Nottingham                 Expires May 8, 2019                 [Page 15]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
 9.  References
@@ -893,9 +893,9 @@ Internet-Draft        HTTP Representation Variants          October 2018
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 16]
+Nottingham                 Expires May 8, 2019                 [Page 16]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
@@ -949,9 +949,9 @@ A.1.  Accept
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 17]
+Nottingham                 Expires May 8, 2019                 [Page 17]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
        1.  If any member of available-values matches preferred-type,
@@ -1005,9 +1005,9 @@ A.2.  Accept-Encoding
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 18]
+Nottingham                 Expires May 8, 2019                 [Page 18]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    Note that the unencoded variant needs to have a Variant-Key header
@@ -1061,9 +1061,9 @@ Acknowledgements
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 19]
+Nottingham                 Expires May 8, 2019                 [Page 19]
 
-Internet-Draft        HTTP Representation Variants          October 2018
+Internet-Draft        HTTP Representation Variants         November 2018
 
 
    Thanks to Hooman Beheshti, Ilya Grigorik, Leif Hedstrom, and Jeffrey
@@ -1117,4 +1117,4 @@ Author's Address
 
 
 
-Nottingham                 Expires May 3, 2019                 [Page 20]
+Nottingham                 Expires May 8, 2019                 [Page 20]
