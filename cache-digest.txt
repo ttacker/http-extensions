@@ -5,8 +5,8 @@
 HTTP Working Group                                                K. Oku
 Internet-Draft                                                    Fastly
 Intended status: Experimental                                   Y. Weiss
-Expires: May 10, 2019                                             Akamai
-                                                        November 6, 2018
+Expires: May 14, 2019                                             Akamai
+                                                       November 10, 2018
 
 
                         Cache Digests for HTTP/2
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 10, 2019.
+   This Internet-Draft will expire on May 14, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 1]
+Oku & Weiss               Expires May 14, 2019                  [Page 1]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 2]
+Oku & Weiss               Expires May 14, 2019                  [Page 2]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -165,7 +165,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 3]
+Oku & Weiss               Expires May 14, 2019                  [Page 3]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -221,7 +221,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 4]
+Oku & Weiss               Expires May 14, 2019                  [Page 4]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -277,7 +277,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 5]
+Oku & Weiss               Expires May 14, 2019                  [Page 5]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -333,7 +333,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 6]
+Oku & Weiss               Expires May 14, 2019                  [Page 6]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -389,7 +389,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 7]
+Oku & Weiss               Expires May 14, 2019                  [Page 7]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -445,7 +445,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 8]
+Oku & Weiss               Expires May 14, 2019                  [Page 8]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -501,7 +501,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                  [Page 9]
+Oku & Weiss               Expires May 14, 2019                  [Page 9]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -557,7 +557,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                 [Page 10]
+Oku & Weiss               Expires May 14, 2019                 [Page 10]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -613,7 +613,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                 [Page 11]
+Oku & Weiss               Expires May 14, 2019                 [Page 11]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -669,7 +669,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                 [Page 12]
+Oku & Weiss               Expires May 14, 2019                 [Page 12]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -725,7 +725,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                 [Page 13]
+Oku & Weiss               Expires May 14, 2019                 [Page 13]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -781,7 +781,7 @@ Internet-Draft          Cache Digests for HTTP/2           November 2018
 
 
 
-Oku & Weiss               Expires May 10, 2019                 [Page 14]
+Oku & Weiss               Expires May 14, 2019                 [Page 14]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -837,7 +837,7 @@ Appendix A.  Encoding the CACHE_DIGEST frame as an HTTP Header
 
 
 
-Oku & Weiss               Expires May 10, 2019                 [Page 15]
+Oku & Weiss               Expires May 14, 2019                 [Page 15]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -893,7 +893,7 @@ B.1.  Since draft-ietf-httpbis-cache-digest-05
 
 
 
-Oku & Weiss               Expires May 10, 2019                 [Page 16]
+Oku & Weiss               Expires May 14, 2019                 [Page 16]
 
 Internet-Draft          Cache Digests for HTTP/2           November 2018
 
@@ -949,4 +949,4 @@ Authors' Addresses
 
 
 
-Oku & Weiss               Expires May 10, 2019                 [Page 17]
+Oku & Weiss               Expires May 14, 2019                 [Page 17]

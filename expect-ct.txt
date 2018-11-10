@@ -4,8 +4,8 @@
 
 HTTP Working Group                                              E. Stark
 Internet-Draft                                                    Google
-Intended status: Experimental                           November 6, 2018
-Expires: May 10, 2019
+Intended status: Experimental                          November 10, 2018
+Expires: May 14, 2019
 
 
                       Expect-CT Extension for HTTP
@@ -46,14 +46,14 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on May 10, 2019.
+   This Internet-Draft will expire on May 14, 2019.
 
 
 
 
 
 
-Stark                     Expires May 10, 2019                  [Page 1]
+Stark                     Expires May 14, 2019                  [Page 1]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -96,38 +96,39 @@ Table of Contents
    3.  Reporting Expect-CT Failure . . . . . . . . . . . . . . . . .  12
      3.1.  Generating a violation report . . . . . . . . . . . . . .  12
      3.2.  Sending a violation report  . . . . . . . . . . . . . . .  14
-     3.3.  Receiving a violation report  . . . . . . . . . . . . . .  14
+     3.3.  Receiving a violation report  . . . . . . . . . . . . . .  15
    4.  Usability Considerations  . . . . . . . . . . . . . . . . . .  15
    5.  Authoring Considerations  . . . . . . . . . . . . . . . . . .  15
-   6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .  15
+   6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .  16
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
-     7.1.  Maximum max-age . . . . . . . . . . . . . . . . . . . . .  16
-     7.2.  Avoiding amplification attacks  . . . . . . . . . . . . .  17
+     7.1.  Hostile header attacks  . . . . . . . . . . . . . . . . .  16
+     7.2.  Maximum max-age . . . . . . . . . . . . . . . . . . . . .  17
+     7.3.  Avoiding amplification attacks  . . . . . . . . . . . . .  17
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
      8.1.  Header Field Registry . . . . . . . . . . . . . . . . . .  17
-     8.2.  Media Types Registry  . . . . . . . . . . . . . . . . . .  17
 
 
 
-Stark                     Expires May 10, 2019                  [Page 2]
+Stark                     Expires May 14, 2019                  [Page 2]
 
 Internet-Draft                  Expect-CT                  November 2018
 
 
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  18
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  18
+     8.2.  Media Types Registry  . . . . . . . . . . . . . . . . . .  18
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  20
-     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  20
-   Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  20
-     A.1.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  20
-     A.2.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  20
-     A.3.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  20
+     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  21
+   Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  21
+     A.1.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  21
+     A.2.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  21
+     A.3.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  21
      A.4.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  21
      A.5.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  21
      A.6.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  21
-     A.7.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  21
-     A.8.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  21
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  21
+     A.7.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  22
+     A.8.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  22
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  22
 
 1.  Introduction
 
@@ -164,8 +165,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-
-Stark                     Expires May 10, 2019                  [Page 3]
+Stark                     Expires May 14, 2019                  [Page 3]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -184,8 +184,9 @@ Internet-Draft                  Expect-CT                  November 2018
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in RFC
-   2119 [RFC2119].
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
 
 1.2.  Terminology
 
@@ -193,9 +194,9 @@ Internet-Draft                  Expect-CT                  November 2018
 
    o  "Certificate Transparency Policy" is a policy defined by the UA
       concerning the number, sources, and delivery mechanisms of Signed
-      Certificate Timestamps that are served on TLS connections.  The
-      policy defines the properties of a connection that must be met in
-      order for the UA to consider it CT-qualified.
+      Certificate Timestamps that are associated with TLS connections.
+      The policy defines the properties of a connection that must be met
+      in order for the UA to consider it CT-qualified.
 
    o  "Certificate Transparency Qualified" describes a TLS connection
       for which the UA has determined that a sufficient quantity and
@@ -216,15 +217,17 @@ Internet-Draft                  Expect-CT                  November 2018
       messages sent over secure transport.  The term "host" is
       equivalent to "server" in this specification.
 
-   o  "Known Expect-CT Host" is an Expect-CT Host that the UA has noted
-      as such.  See Section 2.3.2.1 for particulars.
 
 
 
-Stark                     Expires May 10, 2019                  [Page 4]
+
+Stark                     Expires May 14, 2019                  [Page 4]
 
 Internet-Draft                  Expect-CT                  November 2018
 
+
+   o  "Known Expect-CT Host" is an Expect-CT Host that the UA has noted
+      as such.  See Section 2.3.2.1 for particulars.
 
    o  UA is an acronym for "user agent".  For the purposes of this
       specification, a UA is an HTTP client application typically
@@ -244,9 +247,10 @@ Internet-Draft                  Expect-CT                  November 2018
 
    Figure 1 describes the syntax (Augmented Backus-Naur Form) of the
    header field, using the grammar defined in [RFC5234] and the rules
-   defined in Section 3.2 of [RFC7230].
+   defined in Section 3.2 of [RFC7230].  The "#" ABNF extension is
+   specified in Section 7 of [RFC7230].
 
-   Expect-CT           = #expect-ct-directive
+   Expect-CT           = 1#expect-ct-directive
    expect-ct-directive = directive-name [ "=" directive-value ]
    directive-name      = token
    directive-value     = token / quoted-string
@@ -269,19 +273,20 @@ Internet-Draft                  Expect-CT                  November 2018
        in this specification.  In particular, UAs MUST NOT attempt to
        fix malformed header fields.
 
+
+
+
+
+Stark                     Expires May 14, 2019                  [Page 5]
+
+Internet-Draft                  Expect-CT                  November 2018
+
+
    5.  If a header field contains any directive(s) the UA does not
        recognize, the UA MUST ignore those directives.
 
    6.  If the Expect-CT header field otherwise satisfies the above
        requirements (1 through 5), and Expect-CT is not disabled for
-
-
-
-Stark                     Expires May 10, 2019                  [Page 5]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
        local policy reasons (as discussed in Section 2.4.1), the UA MUST
        process the directives it recognizes.
 
@@ -328,12 +333,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-
-
-
-
-
-Stark                     Expires May 10, 2019                  [Page 6]
+Stark                     Expires May 14, 2019                  [Page 6]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -389,7 +389,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-Stark                     Expires May 10, 2019                  [Page 7]
+Stark                     Expires May 14, 2019                  [Page 7]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -445,7 +445,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-Stark                     Expires May 10, 2019                  [Page 8]
+Stark                     Expires May 14, 2019                  [Page 8]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -501,7 +501,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-Stark                     Expires May 10, 2019                  [Page 9]
+Stark                     Expires May 14, 2019                  [Page 9]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -557,7 +557,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-Stark                     Expires May 10, 2019                 [Page 10]
+Stark                     Expires May 14, 2019                 [Page 10]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -613,7 +613,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-Stark                     Expires May 10, 2019                 [Page 11]
+Stark                     Expires May 14, 2019                 [Page 11]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -669,7 +669,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-Stark                     Expires May 10, 2019                 [Page 12]
+Stark                     Expires May 14, 2019                 [Page 12]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -679,7 +679,8 @@ Internet-Draft                  Expect-CT                  November 2018
       appear in the order matching the chain that the UA validated; each
       string in the array is the Privacy-Enhanced Mail (PEM)
       representation of each X.509 certificate as described in
-      [RFC7468].
+      [RFC7468].  The first certificate in the chain represents the end-
+      entity certificate being verified.
 
    o  "scts": the value represents the SCTs (if any) that the UA
       received for the Expect-CT host and their validation statuses.
@@ -724,8 +725,7 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-
-Stark                     Expires May 10, 2019                 [Page 13]
+Stark                     Expires May 14, 2019                 [Page 13]
 
 Internet-Draft                  Expect-CT                  November 2018
 
@@ -768,27 +768,47 @@ Internet-Draft                  Expect-CT                  November 2018
    The UA MAY perform other operations as part of sending the HTTP POST
    request, for example sending a CORS preflight as part of [FETCH].
 
-3.3.  Receiving a violation report
-
-   Upon receiving an Expect-CT violation report, the report server MUST
-   respond with a 2xx (Successful) status code if it can parse the
-   request body as valid JSON and recognizes the hostname in the
-   "hostname" field of the report.  If the report body cannot be parsed
-   or the report server does not expect to receive reports for the
-   hostname in the "hostname" field, the report server MUST respond with
-   a 4xx (Client Error) status code.
+   Future versions of this specification may need to modify or extend
+   the Expect-CT report format.  They may do so by defining a new top-
+   level key to contain the report, replacing the "expect-ct-report"
+   key.  Section 3.3 defines how report servers should handle report
+   formats that they do not support.
 
 
 
 
-Stark                     Expires May 10, 2019                 [Page 14]
+
+
+
+
+Stark                     Expires May 14, 2019                 [Page 14]
 
 Internet-Draft                  Expect-CT                  November 2018
 
 
+3.3.  Receiving a violation report
+
+   Upon receiving an Expect-CT violation report, the report server MUST
+   respond with a 2xx (Successful) status code if it can parse the
+   request body as valid JSON, the report conforms to the format
+   described in Section 3.1, and it recognizes the hostname in the
+   "hostname" field of the report.  If the report body cannot be parsed,
+   or the report does not conform to the format described in
+   Section 3.1, or the report server does not expect to receive reports
+   for the hostname in the "hostname" field, the report server MUST
+   respond with a 4xx (Client Error) status code.
+
+   As described in Section 3.2, future versions of this specification
+   may define new report formats that are sent with a different top-
+   level key.  If the report server does not recognize the report
+   format, the report server MUST respond with a 5xx (Server Error)
+   status code.
+
    If the report's "test-report" key is set to true, the server MAY
    discard the report without further processing but MUST still return a
-   2xx (Successful) status code.
+   2xx (Successful) status code.  If the "test-report" key is absent or
+   set to false, the server SHOULD store the report for processing and
+   analysis by the owner of the Expect-CT Host.
 
 4.  Usability Considerations
 
@@ -815,10 +835,17 @@ Internet-Draft                  Expect-CT                  November 2018
    mechanism for user agents that are transitioning to universal
    Certificate Transparency requirements.
 
+
+
+Stark                     Expires May 14, 2019                 [Page 15]
+
+Internet-Draft                  Expect-CT                  November 2018
+
+
 6.  Privacy Considerations
 
-   Expect-CT can be used to infer what Certificate Transparency policy
-   is in use, by attempting to retrieve specially-configured websites
+   Expect-CT can be used to infer what Certificate Transparency policy a
+   UA is using, by attempting to retrieve specially-configured websites
    which pass one user agents' policies but not another's.  Note that
    this consideration is true of UAs which enforce CT policies without
    Expect-CT as well.
@@ -834,14 +861,6 @@ Internet-Draft                  Expect-CT                  November 2018
 
    Violation reports, as noted in Section 3, contain information about
    the certificate chain that has violated the CT policy.  In some
-
-
-
-Stark                     Expires May 10, 2019                 [Page 15]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
    cases, such as organization-wide compromise of the end-to-end
    security of TLS, this may include information about the interception
    tools and design used by the organization that the organization would
@@ -853,6 +872,8 @@ Internet-Draft                  Expect-CT                  November 2018
    state of Known Expect-CT Hosts.
 
 7.  Security Considerations
+
+7.1.  Hostile header attacks
 
    When UAs support the Expect-CT header field, it becomes a potential
    vector for hostile header attacks against site owners.  If a site
@@ -869,6 +890,14 @@ Internet-Draft                  Expect-CT                  November 2018
    certificates, change server software, or act as a man-in-the-middle
    in connections.
 
+
+
+
+Stark                     Expires May 14, 2019                 [Page 16]
+
+Internet-Draft                  Expect-CT                  November 2018
+
+
    Site operators can mitigate this situation by one of: reconfiguring
    their web server to transmit SCTs using the TLS extension defined in
    Section 6.5 of [I-D.ietf-trans-rfc6962-bis], obtaining a certificate
@@ -878,7 +907,7 @@ Internet-Draft                  Expect-CT                  November 2018
    agents may choose to implement mechanisms for users to cure this
    situation, as noted in Section 4.
 
-7.1.  Maximum max-age
+7.2.  Maximum max-age
 
    There is a security trade-off in that low maximum values provide a
    narrow window of protection for users that visit the Known Expect-CT
@@ -889,19 +918,10 @@ Internet-Draft                  Expect-CT                  November 2018
    There is probably no ideal maximum for the "max-age" directive.
    Since Expect-CT is primarily a policy-expansion and investigation
    technology rather than an end-user protection, a value on the order
-
-
-
-
-Stark                     Expires May 10, 2019                 [Page 16]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
    of 30 days (2,592,000 seconds) may be considered a balance between
    these competing security concerns.
 
-7.2.  Avoiding amplification attacks
+7.3.  Avoiding amplification attacks
 
    Another kind of hostile header attack uses the "report-uri" mechanism
    on many hosts not currently exposing SCTs as a method to cause a
@@ -927,6 +947,13 @@ Internet-Draft                  Expect-CT                  November 2018
 
    Status:  experimental
 
+
+
+Stark                     Expires May 14, 2019                 [Page 17]
+
+Internet-Draft                  Expect-CT                  November 2018
+
+
    Author/Change controller:  IETF
 
    Specification document(s):  This document
@@ -946,13 +973,6 @@ Internet-Draft                  Expect-CT                  November 2018
    Required parameters:  n/a
 
    Optional parameters:  n/a
-
-
-
-Stark                     Expires May 10, 2019                 [Page 17]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
    Encoding considerations:  binary
 
@@ -982,6 +1002,14 @@ Internet-Draft                  Expect-CT                  November 2018
 
    Restrictions on usage:  none
 
+
+
+
+Stark                     Expires May 14, 2019                 [Page 18]
+
+Internet-Draft                  Expect-CT                  November 2018
+
+
    Author:  Emily Stark (estark@google.com)
 
    Change controller:  IETF
@@ -999,16 +1027,6 @@ Internet-Draft                  Expect-CT                  November 2018
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
-
-
-
-
-
-
-Stark                     Expires May 10, 2019                 [Page 18]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
    [RFC3339]  Klyne, G. and C. Newman, "Date and Time on the Internet:
               Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002,
@@ -1039,6 +1057,15 @@ Internet-Draft                  Expect-CT                  November 2018
               DOI 10.17487/RFC6797, November 2012,
               <https://www.rfc-editor.org/info/rfc6797>.
 
+
+
+
+
+Stark                     Expires May 14, 2019                 [Page 19]
+
+Internet-Draft                  Expect-CT                  November 2018
+
+
    [RFC6839]  Hansen, T. and A. Melnikov, "Additional Media Type
               Structured Syntax Suffixes", RFC 6839,
               DOI 10.17487/RFC6839, January 2013,
@@ -1058,14 +1085,6 @@ Internet-Draft                  Expect-CT                  November 2018
               RFC 7234, DOI 10.17487/RFC7234, June 2014,
               <https://www.rfc-editor.org/info/rfc7234>.
 
-
-
-
-Stark                     Expires May 10, 2019                 [Page 19]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
               April 2015, <https://www.rfc-editor.org/info/rfc7468>.
@@ -1073,6 +1092,10 @@ Internet-Draft                  Expect-CT                  November 2018
    [RFC7469]  Evans, C., Palmer, C., and R. Sleevi, "Public Key Pinning
               Extension for HTTP", RFC 7469, DOI 10.17487/RFC7469, April
               2015, <https://www.rfc-editor.org/info/rfc7469>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
    [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
               Interchange Format", STD 90, RFC 8259,
@@ -1087,6 +1110,17 @@ Internet-Draft                  Expect-CT                  November 2018
    [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
               Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
               <https://www.rfc-editor.org/info/rfc8446>.
+
+
+
+
+
+
+
+Stark                     Expires May 14, 2019                 [Page 20]
+
+Internet-Draft                  Expect-CT                  November 2018
+
 
 9.3.  URIs
 
@@ -1104,6 +1138,12 @@ A.1.  Since -07
 
    o  Editorial changes
 
+   o  Specify that the end-entity certificate appears first in the
+      "validated-certificate-chain" field of an Expect-CT report.
+
+   o  Define how report format can be extended by future versions of
+      this specification.
+
 A.2.  Since -06
 
    o  Editorial changes
@@ -1114,13 +1154,6 @@ A.3.  Since -05
       overrides for Known Expect-CT Hosts.
 
    o  Remove restriction that Expect-CT Hosts cannot be IP addresses.
-
-
-
-Stark                     Expires May 10, 2019                 [Page 20]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
    o  Editorial changes
 
@@ -1136,6 +1169,14 @@ A.6.  Since -02
 
    o  Add concept of test reports and specify that servers must respond
       with 2xx status codes to valid reports.
+
+
+
+
+Stark                     Expires May 14, 2019                 [Page 21]
+
+Internet-Draft                  Expect-CT                  November 2018
+
 
    o  Add "failure-mode" key to reports to allow report servers to
       distinguish report-only from enforced failures.
@@ -1173,4 +1214,19 @@ Author's Address
 
 
 
-Stark                     Expires May 10, 2019                 [Page 21]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Stark                     Expires May 14, 2019                 [Page 22]
