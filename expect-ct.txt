@@ -103,7 +103,7 @@ Table of Contents
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
      7.1.  Hostile header attacks  . . . . . . . . . . . . . . . . .  16
      7.2.  Maximum max-age . . . . . . . . . . . . . . . . . . . . .  17
-     7.3.  Avoiding amplification attacks  . . . . . . . . . . . . .  17
+     7.3.  Amplification attacks . . . . . . . . . . . . . . . . . .  17
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
      8.1.  Header Field Registry . . . . . . . . . . . . . . . . . .  18
 
@@ -305,11 +305,10 @@ Internet-Draft                  Expect-CT                  November 2018
 
    "absolute-URI" is defined in Section 4.3 of [RFC3986].
 
-   Hosts may set "report-uri"s that use HTTP or HTTPS.  If the scheme in
-   the "report-uri" is one that uses TLS (e.g., HTTPS), UAs MUST check
-   Expect-CT compliance when the host in the "report-uri" is a Known
-   Expect-CT Host; similarly, UAs MUST apply HSTS [RFC6797] if the host
-   in the "report-uri" is a Known HSTS Host.
+   UAs MUST ignore "report-uri"s that do not use the HTTPS scheme.  UAs
+   MUST check Expect-CT compliance when the host in the "report-uri" is
+   a Known Expect-CT Host; similarly, UAs MUST apply HSTS [RFC6797] if
+   the host in the "report-uri" is a Known HSTS Host.
 
    UAs SHOULD make their best effort to report Expect-CT failures to the
    "report-uri", but they may fail to report in exceptional conditions.
@@ -330,6 +329,7 @@ Internet-Draft                  Expect-CT                  November 2018
    UAs SHOULD limit the rate at which they send reports.  For example,
    it is unnecessary to send the same report to the same "report-uri"
    more than once in the same web browsing session.
+
 
 
 
@@ -928,7 +928,7 @@ Internet-Draft                  Expect-CT                  November 2018
    of 30 days (2,592,000 seconds) may be considered a balance between
    these competing security concerns.
 
-7.3.  Avoiding amplification attacks
+7.3.  Amplification attacks
 
    Another kind of hostile header attack uses the "report-uri" mechanism
    on many hosts not currently exposing SCTs as a method to cause a
@@ -1157,6 +1157,8 @@ A.1.  Since -07
 
    o  Specify exact status codes for report server errors.
 
+   o  Limit report-uris to HTTPS only.
+
 A.2.  Since -06
 
    o  Editorial changes
@@ -1168,8 +1170,6 @@ A.3.  Since -05
 
    o  Remove restriction that Expect-CT Hosts cannot be IP addresses.
 
-   o  Editorial changes
-
 
 
 
@@ -1177,6 +1177,8 @@ Stark                     Expires May 14, 2019                 [Page 21]
 
 Internet-Draft                  Expect-CT                  November 2018
 
+
+   o  Editorial changes
 
 A.4.  Since -04
 
@@ -1216,8 +1218,6 @@ Author's Address
    Google
 
    Email: estark@google.com
-
-
 
 
 
