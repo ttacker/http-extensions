@@ -539,7 +539,7 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
    The ABNF for identifiers in HTTP/1 headers is:
 
-   sh-identifier = lcalpha *( lcalpha / DIGIT / "_" / "-" / "*" / "/" )
+sh-identifier = lcalpha *( lcalpha / DIGIT / "_" / "-" / "." / ":" / "%" / "*" / "/" )
 
    Note that identifiers can only contain lowercase letters.
 
@@ -1293,7 +1293,8 @@ Internet-Draft         Structured Headers for HTTP         November 2018
        1.  Let char be the result of removing the first character of
            input_string.
 
-       2.  If char is not one of lcalpha, DIGIT, "_", "-", "*" or "/":
+       2.  If char is not one of lcalpha, DIGIT, "_", "-", ".", ":",
+           "%", "*" or "/":
 
            1.  Prepend char to input_string.
 
@@ -1337,7 +1338,6 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    encoded data that has non-zero pad bits (see [RFC4648], Section 3.5),
    parsers SHOULD NOT fail when it is present, unless they cannot be
    configured to do so.
-
 
 
 
