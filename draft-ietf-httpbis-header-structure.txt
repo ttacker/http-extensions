@@ -121,12 +121,12 @@ Internet-Draft         Structured Headers for HTTP         November 2018
      B.2.  Since draft-ietf-httpbis-header-structure-07  . . . . . .  29
      B.3.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  29
      B.4.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  29
-     B.5.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  29
+     B.5.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  30
      B.6.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  30
      B.7.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  30
      B.8.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  30
      B.9.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  30
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  30
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  31
 
 1.  Introduction
 
@@ -573,11 +573,11 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
    The ABNF for a Boolean in HTTP/1 headers is:
 
-   sh-boolean = "!" boolean
+   sh-boolean = "?" boolean
    boolean    = "T" / "F"
 
-   In HTTP/1 headers, a byte sequence is delimited with a "!" character.
-   For example:
+   In HTTP/1 headers, a byte sequence is indicated with a leading "?"
+   character.  For example:
 
    Example-BoolHdr: !T
 
@@ -876,7 +876,7 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
    2.  Let output be an empty string.
 
-   3.  Append "!" to output.
+   3.  Append "?" to output.
 
    4.  If input is true, append "T" to output.
 
@@ -1150,7 +1150,7 @@ Internet-Draft         Structured Headers for HTTP         November 2018
        input_string as a byte sequence (Section 4.2.10) and return the
        result.
 
-   4.  If the first character of input_string is "!", process
+   4.  If the first character of input_string is "?", process
        input_string as a Boolean (Section 4.2.11) and return the result.
 
    5.  If the first character of input_string is a lcalpha, process
@@ -1355,7 +1355,7 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    Given an ASCII string input_string, return a Boolean. input_string is
    modified to remove the parsed value.
 
-   1.  If the first character of input_string is not "!", fail parsing.
+   1.  If the first character of input_string is not "?", fail parsing.
 
    2.  Discard the first character of input_string.
 
@@ -1560,8 +1560,8 @@ B.1.  Since draft-ietf-httpbis-header-structure-08
 
    o  Disallow whitespace before items properly (#703).
 
-
-
+   o  Created "key" for use in dictionaries and parameters, rather than
+      relying on identifier (#702).
 
 
 
@@ -1569,6 +1569,11 @@ Nottingham & Kamp         Expires May 16, 2019                 [Page 28]
 
 Internet-Draft         Structured Headers for HTTP         November 2018
 
+
+   o  Expanded the range of special characters allowed in identifier to
+      include ".", ":", and "%" (#702).
+
+   o  use "?" instead of "!" to indicate a Boolean (#719).
 
 B.2.  Since draft-ietf-httpbis-header-structure-07
 
@@ -1609,13 +1614,8 @@ B.4.  Since draft-ietf-httpbis-header-structure-05
    o  Refine relationship between ABNF, parsing and serialisation
       algorithms.
 
-B.5.  Since draft-ietf-httpbis-header-structure-04
 
-   o  Remove identifiers from item.
 
-   o  Remove most limits on sizes.
-
-   o  Refine number parsing.
 
 
 
@@ -1625,6 +1625,14 @@ Nottingham & Kamp         Expires May 16, 2019                 [Page 29]
 
 Internet-Draft         Structured Headers for HTTP         November 2018
 
+
+B.5.  Since draft-ietf-httpbis-header-structure-04
+
+   o  Remove identifiers from item.
+
+   o  Remove most limits on sizes.
+
+   o  Refine number parsing.
 
 B.6.  Since draft-ietf-httpbis-header-structure-03
 
@@ -1663,14 +1671,6 @@ B.9.  Since draft-ietf-httpbis-header-structure-00
 
    o  Change h1_blob delimiter to ":" since "'" is valid t_char
 
-Authors' Addresses
-
-   Mark Nottingham
-   Fastly
-
-   Email: mnot@mnot.net
-   URI:   https://www.mnot.net/
-
 
 
 
@@ -1682,19 +1682,19 @@ Nottingham & Kamp         Expires May 16, 2019                 [Page 30]
 Internet-Draft         Structured Headers for HTTP         November 2018
 
 
+Authors' Addresses
+
+   Mark Nottingham
+   Fastly
+
+   Email: mnot@mnot.net
+   URI:   https://www.mnot.net/
+
+
    Poul-Henning Kamp
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
-
-
-
-
-
-
-
 
 
 
