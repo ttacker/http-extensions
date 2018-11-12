@@ -83,8 +83,9 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   3
-     1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   4
-   2.  Defining New Structured Headers . . . . . . . . . . . . . . .   4
+     1.1.  Intentionally Strict Processing . . . . . . . . . . . . .   4
+     1.2.  Notational Conventions  . . . . . . . . . . . . . . . . .   4
+   2.  Defining New Structured Headers . . . . . . . . . . . . . . .   5
    3.  Structured Header Data Types  . . . . . . . . . . . . . . . .   7
      3.1.  Dictionaries  . . . . . . . . . . . . . . . . . . . . . .   7
      3.2.  Lists . . . . . . . . . . . . . . . . . . . . . . . . . .   7
@@ -105,7 +106,6 @@ Table of Contents
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  25
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  26
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  27
-   Appendix A.  Frequently Asked Questions . . . . . . . . . . . . .  27
 
 
 
@@ -114,6 +114,7 @@ Nottingham & Kamp         Expires May 16, 2019                  [Page 2]
 Internet-Draft         Structured Headers for HTTP         November 2018
 
 
+   Appendix A.  Frequently Asked Questions . . . . . . . . . . . . .  27
      A.1.  Why not JSON? . . . . . . . . . . . . . . . . . . . . . .  27
      A.2.  Structured Headers don't "fit" my data. . . . . . . . . .  28
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  28
@@ -164,7 +165,6 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
 
 
-
 Nottingham & Kamp         Expires May 16, 2019                  [Page 3]
 
 Internet-Draft         Structured Headers for HTTP         November 2018
@@ -177,7 +177,29 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    headers - such as those used in HTTP/1 - using the algorithms
    described in Section 4.
 
-1.1.  Notational Conventions
+1.1.  Intentionally Strict Processing
+
+   This specification intentionally defines strict parsing and
+   serialisation behaviours using step-by-step algorithms; the only
+   error handling defined is to fail the operation altogether.
+
+   This is designed to encourage faithful implementation and therefore
+   good interoperability.  Therefore, implementations that try to be
+   "helpful" by being more tolerant of input are doing a disservice to
+   the overall community, since it will encourage other implementations
+   to implement similar (but likely subtly different) workarounds.
+
+   In other words, strict processing is an intentional feature of this
+   specification; it allows non-conformant input to be discovered and
+   corrected early, and avoids both interoperability and security issues
+   that might otherwise result.
+
+   Note that as a result of this strictness, if a header field is
+   appended to by multiple parties (e.g., intermediaries, or different
+   components in the sender), it could be that an error in one party's
+   value causes the entire header field to fail parsing.
+
+1.2.  Notational Conventions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -196,6 +218,14 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    For parsing from HTTP/1 header fields, implementations MUST follow
    the algorithms, but MAY vary in implementation so as the behaviours
    are indistinguishable from specified behaviour.  If there is
+
+
+
+Nottingham & Kamp         Expires May 16, 2019                  [Page 4]
+
+Internet-Draft         Structured Headers for HTTP         November 2018
+
+
    disagreement between the parsing algorithms and ABNF, the specified
    algorithms take precedence.  In some places, the algorithms are
    "greedy" with whitespace, but this should not affect conformance.
@@ -217,15 +247,6 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
    o  Specify the header field's allowed syntax for values, in terms of
       the types described in Section 3, along with their associated
-
-
-
-
-Nottingham & Kamp         Expires May 16, 2019                  [Page 4]
-
-Internet-Draft         Structured Headers for HTTP         November 2018
-
-
       semantics.  Syntax definitions are encouraged to use the ABNF
       rules beginning with "sh-" defined in this specification.
 
@@ -238,32 +259,11 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    Note that a header field definition cannot relax the requirements of
    a structure or its processing because doing so would preclude
    handling by generic software; they can only add additional
-   constraints.
+   constraints.  Likewise, header field definitions should use
+   Structured Headers for the entire header field value, not a portion
+   thereof.
 
    For example:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1573,7 +1573,9 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    o  Expanded the range of special characters allowed in identifier to
       include ".", ":", and "%" (#702).
 
-   o  use "?" instead of "!" to indicate a Boolean (#719).
+   o  Use "?" instead of "!" to indicate a Boolean (#719).
+
+   o  Added "Intentionally Strict Processing" (#684).
 
 B.2.  Since draft-ietf-httpbis-header-structure-07
 
@@ -1613,8 +1615,6 @@ B.4.  Since draft-ietf-httpbis-header-structure-05
 
    o  Refine relationship between ABNF, parsing and serialisation
       algorithms.
-
-
 
 
 
