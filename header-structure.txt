@@ -634,15 +634,15 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
    2.  For each member mem of input:
 
-       1.  Let name be the result of applying Serialising an Identifier
-           (Section 4.1.8) to mem's member-name.
+       1.  Let name be the result of applying Serialising an Key
+           (Section 4.1.1.1) to mem's member-name.
 
        2.  Append name to output.
 
        3.  Append "=" to output.
 
-       4.  Let value be the result of applying Serialising a Key
-           (Section 4.1.1.1) to mem's member-value.
+       4.  Let value be the result of applying Serialising an Item
+           (Section 4.1.4) to mem's member-value.
 
        5.  Append value to output.
 
@@ -712,15 +712,15 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
            1.  Append ";" to output.
 
-           2.  Let name be the result of applying Serialising an
-               Identifier (Section 4.1.8) to parameter's param-name.
+           2.  Let name be the result of applying Serialising a Key
+               (Section 4.1.1.1) to parameter's param-name.
 
            3.  Append name to output.
 
            4.  If parameter has a param-value:
 
-               1.  Let value be the result of applying Serialising a Key
-                   (Section 4.1.1.1) to parameter's param-value.
+               1.  Let value be the result of applying Serialising an
+                   Item (Section 4.1.4) to parameter's param-value.
 
 
 
