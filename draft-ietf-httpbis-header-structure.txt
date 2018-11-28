@@ -732,7 +732,9 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
        1.  If inner_list is not a list, fail serialisation.
 
-       2.  For each inner_mem of inner_list:
+       2.  If inner_list is empty, fail serialisation.
+
+       3.  For each inner_mem of inner_list:
 
            1.  Let value be the result of applying Serialising an Item
                (Section 4.1.5) to inner_mem.
@@ -745,7 +747,7 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
                2.  Append a single WS to output.
 
-       3.  If more members remain in input_list:
+       4.  If more members remain in input_list:
 
            1.  Append a COMMA to output.
 
@@ -776,8 +778,6 @@ Internet-Draft         Structured Headers for HTTP         November 2018
            3.  Append name to output.
 
            4.  If parameter has a param-value:
-
-
 
 
 
