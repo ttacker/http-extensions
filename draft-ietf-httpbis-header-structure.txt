@@ -115,19 +115,20 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
 
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  29
-   Appendix A.  Frequently Asked Questions . . . . . . . . . . . . .  29
-     A.1.  Why not JSON? . . . . . . . . . . . . . . . . . . . . . .  29
-     A.2.  Structured Headers don't "fit" my data. . . . . . . . . .  30
-   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  31
-     B.1.  Since draft-ietf-httpbis-header-structure-08  . . . . . .  31
-     B.2.  Since draft-ietf-httpbis-header-structure-07  . . . . . .  31
-     B.3.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  32
-     B.4.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  32
-     B.5.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  32
-     B.6.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  32
-     B.7.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  32
-     B.8.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  33
-     B.9.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  33
+   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .  29
+   Appendix B.  Frequently Asked Questions . . . . . . . . . . . . .  29
+     B.1.  Why not JSON? . . . . . . . . . . . . . . . . . . . . . .  29
+     B.2.  Structured Headers don't "fit" my data. . . . . . . . . .  30
+   Appendix C.  Changes  . . . . . . . . . . . . . . . . . . . . . .  31
+     C.1.  Since draft-ietf-httpbis-header-structure-08  . . . . . .  31
+     C.2.  Since draft-ietf-httpbis-header-structure-07  . . . . . .  31
+     C.3.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  32
+     C.4.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  32
+     C.5.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  32
+     C.6.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  32
+     C.7.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  32
+     C.8.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  33
+     C.9.  Since draft-ietf-httpbis-header-structure-00  . . . . . .  33
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  33
 
 1.  Introduction
@@ -161,7 +162,6 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    existing HTTP headers; the mechanisms described herein are only
    intended to be used with headers that explicitly opt into them.
 
-   To specify a header field that is a Structured Header, see Section 2.
 
 
 
@@ -169,6 +169,8 @@ Nottingham & Kamp         Expires June 1, 2019                  [Page 3]
 
 Internet-Draft         Structured Headers for HTTP         November 2018
 
+
+   To specify a header field that is a Structured Header, see Section 2.
 
    Section 3 defines a number of abstract data types that can be used in
    Structured Headers.
@@ -215,9 +217,7 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    behaviours, and ABNF to illustrate expected syntax in HTTP/1-style
    header fields.
 
-   For parsing from HTTP/1 header fields, implementations MUST follow
-   the algorithms, but MAY vary in implementation so as the behaviours
-   are indistinguishable from specified behaviour.  If there is
+
 
 
 
@@ -226,6 +226,9 @@ Nottingham & Kamp         Expires June 1, 2019                  [Page 4]
 Internet-Draft         Structured Headers for HTTP         November 2018
 
 
+   For parsing from HTTP/1 header fields, implementations MUST follow
+   the algorithms, but MAY vary in implementation so as the behaviours
+   are indistinguishable from specified behaviour.  If there is
    disagreement between the parsing algorithms and ABNF, the specified
    algorithms take precedence.  In some places, the algorithms are
    "greedy" with whitespace, but this should not affect conformance.
@@ -264,9 +267,6 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    thereof.
 
    For example:
-
-
-
 
 
 
@@ -1605,19 +1605,19 @@ Internet-Draft         Structured Headers for HTTP         November 2018
 
    [5] https://github.com/httpwg/wiki/wiki/Structured-Headers
 
-Appendix A.  Frequently Asked Questions
+Appendix A.  Acknowledgements
 
-A.1.  Why not JSON?
+   Many thanks to Matthew Kerwin for his detailed feedback and careful
+   consideration during the development of this specification.
+
+Appendix B.  Frequently Asked Questions
+
+B.1.  Why not JSON?
 
    Earlier proposals for structured headers were based upon JSON
    [RFC8259].  However, constraining its use to make it suitable for
    HTTP header fields required senders and recipients to implement
    specific additional handling.
-
-   For example, JSON has specification issues around large numbers and
-   objects with duplicate members.  Although advice for avoiding these
-   issues is available (e.g., [RFC7493]), it cannot be relied upon.
-
 
 
 
@@ -1625,6 +1625,10 @@ Nottingham & Kamp         Expires June 1, 2019                 [Page 29]
 
 Internet-Draft         Structured Headers for HTTP         November 2018
 
+
+   For example, JSON has specification issues around large numbers and
+   objects with duplicate members.  Although advice for avoiding these
+   issues is available (e.g., [RFC7493]), it cannot be relied upon.
 
    Likewise, JSON strings are by default Unicode strings, which have a
    number of potential interoperability issues (e.g., in comparison).
@@ -1651,7 +1655,7 @@ Internet-Draft         Structured Headers for HTTP         November 2018
    Additionally, there were widely shared feelings that JSON doesn't
    "look right" in HTTP headers.
 
-A.2.  Structured Headers don't "fit" my data.
+B.2.  Structured Headers don't "fit" my data.
 
    Structured headers intentionally limits the complexity of data
    structures, to assure that it can be processed in a performant manner
@@ -1670,10 +1674,6 @@ A.2.  Structured Headers don't "fit" my data.
    the list used to identify it in the "descriptions" member of the
    Example-Thing header.
 
-   When specifying more than one header, it's important to remember to
-   describe what a processor's behaviour should be when one of the
-   headers is missing.
-
 
 
 
@@ -1682,14 +1682,18 @@ Nottingham & Kamp         Expires June 1, 2019                 [Page 30]
 Internet-Draft         Structured Headers for HTTP         November 2018
 
 
+   When specifying more than one header, it's important to remember to
+   describe what a processor's behaviour should be when one of the
+   headers is missing.
+
    If you need to fit arbitrarily complex data into a header, Structured
    Headers is probably a poor fit for your use case.
 
-Appendix B.  Changes
+Appendix C.  Changes
 
    _RFC Editor: Please remove this section before publication._
 
-B.1.  Since draft-ietf-httpbis-header-structure-08
+C.1.  Since draft-ietf-httpbis-header-structure-08
 
    o  Disallow whitespace before items properly (#703).
 
@@ -1711,7 +1715,7 @@ B.1.  Since draft-ietf-httpbis-header-structure-08
 
    o  Rename Identifier to Token (#725).
 
-B.2.  Since draft-ietf-httpbis-header-structure-07
+C.2.  Since draft-ietf-httpbis-header-structure-07
 
    o  Make Dictionaries ordered mappings (#659).
 
@@ -1726,10 +1730,6 @@ B.2.  Since draft-ietf-httpbis-header-structure-07
 
    o  Allow identifiers in items again (#629).
 
-   o  Disallowed whitespace before items (#703).
-
-   o  Explain the consequences of splitting a string across multiple
-      headers (#686).
 
 
 
@@ -1738,7 +1738,12 @@ Nottingham & Kamp         Expires June 1, 2019                 [Page 31]
 Internet-Draft         Structured Headers for HTTP         November 2018
 
 
-B.3.  Since draft-ietf-httpbis-header-structure-06
+   o  Disallowed whitespace before items (#703).
+
+   o  Explain the consequences of splitting a string across multiple
+      headers (#686).
+
+C.3.  Since draft-ietf-httpbis-header-structure-06
 
    o  Add a FAQ.
 
@@ -1746,7 +1751,7 @@ B.3.  Since draft-ietf-httpbis-header-structure-06
 
    o  Explicitly check for integers that violate constraints.
 
-B.4.  Since draft-ietf-httpbis-header-structure-05
+C.4.  Since draft-ietf-httpbis-header-structure-05
 
    o  Reorganise specification to separate parsing out.
 
@@ -1757,7 +1762,7 @@ B.4.  Since draft-ietf-httpbis-header-structure-05
    o  Refine relationship between ABNF, parsing and serialisation
       algorithms.
 
-B.5.  Since draft-ietf-httpbis-header-structure-04
+C.5.  Since draft-ietf-httpbis-header-structure-04
 
    o  Remove identifiers from item.
 
@@ -1765,11 +1770,11 @@ B.5.  Since draft-ietf-httpbis-header-structure-04
 
    o  Refine number parsing.
 
-B.6.  Since draft-ietf-httpbis-header-structure-03
+C.6.  Since draft-ietf-httpbis-header-structure-03
 
    o  Strengthen language around failure handling.
 
-B.7.  Since draft-ietf-httpbis-header-structure-02
+C.7.  Since draft-ietf-httpbis-header-structure-02
 
    o  Split Numbers into Integers and Floats.
 
@@ -1781,11 +1786,6 @@ B.7.  Since draft-ietf-httpbis-header-structure-02
 
    o  Allow zero-length strings.
 
-   o  Improve string parsing algorithm.
-
-   o  Improve limits in algorithms.
-
-   o  Require parsers to combine header fields before processing.
 
 
 
@@ -1794,13 +1794,19 @@ Nottingham & Kamp         Expires June 1, 2019                 [Page 32]
 Internet-Draft         Structured Headers for HTTP         November 2018
 
 
+   o  Improve string parsing algorithm.
+
+   o  Improve limits in algorithms.
+
+   o  Require parsers to combine header fields before processing.
+
    o  Throw an error on trailing garbage.
 
-B.8.  Since draft-ietf-httpbis-header-structure-01
+C.8.  Since draft-ietf-httpbis-header-structure-01
 
    o  Replaced with draft-nottingham-structured-headers.
 
-B.9.  Since draft-ietf-httpbis-header-structure-00
+C.9.  Since draft-ietf-httpbis-header-structure-00
 
    o  Added signed 64bit integer type.
 
@@ -1822,12 +1828,6 @@ Authors' Addresses
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
-
-
-
-
 
 
 
