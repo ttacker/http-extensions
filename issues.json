@@ -1,6 +1,61 @@
 [
 
   {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/728",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/728/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/728/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/728/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/728",
+    "id": 385129540,
+    "node_id": "MDU6SXNzdWUzODUxMjk1NDA=",
+    "number": 728,
+    "title": "Serialising list-of-list allows empty sub-lists",
+    "user": {
+      "login": "phluid61",
+      "id": 324275,
+      "node_id": "MDQ6VXNlcjMyNDI3NQ==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/324275?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/phluid61",
+      "html_url": "https://github.com/phluid61",
+      "followers_url": "https://api.github.com/users/phluid61/followers",
+      "following_url": "https://api.github.com/users/phluid61/following{/other_user}",
+      "gists_url": "https://api.github.com/users/phluid61/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/phluid61/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/phluid61/subscriptions",
+      "organizations_url": "https://api.github.com/users/phluid61/orgs",
+      "repos_url": "https://api.github.com/users/phluid61/repos",
+      "events_url": "https://api.github.com/users/phluid61/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/phluid61/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 499581321,
+        "node_id": "MDU6TGFiZWw0OTk1ODEzMjE=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/header-structure",
+        "name": "header-structure",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2018-11-28T07:04:03Z",
+    "updated_at": "2018-11-28T07:43:22Z",
+    "closed_at": "2018-11-28T07:43:22Z",
+    "author_association": "CONTRIBUTOR",
+    "body": "The algorithm for serialising a list of lists allows empty sub-lists `[[], []]` => `\", \"`"
+  },
+  {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/727",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
     "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/727/labels{/name}",
@@ -41,17 +96,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-11-23T06:45:37Z",
-    "updated_at": "2018-11-23T06:45:37Z",
-    "closed_at": null,
+    "updated_at": "2018-11-29T06:04:13Z",
+    "closed_at": "2018-11-29T06:04:13Z",
     "author_association": "MEMBER",
     "body": "Seems useful to give, possibly in an appendix?"
   },
@@ -158,17 +213,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 4,
     "created_at": "2018-11-21T04:34:36Z",
-    "updated_at": "2018-11-21T04:34:36Z",
-    "closed_at": null,
+    "updated_at": "2018-11-29T06:08:04Z",
+    "closed_at": "2018-11-29T06:08:04Z",
     "author_association": "MEMBER",
     "body": "A bit of an unwieldy name. Perhaps:\r\n\r\n* Token\r\n* Word\r\n* ???"
   },
@@ -384,7 +439,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -393,8 +448,8 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2018-11-13T04:48:23Z",
-    "updated_at": "2018-11-23T06:38:53Z",
-    "closed_at": null,
+    "updated_at": "2018-11-28T07:18:05Z",
+    "closed_at": "2018-11-28T07:18:05Z",
     "author_association": "MEMBER",
     "body": "Variants needs a structure like this:\r\n\r\n~~~\r\nHeader: foo; bar;baz, bat;brrr;whatever\r\n~~~\r\n\r\ni.e., a list-of-lists.\r\n\r\nParamList isn't suitable because:\r\n\r\n* The discontinuity introduced between the possible syntax for `item` and `key`\r\n* The lack of ordering for parameters\r\n\r\nAdding a list of lists datatype seems pretty straightforward, but I'm conscious that we can't keep on adding stuff if we want people to implement. \r\n\r\nThe other approach would be to remove the discontinuity between `item` and `key` (i.e., revert their split from #702) *and* make parameters into an ordered mapping (as we did for dictionaries).\r\n\r\nThoughts?"
   },
@@ -1087,9 +1142,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2018-10-23T21:48:18Z",
-    "updated_at": "2018-10-29T23:47:34Z",
+    "updated_at": "2018-11-29T04:23:09Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -1728,7 +1783,10 @@
     "closed_at": "2018-10-02T08:14:08Z",
     "author_association": "NONE",
     "body": "> Implementers [...] MUST clear persisted opt-in preferences when site data, browsing history, browsing cache, or similar, are cleared.\r\n\r\n@igrigorik I think that sentence can be read in two ways: \"opt-ins must be deleted whenever any of [site data, browsing history, browsing cache, or similar] are cleared\" or \"there must be at least one out of [site data, browsing history, browsing cache, or similar] whose deletion also triggers the deletion of CH opt-ins\". Could you please clarify?\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/698",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -1783,10 +1841,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "`sizes` isn’t mentioned in the spec, and many people dealing in Client Hints from within HTML do not know that it is required in order for clients to send a `Width` hint.\r\n\r\nI've seen a lot of [confusion](https://github.com/ojanvafai/intrinsicsize-attribute/issues/7#issuecomment-416764898) about the relationship between the two elements. Is there value to keeping it vague?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/697",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3373,7 +3428,10 @@
     "closed_at": "2018-08-01T01:11:39Z",
     "author_association": "NONE",
     "body": "Section 4.1.1 (Serialising a Dictionary) seems inaccurate. It makes no mention of where the delimiter between successive key-value pairs (a comma) should be placed when serializing a dictionary, and how much whitespace to add before/after the delimiter"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/668",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3428,10 +3486,7 @@
     "closed_at": "2018-08-16T08:15:52Z",
     "author_association": "NONE",
     "body": "Section 4.2.6 (Parsing a Number from Text) is ambiguous. It makes no mention of the exit condition from the while loop in step 7 on parsing a number from an input buffer."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/667",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5335,7 +5390,10 @@
     "closed_at": "2018-06-04T20:59:14Z",
     "author_association": "CONTRIBUTOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/638",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5436,10 +5494,7 @@
     "closed_at": "2018-06-04T21:17:45Z",
     "author_association": "CONTRIBUTOR",
     "body": "In section 1.2, note that \"host\" is meant to be equivalent to \"server\", and not a client."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/637",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7383,7 +7438,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/609.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/608",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7438,10 +7496,7 @@
     "closed_at": "2018-05-07T11:50:33Z",
     "author_association": "CONTRIBUTOR",
     "body": "Much of the text of \"3.3 Rich Functionality\" discusses the merits of granular uris, but in one fell swoop it dismisses post/single-uri pattern as benefiting from only a very short and finite list of features: message framing, and availability of implementations.\r\n\r\nI find the former convincing, but the latter dismissal rather unconvincing.. it gives the air of being a complete argument but leaves out a lot of valuable other things even in a mere tunnel case - e.g. proxy support, varied authentication schemes, content negotiation, language negotiation, multiplexing  in h2, alt-service routing, coalsecing, and cross-origin policy enforcement in a browser, etc... These are reasonable motivators and you might be underselling the value of high quality available implementations for all aspects of the ecosystem including load balancers.\r\n\r\nI wonder if this could be more focused on the merits of URI design rather than saying - if you don't find that a match don't use http.\r\n\r\nand the bullet about \"The ability to interact with the application easily using a Web browser\" might be clarified to mean in a linkable/browsable/discoverable sense rather than excluding a fetch based API for it.."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/607",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -9110,7 +9165,10 @@
     "closed_at": "2018-04-30T06:16:55Z",
     "author_association": "MEMBER",
     "body": "Do we feel confident enough to say anything about Push yet? Or conversely, should we warn that we don't know if it's going to be useful?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/578",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -9171,10 +9229,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/578.patch"
     },
     "body": "For #433.\r\n\r\nThis:\r\n* Removes the size limits for all types except floats, integers and identifiers\r\n* Specifies minimum sizes for parsers to support (currently, the old limits; discuss?)\r\n* Adds some Security Considerations about header sizes.\r\n\r\nIt seemed like the right thing to do to hard-limit identifiers, since they're used as dictionary keys, etc. Thoughts?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/577",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -10944,7 +10999,10 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "Would an algorithm to key the cache on a cookie by name work?\r\n\r\n_(moved from mnot/I-D)_"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/548",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -10999,10 +11057,7 @@
     "closed_at": "2018-04-19T07:28:46Z",
     "author_association": "MEMBER",
     "body": "Allow a response to associate itself with more than one variant.\r\n\r\n_(moved from mnot/I-D)_"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/547",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -12817,7 +12872,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/519.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/518",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -12871,10 +12929,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/518.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/517",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -14760,7 +14815,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/489.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/488",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -14821,10 +14879,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/488.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/487",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -16618,7 +16673,10 @@
     "closed_at": "2018-02-01T07:25:08Z",
     "author_association": "MEMBER",
     "body": "Many of the algorithms in structured-headers are defined as taking input_string and returning a parsed X after modifying input_string to remove the X.  This is a pretty common way of building an inline parser.\r\n\r\nTake label, which describes an initial step of:\r\n\r\n> If input_string contains more than 256 characters, throw an error.\r\n\r\nBut a label can be followed by other things that will cause the overall string to exceed this length.  So this check is invalid.\r\n\r\nI'd recommend moving the size checks into the algorithm body.  If X exceeds length maxlen(X), then throw as you are scrubbing through.\r\n\r\n\r\n(from @martinthomson)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/458",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -16673,10 +16731,7 @@
     "closed_at": "2018-02-13T04:44:25Z",
     "author_association": "MEMBER",
     "body": "Don't depend on state in connection\r\n\r\nhttps://mailarchive.ietf.org/arch/msg/ietf/SF3k5e76DmMjwtPz9Zt342Q0GSc"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/457",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -18493,7 +18548,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/429.patch"
     },
     "body": "I think that these are the main places where we weren't clear enough about the relevant TLS role."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/428",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -18554,10 +18612,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/428.patch"
     },
     "body": "This makes mitigation mandatory.  Either receive a signal that early data is safe for the given resource, or apply the mitigations.  That's consistent with the other text."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/427",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -20838,7 +20893,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/399.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/398",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -20907,10 +20965,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/398.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/397",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22928,7 +22983,10 @@
     "closed_at": "2017-07-31T04:36:03Z",
     "author_association": "MEMBER",
     "body": "From Lucas:\r\n\r\nIf my interpretation of the specification is correct, the Origin Set is currently unbounded. While the size of an individual H2 frame is bounded and negotiated, the Origin set can seemingly be added to ad nauseam. Even in the default size case, for a short ASCII-Origin such as http://dk, if might be possible to create an Origin set with ~1500 entries. I like the fact that ORIGIN frame extension doesn’t need any negotiation, so perhaps some guidance for client-side implementations would help e.g. be aware of the Origin Set size and be prepared to close the connection if you’re getting unhappy."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/368",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22991,10 +23049,7 @@
     "closed_at": "2017-07-31T04:10:57Z",
     "author_association": "MEMBER",
     "body": "From Lucas:\r\n\r\nI naively assumed the ORIGIN frame was very similar to the ALTSVC frame, I missed out on the repetition element. I think it would help to improve upon diagram in section 2.1, first coin a term for the Origin-Len:ASCII-Origin pair (it is loosely referred to as set, which is easily confused with Origin Set), for this email I’ll use the term Origin-Entry. Section 2.1 would be changed to contain two clearly labelled diagrams: one shall show the fields comprising an Origin-Entry, the other shall show the ORIGIN frame payload as an OPTIONAL sequence of Origin-Entries, with cardinality of 0-*. 0 indicates an empty ORIGIN frame, which is implied by the text in Appendix B - “inform the client that the connection is only to be used for the SNI-based origin, by sending an empty ORIGIN frame.”."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/367",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -25047,7 +25102,10 @@
     "closed_at": "2017-06-20T00:05:17Z",
     "author_association": "NONE",
     "body": "When investigating http extensions, I came across the `ORIGIN` frame draft here.\r\n\r\nAlthough I think the goals set out for it are good, there are some inherent issues with adding this extension:\r\n- Service exposure on servers: the `ORIGIN` frame will potentially expose previously unknown services on the same host (e.g. administration interfaces on different ports) that should not be advertised.\r\n- Shared-host exposure: the frame will (by design) expose other domains/hosts served by the same server. For shared hosts, this can cause severe privacy issues by exposing which other domains/hosts are served by the same server.\r\n- Origin IP exposure: unless explicitly filtered out, any reverse-proxied connection can expose the origin server's IP to a connecting client, due to the previous point's type of exposure. \r\ne.g. `example.com` is proxied, `example2.com` is not proxied. Connecting to `example.com` connects to the proxy, exposes `example2.com` also being hosted in the `ORIGIN` frame. Looking up `example2.com` in DNS then exposes the origin IP of `example.com`."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/338",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -25146,10 +25204,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/338.patch"
     },
     "body": "addresses #333"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/337",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -27034,7 +27089,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/309.patch"
     },
     "body": "Closes https://github.com/httpwg/http-extensions/issues/308."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/308",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -27135,10 +27193,7 @@
     "closed_at": "2017-03-14T08:03:05Z",
     "author_association": "MEMBER",
     "body": "Taking a run through the spec before we sent it upstairs, a few suggestions --\r\n\r\n* In the abstract, `s/clients/user agents/g` (proxies aren't going to generate them, and shouldn't try)\r\n* Introduction - you might get complaints about the \"UA\" abbreviation; spell out as `User-Agent`?\r\n* Section 2 - \"Each one conveys a list of client preferences\" -- are they all list-based?\r\n* 2.2 - \"Servers respond with an optimized response based on one or more received hints from the client.\" -- awkward; suggest: \"When presented with a request that contains one or more client hint headers, servers can optimise the response based upon the information in them.\"\r\n* 2.2 - \"used hint\" --> \"hint used\"\r\n* 2.2 - \"emit\" --> \"generate\"  (has meaning in HTTP)\r\n* 2.2 \"confirm the property of the response, such that the client can adjust its processing\" --> \"convey related values to aid client processing\"\r\n* Sections 3-7: These feel like they should all be in their own subsection. Also, would you consider changing \"client hint\" in each title to \"header field\"? That will emphasise that they're just regular headers, not some new class of thing (I continue to be concerned that people think these are magical because they are called Client Hints).\r\n* Section 7: \"New token and extension token values can only be defined by revisions of this specification\" --> \"New token and extension token values can be defined by updates to this specification.\"  (IETF-specific wording)\r\n* Section 9: \"Client Hints defined in this specification do not expose new information about the user’s environment beyond what is already available to, and can be communicated by, the application at runtime via JavaScript and CSS.\" --> \"The request header fields defined in this specification expose information that is already available to Web applications in the browser runtime itself (e.g., using JavaScript and CSS).\"\r\n* Section 9: \"However, implementors should consider the privacy implications of various methods to enable delivery of Client Hints - see “Sending Client Hints” section.\" --> \"However, servers that gather this information through such mechanisms are typically observable (e.g., you can see that they're using JavaScript to gather it), whereas servers' use of the header fields introduced by this specification is not observable. Section 2.1 discusses potential mitigations.\" \r\n* Section 9: \"might reduce such fingerprinting risks\" --> \"can help mitigate the risk of such fingerprinting.\"\r\n* Section 9: \"The implementers can...\" --> \"Implementers ought to...\"\r\n* Section 9: \"...advertised: require...\" --> \"...advertised. For example, they could require...\""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/307",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -28970,7 +29025,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/279.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/278",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -29024,10 +29082,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/278.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/277",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -30749,7 +30804,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/249.patch"
     },
     "body": "I think that these are all editorial.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/248",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -30850,10 +30908,7 @@
     "closed_at": "2017-08-07T13:08:55Z",
     "author_association": "NONE",
     "body": "Firefox and Tor Browser are introducing an [option](https://www.torproject.org/projects/torbrowser/design/#idp55056352) to \"double-key\" cookies by (origin-domain|first-party-domain). (The first-party domain is defined as domain of the top-level document, visible to the user as the domain in the URL bar at the top of the browser.)\n\nWith double keying, it is possible for third-party cookies to be stored and retrieved, these third-party cookies cannot be used for tracking across websites.\n\nI think this policy is notable in that it keeps third-party cookies enabled but also prevents tracking. Thus third-party cookies function properly for many use cases. I would like to suggest adding this policy to the discussion of examples in RFC6265 section 7.1, \"Third-party cookies.\" After the sentence, \n\n> Others refuse to process the Set-Cookie header in responses to third-party requests.\n\nit might be of helpful to add something like\n\n> Still others store third-party cookies loaded by different first-party domains into separate cookie databases, to prevent cross-site tracking.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/247",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -32698,7 +32753,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "That would make it easier to watch and participate in just what is of interest to you.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/218",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -32759,10 +32817,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/218.patch"
     },
     "body": "This is only really needed by webpush and that spec can take the necessary pieces.  This is a LOT simpler as a result of this change.\n\n[Preview the changes](http://httpwg.org/http-extensions/simple_base/draft-ietf-httpbis-encryption-encoding.html).\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/217",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -34528,7 +34583,10 @@
     "closed_at": "2016-06-07T06:38:09Z",
     "author_association": "CONTRIBUTOR",
     "body": "\"Servers can advertise support for Client Hints using the Accept-CH header field or an equivalent HTML meta element with http-equiv attribute ([W3C.REC-html5-20141028]).\"\n\nIn which case it should be added to https://wiki.whatwg.org/wiki/PragmaExtensions  (like it or not).\n\n\"When a client receives Accept-CH, it SHOULD append the Client Hint header fields that match the advertised field-values. For example, based on Accept-CH example above, the client would append DPR, Width, Viewport-Width, and Downlink header fields to all subsequent requests.\"\n\nQ: does the SHOULD also apply to the HTML http-equiv variant?\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/188",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -34583,10 +34641,7 @@
     "closed_at": "2016-07-08T01:03:35Z",
     "author_association": "CONTRIBUTOR",
     "body": "Using HTTP and HTTPS schemes on a single OppSec connection seems like asking for trouble, especially as the latter would be authenticated and the former might not.  We should explicitly prohibit this (clients MUST NOT) and servers SHOULD presumably respond with a 4xx (421?) if mixing of schemes is detected.  The exact vulnerabilities or ways to exploit are unclear, but mixing authenticated and unauthenticated (or secure and insecure) communications over a single TLS channel seems  dangerous.\n\nIt may be reasonable to allow a server to advertise mixing HTTP and HTTPS under a strongly authenticated /.well-known/http-opportunistic (similar to commit), but mixing schemes shouldn't be the default.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/187",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -36244,7 +36299,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "As a part of discussion in whatwg/html#804 I've made a [research](http://inikulin.github.io/cookie-compat/) of the modern browsers compatibility with the RFC 6265. It appears that all browsers nowadays allows cookies without key or (in case of Safari) without value, thus making it de facto standard. However, it's debatable how cookies like `foo;` should be treated: as the cookie without value or without key. Thinking of cookie jar as some kind of key/value store makes it more logical to treat such cookie as cookies without value, but on the other hand, currently most implementers treats them as the cookies with the special empty key.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/158",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -36298,10 +36356,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/158.patch"
     },
     "body": "Thanks to @beverloo for identifying the bug in my code that caused this to take so long.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/157",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -37914,7 +37969,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/129.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/128",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -37968,10 +38026,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/128.patch"
     },
     "body": "Need to check that this is OK first.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/127",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39725,7 +39780,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/99.patch"
     },
     "body": "An alternate can send an Alt-Svc field that overrides that sent by the origin and is cached on an equal basis.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/98",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39786,10 +39844,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/98.patch"
     },
     "body": "Text giving recommendations for guarding against spoofed certs.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/97",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -41596,7 +41651,10 @@
     "closed_at": "2015-09-20T09:05:05Z",
     "author_association": "CONTRIBUTOR",
     "body": "must ignore? how to register new ones? IANA registry?\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/68",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -41650,10 +41708,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/68.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/67",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -43348,7 +43403,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/39.patch"
     },
     "body": "A possible implementation of http://lists.w3.org/Archives/Public/ietf-http-wg/2015JanMar/0062.html.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/38",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -43403,10 +43461,7 @@
     "closed_at": "2015-01-29T16:21:43Z",
     "author_association": "CONTRIBUTOR",
     "body": "http://lists.w3.org/Archives/Public/ietf-http-wg/2015JanMar/0056.html\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/37",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -45238,7 +45293,10 @@
     "closed_at": "2014-08-15T04:00:07Z",
     "author_association": "MEMBER",
     "body": "We need to define how a client using OppSec connects to a configured proxy; e.g., does it CONNECT, or does it downgrade? Does the answer change if the proxy is http vs https? Can the proxy advertise OppSec?\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/8",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -45331,10 +45389,7 @@
     "closed_at": "2014-08-18T01:06:07Z",
     "author_association": "MEMBER",
     "body": "<a href=\"https://github.com/martinthomson\"><img src=\"https://avatars.githubusercontent.com/u/67641?\" align=\"left\" width=\"96\" height=\"96\" hspace=\"10\"></img></a> **Issue by [martinthomson](https://github.com/martinthomson)**\n_Thursday Jun 12, 2014 at 18:00 GMT_\n_Originally opened as https://github.com/http2/http2-spec/issues/522_\n\n---\n\nWhat are the semantics of subsequent ALTSVC frames for a given origin?\n\nThe current story is that a new value replaces the value of the old for that origin.\n\nAlternatively, we could have multiple frames present alternative alternative services.  That opens the question of how to indicate that a given service is obsolete.  But it's not clear we even need to do that.\n\nThen there is the fact that the Alt-Svc header field can have multiple values (see #521).  Do we need to replicate that capability for frames?\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/7",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
