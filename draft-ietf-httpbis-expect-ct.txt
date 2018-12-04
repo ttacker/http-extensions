@@ -1184,6 +1184,9 @@ Internet-Draft                  Expect-CT                  December 2018
 
    o  Limit report-uris to HTTPS only.
 
+   o  Note that this version of Expect-CT is only compatible with RFC
+      6962 and 6962-bis, not any future versions of CT.
+
 A.2.  Since -06
 
    o  Editorial changes
@@ -1222,10 +1225,7 @@ A.8.  Since -00
 
    o  Editorial changes
 
-   o  Change Content-Type header of reports to 'application/expect-ct-
-      report+json'
 
-   o  Update header field syntax to match convention (issue #327)
 
 
 
@@ -1233,6 +1233,11 @@ Stark                     Expires June 7, 2019                 [Page 22]
 
 Internet-Draft                  Expect-CT                  December 2018
 
+
+   o  Change Content-Type header of reports to 'application/expect-ct-
+      report+json'
+
+   o  Update header field syntax to match convention (issue #327)
 
    o  Reference RFC 6962-bis instead of RFC 6962
 
@@ -1242,11 +1247,6 @@ Author's Address
    Google
 
    Email: estark@google.com
-
-
-
-
-
 
 
 
