@@ -4,8 +4,8 @@
 
 HTTP Working Group                                              E. Stark
 Internet-Draft                                                    Google
-Intended status: Experimental                          November 29, 2018
-Expires: June 2, 2019
+Intended status: Experimental                           December 4, 2018
+Expires: June 7, 2019
 
 
                       Expect-CT Extension for HTTP
@@ -17,9 +17,10 @@ Abstract
    allows web host operators to instruct user agents to expect valid
    Signed Certificate Timestamps (SCTs) to be served on connections to
    these hosts.  Expect-CT allows web host operators to discover
-   misconfigurations in their Certificate Transparency deployments and
-   ensure that misissued certificates accepted by UAs are discoverable
-   in Certificate Transparency logs.
+   misconfigurations in their Certificate Transparency deployments.
+   Further, web host operaters can use Expect-CT to ensure that, if a UA
+   which supports Expect-CT accepts a misissued certificate, that
+   certificate will be discoverable in Certificate Transparency logs.
 
 Note to Readers
 
@@ -46,16 +47,15 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 2, 2019.
+   This Internet-Draft will expire on June 7, 2019.
 
 
 
 
 
-
-Stark                     Expires June 2, 2019                  [Page 1]
+Stark                     Expires June 7, 2019                  [Page 1]
 
-Internet-Draft                  Expect-CT                  November 2018
+Internet-Draft                  Expect-CT                  December 2018
 
 
 Copyright Notice
@@ -88,30 +88,30 @@ Table of Contents
        2.2.1.  HTTP-over-Secure-Transport Request Type . . . . . . .   8
        2.2.2.  HTTP Request Type . . . . . . . . . . . . . . . . . .   8
      2.3.  User Agent Processing Model . . . . . . . . . . . . . . .   8
-       2.3.1.  Missing or Malformed Expect-CT Header Fields  . . . .   8
+       2.3.1.  Missing or Malformed Expect-CT Header Fields  . . . .   9
        2.3.2.  Expect-CT Header Field Processing . . . . . . . . . .   9
-       2.3.3.  Reporting . . . . . . . . . . . . . . . . . . . . . .  10
+       2.3.3.  Reporting . . . . . . . . . . . . . . . . . . . . . .  11
      2.4.  Evaluating Expect-CT Connections for CT Compliance  . . .  11
-       2.4.1.  Skipping CT compliance checks . . . . . . . . . . . .  11
+       2.4.1.  Skipping CT compliance checks . . . . . . . . . . . .  12
    3.  Reporting Expect-CT Failure . . . . . . . . . . . . . . . . .  12
      3.1.  Generating a violation report . . . . . . . . . . . . . .  12
      3.2.  Sending a violation report  . . . . . . . . . . . . . . .  14
      3.3.  Receiving a violation report  . . . . . . . . . . . . . .  15
-   4.  Usability Considerations  . . . . . . . . . . . . . . . . . .  15
-   5.  Authoring Considerations  . . . . . . . . . . . . . . . . . .  15
+   4.  Usability Considerations  . . . . . . . . . . . . . . . . . .  16
+   5.  Authoring Considerations  . . . . . . . . . . . . . . . . . .  16
    6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .  16
-   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
-     7.1.  Hostile header attacks  . . . . . . . . . . . . . . . . .  16
+   7.  Security Considerations . . . . . . . . . . . . . . . . . . .  17
+     7.1.  Hostile header attacks  . . . . . . . . . . . . . . . . .  17
      7.2.  Maximum max-age . . . . . . . . . . . . . . . . . . . . .  17
-     7.3.  Amplification attacks . . . . . . . . . . . . . . . . . .  17
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
+     7.3.  Amplification attacks . . . . . . . . . . . . . . . . . .  18
+   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
      8.1.  Header Field Registry . . . . . . . . . . . . . . . . . .  18
 
 
 
-Stark                     Expires June 2, 2019                  [Page 2]
+Stark                     Expires June 7, 2019                  [Page 2]
 
-Internet-Draft                  Expect-CT                  November 2018
+Internet-Draft                  Expect-CT                  December 2018
 
 
      8.2.  Media Types Registry  . . . . . . . . . . . . . . . . . .  18
@@ -121,14 +121,14 @@ Internet-Draft                  Expect-CT                  November 2018
      9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  21
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  21
      A.1.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  21
-     A.2.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  21
-     A.3.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  21
+     A.2.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  22
+     A.3.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  22
      A.4.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  22
      A.5.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  22
      A.6.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  22
      A.7.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  22
      A.8.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  22
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  22
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  23
 
 1.  Introduction
 
@@ -165,9 +165,9 @@ Internet-Draft                  Expect-CT                  November 2018
 
 
 
-Stark                     Expires June 2, 2019                  [Page 3]
+Stark                     Expires June 7, 2019                  [Page 3]
 
-Internet-Draft                  Expect-CT                  November 2018
+Internet-Draft                  Expect-CT                  December 2018
 
 
    allowing web hosts to be confident that UAs are only trusting
@@ -179,6 +179,13 @@ Internet-Draft                  Expect-CT                  November 2018
    identifies.  Similarly, Expect-CT allows web sites to declare
    themselves accessible only via connections that are compliant with CT
    policy.
+
+   This Expect-CT specification is compatible with [RFC6962] and
+   [I-D.ietf-trans-rfc6962-bis], but not with future versions of
+   Certificate Transparency.  Expect-CT header fields will be ignore
+   from web hosts which use future versions of Certificate Transparency,
+   unless a future version of this document specifies how they should be
+   processed.
 
 1.1.  Requirements Language
 
@@ -211,20 +218,19 @@ Internet-Draft                  Expect-CT                  November 2018
    o  "Effective Expect-CT Date" is the time at which a UA observed a
       valid Expect-CT header field for a given host.
 
+
+
+
+Stark                     Expires June 7, 2019                  [Page 4]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    o  "Expect-CT Host" is a conformant host implementing the HTTP server
       aspects of Expect-CT.  This means that an Expect-CT Host returns
       the "Expect-CT" HTTP response header field in its HTTP response
       messages sent over secure transport.  The term "host" is
       equivalent to "server" in this specification.
-
-
-
-
-
-Stark                     Expires June 2, 2019                  [Page 4]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
    o  "Known Expect-CT Host" is an Expect-CT Host that the UA has noted
       as such.  See Section 2.3.2.1 for particulars.
@@ -268,19 +274,18 @@ Internet-Draft                  Expect-CT                  November 2018
 
    3.  Directive names are case insensitive.
 
+
+
+
+Stark                     Expires June 7, 2019                  [Page 5]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    4.  UAs MUST ignore any header fields containing directives, or other
        header field value data that do not conform to the syntax defined
        in this specification.  In particular, UAs MUST NOT attempt to
        fix malformed header fields.
-
-
-
-
-
-Stark                     Expires June 2, 2019                  [Page 5]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
    5.  If a header field contains any directive(s) the UA does not
        recognize, the UA MUST ignore those directives.
@@ -326,17 +331,16 @@ Internet-Draft                  Expect-CT                  November 2018
    failures on the Expect-CT host do not prevent reports from being
    sent.
 
+
+
+Stark                     Expires June 7, 2019                  [Page 6]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    UAs SHOULD limit the rate at which they send reports.  For example,
    it is unnecessary to send the same report to the same "report-uri"
    more than once in the same web browsing session.
-
-
-
-
-Stark                     Expires June 2, 2019                  [Page 6]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
 2.1.2.  The enforce Directive
 
@@ -377,6 +381,19 @@ Internet-Draft                  Expect-CT                  November 2018
    header fields (where the second splits the directives into two field
    instances):
 
+
+
+
+
+
+
+
+
+Stark                     Expires June 7, 2019                  [Page 7]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    Expect-CT: max-age=86400, enforce
 
    Expect-CT: max-age=86400,enforce
@@ -385,14 +402,6 @@ Internet-Draft                  Expect-CT                  November 2018
    Expect-CT: max-age=86400,report-uri="https://foo.example/report"
 
        Figure 4: Examples of valid Expect-CT response header fields
-
-
-
-
-Stark                     Expires June 2, 2019                  [Page 7]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
 2.2.  Host Processing Model
 
@@ -433,22 +442,19 @@ Internet-Draft                  Expect-CT                  November 2018
    directives.  This data is collectively known as a host's "Expect-CT"
    metadata".
 
+
+
+
+Stark                     Expires June 7, 2019                  [Page 8]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
 2.3.1.  Missing or Malformed Expect-CT Header Fields
 
    If an HTTP response does not include an Expect-CT header field that
    conforms to the grammar specified in Section 2.1, then the UA MUST
    NOT update any Expect-CT metadata.
-
-
-
-
-
-
-
-Stark                     Expires June 2, 2019                  [Page 8]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
 2.3.2.  Expect-CT Header Field Processing
 
@@ -480,18 +486,33 @@ Internet-Draft                  Expect-CT                  November 2018
       was previously noted as a Known Expect-CT Host, and MUST NOT note
       this host as a Known Expect-CT Host if it is not already noted.
 
+   If a UA receives an Expect-CT header field over a CT-compliant
+   connection which uses a version of Certificate Transparency other
+   than [RFC6962] or [I-D.ietf-trans-rfc6962-bis], the UA MUST ignore
+   the Expect-CT header field and clear any Expect-CT metadata
+   associated with the host.
+
 2.3.2.1.  Noting Expect-CT
 
    Upon receipt of the Expect-CT response header field over an error-
    free TLS connection (with X.509 certificate chain validation as
    described in [RFC5280], as well as the validation described in
    Section 2.4), the UA MUST note the host as a Known Expect-CT Host,
+
+
+
+Stark                     Expires June 7, 2019                  [Page 9]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    storing the host's domain name and its associated Expect-CT
    directives in non-volatile storage.
 
    To note a host as a Known Expect-CT Host, the UA MUST set its Expect-
-   CT metadata given in the most recently received valid Expect-CT
-   header field, as specified in Section 2.3.2.2.
+   CT metadata in its Known Expect-CT Host cache (as specified in
+   Section 2.3.2.2, using the metadata given in the most recently
+   received valid Expect-CT header field.
 
    For forward compatibility, the UA MUST ignore any unrecognized
    Expect-CT header field directives, while still processing those
@@ -499,20 +520,14 @@ Internet-Draft                  Expect-CT                  November 2018
    "enforce", "max-age", and "report-uri", but future specifications and
    implementations might use additional directives.
 
-
-
-Stark                     Expires June 2, 2019                  [Page 9]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
 2.3.2.2.  Storage Model
 
    If the substring matching the host production from the Request-URI
-   (of the message to which the host responded) does not congruently
-   match an existing Known Expect-CT Host's domain name, per the
-   matching procedure specified in Section 8.2 of [RFC6797], then the UA
-   MUST add this host to the Known Expect-CT Host cache.  The UA caches:
+   (of the message to which the host responded) does not exactly match
+   an existing Known Expect-CT Host's domain name, per the matching
+   procedure for a Congruent Match specified in Section 8.2 of
+   [RFC6797], then the UA MUST add this host to the Known Expect-CT Host
+   cache.  The UA caches:
 
    o  the Expect-CT Host's domain name,
 
@@ -534,11 +549,19 @@ Internet-Draft                  Expect-CT                  November 2018
    UAs MAY set an upper limit on the value of max-age, so that UAs that
    have noted erroneous Expect-CT hosts (whether by accident or due to
    attack) have some chance of recovering over time.  If the server sets
-   a max-age greater than the UA's upper limit, the UA MAY behave as if
+   a max-age greater than the UA's upper limit, the UA may behave as if
    the server set the max-age to the UA's upper limit.  For example, if
    the UA caps max-age at 5,184,000 seconds (60 days), and an Expect-CT
    Host sets a max- age directive of 90 days in its Expect-CT header
-   field, the UA MAY behave as if the max-age were effectively 60 days.
+   field, the UA may behave as if the max-age were effectively 60 days.
+
+
+
+Stark                     Expires June 7, 2019                 [Page 10]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    (One way to achieve this behavior is for the UA to simply store a
    value of 60 days instead of the 90-day value provided by the Expect-
    CT host.)
@@ -551,16 +574,6 @@ Internet-Draft                  Expect-CT                  November 2018
    connection is not CT-qualified), and the UA has not already sent an
    Expect-CT report for this connection, then the UA SHOULD send a
    report to the specified "report-uri" as specified in Section 3.
-
-
-
-
-
-
-Stark                     Expires June 2, 2019                 [Page 10]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
 2.4.  Evaluating Expect-CT Connections for CT Compliance
 
@@ -575,25 +588,35 @@ Internet-Draft                  Expect-CT                  November 2018
    if the TLS connection has no errors, then the UA will apply an
    additional correctness check: compliance with a CT Policy.  A UA
    should evaluate compliance with its CT Policy whenever connecting to
-   a Known Expect-CT Host, as soon as possible.  However, the check can
-   be skipped for local policy reasons (as discussed in Section 2.4.1),
-   or in the event that other checks cause the UA to terminate the
-   connection before CT compliance is evaluated.  For example, a Public
-   Key Pinning failure [RFC7469] could cause the UA to terminate the
-   connection before CT compliance is checked.  Similarly, if the UA
-   terminates the connection due to an Expect-CT failure, this could
-   cause the UA to skip subsequent correctness checks.  When the CT
-   compliance check is skipped or bypassed, Expect-CT reports
-   (Section 3) will not be sent.
+   a Known Expect-CT Host.  However, the check can be skipped for local
+   policy reasons (as discussed in Section 2.4.1), or in the event that
+   other checks cause the UA to terminate the connection before CT
+   compliance is evaluated.  For example, a Public Key Pinning failure
+   [RFC7469] could cause the UA to terminate the connection before CT
+   compliance is checked.  Similarly, if the UA terminates the
+   connection due to an Expect-CT failure, this could cause the UA to
+   skip subsequent correctness checks.  When the CT compliance check is
+   skipped or bypassed, Expect-CT reports (Section 3) will not be sent.
 
-   When CT compliance is evaluted for a Known Expect-CT Host, the UA
+   When CT compliance is evaluated for a Known Expect-CT Host, the UA
    MUST evaluate compliance when setting up the TLS session, before
    beginning an HTTP conversation over the TLS channel.
 
    If a connection to a Known Expect-CT Host violates the UA's CT policy
    (i.e., the connection is not CT-qualified), and if the Known Expect-
    CT Host's Expect-CT metadata indicates an "enforce" configuration,
-   the UA MUST treat the CT compliance failure as an error.
+   the UA MUST treat the CT compliance failure as an error.  The UA MAY
+   allow the user to bypass the error, unless connection errors should
+   have no user recourse due to other policies in effect (such as HSTS,
+   as described in Section 12.1 of [RFC6797].
+
+
+
+
+Stark                     Expires June 7, 2019                 [Page 11]
+
+Internet-Draft                  Expect-CT                  December 2018
+
 
    If a connection to a Known Expect-CT Host violates the UA's CT
    policy, and if the Known Expect-CT Host's Expect-CT metadata includes
@@ -603,21 +626,13 @@ Internet-Draft                  Expect-CT                  November 2018
 2.4.1.  Skipping CT compliance checks
 
    It is acceptable for a UA to skip CT compliance checks for some hosts
-   according to local policy.  For example, a UA may disable CT
+   according to local policy.  For example, a UA MAY disable CT
    compliance checks for hosts whose validated certificate chain
    terminates at a user-defined trust anchor, rather than a trust anchor
    built-in to the UA (or underlying platform).
 
    If the UA does not evaluate CT compliance, e.g., because the user has
    elected to disable it, or because a presented certificate chain
-
-
-
-Stark                     Expires June 2, 2019                 [Page 11]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
    chains up to a user-defined trust anchor, UAs SHOULD NOT send Expect-
    CT reports.
 
@@ -651,6 +666,14 @@ Internet-Draft                  Expect-CT                  November 2018
       request that failed the CT compliance check.  The value is
       provided as an integer.
 
+
+
+
+Stark                     Expires June 7, 2019                 [Page 12]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    o  "scheme": the value is the scheme with which the UA made the
       original request that failed the CT compliance check.  The value
       is provided as a string.  This key is optional and is assumed to
@@ -666,14 +689,6 @@ Internet-Draft                  Expect-CT                  November 2018
       served by the Expect-CT Host during TLS session setup.  The value
       is provided as an array of strings, which MUST appear in the order
       that the certificates were served; each string in the array is the
-
-
-
-Stark                     Expires June 2, 2019                 [Page 12]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
       Privacy-Enhanced Mail (PEM) representation of each X.509
       certificate as described in [RFC7468].
 
@@ -685,7 +700,9 @@ Internet-Draft                  Expect-CT                  November 2018
       string in the array is the Privacy-Enhanced Mail (PEM)
       representation of each X.509 certificate as described in
       [RFC7468].  The first certificate in the chain represents the end-
-      entity certificate being verified.
+      entity certificate being verified.  UAs that build certificate
+      chains in more than one way during the validation process SHOULD
+      send the last chain built.
 
    o  "scts": the value represents the SCTs (if any) that the UA
       received for the Expect-CT host and their validation statuses.
@@ -704,13 +721,24 @@ Internet-Draft                  Expect-CT                  November 2018
          which the SCT was issued), "valid" (indicating that the UA
          successfully validated the SCT as described in Section 5.2 of
          [RFC6962] or Section 8.2.3 of [I-D.ietf-trans-rfc6962-bis]), or
-         "invalid" (indicating that the SCT validation failed because
-         of, e.g., a bad signature).
+
+
+
+
+Stark                     Expires June 7, 2019                 [Page 13]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
+         "invalid" (indicating that the SCT validation failed because of
+         a bad signature or an invalid timestamp).
 
       *  The "source" key, with a string value that indicates from where
          the UA obtained the SCT, as defined in Section 3 of [RFC6962]
          and Section 6 of [I-D.ietf-trans-rfc6962-bis].  The UA MUST set
          the value to one of "tls-extension", "ocsp", or "embedded".
+         These correspond to the three methods of delivering SCTs in the
+         TLS handshake that are described in Section 3.3 of [RFC6962].
 
       *  The "serialized_sct" key, with a string value.  If the value of
          the "version" key is "1", the UA MUST set this value to the
@@ -721,14 +749,6 @@ Internet-Draft                  Expect-CT                  November 2018
          MUST set this value to the base64 encoded [RFC4648] serialized
          "TransItem" structure representing the SCT, as defined in
          Section 4.5 of [I-D.ietf-trans-rfc6962-bis].
-
-
-
-
-Stark                     Expires June 2, 2019                 [Page 13]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
    o  "failure-mode": the value indicates whether the Expect-CT report
       was triggered by an Expect-CT policy in enforce or report-only
@@ -758,6 +778,14 @@ Internet-Draft                  Expect-CT                  November 2018
 
    The steps to report an Expect-CT failure are as follows.
 
+
+
+
+Stark                     Expires June 7, 2019                 [Page 14]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    1.  Prepare a JSON object "report object" with the single key
        "expect-ct-report", whose value is the result of generating a
        violation report object as described in Section 3.1.
@@ -777,15 +805,6 @@ Internet-Draft                  Expect-CT                  November 2018
    Future versions of this specification may need to modify or extend
    the Expect-CT report format.  They may do so by defining a new top-
    level key to contain the report, replacing the "expect-ct-report"
-
-
-
-
-Stark                     Expires June 2, 2019                 [Page 14]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
    key.  Section 3.3 defines how report servers should handle report
    formats that they do not support.
 
@@ -814,6 +833,15 @@ Internet-Draft                  Expect-CT                  November 2018
    set to false, the server SHOULD store the report for processing and
    analysis by the owner of the Expect-CT Host.
 
+
+
+
+
+Stark                     Expires June 7, 2019                 [Page 15]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
 4.  Usability Considerations
 
    When the UA detects a Known Expect-CT Host in violation of the UA's
@@ -834,14 +862,6 @@ Internet-Draft                  Expect-CT                  November 2018
    requires certificate authorities to support them, and new TLS
    extensions require server software updates, including possibly to
    servers outside of the site owner's direct control (such as in the
-
-
-
-Stark                     Expires June 2, 2019                 [Page 15]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
    case of a third-party CDN).  Ease of deployment is a high priority
    for Expect-CT because it is intended as a temporary transition
    mechanism for user agents that are transitioning to universal
@@ -870,6 +890,14 @@ Internet-Draft                  Expect-CT                  November 2018
    the certificate chain that has violated the CT policy.  In some
    cases, such as organization-wide compromise of the end-to-end
    security of TLS, this may include information about the interception
+
+
+
+Stark                     Expires June 7, 2019                 [Page 16]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    tools and design used by the organization that the organization would
    otherwise prefer not be disclosed.
 
@@ -890,14 +918,6 @@ Internet-Draft                  Expect-CT                  November 2018
    comply with the UA's CT policy, and add the Expect-CT header field in
    enforcing mode with a long "max-age".  Implementing user agents would
    note this as an Expect-CT Host (see Section 2.3.2.1).  After having
-
-
-
-Stark                     Expires June 2, 2019                 [Page 16]
-
-Internet-Draft                  Expect-CT                  November 2018
-
-
    done this, the configuration could then be reverted to not comply
    with the CT policy, prompting failures.  Note this scenario would
    require the attacker to have substantial control over the
@@ -925,6 +945,15 @@ Internet-Draft                  Expect-CT                  November 2018
    There is probably no ideal maximum for the "max-age" directive.
    Since Expect-CT is primarily a policy-expansion and investigation
    technology rather than an end-user protection, a value on the order
+
+
+
+
+Stark                     Expires June 7, 2019                 [Page 17]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    of 30 days (2,592,000 seconds) may be considered a balance between
    these competing security concerns.
 
@@ -941,18 +970,6 @@ Internet-Draft                  Expect-CT                  November 2018
    to different URIs to still cause the same effect.
 
 8.  IANA Considerations
-
-
-
-
-
-
-
-
-Stark                     Expires June 2, 2019                 [Page 17]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
 8.1.  Header Field Registry
 
@@ -986,6 +1003,13 @@ Internet-Draft                  Expect-CT                  November 2018
 
    Optional parameters:  n/a
 
+
+
+Stark                     Expires June 7, 2019                 [Page 18]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    Encoding considerations:  binary
 
    Security considerations:  See Section 7
@@ -1002,13 +1026,6 @@ Internet-Draft                  Expect-CT                  November 2018
       Deprecated alias names for this type: n/a
 
       Magic number(s): n/a
-
-
-
-Stark                     Expires June 2, 2019                 [Page 18]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
       File extension(s): n/a
 
@@ -1040,6 +1057,15 @@ Internet-Draft                  Expect-CT                  November 2018
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+
+
+
+
+Stark                     Expires June 7, 2019                 [Page 19]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    [RFC3339]  Klyne, G. and C. Newman, "Date and Time on the Internet:
               Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002,
               <https://www.rfc-editor.org/info/rfc3339>.
@@ -1057,14 +1083,6 @@ Internet-Draft                  Expect-CT                  November 2018
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
-
-
-
-
-Stark                     Expires June 2, 2019                 [Page 19]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
    [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
               Housley, R., and W. Polk, "Internet X.509 Public Key
@@ -1096,6 +1114,14 @@ Internet-Draft                  Expect-CT                  November 2018
               RFC 7234, DOI 10.17487/RFC7234, June 2014,
               <https://www.rfc-editor.org/info/rfc7234>.
 
+
+
+
+Stark                     Expires June 7, 2019                 [Page 20]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    [RFC7468]  Josefsson, S. and S. Leonard, "Textual Encodings of PKIX,
               PKCS, and CMS Structures", RFC 7468, DOI 10.17487/RFC7468,
               April 2015, <https://www.rfc-editor.org/info/rfc7468>.
@@ -1112,15 +1138,6 @@ Internet-Draft                  Expect-CT                  November 2018
               Interchange Format", STD 90, RFC 8259,
               DOI 10.17487/RFC8259, December 2017,
               <https://www.rfc-editor.org/info/rfc8259>.
-
-
-
-
-
-Stark                     Expires June 2, 2019                 [Page 20]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
 9.2.  Informative References
 
@@ -1153,6 +1170,14 @@ A.1.  Since -07
    o  Define how report format can be extended by future versions of
       this specification.
 
+
+
+
+Stark                     Expires June 7, 2019                 [Page 21]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    o  Add optional "scheme" key to report format.
 
    o  Specify exact status codes for report server errors.
@@ -1169,14 +1194,6 @@ A.3.  Since -05
       overrides for Known Expect-CT Hosts.
 
    o  Remove restriction that Expect-CT Hosts cannot be IP addresses.
-
-
-
-
-Stark                     Expires June 2, 2019                 [Page 21]
-
-Internet-Draft                  Expect-CT                  November 2018
-
 
    o  Editorial changes
 
@@ -1210,6 +1227,13 @@ A.8.  Since -00
 
    o  Update header field syntax to match convention (issue #327)
 
+
+
+Stark                     Expires June 7, 2019                 [Page 22]
+
+Internet-Draft                  Expect-CT                  December 2018
+
+
    o  Reference RFC 6962-bis instead of RFC 6962
 
 Author's Address
@@ -1229,4 +1253,36 @@ Author's Address
 
 
 
-Stark                     Expires June 2, 2019                 [Page 22]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Stark                     Expires June 7, 2019                 [Page 23]
