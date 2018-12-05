@@ -4,8 +4,8 @@
 
 HTTP Working Group                                           I. Grigorik
 Internet-Draft                                                    Google
-Intended status: Experimental                           December 4, 2018
-Expires: June 7, 2019
+Intended status: Experimental                           December 5, 2018
+Expires: June 8, 2019
 
 
                            HTTP Client Hints
@@ -13,16 +13,20 @@ Expires: June 7, 2019
 
 Abstract
 
-   An increasing diversity of Web-connected devices and software
-   capabilities has created a need to deliver optimized content for each
-   device.
+   HTTP defines proactive content negotiation to allow servers to select
+   the appropriate response for a given request, based upon the user
+   agent's characteristics, as expressed in request headers.  In
+   practice, clients are often unwilling to send those request headers,
+   because it is not clear whether they will be used, and sending them
+   impacts both performance and privacy.
 
-   This specification defines an extensible and configurable set of HTTP
-   request header fields, colloquially known as Client Hints, to address
-   this.  They are intended to be used as input to proactive content
-   negotiation; just as the Accept header field allows user agents to
-   indicate what formats they prefer, Client Hints allow user agents to
-   indicate device and agent specific preferences.
+   This document defines two response headers, Accept-CH and Accept-CH-
+   Lifetime, that servers can use to advertise their use of request
+   headers for proactive content negotiation, along with a set of
+   guidelines for the creation of such headers, colloquially known as
+   "Client Hints."
+
+   It also defines an initial set of Client Hints.
 
 Note to Readers
 
@@ -46,17 +50,18 @@ Status of This Memo
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
-   time.  It is inappropriate to use Internet-Drafts as reference
-   material or to cite them other than as "work in progress."
-
-   This Internet-Draft will expire on June 7, 2019.
 
 
 
-Grigorik                  Expires June 7, 2019                  [Page 1]
+Grigorik                  Expires June 8, 2019                  [Page 1]
 
 Internet-Draft              HTTP Client Hints              December 2018
 
+
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on June 8, 2019.
 
 Copyright Notice
 
@@ -79,47 +84,47 @@ Table of Contents
      1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   4
    2.  Client Hint Request Header Fields . . . . . . . . . . . . . .   4
      2.1.  Sending Client Hints  . . . . . . . . . . . . . . . . . .   4
-     2.2.  Server Processing of Client Hints . . . . . . . . . . . .   4
+     2.2.  Server Processing of Client Hints . . . . . . . . . . . .   5
        2.2.1.  Advertising Support via Accept-CH Header Field  . . .   5
-       2.2.2.  The Accept-CH-Lifetime Header Field . . . . . . . . .   5
+       2.2.2.  The Accept-CH-Lifetime Header Field . . . . . . . . .   6
        2.2.3.  Interaction with Caches . . . . . . . . . . . . . . .   6
-   3.  Client Hints  . . . . . . . . . . . . . . . . . . . . . . . .   6
-     3.1.  The DPR Header Field  . . . . . . . . . . . . . . . . . .   6
+   3.  Client Hints  . . . . . . . . . . . . . . . . . . . . . . . .   7
+     3.1.  The DPR Header Field  . . . . . . . . . . . . . . . . . .   7
        3.1.1.  Confirming Selected DPR . . . . . . . . . . . . . . .   7
      3.2.  The Width Header Field  . . . . . . . . . . . . . . . . .   7
-     3.3.  The Viewport-Width Header Field . . . . . . . . . . . . .   7
+     3.3.  The Viewport-Width Header Field . . . . . . . . . . . . .   8
    4.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . .   8
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   9
-     6.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .   9
-     6.2.  Accept-CH-Lifetime  . . . . . . . . . . . . . . . . . . .   9
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
+     6.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .  10
+     6.2.  Accept-CH-Lifetime  . . . . . . . . . . . . . . . . . . .  10
      6.3.  Content-DPR . . . . . . . . . . . . . . . . . . . . . . .  10
      6.4.  DPR . . . . . . . . . . . . . . . . . . . . . . . . . . .  10
      6.5.  Viewport-Width  . . . . . . . . . . . . . . . . . . . . .  10
-     6.6.  Width . . . . . . . . . . . . . . . . . . . . . . . . . .  10
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
+     6.6.  Width . . . . . . . . . . . . . . . . . . . . . . . . . .  11
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  12
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
-   Appendix A.  Interaction with Key Response Header Field . . . . .  12
-   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  12
-     B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  12
-     B.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  13
-     B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  13
 
 
 
-Grigorik                  Expires June 7, 2019                  [Page 2]
+Grigorik                  Expires June 8, 2019                  [Page 2]
 
 Internet-Draft              HTTP Client Hints              December 2018
 
 
+   Appendix A.  Interaction with Key Response Header Field . . . . .  12
+   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  13
+     B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  13
+     B.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  13
+     B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  13
      B.4.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  13
      B.5.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  13
-     B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  13
-     B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  13
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  13
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  13
+     B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  14
+     B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  14
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  14
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  14
 
 1.  Introduction
 
@@ -144,31 +149,46 @@ Internet-Draft              HTTP Client Hints              December 2018
    A popular alternative strategy is to use HTTP cookies ([RFC6265]) to
    communicate some information about the user agent.  However, this
    approach is also not cache friendly, bound by same origin policy, and
-   imposes additional client-side latency by requiring JavaScript
+   often imposes additional client-side latency by requiring JavaScript
    execution to create and manage HTTP cookies.
 
-   This document defines a set of new request header fields that allow
-   user agent to perform proactive content negotiation (Section 3.4.1 of
-   [RFC7231]) by indicating device and agent specific preferences,
-   through a mechanism similar to the Accept header field which is used
-   to indicate preferred response formats.
+   Proactive content negotiation (Section 3.4.1 of [RFC7231]) offers an
+   alternative approach; user agents use specified, well-defined request
+   headers to advertise their capabilities and characteristics, so that
+   servers can select (or formulate) an appropriate response.
 
-   Client Hints does not supersede or replace the User-Agent header
-   field.  Existing device detection mechanisms can continue to use both
-   mechanisms if necessary.  By advertising its capabilities within a
-   request header field, Client Hints allows for cache friendly and
-   proactive content negotiation.
-
+   However, proactive content negotiation requires clients to send these
+   request headers prolifically.  This causes performance concerns
+   (because it creates "bloat" in requests), as well as privacy issues;
+   passively providing such information allows servers to silently
+   fingerprint the user agent.
 
 
 
-
-
-
-Grigorik                  Expires June 7, 2019                  [Page 3]
+Grigorik                  Expires June 8, 2019                  [Page 3]
 
 Internet-Draft              HTTP Client Hints              December 2018
 
+
+   This document defines a new response header, Accept-CH, that allows
+   an origin server to explicitly ask that clients send these headers in
+   requests, for a period of time bounded by the Accept-CH-Lifetime
+   response header.  It also defines guidelines for content negotiation
+   mechanisms that use it, colloquially referred to as Client Hints.
+
+   Client Hints mitigate the performance concerns by assuring that
+   clients will only send the request headers when they're actually
+   going to be used, and the privacy concerns of passive fingerprinting
+   by requiring explicit opt-in and disclosure of required headers by
+   the server through the use of the Accept-CH response header.
+
+   This document also defines an initial set of Client Hints.
+
+   It does not supersede or replace the User-Agent header field.
+   Existing device detection mechanisms can continue to use both
+   mechanisms if necessary.  By advertising user agent capabilities
+   within a request header field, Client Hints allow for cache friendly
+   and proactive content negotiation.
 
 1.1.  Notational Conventions
 
@@ -198,6 +218,14 @@ Internet-Draft              HTTP Client Hints              December 2018
    The client and server can use an opt-in mechanism outlined below to
    negotiate which fields should be sent to allow for efficient content
    adaption, and optionally use additional mechanisms to negotiate
+
+
+
+Grigorik                  Expires June 8, 2019                  [Page 4]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
    delegation policies that control access of third parties to same
    fields.
 
@@ -218,17 +246,9 @@ Internet-Draft              HTTP Client Hints              December 2018
 
    Further, depending on the hint used, the server can generate
    additional response header fields to convey related values to aid
-
-
-
-Grigorik                  Expires June 7, 2019                  [Page 4]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
-
-   client processing.  For example, this specification defines the
-   "Content-DPR" response header field that needs to be returned by the
-   server when the "DPR" hint is used to select the response.
+   client processing.  For example, this document defines the "Content-
+   DPR" response header field that needs to be returned by the server
+   when the "DPR" hint is used to select the response.
 
 2.2.1.  Advertising Support via Accept-CH Header Field
 
@@ -252,6 +272,16 @@ Internet-Draft              HTTP Client Hints              December 2018
    origin resource requests initiated by the page constructed from the
    response.
 
+
+
+
+
+
+Grigorik                  Expires June 8, 2019                  [Page 5]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
 2.2.2.  The Accept-CH-Lifetime Header Field
 
    Servers can ask the client to remember the set of Client Hints that
@@ -272,15 +302,6 @@ Internet-Draft              HTTP Client Hints              December 2018
      Accept-CH: DPR, Width
      Accept-CH: Viewport-Width
      Accept-CH-Lifetime: 86400
-
-
-
-
-
-Grigorik                  Expires June 7, 2019                  [Page 5]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
 
    For example, based on the Accept-CH and Accept-CH-Lifetime example
    above, which is received in response to a user agent navigating to
@@ -310,6 +331,13 @@ Internet-Draft              HTTP Client Hints              December 2018
 
      Vary: DPR, Width
 
+
+
+Grigorik                  Expires June 8, 2019                  [Page 6]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
    Above example indicates that the cache key needs to include the DPR
    and Width header fields.
 
@@ -326,17 +354,6 @@ Internet-Draft              HTTP Client Hints              December 2018
 
    If DPR occurs in a message more than once, the last value overrides
    all previous occurrences.
-
-
-
-
-
-
-
-Grigorik                  Expires June 7, 2019                  [Page 6]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
 
 3.1.1.  Confirming Selected DPR
 
@@ -368,6 +385,15 @@ Internet-Draft              HTTP Client Hints              December 2018
 
    The "Width" request header field is a number that indicates the
    desired resource width in physical px (i.e. intrinsic size of an
+
+
+
+
+Grigorik                  Expires June 8, 2019                  [Page 7]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
    image).  The provided physical px value is a number rounded to the
    smallest following integer (i.e. ceiling value).
 
@@ -386,13 +412,6 @@ Internet-Draft              HTTP Client Hints              December 2018
    value).
 
      Viewport-Width = 1*DIGIT
-
-
-
-Grigorik                  Expires June 7, 2019                  [Page 7]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
 
    If Viewport-Width occurs in a message more than once, the last value
    overrides all previous occurrences.
@@ -423,15 +442,23 @@ Internet-Draft              HTTP Client Hints              December 2018
    the server has selected resource with DPR ratio of 1.0.  The client
    can use this information to perform additional processing on the
    resource - for example, calculate the appropriate intrinsic size of
+
+
+
+Grigorik                  Expires June 8, 2019                  [Page 8]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
    the image resource such that it is displayed at the correct
    resolution.
 
 5.  Security Considerations
 
-   The request header fields defined in this specification, and those
-   that extend it, expose information about the user's environment to
-   enable proactive content negotiation.  Such information may reveal
-   new information about the user and implementers ought to consider the
+   The request header fields defined in this document, and those that
+   extend it, expose information about the user's environment to enable
+   proactive content negotiation.  Such information may reveal new
+   information about the user and implementers ought to consider the
    following considerations, recommendations, and best practices.
 
    Transmitted Client Hints header fields SHOULD NOT provide new
@@ -442,14 +469,6 @@ Internet-Draft              HTTP Client Hints              December 2018
    field values that can be expressed, or restricting them to an
    enumerated range where the advertised value is close but is not an
    exact representation of the current value, can improve privacy and
-
-
-
-Grigorik                  Expires June 7, 2019                  [Page 8]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
-
    reduce risk of linkability by ensuring that the same value is sent by
    multiple users.  However, such precautions can still be insufficient
    for some types of data, especially data that can change over time.
@@ -476,6 +495,17 @@ Internet-Draft              HTTP Client Hints              December 2018
    clear persisted opt-in preferences when any one of site data,
    browsing history, browsing cache, or similar, are cleared.
 
+
+
+
+
+
+
+Grigorik                  Expires June 8, 2019                  [Page 9]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
 6.  IANA Considerations
 
    This document defines the "Accept-CH", "DPR", "Viewport-Width", and
@@ -498,14 +528,6 @@ Internet-Draft              HTTP Client Hints              December 2018
    o  Applicable protocol: HTTP
    o  Status: standard
    o  Author/Change controller: IETF
-
-
-
-Grigorik                  Expires June 7, 2019                  [Page 9]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
-
    o  Specification document(s): Section 2.2.2 of this document
    o  Related information: for Client Hints
 
@@ -532,6 +554,14 @@ Internet-Draft              HTTP Client Hints              December 2018
    o  Header field name: Viewport-Width
    o  Applicable protocol: HTTP
    o  Status: standard
+
+
+
+Grigorik                  Expires June 8, 2019                 [Page 10]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
    o  Author/Change controller: IETF
    o  Specification document(s): Section 3.3 of this document
    o  Related information: for Client Hints
@@ -553,14 +583,6 @@ Internet-Draft              HTTP Client Hints              December 2018
               Style Sheets Level 2 Revision 1 (CSS 2.1) Specification",
               W3C Recommendation REC-CSS2-20110607, June 2011,
               <http://www.w3.org/TR/2011/REC-CSS2-20110607>.
-
-
-
-
-Grigorik                  Expires June 7, 2019                 [Page 10]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
 
    [CSSVAL]   Atkins, T. and E. Etemad, "CSS Values and Units Module
               Level 3", World Wide Web Consortium CR CR-css-values-
@@ -587,6 +609,15 @@ Internet-Draft              HTTP Client Hints              December 2018
               DOI 10.17487/RFC6454, December 2011,
               <https://www.rfc-editor.org/info/rfc6454>.
 
+
+
+
+
+Grigorik                  Expires June 8, 2019                 [Page 11]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
@@ -605,18 +636,6 @@ Internet-Draft              HTTP Client Hints              December 2018
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
-
-
-
-
-
-
-
-Grigorik                  Expires June 7, 2019                 [Page 11]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
 
 7.2.  Informative References
 
@@ -645,6 +664,16 @@ Appendix A.  Interaction with Key Response Header Field
 
      Key: DPR;partition=1.5:2.5:4.0
 
+
+
+
+
+
+Grigorik                  Expires June 8, 2019                 [Page 12]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
+
    Above example indicates that the cache key needs to include the value
    of the DPR header field with three segments: less than 1.5, 1.5 to
    less than 2.5, and 4.0 or greater.
@@ -663,16 +692,6 @@ B.1.  Since -00
    o  Issue 163 (CH review feedback) editorial feedback from httpwg
       list.
    o  Issue 153 (NetInfo API citation) added normative reference.
-
-
-
-
-
-
-Grigorik                  Expires June 7, 2019                 [Page 12]
-
-Internet-Draft              HTTP Client Hints              December 2018
-
 
 B.2.  Since -01
 
@@ -698,6 +717,18 @@ B.5.  Since -04
 
    o  Issue 361: Removed Downlink
    o  Issue 361: Moved Key to appendix, plus other editorial feedback
+
+
+
+
+
+
+
+
+Grigorik                  Expires June 8, 2019                 [Page 13]
+
+Internet-Draft              HTTP Client Hints              December 2018
+
 
 B.6.  Since -05
 
@@ -725,4 +756,29 @@ Author's Address
 
 
 
-Grigorik                  Expires June 7, 2019                 [Page 13]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Grigorik                  Expires June 8, 2019                 [Page 14]
