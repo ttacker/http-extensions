@@ -5,10 +5,10 @@
 HTTP Working Group                                              S. Ludin
 Internet-Draft                                       Akamai Technologies
 Intended status: Standards Track                           M. Nottingham
-Expires: June 11, 2019                                            Fastly
+Expires: June 20, 2019                                            Fastly
                                                              N. Sullivan
                                                               Cloudflare
-                                                       December 08, 2018
+                                                       December 17, 2018
 
 
                           CDN Loop Prevention
@@ -34,7 +34,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 11, 2019.
+   This Internet-Draft will expire on June 20, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Ludin, et al.             Expires June 11, 2019                 [Page 1]
+Ludin, et al.             Expires June 20, 2019                 [Page 1]
 
 Internet-Draft             CDN Loop Prevention             December 2018
 
@@ -95,11 +95,11 @@ Table of Contents
 
    This specification defines the CDN-Loop request header field for HTTP
    to enable secure interoperability of forwarding CDNs.  Having a
-   header that is guaranteed not to be modified by other CDNs that are
-   used by a shared customer helps give each CDN additional confidence
-   that any purpose (debugging, data gathering, enforcement) that they
-   use this header for is free from tampering due to how that customer
-   configured the other CDNs.
+   header that will not be modified by other CDNs that are used by a
+   shared customer helps give each CDN additional confidence that any
+   purpose (debugging, data gathering, enforcement) that they use this
+   header for is free from tampering due to how that customer configured
+   the other CDNs.
 
 1.1.  Relationship to Via
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Ludin, et al.             Expires June 11, 2019                 [Page 2]
+Ludin, et al.             Expires June 20, 2019                 [Page 2]
 
 Internet-Draft             CDN Loop Prevention             December 2018
 
@@ -147,7 +147,7 @@ Internet-Draft             CDN Loop Prevention             December 2018
    cdn-id   = token *( OWS ";" OWS parameter )
 
    Conforming Content Delivery Networks SHOULD add a value to this
-   header field to all requests they generate or forward (creating the
+   header field in all requests they generate or forward (creating the
    header if necessary).
 
    The token identifies the CDN as a whole.  Chosen token values SHOULD
@@ -165,7 +165,7 @@ Internet-Draft             CDN Loop Prevention             December 2018
 
 
 
-Ludin, et al.             Expires June 11, 2019                 [Page 3]
+Ludin, et al.             Expires June 20, 2019                 [Page 3]
 
 Internet-Draft             CDN Loop Prevention             December 2018
 
@@ -221,7 +221,7 @@ Internet-Draft             CDN Loop Prevention             December 2018
 
 
 
-Ludin, et al.             Expires June 11, 2019                 [Page 4]
+Ludin, et al.             Expires June 20, 2019                 [Page 4]
 
 Internet-Draft             CDN Loop Prevention             December 2018
 
@@ -277,7 +277,7 @@ Authors' Addresses
 
 
 
-Ludin, et al.             Expires June 11, 2019                 [Page 5]
+Ludin, et al.             Expires June 20, 2019                 [Page 5]
 
 Internet-Draft             CDN Loop Prevention             December 2018
 
@@ -333,4 +333,4 @@ Internet-Draft             CDN Loop Prevention             December 2018
 
 
 
-Ludin, et al.             Expires June 11, 2019                 [Page 6]
+Ludin, et al.             Expires June 20, 2019                 [Page 6]
