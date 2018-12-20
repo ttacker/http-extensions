@@ -181,7 +181,7 @@ Internet-Draft             CDN Loop Detection              December 2018
    in [RFC7231], Section 3.1.1.
 
    To be effective, intermediaries - including Content Delivery Networks
-   - MUST NOT remove this header field, or allow it to be removed (e.g.,
+   - must not remove this header field, or allow it to be removed (e.g.,
    through configuration) and servers (including intermediaries) SHOULD
    NOT use it for other purposes.
 
@@ -190,8 +190,8 @@ Internet-Draft             CDN Loop Detection              December 2018
    The threat model that the CDN-Loop header field addresses is a
    customer who is attempting to attack a service provider by
    configuring a forwarding loop by accident or malice.  For it to
-   function, CDNs cannot allow it to be modified by customers (see
-   Section 2).
+   function, CDNs cannot allow customers to modify or remove it in their
+   configuration (see Section 2).
 
    Note that a CDN that allows customers to remove or modify the CDN-
    Loop header field (i.e., they do not implement this specification)
