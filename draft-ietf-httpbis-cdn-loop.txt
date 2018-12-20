@@ -5,13 +5,13 @@
 HTTP Working Group                                              S. Ludin
 Internet-Draft                                       Akamai Technologies
 Intended status: Standards Track                           M. Nottingham
-Expires: June 22, 2019                                            Fastly
+Expires: June 23, 2019                                            Fastly
                                                              N. Sullivan
                                                               Cloudflare
-                                                       December 19, 2018
+                                                       December 20, 2018
 
 
-                          CDN Loop Prevention
+                           CDN Loop Detection
                    draft-ietf-httpbis-cdn-loop-latest
 
 Abstract
@@ -38,7 +38,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 22, 2019.
+   This Internet-Draft will expire on June 23, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Ludin, et al.             Expires June 22, 2019                 [Page 1]
+Ludin, et al.             Expires June 23, 2019                 [Page 1]
 
-Internet-Draft             CDN Loop Prevention             December 2018
+Internet-Draft             CDN Loop Detection              December 2018
 
 
    to this document.  Code Components extracted from this document must
@@ -94,24 +94,24 @@ Table of Contents
    sometimes complex and managed by several parties.
 
    When this happens, it is difficult to debug.  Additionally, it
-   sometimes isn't accidental; loops between multiple CDNs be used as an
-   attack vector (e.g., see [loop-attack]), especially if one CDN
+   sometimes isn't accidental; loops between multiple CDNs can be used
+   as an attack vector (e.g., see [loop-attack]), especially if one CDN
    unintentionally strips the loop detection headers of another.
 
-   This specification defines the CDN-Loop request header field for HTTP
-   to enable secure interoperability of forwarding CDNs.  Having a
-   header that will not be modified by other CDNs that are used by a
-   shared customer helps give each CDN additional confidence that any
-   purpose (debugging, data gathering, enforcement) that they use this
-   header for is free from tampering due to how that customer configured
-   the other CDNs.
+   This specification defines the CDN-Loop HTTP request header field to
+   help detect such attacks and accidents among implementing forwarding
+   CDNs, by disallowing its modification by their customers.
 
 
 
 
-Ludin, et al.             Expires June 22, 2019                 [Page 2]
+
+
+
+
+Ludin, et al.             Expires June 23, 2019                 [Page 2]
 
-Internet-Draft             CDN Loop Prevention             December 2018
+Internet-Draft             CDN Loop Detection              December 2018
 
 
 1.1.  Relationship to Via
@@ -145,7 +145,7 @@ Internet-Draft             CDN Loop Prevention             December 2018
 
    The CDN-Loop request header field is intended to help a Content
    Delivery Network identify when an incoming request has already passed
-   through that CDN's servers, to prevent loops.
+   through that CDN's servers, to detect loops.
 
    CDN-Loop = #cdn-id
    cdn-id   = token *( OWS ";" OWS parameter )
@@ -165,9 +165,9 @@ Internet-Draft             CDN Loop Prevention             December 2018
 
 
 
-Ludin, et al.             Expires June 22, 2019                 [Page 3]
+Ludin, et al.             Expires June 23, 2019                 [Page 3]
 
-Internet-Draft             CDN Loop Prevention             December 2018
+Internet-Draft             CDN Loop Detection              December 2018
 
 
    For example:
@@ -221,9 +221,9 @@ Internet-Draft             CDN Loop Prevention             December 2018
 
 
 
-Ludin, et al.             Expires June 22, 2019                 [Page 4]
+Ludin, et al.             Expires June 23, 2019                 [Page 4]
 
-Internet-Draft             CDN Loop Prevention             December 2018
+Internet-Draft             CDN Loop Detection              December 2018
 
 
    o  Protocol: http
@@ -277,9 +277,9 @@ Authors' Addresses
 
 
 
-Ludin, et al.             Expires June 22, 2019                 [Page 5]
+Ludin, et al.             Expires June 23, 2019                 [Page 5]
 
-Internet-Draft             CDN Loop Prevention             December 2018
+Internet-Draft             CDN Loop Detection              December 2018
 
 
    Stephen Ludin
@@ -333,4 +333,4 @@ Internet-Draft             CDN Loop Prevention             December 2018
 
 
 
-Ludin, et al.             Expires June 22, 2019                 [Page 6]
+Ludin, et al.             Expires June 23, 2019                 [Page 6]
