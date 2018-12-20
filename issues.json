@@ -86,7 +86,14 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 886922813,
+        "node_id": "MDU6TGFiZWw4ODY5MjI4MTM=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/variants",
+        "name": "variants",
+        "color": "fbca04",
+        "default": false
+      }
     ],
     "state": "open",
     "locked": false,
@@ -97,7 +104,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-12-18T19:45:35Z",
-    "updated_at": "2018-12-18T19:45:35Z",
+    "updated_at": "2018-12-19T05:26:39Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#example-of-cache-behaviour shows a Variant-Key of\r\n\r\n```http\r\nVariant-Key: fr, gzip\r\n```\r\n\r\nBut that's now [spelled](https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variant-key)\r\n\r\n```http\r\nVariant-Key: fr;gzip\r\n```\r\n\r\nThis also has implications for the https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#gen-variant-key algorithm, which currently ignores semicolons. "
@@ -2286,9 +2293,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-10-23T07:12:11Z",
-    "updated_at": "2018-12-18T17:48:17Z",
+    "updated_at": "2018-12-19T01:57:10Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "> Consider the scenario in which a user reads their email at MegaCorp Inc's webmail provider https://example.com/. They might expect that clicking on an emailed link to https://projects.com/secret/project would show them the secret project that they're authorized to see, but if projects.com has marked their session cookies as SameSite, then this cross-site navigation won't send them along with the request. projects.com will render a 404 error to avoid leaking secret information, and the user will be quite confused.\r\n\r\n\r\n`projects.com` is real domain. (currently not owned)\r\nseems better to use example domain in rfc."
@@ -2889,7 +2896,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-09-24T16:13:55Z",
-    "updated_at": "2018-12-17T00:07:30Z",
+    "updated_at": "2018-12-19T09:26:48Z",
     "closed_at": null,
     "author_association": "FIRST_TIME_CONTRIBUTOR",
     "pull_request": {
