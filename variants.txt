@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                                June 15, 2018
+Updates: 7234 (if approved)                            December 21, 2018
 Intended status: Standards Track
-Expires: December 17, 2018
+Expires: June 24, 2019
 
 
                       HTTP Representation Variants
@@ -49,13 +49,13 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 17, 2018.
+   This Internet-Draft will expire on June 24, 2019.
 
 
 
-Nottingham              Expires December 17, 2018               [Page 1]
+Nottingham                Expires June 24, 2019                 [Page 1]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
 Copyright Notice
@@ -93,7 +93,7 @@ Table of Contents
    6.  Defining Content Negotiation Using Variants . . . . . . . . .  14
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  15
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .  15
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  15
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  16
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  16
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  16
      9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  17
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham              Expires December 17, 2018               [Page 2]
+Nottingham                Expires June 24, 2019                 [Page 2]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
 1.  Introduction
@@ -150,7 +150,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
    Vary: Accept-Language
    Transfer-Encoding: chunked
 
-   [French content]
+   [English content]
 
    Provided that the cache has full knowledge of the semantics of
    Accept-Language and Content-Language, it will know that an English
@@ -165,9 +165,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018               [Page 3]
+Nottingham                Expires June 24, 2019                 [Page 3]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    to properly satisfy requests - either by selecting a response from
@@ -192,7 +192,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
    Variant-Key: en
    Transfer-Encoding: chunked
 
-   [French content]
+   [English content]
 
    Proactive content negotiation mechanisms that wish to be used with
    Variants need to define how to do so explicitly; see Section 6.  As a
@@ -221,9 +221,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018               [Page 4]
+Nottingham                Expires June 24, 2019                 [Page 4]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    This specification uses the Augmented Backus-Naur Form (ABNF)
@@ -277,9 +277,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018               [Page 5]
+Nottingham                Expires June 24, 2019                 [Page 5]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    Here, recipients can infer that two content-codings in addition to
@@ -333,9 +333,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018               [Page 6]
+Nottingham                Expires June 24, 2019                 [Page 6]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
 3.  The "Variant-Key" HTTP Header Field
@@ -347,37 +347,37 @@ Internet-Draft        HTTP Representation Variants             June 2018
    Variant-Key      = 1#available-values
    available-values = available-value *( ";" available-value )
 
-   Each member of the list contains the selected available-value(s), in
-   the same order as the variants listed in the Variants header field.
+   Each member of the list contains a set of selected available-value(s)
+   that identify this representation, in the same order as the variants
+   listed in the Variants header field.
 
-   Therefore, Variant-Key MUST be the same length (in comma-separated
-   members) as Variants, and each member MUST correspond in position to
-   its companion in Variants.
+   Therefore, each member of Variant-Key MUST be the same length (in
+   semicolon-separated members) as Variants, and each member's
+   available-values MUST correspond in position to their companions in
+   Variants.
 
    For example:
 
    Variants: Accept-Encoding;gzip;br, Accept-Language;en ;fr
-   Variant-Key: gzip, fr
+   Variant-Key: gzip;fr
 
    This header pair indicates that the representation has a "gzip"
    content-coding and "fr" content-language.
 
-   A more complex example involves listing multiple available-values in
-   a list member, to indicate that the response can be used to satisfy
-   requests with any of those values.  For example:
+   If the response can be used to satisfy more than one request), they
+   can be listed in additional members.  For example:
 
    Variants: Accept-Encoding;gzip;br, Accept-Language;en ;fr
-   Variant-Key: gzip;identity, fr
+   Variant-Key: gzip;fr, identity;fr
 
    indicates that this response can be used for requests whose Accept-
    Encoding algorithm selects "gzip" or "identity", as long as the
    Accept-Language algorithm selects "fr" - perhaps because there is no
    gzip-compressed French representation.
 
-   This highlights an important aspect of Variant-Key; it is only used
-   to indicate what request attributes are associated with the response
-   containing it; this is different from headers like Content-Encoding,
-   which indicate attributes of the response itself.
+   When more than one Variant-Key value is in a response, the first one
+   present MUST indicate the variant-key for the response it occurs
+   within.
 
 3.1.  Generating a Variant-Key List
 
@@ -389,9 +389,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018               [Page 7]
+Nottingham                Expires June 24, 2019                 [Page 7]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    Given stored-headers (a set of headers from a stored response), a
@@ -411,12 +411,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
        1.  Remove all whitespace from value.
 
-       2.  Let items be the result of splitting value on ";".
+       2.  Append value to variant-keys.
 
-       3.  append items to variant-keys.
-
-   5.  Return the result of running Compute Possible Keys (Section 4.1)
-       on variant-keys, an empty string and an empty list.
+   5.  Return variant-keys.
 
 4.  Cache Behaviour
 
@@ -443,15 +440,16 @@ Internet-Draft        HTTP Representation Variants             June 2018
    4.  If the freshest member of stored-responses (as per [RFC7234],
        Section 4.2) has one or more "Variants" header field(s):
 
-
-
-Nottingham              Expires December 17, 2018               [Page 8]
-
-Internet-Draft        HTTP Representation Variants             June 2018
-
-
        1.  Select one member of stored-responses and let variants-header
            be its "Variants" header field-value(s).  This SHOULD be the
+
+
+
+Nottingham                Expires June 24, 2019                 [Page 8]
+
+Internet-Draft        HTTP Representation Variants         December 2018
+
+
            most recent response, but MAY be from an older one as long as
            it is still fresh.
 
@@ -498,15 +496,15 @@ Internet-Draft        HTTP Representation Variants             June 2018
    Given key-facets (a list of lists), and key-stub (a string
    representing a partial key), and possible-keys (a list):
 
-
-
-
-Nottingham              Expires December 17, 2018               [Page 9]
-
-Internet-Draft        HTTP Representation Variants             June 2018
-
-
    1.  Let values be the first member of key-facets.
+
+
+
+
+Nottingham                Expires June 24, 2019                 [Page 9]
+
+Internet-Draft        HTTP Representation Variants         December 2018
+
 
    2.  For each value in values:
 
@@ -517,7 +515,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
            1.  Let this-key be a copy of key-stub.
 
-           2.  Append a comma (",") to this-key.
+           2.  Append a semicolon (";") to this-key.
 
            3.  Append value to this-key.
 
@@ -555,14 +553,14 @@ Internet-Draft        HTTP Representation Variants             June 2018
        filtered-vary for the value of the "Vary" response header, return
        True.
 
-
-
-Nottingham              Expires December 17, 2018              [Page 10]
-
-Internet-Draft        HTTP Representation Variants             June 2018
-
-
    5.  Return False.
+
+
+
+Nottingham                Expires June 24, 2019                [Page 10]
+
+Internet-Draft        HTTP Representation Variants         December 2018
+
 
    This returns a Boolean that indicates whether stored-response can be
    used to satisfy the request.
@@ -576,7 +574,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
    For example, if the selected variants-header was:
 
-   Variants: Accept-Language;en;fr,de, Accept-Encoding;gzip;br
+   Variants: Accept-Language;en;fr;de, Accept-Encoding;gzip;br
 
    and the request contained the headers:
 
@@ -613,9 +611,11 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018              [Page 11]
+
+
+Nottingham                Expires June 24, 2019                [Page 11]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
 5.  Origin Server Behaviour
@@ -669,9 +669,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018              [Page 12]
+Nottingham                Expires June 24, 2019                [Page 12]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    Upon receipt of this response, the cache knows that two
@@ -713,7 +713,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
    Content-Encoding: br
    Variants: Accept-Language;en;jp;de
    Variants: Accept-Encoding;br;gzip
-   Variant-Key: en, br
+   Variant-Key: en;br
    Vary: Accept-Language, Accept-Encoding
    Transfer-Encoding: chunked
 
@@ -725,9 +725,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018              [Page 13]
+Nottingham                Expires June 24, 2019                [Page 13]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    Upon a subsequent request, if both selection algorithms return a
@@ -781,9 +781,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-Nottingham              Expires December 17, 2018              [Page 14]
+Nottingham                Expires June 24, 2019                [Page 14]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    Appendix A fulfils these requirements for some existing proactive
@@ -791,8 +791,8 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 7.  IANA Considerations
 
-   This specification registers two values in the Permanent Message
-   Header Field Names registry established by [RFC3864]:
+   This specification registers the following entry in the Permanent
+   Message Header Field Names registry established by [RFC3864]:
 
    o  Header field name: Variants
 
@@ -805,6 +805,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
    o  Specification document(s): [this document]
 
    o  Related information:
+
+   This specification registers the following entry in the Permanent
+   Message Header Field Names registry established by [RFC3864]:
 
    o  Header field name: Variant-Key
 
@@ -828,19 +831,18 @@ Internet-Draft        HTTP Representation Variants             June 2018
    representations of a certain nature available; the runtime behaviour
    of the server always overrides hints like Variants.
 
-9.  References
 
 
 
 
 
 
-
-
-Nottingham              Expires December 17, 2018              [Page 15]
+Nottingham                Expires June 24, 2019                [Page 15]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
+
+9.  References
 
 9.1.  Normative References
 
@@ -881,7 +883,7 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
    [I-D.ietf-httpbis-client-hints]
               Grigorik, I., "HTTP Client Hints", draft-ietf-httpbis-
-              client-hints-05 (work in progress), January 2018.
+              client-hints-06 (work in progress), July 2018.
 
    [RFC2295]  Holtman, K. and A. Mutz, "Transparent Content Negotiation
               in HTTP", RFC 2295, DOI 10.17487/RFC2295, March 1998,
@@ -891,11 +893,9 @@ Internet-Draft        HTTP Representation Variants             June 2018
 
 
 
-
-
-Nottingham              Expires December 17, 2018              [Page 16]
+Nottingham                Expires June 24, 2019                [Page 16]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
@@ -949,9 +949,9 @@ A.1.  Accept
 
 
 
-Nottingham              Expires December 17, 2018              [Page 17]
+Nottingham                Expires June 24, 2019                [Page 17]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
        1.  If any member of available-values matches preferred-type,
@@ -1005,9 +1005,9 @@ A.2.  Accept-Encoding
 
 
 
-Nottingham              Expires December 17, 2018              [Page 18]
+Nottingham                Expires June 24, 2019                [Page 18]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
    Note that the unencoded variant needs to have a Variant-Key header
@@ -1061,13 +1061,13 @@ Acknowledgements
 
 
 
-Nottingham              Expires December 17, 2018              [Page 19]
+Nottingham                Expires June 24, 2019                [Page 19]
 
-Internet-Draft        HTTP Representation Variants             June 2018
+Internet-Draft        HTTP Representation Variants         December 2018
 
 
-   Thanks to Hooman Beheshti, Ilya Grigorik and Jeffrey Yasskin for
-   their review and input.
+   Thanks to Hooman Beheshti, Ilya Grigorik, Leif Hedstrom, and Jeffrey
+   Yasskin for their review and input.
 
 Author's Address
 
@@ -1117,4 +1117,4 @@ Author's Address
 
 
 
-Nottingham              Expires December 17, 2018              [Page 20]
+Nottingham                Expires June 24, 2019                [Page 20]
