@@ -142,6 +142,14 @@
     },
     "labels": [
       {
+        "id": 111000923,
+        "node_id": "MDU6TGFiZWwxMTEwMDA5MjM=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/editorial",
+        "name": "editorial",
+        "color": "009800",
+        "default": false
+      },
+      {
         "id": 499581321,
         "node_id": "MDU6TGFiZWw0OTk1ODEzMjE=",
         "url": "https://api.github.com/repos/httpwg/http-extensions/labels/header-structure",
@@ -159,7 +167,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-12-17T21:45:47Z",
-    "updated_at": "2018-12-17T22:02:55Z",
+    "updated_at": "2018-12-21T05:23:45Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "https://httpwg.org/http-extensions/draft-ietf-httpbis-header-structure.html#token defines a structured-header token as something different from an [HTTP token](https://tools.ietf.org/html/rfc7230#section-3.2.6). Formally, this is fine, since SH defines `sh-token`, while HTTP defines `token`, but I almost missed the difference as a reader. It'd be nice if the text mentioned it."
@@ -438,9 +446,9 @@
 
     ],
     "milestone": null,
-    "comments": 10,
+    "comments": 12,
     "created_at": "2018-12-12T01:58:30Z",
-    "updated_at": "2018-12-20T06:10:26Z",
+    "updated_at": "2018-12-22T02:51:39Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "Working on evert/structured-headers, @evert [noticed](https://github.com/httpwg/structured-header-tests/issues/9) that representing the full range of SH integers is [hard](http://2ality.com/2013/10/safe-integers.html), and going beyond it can cause [problems](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER).\r\n\r\nGiven JS's place in the Web ecosystem and the relative rarity of headers that need integers that big (as well as the availability of floats), should we consider limiting the range of integer to match JS?"
@@ -477,7 +485,14 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 533812593,
+        "node_id": "MDU6TGFiZWw1MzM4MTI1OTM=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/early-hints",
+        "name": "early-hints",
+        "color": "fbca04",
+        "default": false
+      }
     ],
     "state": "open",
     "locked": false,
@@ -488,7 +503,7 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2018-12-11T17:00:22Z",
-    "updated_at": "2018-12-14T06:58:05Z",
+    "updated_at": "2018-12-21T05:24:00Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "Currently https://fetch.spec.whatwg.org/#concept-http-network-fetch ignores all 1xx responses, it seems this would have to be changed somehow, assuming this is to be adopted in user agents implementing Fetch.\r\n\r\nIt would also have to be done in such a way that any security checks applying to responses also apply to these responses (also tracked by #687 to some extent)."
@@ -2784,9 +2799,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-09-27T15:08:07Z",
-    "updated_at": "2018-11-30T00:29:38Z",
+    "updated_at": "2018-12-24T14:00:51Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "`sizes` isn’t mentioned in the spec, and many people dealing in Client Hints from within HTML do not know that it is required in order for clients to send a `Width` hint.\r\n\r\nI've seen a lot of [confusion](https://github.com/ojanvafai/intrinsicsize-attribute/issues/7#issuecomment-416764898) about the relationship between the two elements. Is there value to keeping it vague?"
@@ -2839,9 +2854,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 4,
     "created_at": "2018-09-27T14:45:02Z",
-    "updated_at": "2018-10-08T05:16:28Z",
+    "updated_at": "2018-12-27T21:26:50Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "I have personally had an especially difficult time tying the purpose and usefulness of the `Content-DPR` client hint to a specific use case, and I don't think I'm alone in this. While the spec at large is straightforward and reads well, I think `Content-DPR` could benefit from a concrete example of how it might be used by the client. Currently, the spec says the following of `Content-DPR` in [section 4](https://tools.ietf.org/html/draft-ietf-httpbis-client-hints-06#section-4):\r\n\r\n> The client can use this information to perform additional processing on the resource - for example, calculate the appropriate intrinsic size of the image resource such that it is displayed at the correct resolution.\r\n\r\nThis seems a bit vague to me. Does Chrome act on this response header a specific way? Are implementing browsers _expected_ to? And what's a specific example where that may be the case? Does any suboptimal behavior result when DPR is _not_ confirmed with `Content-DPR`, and if so, what instances?"
