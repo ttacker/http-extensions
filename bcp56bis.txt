@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                         December 21, 2018
+Internet-Draft                                           January 2, 2019
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: June 24, 2019
+Expires: July 6, 2019
 
 
                       Building Protocols with HTTP
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 24, 2019.
+   This Internet-Draft will expire on July 6, 2019.
 
 
 
@@ -53,14 +53,14 @@ Status of This Memo
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 1]
+Nottingham                Expires July 6, 2019                  [Page 1]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 Copyright Notice
 
-   Copyright (c) 2018 IETF Trust and the persons identified as the
+   Copyright (c) 2019 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 2]
+Nottingham                Expires July 6, 2019                  [Page 2]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
      6.1.  Privacy Considerations  . . . . . . . . . . . . . . . . .  25
@@ -165,9 +165,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 3]
+Nottingham                Expires July 6, 2019                  [Page 3]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    More generally, application protocols using HTTP face a number of
@@ -221,9 +221,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 4]
+Nottingham                Expires July 6, 2019                  [Page 4]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    o  The IANA registries defined for HTTP are updated or modified.
@@ -277,9 +277,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 5]
+Nottingham                Expires July 6, 2019                  [Page 5]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    status code might differ in a real deployment.  If the client does
@@ -333,9 +333,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 6]
+Nottingham                Expires July 6, 2019                  [Page 6]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    It also becomes possible to "mix and match" different applications on
@@ -389,9 +389,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 7]
+Nottingham                Expires July 6, 2019                  [Page 7]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 4.  Best Practices for Using HTTP
@@ -445,9 +445,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 8]
+Nottingham                Expires July 6, 2019                  [Page 8]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 4.2.  Defining HTTP Resources
@@ -501,9 +501,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                 [Page 9]
+Nottingham                Expires July 6, 2019                  [Page 9]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    browsers.  If their use is not explicitly specified by applications
@@ -557,9 +557,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 10]
+Nottingham                Expires July 6, 2019                 [Page 10]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    For example, specifying that a "GET to the URL /foo retrieves a bar
@@ -613,9 +613,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 11]
+Nottingham                Expires July 6, 2019                 [Page 11]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    o  Because URLs occur in HTTP artefacts commonly, often being
@@ -669,9 +669,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 12]
+Nottingham                Expires July 6, 2019                 [Page 12]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 4.5.  HTTP Methods
@@ -725,9 +725,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 13]
+Nottingham                Expires July 6, 2019                 [Page 13]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    HTTP that feel a need to allow POST queries ought consider allowing
@@ -781,9 +781,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 14]
+Nottingham                Expires July 6, 2019                 [Page 14]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
       Link header is available on HEAD responses, which is useful if the
@@ -837,9 +837,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 15]
+Nottingham                Expires July 6, 2019                 [Page 15]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    MUST NOT require specific reason phrases to be used; the reason
@@ -893,9 +893,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 16]
+Nottingham                Expires July 6, 2019                 [Page 16]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    As noted in [I-D.ietf-httpbis-semantics], a user agent is allowed to
@@ -949,9 +949,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 17]
+Nottingham                Expires July 6, 2019                 [Page 17]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    appropriately specific.  In particular, if a header field is specific
@@ -1005,9 +1005,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 18]
+Nottingham                Expires July 6, 2019                 [Page 18]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    active measures to remove content intelligently when they are out of
@@ -1061,9 +1061,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 19]
+Nottingham                Expires July 6, 2019                 [Page 19]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    application, it is generally preferable to set an explicit freshness
@@ -1117,9 +1117,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 20]
+Nottingham                Expires July 6, 2019                 [Page 20]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 4.11.  Client Authentication
@@ -1173,9 +1173,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 21]
+Nottingham                Expires July 6, 2019                 [Page 21]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    o  Using an application-specific media type in the Content-Type
@@ -1229,9 +1229,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 22]
+Nottingham                Expires July 6, 2019                 [Page 22]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 4.13.  Application Boundaries
@@ -1285,9 +1285,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 23]
+Nottingham                Expires July 6, 2019                 [Page 23]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    o  Server push can have negative performance impact on HTTP when used
@@ -1341,9 +1341,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 24]
+Nottingham                Expires July 6, 2019                 [Page 24]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 5.  IANA Considerations
@@ -1397,9 +1397,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 25]
+Nottingham                Expires July 6, 2019                 [Page 25]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    Fingerprinting uses unique aspects of a client's messages and
@@ -1453,9 +1453,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 26]
+Nottingham                Expires July 6, 2019                 [Page 26]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
@@ -1509,9 +1509,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 27]
+Nottingham                Expires July 6, 2019                 [Page 27]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    [I-D.ietf-httpbis-header-structure]
@@ -1565,9 +1565,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 28]
+Nottingham                Expires July 6, 2019                 [Page 28]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    [RFC6415]  Hammer-Lahav, E., Ed. and B. Cook, "Web Host Metadata",
@@ -1621,9 +1621,9 @@ Internet-Draft        Building Protocols with HTTP         December 2018
 
 
 
-Nottingham                Expires June 24, 2019                [Page 29]
+Nottingham                Expires July 6, 2019                 [Page 29]
 
-Internet-Draft        Building Protocols with HTTP         December 2018
+Internet-Draft        Building Protocols with HTTP          January 2019
 
 
    [RFC8297]  Oku, K., "An HTTP Status Code for Indicating Hints",
@@ -1677,4 +1677,4 @@ Author's Address
 
 
 
-Nottingham                Expires June 24, 2019                [Page 30]
+Nottingham                Expires July 6, 2019                 [Page 30]

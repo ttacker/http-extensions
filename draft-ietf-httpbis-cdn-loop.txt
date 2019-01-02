@@ -5,10 +5,10 @@
 HTTP Working Group                                              S. Ludin
 Internet-Draft                                       Akamai Technologies
 Intended status: Standards Track                           M. Nottingham
-Expires: June 24, 2019                                            Fastly
+Expires: July 6, 2019                                             Fastly
                                                              N. Sullivan
                                                               Cloudflare
-                                                       December 21, 2018
+                                                        January 02, 2019
 
 
                            CDN Loop Detection
@@ -38,11 +38,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 24, 2019.
+   This Internet-Draft will expire on July 6, 2019.
 
 Copyright Notice
 
-   Copyright (c) 2018 IETF Trust and the persons identified as the
+   Copyright (c) 2019 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Ludin, et al.             Expires June 24, 2019                 [Page 1]
+Ludin, et al.             Expires July 6, 2019                  [Page 1]
 
-Internet-Draft             CDN Loop Detection              December 2018
+Internet-Draft             CDN Loop Detection               January 2019
 
 
    to this document.  Code Components extracted from this document must
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Ludin, et al.             Expires June 24, 2019                 [Page 2]
+Ludin, et al.             Expires July 6, 2019                  [Page 2]
 
-Internet-Draft             CDN Loop Detection              December 2018
+Internet-Draft             CDN Loop Detection               January 2019
 
 
 1.1.  Relationship to Via
@@ -165,9 +165,9 @@ Internet-Draft             CDN Loop Detection              December 2018
 
 
 
-Ludin, et al.             Expires June 24, 2019                 [Page 3]
+Ludin, et al.             Expires July 6, 2019                  [Page 3]
 
-Internet-Draft             CDN Loop Detection              December 2018
+Internet-Draft             CDN Loop Detection               January 2019
 
 
    As with all HTTP header fields defined using the "#" rule, the CDN-
@@ -221,9 +221,9 @@ Internet-Draft             CDN Loop Detection              December 2018
 
 
 
-Ludin, et al.             Expires June 24, 2019                 [Page 4]
+Ludin, et al.             Expires July 6, 2019                  [Page 4]
 
-Internet-Draft             CDN Loop Detection              December 2018
+Internet-Draft             CDN Loop Detection               January 2019
 
 
    behaviour based upon its contents should assure that this does not
@@ -277,9 +277,9 @@ Internet-Draft             CDN Loop Detection              December 2018
 
 
 
-Ludin, et al.             Expires June 24, 2019                 [Page 5]
+Ludin, et al.             Expires July 6, 2019                  [Page 5]
 
-Internet-Draft             CDN Loop Detection              December 2018
+Internet-Draft             CDN Loop Detection               January 2019
 
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
@@ -333,4 +333,4 @@ Authors' Addresses
 
 
 
-Ludin, et al.             Expires June 24, 2019                 [Page 6]
+Ludin, et al.             Expires July 6, 2019                  [Page 6]
