@@ -4,9 +4,9 @@
 
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
-Updates: 7234 (if approved)                              January 2, 2019
+Updates: 7234 (if approved)                              January 4, 2019
 Intended status: Standards Track
-Expires: July 6, 2019
+Expires: July 8, 2019
 
 
                       HTTP Representation Variants
@@ -49,11 +49,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 6, 2019.
+   This Internet-Draft will expire on July 8, 2019.
 
 
 
-Nottingham                Expires July 6, 2019                  [Page 1]
+Nottingham                Expires July 8, 2019                  [Page 1]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham                Expires July 6, 2019                  [Page 2]
+Nottingham                Expires July 8, 2019                  [Page 2]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                  [Page 3]
+Nottingham                Expires July 8, 2019                  [Page 3]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -221,7 +221,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                  [Page 4]
+Nottingham                Expires July 8, 2019                  [Page 4]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -277,7 +277,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                  [Page 5]
+Nottingham                Expires July 8, 2019                  [Page 5]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -333,7 +333,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                  [Page 6]
+Nottingham                Expires July 8, 2019                  [Page 6]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -389,7 +389,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                  [Page 7]
+Nottingham                Expires July 8, 2019                  [Page 7]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -445,7 +445,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                  [Page 8]
+Nottingham                Expires July 8, 2019                  [Page 8]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -460,8 +460,10 @@ Internet-Draft        HTTP Representation Variants          January 2019
                field identified by a content negotiation mechanism that
                the implementation supports:
 
-               1.  Let request-value be the field-value(s) associated
-                   with field-name in incoming-request.
+               1.  Let request-value be the field-value associated with
+                   field-name in incoming-request (after being combined
+                   as allowed by Section 3.2.2 of [RFC7230]), or null if
+                   field-name is not in incoming-request.
 
                2.  Let available-values be a list containing all
                    available-value for variant.
@@ -496,15 +498,15 @@ Internet-Draft        HTTP Representation Variants          January 2019
    Given key-facets (a list of lists), and key-stub (a string
    representing a partial key), and possible-keys (a list):
 
-   1.  Let values be the first member of key-facets.
 
 
 
-
-Nottingham                Expires July 6, 2019                  [Page 9]
+Nottingham                Expires July 8, 2019                  [Page 9]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
+
+   1.  Let values be the first member of key-facets.
 
    2.  For each value in values:
 
@@ -553,14 +555,14 @@ Internet-Draft        HTTP Representation Variants          January 2019
        filtered-vary for the value of the "Vary" response header, return
        True.
 
-   5.  Return False.
 
 
-
-Nottingham                Expires July 6, 2019                 [Page 10]
+Nottingham                Expires July 8, 2019                 [Page 10]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
+
+   5.  Return False.
 
    This returns a Boolean that indicates whether stored-response can be
    used to satisfy the request.
@@ -611,9 +613,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-
-
-Nottingham                Expires July 6, 2019                 [Page 11]
+Nottingham                Expires July 8, 2019                 [Page 11]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -669,7 +669,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                 [Page 12]
+Nottingham                Expires July 8, 2019                 [Page 12]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -725,7 +725,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                 [Page 13]
+Nottingham                Expires July 8, 2019                 [Page 13]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -774,14 +774,14 @@ Internet-Draft        HTTP Representation Variants          January 2019
    o  MUST define an algorithm for selecting a result.  It MUST return a
       list of available-values that are suitable for the request, in
       order of preference, given the value of the request header
-      nominated above and an available-values list from the Variants
-      header.  If the result is an empty list, it implies that the cache
-      cannot satisfy the request.
+      nominated above (or null if the request header is absent) and an
+      available-values list from the Variants header.  If the result is
+      an empty list, it implies that the cache cannot satisfy the
+      request.
 
 
 
-
-Nottingham                Expires July 6, 2019                 [Page 14]
+Nottingham                Expires July 8, 2019                 [Page 14]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -837,7 +837,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                 [Page 15]
+Nottingham                Expires July 8, 2019                 [Page 15]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -893,7 +893,7 @@ Internet-Draft        HTTP Representation Variants          January 2019
 
 
 
-Nottingham                Expires July 6, 2019                 [Page 16]
+Nottingham                Expires July 8, 2019                 [Page 16]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -933,12 +933,11 @@ A.1.  Accept
 
    1.  Let preferred-available be an empty list.
 
-   2.  Let preferred-types be a list of the types in the request-value,
-       ordered by their weight, highest to lowest, as per Section 5.3.2
-       of [RFC7231] (omitting any coding with a weight of 0).  If
-       "Accept" is not present or empty, preferred-types will be empty.
-       If a type lacks an explicit weight, an implementation MAY assign
-       one.
+   2.  Let preferred-types be a list of the types in the request-value
+       (or the empty list if request-value is null), ordered by their
+       weight, highest to lowest, as per Section 5.3.2 of [RFC7231]
+       (omitting any coding with a weight of 0).  If a type lacks an
+       explicit weight, an implementation MAY assign one.
 
    3.  If the first member of available-values is not a member of
        preferred-types, append it to preferred-types (thus making it the
@@ -949,7 +948,8 @@ A.1.  Accept
 
 
 
-Nottingham                Expires July 6, 2019                 [Page 17]
+
+Nottingham                Expires July 8, 2019                 [Page 17]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
@@ -981,11 +981,10 @@ A.2.  Accept-Encoding
    1.  Let preferred-available be an empty list.
 
    2.  Let preferred-codings be a list of the codings in the request-
-       value, ordered by their weight, highest to lowest, as per
-       Section 5.3.1 of [RFC7231] (omitting any coding with a weight of
-       0).  If "Accept-Encoding" is not present or empty, preferred-
-       codings will be empty.  If a coding lacks an explicit weight, an
-       implementation MAY assign one.
+       value (or the empty list if request-value is null), ordered by
+       their weight, highest to lowest, as per Section 5.3.1 of
+       [RFC7231] (omitting any coding with a weight of 0).  If a coding
+       lacks an explicit weight, an implementation MAY assign one.
 
    3.  If "identity" is not a member of preferred-codings, append
        "identity".
@@ -1000,19 +999,16 @@ A.2.  Accept-Encoding
 
    6.  Return preferred-available.
 
-
-
-
-
-
-Nottingham                Expires July 6, 2019                 [Page 18]
-
-Internet-Draft        HTTP Representation Variants          January 2019
-
-
    Note that the unencoded variant needs to have a Variant-Key header
    field with a value of "identity" (as defined in Section 5.3.4 of
    [RFC7231]).
+
+
+
+Nottingham                Expires July 8, 2019                 [Page 18]
+
+Internet-Draft        HTTP Representation Variants          January 2019
+
 
 A.3.  Accept-Language
 
@@ -1029,10 +1025,11 @@ A.3.  Accept-Language
    1.  Let preferred-available be an empty list.
 
    2.  Let preferred-langs be a list of the language-ranges in the
-       request-value, ordered by their weight, highest to lowest, as per
-       Section 5.3.1 of [RFC7231] (omitting any language-range with a
-       weight of 0).  If a language-range lacks a weight, an
-       implementation MAY assign one.
+       request-value (or the empty list if request-value is null),
+       ordered by their weight, highest to lowest, as per Section 5.3.1
+       of [RFC7231] (omitting any language-range with a weight of 0).
+       If a language-range lacks a weight, an implementation MAY assign
+       one.
 
    3.  If the first member of available-values is not a member of
        preferred-langs, append it to preferred-langs (thus making it the
@@ -1057,17 +1054,17 @@ Acknowledgements
    It is also a generalisation of a Fastly VCL feature designed by
    Rogier 'DocWilco' Mulhuijzen.
 
+   Thanks to Hooman Beheshti, Ilya Grigorik, Leif Hedstrom, and Jeffrey
+   Yasskin for their review and input.
 
 
 
 
-Nottingham                Expires July 6, 2019                 [Page 19]
+
+Nottingham                Expires July 8, 2019                 [Page 19]
 
 Internet-Draft        HTTP Representation Variants          January 2019
 
-
-   Thanks to Hooman Beheshti, Ilya Grigorik, Leif Hedstrom, and Jeffrey
-   Yasskin for their review and input.
 
 Author's Address
 
@@ -1117,4 +1114,7 @@ Author's Address
 
 
 
-Nottingham                Expires July 6, 2019                 [Page 20]
+
+
+
+Nottingham                Expires July 8, 2019                 [Page 20]
