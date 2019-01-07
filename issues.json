@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/746",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/746/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/746/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/746/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/746",
+    "id": 396013603,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQyMzMwOTI2",
+    "number": 746,
+    "title": "Fix a typo: \"request)\"",
+    "user": {
+      "login": "jyasskin",
+      "id": 83420,
+      "node_id": "MDQ6VXNlcjgzNDIw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/83420?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jyasskin",
+      "html_url": "https://github.com/jyasskin",
+      "followers_url": "https://api.github.com/users/jyasskin/followers",
+      "following_url": "https://api.github.com/users/jyasskin/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jyasskin/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jyasskin/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jyasskin/subscriptions",
+      "organizations_url": "https://api.github.com/users/jyasskin/orgs",
+      "repos_url": "https://api.github.com/users/jyasskin/repos",
+      "events_url": "https://api.github.com/users/jyasskin/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jyasskin/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-01-04T17:56:06Z",
+    "updated_at": "2019-01-07T00:49:50Z",
+    "closed_at": "2019-01-07T00:49:44Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/746",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/746",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/746.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/746.patch"
+    },
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/745",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
     "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/745/labels{/name}",
@@ -105,7 +159,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-12-18T20:56:45Z",
-    "updated_at": "2019-01-04T03:00:37Z",
+    "updated_at": "2019-01-04T17:53:23Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -284,7 +338,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-12-14T20:02:54Z",
-    "updated_at": "2019-01-04T04:41:24Z",
+    "updated_at": "2019-01-04T19:42:06Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -343,9 +397,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 5,
     "created_at": "2018-12-14T00:39:01Z",
-    "updated_at": "2019-01-04T04:54:10Z",
+    "updated_at": "2019-01-04T06:04:56Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "https://github.com/httpwg/http-extensions/compare/master...jyasskin:incomplete-cache-example shows an example of an origin server that contains English, French, and German versions of a resource, a cache that has cached the English and French versions, a request that asks for German or Spanish, and, I believe, permission in the spec for the cache to return the English version instead of asking the origin server for the German version.\r\n\r\nThis happens because https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#content-language appends the first Variant to the list of requested languages even if the list of requested languages overlaps with the available variants. Is this a mistake in the algorithm, or intentional for some reason?"
@@ -522,9 +576,9 @@
 
     ],
     "milestone": null,
-    "comments": 17,
+    "comments": 20,
     "created_at": "2018-12-12T01:58:30Z",
-    "updated_at": "2019-01-04T02:16:04Z",
+    "updated_at": "2019-01-04T21:20:31Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "Working on evert/structured-headers, @evert [noticed](https://github.com/httpwg/structured-header-tests/issues/9) that representing the full range of SH integers is [hard](http://2ality.com/2013/10/safe-integers.html), and going beyond it can cause [problems](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER).\r\n\r\nGiven JS's place in the Web ecosystem and the relative rarity of headers that need integers that big (as well as the availability of floats), should we consider limiting the range of integer to match JS?"
@@ -634,7 +688,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-12-07T23:13:28Z",
-    "updated_at": "2019-01-04T04:57:38Z",
+    "updated_at": "2019-01-04T17:33:21Z",
     "closed_at": "2019-01-04T04:57:31Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -1719,7 +1773,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "<sup>(@mnot requested a new issue during Thursday's httpbis meeting at IETF 103)</sup>\r\n\r\n#549 suggests the idea of an algorithm to to key the cache on a cookie by name. \r\n\r\nOne consideration in this specification should be the use case where some value in a cookie can override server Accept behaviours. As a known use case, websites that offer multiple languages may allow a user to set a cookie which determines which language. When that value is not present in a cookie, the server falls back to using Accept-Language or some other alternate.\r\n\r\nI think this specification should perhaps make some clarity over Cookies doing this kind of override, even if it may fit into the Vary section (as servers implementing this probably are using `Vary: Cookie`)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/716",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -1774,10 +1831,7 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "In https://github.com/w3ctag/design-reviews/issues/320, @annevk (re-)raised the question of Client Hints' integration with CORS. One suggestion in that thread is to prefix headers with `Sec-CH-`, which on the one hand makes them trivial to add _en masse_ to the CORS-safelisted list, and on the other prevents JavaScript from setting their values (which in turn limits the risk associated with adding them to the CORS-safelisted list in the first place).\r\n\r\nI have two concrete proposals for hints ([`UA-*`](https://github.com/mikewest/ua-client-hints) and [`Lang`](https://github.com/mikewest/lang-client-hint)) that adopt this pattern. Perhaps it's one that could be baked more deeply into the Client Hints infrastructure?\r\n\r\n/cc @igrigorik @yoavweiss @arturjanc"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/715",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3501,7 +3555,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "See https://github.com/w3c/preload/issues/114.\r\n\r\nIt seems like Early Hints could potentially violate policies. Or perhaps 1xx responses need to be recommended to also include CSP policies?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/686",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3556,10 +3613,7 @@
     "closed_at": "2018-10-23T04:58:11Z",
     "author_association": "NONE",
     "body": "We should point out that if there are multiple headers of the same name, any blank header among them will be ignored.\r\n\r\nI should really add some API tests for this as well as I kinda doubt this is how they work..."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/685",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5163,7 +5217,10 @@
     "closed_at": "2018-08-19T05:57:05Z",
     "author_association": "MEMBER",
     "body": "SH should specify how two headers should be combined by parsers (acknowledging that upstream may have already combined them, in a different fashion)."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/656",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5217,10 +5274,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/656.patch"
     },
     "body": "Per discussions in fetch#726 [1], update the opt-in example to apply to\r\nsame-origin resources only, with Accept-CH-Lifetime being processed on\r\nnavigation requests.\r\n\r\n[1] https://github.com/whatwg/fetch/issues/726\r\n\r\n/cc @yoavweiss @tarunban"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/655",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7248,7 +7302,10 @@
     "closed_at": "2018-06-05T11:54:58Z",
     "author_association": "MEMBER",
     "body": "I've started sketching out a feature that intends to deliver a structured header as part of an HTTP request, and I find myself doing a little more hand-waving than I'd like in step 6 of https://mikewest.github.io/sec-metadata/#abstract-opdef-set-the-sec-metadata-header-for-a-request.\r\n\r\nThe end of https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-1 suggests that:\r\n\r\n>   Those abstract types can be serialised into textual headers - such as those used in HTTP/1 and HTTP/2 - using the algorithms described in Section 3.\r\n\r\nSection 3, however, seems to be the opposite: parsing a string into a Structured Header. I don't actually see a serialization algorithm in the document. Each type hints at how it might be serialized, but it would be nice to have an algorithm to point to."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/626",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7367,10 +7424,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/626.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/625",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -9169,7 +9223,10 @@
     "closed_at": "2018-06-28T07:17:20Z",
     "author_association": "MEMBER",
     "body": "The prose defines precise ranges for numbers (explicitly for integers, implicitly for floats), yet the algorithm doesn't yet enforce them."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/596",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -9224,10 +9281,7 @@
     "closed_at": "2018-08-19T06:28:45Z",
     "author_association": "CONTRIBUTOR",
     "body": "As @reschke points out in https://lists.w3.org/Archives/Public/ietf-http-wg/2018JanMar/0209.html, https://tools.ietf.org/html/rfc7230#section-3.2.2 says:\r\n\r\n> A sender MUST NOT generate multiple header fields with the same field\r\n> name in a message unless either the entire field value for that\r\n> header field is defined as a comma-separated list [i.e., #(values)]\r\n> or the header field is a well-known exception (as noted below).\r\n\r\ndraft-ietf-httpbis-header-structure should explicitly override that prohibition for lists, dictionaries, and parameterised lists. It could do this by using the # construct in the ABNF for those types, but because the parsing algorithm in structured headers isn't actually driven by the ABNF, I'm not sure that's the right approach.\r\n\r\nThe parsing side is already handled by http://httpwg.org/http-extensions/draft-ietf-httpbis-header-structure.html#text."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/595",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -11025,7 +11079,10 @@
     "closed_at": "2018-04-11T23:39:30Z",
     "author_association": "MEMBER",
     "body": "Explain the pitfalls of OPTIONS."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/566",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -11086,10 +11143,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/566.patch"
     },
     "body": "Closes #480.\r\nFixes #482.\r\nFixes #484.\r\n\r\nI wasn't specifically after #485, but this improved the text in the process.\r\n\r\nMoves all frames to stream zero.  Replaces AUTOMATIC_USE on CERTIFICATE frames with UNSOLICITED on USE_CERTIFICATE frames, so you can send (one) certificate on a new request without being asked, but you have to send it every time."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/565",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -12797,7 +12851,10 @@
     "closed_at": "2018-04-02T05:57:00Z",
     "author_association": "NONE",
     "body": "I noticed the structured headers proposal strictly ignores UTF-8, because it's not used much. The recommendation is to use the binary format instead.\r\n\r\nI thought that [RFC8187](https://tools.ietf.org/html/rfc8187) was fairly good for this.\r\n\r\nI can see structured-headers to be a super useful generic way to describe new standard and proprietary headers, but ignoring UTF-8 means we're limited in what categories of data probably unsafe for the purpose of a header.\r\n\r\nIs there a possibility to merge the syntax of RFC8187? It's true that it might not be used as much in practice, but it might expand the potential use-cases. Furthermore, as an implementor I don't have to worry about what someone might encode. The binary format doesn't quite cut it, because it doens't provide a hint as to how a generic client might decode it.  "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/536",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -12852,10 +12909,7 @@
     "closed_at": "2018-03-30T00:12:53Z",
     "author_association": "NONE",
     "body": "> to avoid the \"confused deputy\" problem\r\n\r\nNo, it's to avoid leaking private information. Servers can still be susceptible to the confused deputy problem with CORS. They need to address that independently."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/535",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -14714,7 +14768,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/507.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/506",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -14806,10 +14863,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/506.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/505",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -16610,7 +16664,10 @@
     "closed_at": "2018-04-02T06:32:28Z",
     "author_association": "MEMBER",
     "body": "In particular, the relationship between 2119 requirements, ABNF and algorithms."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/476",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -16665,10 +16722,7 @@
     "closed_at": "2018-02-22T08:21:01Z",
     "author_association": "MEMBER",
     "body": "Right now, Structured Headers allows the following types at the top level:\r\n\r\n* Dictionaries\r\n* Lists\r\n* Parameterised Labels\r\n* Items\r\n\r\nItems' types can be identified by inspecting their first character, and #443 covers parameterised labels.\r\n\r\nHowever, there isn't any easy way for a parser to identify whether the top-level data type is a dictionary or a list. As a result, a parser will need a hint as to what kind of top-level data type is expected for a given header.\r\n\r\nIt seems like the options are:\r\n\r\n1) Make it possible to distinguish these data types on the wire; e.g., dictionaries start with `{`, lists start with `[`.\r\n\r\n2) Require parsers to have external information about what's being parsed, at least at the top level. E.g., the parser could expose four functions, `parseList`, `parseDict`, `parsePlabel`, `parseItem`.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/475",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -18526,7 +18580,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/447.patch"
     },
     "body": "Fixes #445."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/446",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -18625,10 +18682,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/446.patch"
     },
     "body": "Thanks @davidben and @vasilvv for pushing on this."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/445",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -20724,7 +20778,10 @@
     "closed_at": "2018-02-26T21:16:01Z",
     "author_association": "NONE",
     "body": "From an operational perspective, site operators need to be able to distinguish if Expect-CT failure  caused access to the site to be denied. In any organisation of non-trivial size it's likely that there will be a mixture of sites with report-only and enforcing policies. Thus, not all reports are equal. A failure of enforcing Expect-CT needs to be treated with urgency and perhaps an immediate action. Failures of report-only policies are not urgent and can be reviewed from time to time during normal working hours."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/416",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -20817,10 +20874,7 @@
     "closed_at": "2018-02-26T21:24:31Z",
     "author_association": "NONE",
     "body": "Here's my use case: I am developing a testing tool (Hardenize), which analyses web site configuration and tries to determine if everything is in order. If I see Expect-CT on a site I need to know if the configured reporting endpoint is operational. It's all to easy for a reporting endpoint to break for whatever reason and without anyone noticing. I think this will be especially problematic for Expect-CT, which I would expect to be a \"quiet\" header.\r\n\r\nTo that end, I'd like to submit a test report and examine the response. For this to work properly, we need 1) an ability to indicate that a report is being submitted for testing purposes only and 2) for the server to be able to signal if the report is being accepted. With 1, the server can process the test response as it would a real one, but MAY delete it afterwards. With 2, the testing tool can determine if the endpoint is working correctly.\r\n\r\nFor #2, the RFC could be extended with section 3.3 Receiving a violation report, which could say that servers should respond with 200 if they are happy and able to receive a report for the indicated hostname, 4xx if there's something's wrong with the report (e.g., the indicated hostname is not known to the server), and 5xx if there is some other problem."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/415",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22777,7 +22831,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/387.patch"
     },
     "body": "...not just the wildcard ones."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/386",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22878,10 +22935,7 @@
     "closed_at": "2017-09-15T06:34:48Z",
     "author_association": "CONTRIBUTOR",
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/385",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -24838,7 +24892,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/357.patch"
     },
     "body": "This is a PR that essentially rebases the change proposed in #319.\r\n\r\nTo me the change proposed by @royfielding is a clear improvement. I believe that we should merge this."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/356",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -24893,10 +24950,7 @@
     "closed_at": "2018-05-19T15:59:52Z",
     "author_association": "CONTRIBUTOR",
     "body": "Background for this issue is in https://github.com/bifurcation/expect-ct/issues/18, where it is argued that Expect-CT reports should have a special Content-Type, like Content Security Policy reports, but it is also argued that they should be sent with CORS preflights when Expect-CT is implemented by a web browser, since they are not a whitelisted safe request.\r\n\r\nUnfortunately, implementing preflights for Expect-CT reports probably can't be done in Chrome in any reasonable amount of time, and would probably be difficult for other implementors as well. Expect-CT is checked at connection setup time, completely divorced from any context from which we can construct an `Origin` header.\r\n\r\nTherefore I think we need to resort to using `application/x-www-form-urlencoded` for reports, if we want Expect-CT to be reasonably implementable in a web browser without violating the SOP.\r\n\r\n@scotthelme @mikewest @eranmes"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/355",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -27089,7 +27143,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/327.patch"
     },
     "body": "This changes Expect-CT to be a comma-separated list of directives (which may be\r\nname=value pairs), and adds some examples.\r\n\r\nAlso allows the server to send multiple header fields so that they can be\r\ncombined, as per\r\nhttps://github.com/httpwg/http-extensions/issues/318#issuecomment-294369176\r\n\r\nFixes issue #318, #321 "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/326",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -27143,10 +27200,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/326.patch"
     },
     "body": "This includes a common set of processing instructions for the markdown files.  The results should be more consistent with other drafts in the repo.  \r\n\r\nThis is partly selfish.  I found that this is necessary on my machine because java is flaky and kramdown-rfc2629 creates entity references that it can't handle. "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/325",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -28893,7 +28947,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/297.patch"
     },
     "body": "For git tracking purposes, even though I'm uploading directly to Datatracker as well."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/296",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -28947,10 +29004,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/296.patch"
     },
     "body": "header = 16 +4 + 1 +2 = 23\r\ntwo records of 25 bytes = 50\r\n\r\nsum is 73"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/295",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -30765,7 +30819,10 @@
     "closed_at": "2017-03-03T04:09:29Z",
     "author_association": "MEMBER",
     "body": "In working on RFC5988bis, I'm referring to this spec, and finding it's difficult to talk about the concepts, because so much has been pared back.\r\n\r\nIn particular:\r\n\r\n* [ ] There isn't any prose reference to the \"*\" form of the attribute name; it only occurs in examples. One would assume that this is the normative way to invoke this encoding, but it isn't specified.\r\n* [ ] A distinct name for the encoding would help; right now, the best I can do is \"the encoding specified in RFC5987bis\".\r\n* [ ] The examples of how to use this in header specifications needs to be deeper."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/266",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -30828,10 +30885,7 @@
     "closed_at": "2016-11-17T00:43:40Z",
     "author_association": "MEMBER",
     "body": "... occurs twice in the current draft, without much context. Should it be removed?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/265",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -32606,7 +32660,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/237.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/236",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -32661,10 +32718,7 @@
     "closed_at": "2016-09-28T03:09:05Z",
     "author_association": "CONTRIBUTOR",
     "body": "3] get rid of tls-commit (i.e. the latch to opp sec) as this plays very poorly with alt-svc. The notion of alt-svc has always been that it is a shortcut route (or dns name if your prefer) for the same content as supplied at the default origin. If for any reason you cannot get there, you can always go back to the default origin. All of the machinery around this (validating alternates, etc) can happen transparently and asynchronously in the background until they are ready to be used. A mechanism that requires a characteristic of a route (auth'd TLS) but not the route itself doesn't play well - its far too easy to brick your site for an extended period of time and really ceases to be opportunistic in any meaningful sense. If you're up to managing this, then you're probably up to the fight of running https:// and using HSTS which at least has the benefit of not bringing a whole second technology (alt-svc) into play.\n\n[there is further discussion on list]\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/235",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -34579,7 +34633,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/207.patch"
     },
     "body": "This probably isn't the end of this issue though.  We require that an opportunistic upgrade uses the same hostname.  The text I added here lifts the requirement regarding port numbers, but should it also say that the hostname needs to remain the same?\n\nI've left this open here, but I think that we probably should leave the hostname requirement in place.  That way, we still retain some of the aspects of http:// authority.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/206",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -34648,10 +34705,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/206.patch"
     },
     "body": "Kari raised several concerns on-list.  They seem like editorial things.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/205",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -36343,7 +36397,10 @@
     "closed_at": "2016-10-11T05:51:08Z",
     "author_association": "CONTRIBUTOR",
     "body": "During the discussion of the Secondary Certs work, Nick S. raised the point that it would be interesting to be able to inform the client about dependent domains which are also served by this server as the server returns content that references it.  In order to do this incrementally, an ORIGIN frame would need to be additive -- each successive frame augmenting the client's list of allowed domains.  However, we still need to support the original case, scoping it down.\n\nI'd suggest changing the semantics to be additive and defining a flag whose presence/absence means that the existing list (initially inferred from the certificate) be discarded before processing this frame.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/176",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -36397,10 +36454,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/176.patch"
     },
     "body": "Some rather minor edits to the ORIGIN frame spec\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/175",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -38018,7 +38072,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/147.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/146",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -38072,10 +38129,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/146.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/145",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39740,7 +39794,10 @@
     "closed_at": "2015-11-09T17:15:39Z",
     "author_association": "NONE",
     "body": "https://tools.ietf.org/html/draft-ietf-httpbis-alt-svc-08#section-3.1\n\n```\nFor example, a response:\n\n HTTP/1.1 200 OK\n Content-Type: text/html\n Cache-Control: 600\n Age: 30\n Alt-Svc: h2c=\":8000\"; ma=60\n```\n\nMissing `max-age=` in `Cache-Control` header?\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/116",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39803,10 +39860,7 @@
     "closed_at": "2016-09-02T16:35:51Z",
     "author_association": "CONTRIBUTOR",
     "body": "In \"Guidelines for Usage in HTTP Header Field Definitions\":\n- use HTTPbis whitespace definitions\n- use HTTPbis header field ABNF conventions\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/115",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -41529,7 +41583,10 @@
     "closed_at": "2015-09-02T07:21:24Z",
     "author_association": "CONTRIBUTOR",
     "body": "Should we say what an alt-svc header field means when received over HTTP/2? Does it mean anything? Does it override a previously received alt-svc frame?\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/86",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -41583,10 +41640,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/86.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/85",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -43407,7 +43461,10 @@
     "closed_at": "2015-04-27T16:12:16Z",
     "author_association": "CONTRIBUTOR",
     "body": "Apparently, this is confusing.  Picking a new name might help.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/56",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -43461,10 +43518,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/56.patch"
     },
     "body": "The `http/1.1` ALPN token identifies HTTP/1.1 over TLS.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/55",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -45242,7 +45296,10 @@
     "closed_at": "2014-08-19T18:31:54Z",
     "author_association": "MEMBER",
     "body": "Section 3 third para ends:\n\n> For instance, a client could examine the certificate to see if it has changed over time.\n\nThis implies that certs SHOULD NOT change over time; as it is, though, they can't rely upon that, so this text is highly speculative. I think we should either firm it up or take it out (probably the latter).\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/26",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -45297,10 +45354,7 @@
     "closed_at": "2014-12-16T00:17:54Z",
     "author_association": "MEMBER",
     "body": "Section 3 implies that there are no cipher suite requirements on Opp Sec, but it'd be good to discuss and formalise this. May require tweaks to HTTP/2 (which places requirements on use of TLS, _not_ TLS with \"https\").\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/25",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
