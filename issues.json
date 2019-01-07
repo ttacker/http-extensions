@@ -150,7 +150,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -159,8 +159,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-12-18T20:56:45Z",
-    "updated_at": "2019-01-04T17:53:23Z",
-    "closed_at": null,
+    "updated_at": "2019-01-07T03:38:10Z",
+    "closed_at": "2019-01-07T02:52:41Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/744",
@@ -211,7 +211,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -220,8 +220,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-12-18T19:45:35Z",
-    "updated_at": "2018-12-19T05:26:39Z",
-    "closed_at": null,
+    "updated_at": "2019-01-07T02:52:41Z",
+    "closed_at": "2019-01-07T02:52:41Z",
     "author_association": "CONTRIBUTOR",
     "body": "https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#example-of-cache-behaviour shows a Variant-Key of\r\n\r\n```http\r\nVariant-Key: fr, gzip\r\n```\r\n\r\nBut that's now [spelled](https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variant-key)\r\n\r\n```http\r\nVariant-Key: fr;gzip\r\n```\r\n\r\nThis also has implications for the https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#gen-variant-key algorithm, which currently ignores semicolons. "
   },
@@ -329,7 +329,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -338,8 +338,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-12-14T20:02:54Z",
-    "updated_at": "2019-01-04T19:42:06Z",
-    "closed_at": null,
+    "updated_at": "2019-01-07T03:38:50Z",
+    "closed_at": "2019-01-07T02:54:04Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/741",
@@ -390,7 +390,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -399,8 +399,8 @@
     "milestone": null,
     "comments": 5,
     "created_at": "2018-12-14T00:39:01Z",
-    "updated_at": "2019-01-04T06:04:56Z",
-    "closed_at": null,
+    "updated_at": "2019-01-07T02:54:04Z",
+    "closed_at": "2019-01-07T02:54:04Z",
     "author_association": "CONTRIBUTOR",
     "body": "https://github.com/httpwg/http-extensions/compare/master...jyasskin:incomplete-cache-example shows an example of an origin server that contains English, French, and German versions of a resource, a cache that has cached the English and French versions, a request that asks for German or Spanish, and, I believe, permission in the spec for the cache to return the English version instead of asking the origin server for the German version.\r\n\r\nThis happens because https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#content-language appends the first Variant to the list of requested languages even if the list of requested languages overlaps with the available variants. Is this a mistake in the algorithm, or intentional for some reason?"
   },
@@ -10901,7 +10901,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -10910,8 +10910,8 @@
     "milestone": null,
     "comments": 4,
     "created_at": "2018-04-09T06:01:09Z",
-    "updated_at": "2018-12-07T06:26:45Z",
-    "closed_at": null,
+    "updated_at": "2019-01-07T02:52:41Z",
+    "closed_at": "2019-01-07T02:52:41Z",
     "author_association": "MEMBER",
     "body": ""
   },
