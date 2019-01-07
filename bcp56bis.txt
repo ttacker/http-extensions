@@ -85,7 +85,7 @@ Table of Contents
    4.  Best Practices for Using HTTP . . . . . . . . . . . . . . . .   8
      4.1.  Specifying the Use of HTTP  . . . . . . . . . . . . . . .   8
      4.2.  Defining HTTP Resources . . . . . . . . . . . . . . . . .   9
-     4.3.  Specifying Client Behaviours  . . . . . . . . . . . . . .   9
+     4.3.  Specifying Client Behaviours  . . . . . . . . . . . . . .  10
      4.4.  HTTP URLs . . . . . . . . . . . . . . . . . . . . . . . .  10
        4.4.1.  Initial URL Discovery . . . . . . . . . . . . . . . .  11
        4.4.2.  URL Schemes . . . . . . . . . . . . . . . . . . . . .  11
@@ -119,7 +119,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  26
      7.2.  Informative References  . . . . . . . . . . . . . . . . .  28
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  30
-   Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  30
+   Appendix A.  Changes from RFC 3205  . . . . . . . . . . . . . . .  31
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  31
 
 1.  Introduction
@@ -493,11 +493,11 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    related information in the link indicated by the Link header field
    value with the "example-other-info" link relation type.
 
-4.3.  Specifying Client Behaviours
+   Applications can also specify the use of URI Templates [RFC6570] to
+   allow clients to generate URLs based upon runtime data.
 
-   Some behaviours (e.g., automatic redirect handling) and extensions
-   (e.g., Cookies) are not required by HTTP, but nevertheless have
-   become very common, possibly because they are supported by Web
+
+
 
 
 
@@ -506,6 +506,11 @@ Nottingham                Expires July 11, 2019                 [Page 9]
 Internet-Draft        Building Protocols with HTTP          January 2019
 
 
+4.3.  Specifying Client Behaviours
+
+   Some behaviours (e.g., automatic redirect handling) and extensions
+   (e.g., Cookies) are not required by HTTP, but nevertheless have
+   become very common, possibly because they are supported by Web
    browsers.  If their use is not explicitly specified by applications
    using HTTP, there may be confusion and interoperability problems.
    This section recommends default handling for these mechanisms.
@@ -549,11 +554,6 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    In other words, applications that use HTTP shouldn't associate
    application semantics with specific URL paths on arbitrary servers.
    Doing so inappropriately conflates the identity of the resource (its
-   URL) with the capabilities that resource supports, bringing about
-   many of the same interoperability problems that [RFC4367] warns of.
-
-
-
 
 
 
@@ -561,6 +561,9 @@ Nottingham                Expires July 11, 2019                [Page 10]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
+
+   URL) with the capabilities that resource supports, bringing about
+   many of the same interoperability problems that [RFC4367] warns of.
 
    For example, specifying that a "GET to the URL /foo retrieves a bar
    document" is bad practice.  Likewise, specifying "The widget API is
@@ -607,9 +610,6 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
    o  Existing non-browser clients, intermediaries, servers and
       associated software will not recognise the new scheme.  For
-      example, a client library might fail to dispatch the request; a
-      cache might refuse to store the response, and a proxy might fail
-      to forward the request.
 
 
 
@@ -617,6 +617,10 @@ Nottingham                Expires July 11, 2019                [Page 11]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
+
+      example, a client library might fail to dispatch the request; a
+      cache might refuse to store the response, and a proxy might fail
+      to forward the request.
 
    o  Because URLs occur in HTTP artefacts commonly, often being
       generated automatically (e.g., in the "Location" response header),
@@ -663,16 +667,14 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    interfere with it).  Privacy implications should be documented in
    Security Considerations.
 
-   See [RFC7605] for further guidance.
-
-
-
 
 
 Nottingham                Expires July 11, 2019                [Page 12]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
+
+   See [RFC7605] for further guidance.
 
 4.5.  HTTP Methods
 
@@ -720,8 +722,6 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    to express queries in the request body; doing so avoids encoding
    overhead and URL length limits in implementations.  However, in doing
    so it should be noted that the benefits of GET such as caching and
-   linking to query results are lost.  Therefore, applications using
-
 
 
 
@@ -730,6 +730,7 @@ Nottingham                Expires July 11, 2019                [Page 13]
 Internet-Draft        Building Protocols with HTTP          January 2019
 
 
+   linking to query results are lost.  Therefore, applications using
    HTTP that feel a need to allow POST queries ought consider allowing
    both methods.
 
@@ -777,7 +778,6 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    o  For server-wide metadata, create a well-known URI
       [I-D.nottingham-rfc5785bis], or using an already existing one if
       it's appropriate (e.g., HostMeta [RFC6415]).
-
 
 
 
@@ -1593,6 +1593,11 @@ Internet-Draft        Building Protocols with HTTP          January 2019
               RFC 6415, DOI 10.17487/RFC6415, October 2011,
               <https://www.rfc-editor.org/info/rfc6415>.
 
+   [RFC6570]  Gregorio, J., Fielding, R., Hadley, M., Nottingham, M.,
+              and D. Orchard, "URI Template", RFC 6570,
+              DOI 10.17487/RFC6570, March 2012,
+              <https://www.rfc-editor.org/info/rfc6570>.
+
    [RFC6797]  Hodges, J., Jackson, C., and A. Barth, "HTTP Strict
               Transport Security (HSTS)", RFC 6797,
               DOI 10.17487/RFC6797, November 2012,
@@ -1610,6 +1615,17 @@ Internet-Draft        Building Protocols with HTTP          January 2019
               308 (Permanent Redirect)", RFC 7538, DOI 10.17487/RFC7538,
               April 2015, <https://www.rfc-editor.org/info/rfc7538>.
 
+
+
+
+
+
+
+Nottingham                Expires July 11, 2019                [Page 29]
+
+Internet-Draft        Building Protocols with HTTP          January 2019
+
+
    [RFC7595]  Thaler, D., Ed., Hansen, T., and T. Hardie, "Guidelines
               and Registration Procedures for URI Schemes", BCP 35,
               RFC 7595, DOI 10.17487/RFC7595, June 2015,
@@ -1618,13 +1634,6 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    [RFC7605]  Touch, J., "Recommendations on Using Assigned Transport
               Port Numbers", BCP 165, RFC 7605, DOI 10.17487/RFC7605,
               August 2015, <https://www.rfc-editor.org/info/rfc7605>.
-
-
-
-Nottingham                Expires July 11, 2019                [Page 29]
-
-Internet-Draft        Building Protocols with HTTP          January 2019
-
 
    [RFC7616]  Shekh-Yusef, R., Ed., Ahrens, D., and S. Bremer, "HTTP
               Digest Access Authentication", RFC 7616,
@@ -1666,6 +1675,13 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
    [3] https://github.com/httpwg/http-extensions/labels/bcp56bis
 
+
+
+Nottingham                Expires July 11, 2019                [Page 30]
+
+Internet-Draft        Building Protocols with HTTP          January 2019
+
+
 Appendix A.  Changes from RFC 3205
 
    [RFC3205] captured the Best Current Practice in the early 2000's,
@@ -1674,28 +1690,12 @@ Appendix A.  Changes from RFC 3205
    document is substantially different.  As a result, the changes are
    too numerous to list individually.
 
-
-
-
-Nottingham                Expires July 11, 2019                [Page 30]
-
-Internet-Draft        Building Protocols with HTTP          January 2019
-
-
 Author's Address
 
    Mark Nottingham
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
-
-
-
-
-
-
-
-
 
 
 
