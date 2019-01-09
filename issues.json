@@ -686,9 +686,9 @@
 
     ],
     "milestone": null,
-    "comments": 28,
+    "comments": 31,
     "created_at": "2018-12-12T01:58:30Z",
-    "updated_at": "2019-01-08T06:23:14Z",
+    "updated_at": "2019-01-09T03:23:36Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "Working on evert/structured-headers, @evert [noticed](https://github.com/httpwg/structured-header-tests/issues/9) that representing the full range of SH integers is [hard](http://2ality.com/2013/10/safe-integers.html), and going beyond it can cause [problems](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER).\r\n\r\nGiven JS's place in the Web ecosystem and the relative rarity of headers that need integers that big (as well as the availability of floats), should we consider limiting the range of integer to match JS?"
