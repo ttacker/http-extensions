@@ -1369,11 +1369,11 @@ Internet-Draft         Structured Headers for HTTP          January 2019
         1.  Parse input_number as an integer and let output_number be
             the product of the result and sign.
 
-        2.  If output_number is outside the range for integers defined
-            in Section 3.6, fail parsing.
-
-        3.  If output_number is not supported accurately by the
+        2.  If output_number is not supported accurately by the
             implementation (as noted in Section 3.6), fail parsing.
+
+        3.  If output_number is outside the range for integers defined
+            in Section 3.6, fail parsing.
 
    9.   Otherwise:
 
@@ -1771,6 +1771,9 @@ C.1.  Since draft-ietf-httpbis-header-structure-08
 
    o  Add implementation guidance (#727).
 
+   o  Require minimum range for integers, and predictable failure
+      (#737).
+
 C.2.  Since draft-ietf-httpbis-header-structure-07
 
    o  Make Dictionaries ordered mappings (#659).
@@ -1784,15 +1787,14 @@ C.2.  Since draft-ietf-httpbis-header-structure-07
 
    o  Add Booleans (#683).
 
-   o  Allow identifiers in items again (#629).
-
-
 
 
 Nottingham & Kamp         Expires July 14, 2019                [Page 32]
 
 Internet-Draft         Structured Headers for HTTP          January 2019
 
+
+   o  Allow identifiers in items again (#629).
 
    o  Disallowed whitespace before items (#703).
 
@@ -1840,8 +1842,6 @@ C.7.  Since draft-ietf-httpbis-header-structure-02
 
    o  Clarify that mappings are unordered.
 
-   o  Allow zero-length strings.
-
 
 
 
@@ -1849,6 +1849,8 @@ Nottingham & Kamp         Expires July 14, 2019                [Page 33]
 
 Internet-Draft         Structured Headers for HTTP          January 2019
 
+
+   o  Allow zero-length strings.
 
    o  Improve string parsing algorithm.
 
@@ -1884,8 +1886,6 @@ Authors' Addresses
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
 
 
 
