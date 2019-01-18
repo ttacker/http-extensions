@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                          January 14, 2019
+Internet-Draft                                          January 18, 2019
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: July 18, 2019
+Expires: July 22, 2019
 
 
                       Building Protocols with HTTP
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 18, 2019.
+   This Internet-Draft will expire on July 22, 2019.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 1]
+Nottingham                Expires July 22, 2019                 [Page 1]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -88,7 +88,7 @@ Table of Contents
      4.3.  Specifying Client Behaviours  . . . . . . . . . . . . . .  10
      4.4.  HTTP URLs . . . . . . . . . . . . . . . . . . . . . . . .  10
        4.4.1.  Initial URL Discovery . . . . . . . . . . . . . . . .  11
-       4.4.2.  URL Schemes . . . . . . . . . . . . . . . . . . . . .  11
+       4.4.2.  URI Schemes . . . . . . . . . . . . . . . . . . . . .  11
        4.4.3.  Transport Ports . . . . . . . . . . . . . . . . . . .  12
      4.5.  HTTP Methods  . . . . . . . . . . . . . . . . . . . . . .  13
        4.5.1.  GET . . . . . . . . . . . . . . . . . . . . . . . . .  13
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 2]
+Nottingham                Expires July 22, 2019                 [Page 2]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 3]
+Nottingham                Expires July 22, 2019                 [Page 3]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -173,7 +173,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    More generally, application protocols using HTTP face a number of
    design decisions, including:
 
-   o  Should it define a new URL scheme?  Use new ports?
+   o  Should it define a new URI scheme?  Use new ports?
 
    o  Should it use standard HTTP methods and status codes, or define
       new ones?
@@ -213,7 +213,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
    o  the transport port in use is 80 or 443,
 
-   o  the URL scheme "http" or "https" is used,
+   o  the URI scheme "http" or "https" is used,
 
    o  the ALPN protocol ID [RFC7301] generically identifies HTTP (e.g.,
       "http/1.1", "h2", "h2c"), or
@@ -221,7 +221,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 4]
+Nottingham                Expires July 22, 2019                 [Page 4]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -246,7 +246,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    adaptable to these changes, and as the protocol diverges from HTTP,
    the benefit of mindshare will be lost.
 
-   Protocols that are based upon HTTP MUST NOT reuse HTTP's URL schemes,
+   Protocols that are based upon HTTP MUST NOT reuse HTTP's URI schemes,
    transport ports, ALPN protocol IDs or IANA registries; rather, they
    are encouraged to establish their own.
 
@@ -277,7 +277,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 5]
+Nottingham                Expires July 22, 2019                 [Page 5]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -317,7 +317,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    resources, can cause deployment issues, and is therefore bad practice
    in standards.
 
-   Instead of statically defining URL components like paths, it is
+   Instead of statically defining URI components like paths, it is
    RECOMMENDED that applications using HTTP define links in payloads, to
    allow flexibility in deployment.
 
@@ -333,7 +333,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 6]
+Nottingham                Expires July 22, 2019                 [Page 6]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -389,7 +389,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 7]
+Nottingham                Expires July 22, 2019                 [Page 7]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -445,7 +445,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 8]
+Nottingham                Expires July 22, 2019                 [Page 8]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -501,7 +501,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                 [Page 9]
+Nottingham                Expires July 22, 2019                 [Page 9]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -557,7 +557,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 10]
+Nottingham                Expires July 22, 2019                [Page 10]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -572,7 +572,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    Instead, applications are encouraged to ensure that URLs are
    discovered at runtime, allowing HTTP-based services to describe their
    own capabilities.  One way to do this is to use typed links [RFC8288]
-   to convey the URIs that are in use, as well as the semantics of the
+   to convey the URLs that are in use, as well as the semantics of the
    resources that they identify.  See Section 4.2 for details.
 
 4.4.1.  Initial URL Discovery
@@ -591,19 +591,19 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    convey a whole URL, but only a hostname) applications can request a
    well-known URI [I-D.nottingham-rfc5785bis] as an entry point.
 
-4.4.2.  URL Schemes
+4.4.2.  URI Schemes
 
    Applications that use HTTP will typically employ the "http" and/or
-   "https" URL schemes. "https" is RECOMMENDED to provide
+   "https" URI schemes. "https" is RECOMMENDED to provide
    authentication, integrity and confidentiality, as well as mitigate
    pervasive monitoring attacks [RFC7258].
 
    However, application-specific schemes can also be defined.  When
-   defining an URL scheme for an application using HTTP, there are a
+   defining an URI scheme for an application using HTTP, there are a
    number of tradeoffs and caveats to keep in mind:
 
    o  Unmodified Web browsers will not support the new scheme.  While it
-      is possible to register new URL schemes with Web browsers (e.g.
+      is possible to register new URI schemes with Web browsers (e.g.
       registerProtocolHandler() in [HTML5], as well as several
       proprietary approaches), support for these mechanisms is not
       shared by all browsers, and their capabilities vary.
@@ -613,7 +613,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 11]
+Nottingham                Expires July 22, 2019                [Page 11]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -647,7 +647,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    o  Web features that require a secure context [SECCTXT] will likely
       treat a new scheme as insecure.
 
-   See [RFC7595] for more information about minting new URL schemes.
+   See [RFC7595] for more information about minting new URI schemes.
 
 4.4.3.  Transport Ports
 
@@ -669,7 +669,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 12]
+Nottingham                Expires July 22, 2019                [Page 12]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -707,9 +707,9 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    expensive process.
 
    In some cases, however, GET might be unwieldy for expressing queries,
-   because of the limited syntax of the URL; in particular, if binary
+   because of the limited syntax of the URI; in particular, if binary
    data forms part of the query terms, it needs to be encoded to conform
-   to URL syntax.
+   to URI syntax.
 
    While this is not an issue for short queries, it can become one for
    larger query terms, or ones which need to sustain a high rate of
@@ -725,7 +725,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 13]
+Nottingham                Expires July 22, 2019                [Page 13]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -781,7 +781,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 14]
+Nottingham                Expires July 22, 2019                [Page 14]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -837,7 +837,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 15]
+Nottingham                Expires July 22, 2019                [Page 15]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -893,7 +893,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 16]
+Nottingham                Expires July 22, 2019                [Page 16]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -949,7 +949,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 17]
+Nottingham                Expires July 22, 2019                [Page 17]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 18]
+Nottingham                Expires July 22, 2019                [Page 18]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1061,7 +1061,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 19]
+Nottingham                Expires July 22, 2019                [Page 19]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1117,7 +1117,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 20]
+Nottingham                Expires July 22, 2019                [Page 20]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1137,7 +1137,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    to identify clients.  The Basic authentication scheme [RFC7617] MUST
    NOT be used unless the underlying transport is authenticated,
    integrity-protected and confidential (e.g., as provided the "HTTPS"
-   URL scheme, or another using TLS).  The Digest scheme [RFC7616] MUST
+   URI scheme, or another using TLS).  The Digest scheme [RFC7616] MUST
    NOT be used unless the underlying transport is similarly secure, or
    the chosen hash algorithm is not "MD5".
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 21]
+Nottingham                Expires July 22, 2019                [Page 21]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 22]
+Nottingham                Expires July 22, 2019                [Page 22]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 23]
+Nottingham                Expires July 22, 2019                [Page 23]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1341,7 +1341,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 24]
+Nottingham                Expires July 22, 2019                [Page 24]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1378,7 +1378,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
    other than specified.
 
    Applications that use HTTP in a manner that involves modification of
-   implementations - for example, requiring support for a new URL
+   implementations - for example, requiring support for a new URI
    scheme, or a non-standard method - risk having those implementations
    "fork" from their parent HTTP implementations, with the possible
    result that they do not benefit from patches and other security
@@ -1397,7 +1397,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 25]
+Nottingham                Expires July 22, 2019                [Page 25]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1453,7 +1453,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 26]
+Nottingham                Expires July 22, 2019                [Page 26]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1509,7 +1509,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 27]
+Nottingham                Expires July 22, 2019                [Page 27]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1565,7 +1565,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 28]
+Nottingham                Expires July 22, 2019                [Page 28]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1621,7 +1621,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 29]
+Nottingham                Expires July 22, 2019                [Page 29]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1677,7 +1677,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 18, 2019                [Page 30]
+Nottingham                Expires July 22, 2019                [Page 30]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1733,4 +1733,4 @@ Author's Address
 
 
 
-Nottingham                Expires July 18, 2019                [Page 31]
+Nottingham                Expires July 22, 2019                [Page 31]
