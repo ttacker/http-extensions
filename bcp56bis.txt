@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                          January 18, 2019
+Internet-Draft                                          January 20, 2019
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: July 22, 2019
+Expires: July 24, 2019
 
 
                       Building Protocols with HTTP
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 22, 2019.
+   This Internet-Draft will expire on July 24, 2019.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 1]
+Nottingham                Expires July 24, 2019                 [Page 1]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 2]
+Nottingham                Expires July 24, 2019                 [Page 2]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 3]
+Nottingham                Expires July 24, 2019                 [Page 3]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -221,7 +221,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 4]
+Nottingham                Expires July 24, 2019                 [Page 4]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -277,7 +277,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 5]
+Nottingham                Expires July 24, 2019                 [Page 5]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -333,7 +333,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 6]
+Nottingham                Expires July 24, 2019                 [Page 6]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -389,7 +389,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 7]
+Nottingham                Expires July 24, 2019                 [Page 7]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -445,7 +445,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 8]
+Nottingham                Expires July 24, 2019                 [Page 8]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -501,7 +501,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                 [Page 9]
+Nottingham                Expires July 24, 2019                 [Page 9]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -557,7 +557,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 10]
+Nottingham                Expires July 24, 2019                [Page 10]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -613,7 +613,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 11]
+Nottingham                Expires July 24, 2019                [Page 11]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -669,7 +669,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 12]
+Nottingham                Expires July 24, 2019                [Page 12]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -725,7 +725,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 13]
+Nottingham                Expires July 24, 2019                [Page 13]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -781,7 +781,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 14]
+Nottingham                Expires July 24, 2019                [Page 14]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -795,59 +795,63 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 4.6.  HTTP Status Codes
 
-   The primary function of a HTTP status code is to convey semantics for
-   the benefit of generic HTTP software, not to convey application-
-   specific semantics.
+   HTTP status codes convey semantics both for the benefit of generic
+   HTTP components - such as caches, intermediaries, and clients - and
+   applications themselves.  However, applications can encounter a
+   number of pitfalls in their use.
 
-   Status codes are often generated or overwritten by intermediaries, as
-   well as server and client implementations.  This can happen, for
-   example, when network errors are encountered, a captive portal is
-   present, when an implementation is overloaded, or it thinks it is
-   under attack.  As a result, the status code that a server-side
-   application generates and the one that the client software receives
-   often differ.
+   First, status codes are often generated by intermediaries, as well as
+   server and client implementations.  This can happen, for example,
+   when network errors are encountered, a captive portal is present,
+   when an implementation is overloaded, or it thinks it is under
+   attack.  As a result, if an application assigns specific semantics to
+   one of these status codes, a client can be misled about its state,
+   because the status code was generated by a generic component, not the
+   application itself.
 
-   This means that status codes are not a reliable way to carry
-   application-specific signals.  Specifying that a particular status
-   code has a specific meaning in the context of an application can have
-   unintended side effects; if that status code is generated by a
-   generic HTTP component can lead clients to believe that the
-   application is in a state that wasn't intended.
+   Furthermore, mapping application errors to individual HTTP status
+   codes one-to-one often leads to a situation where the finite space of
+   applicable HTTP status codes is exhausted.  This, in turn, leads to a
+   number of bad practices - including minting new, application-specific
+   status codes, or using existing status codes even though the link
+   between their semantics and the application's is tenuous at best.
 
-   Instead, applications using HTTP should specify the implications of
-   general classes of responses (e.g., "successful response" for 2xx;
-   "client error" for 4xx and "server error" for 5xx), conveying any
-   application-specific information in the message body and/or HTTP
-   header fields, not the status code.  [RFC7807] provides one way for
-   applications using HTTP to do so for error conditions.
+   Instead, applications using HTTP should define their errors to use
+   the most applicable status code, making generous use of the general
+   status codes (200, 400 and 500) when in doubt.  Importantly, they
+   SHOULD NOT specify a one-to-one relationship between status codes and
+   application errors, thereby avoiding the exhaustion issue outlined
+   above.
 
-   There are limited exceptions to this; for example, applications might
-   use 201 (Created) or 404 (Not Found) to convey application semantics
-   that are compatible with the generic HTTP semantics of those status
-   codes.  In general, though, applications should resist the temptation
-   to map their semantics into fine-grained status codes.
+   To distinguish between multiple error conditions that are mapped to
+   the same status code, and to avoid the misattribution issue outlined
+   above, applications using HTTP SHOULD convey finer-grained error
+   information in the response's message body and/or header fields.
+   [RFC7807] provides one way to do so.
 
    Because the set of registered HTTP status codes can expand,
-   applications using HTTP should explicitly point out that clients
+   applications using HTTP SHOULD explicitly point out that clients
    ought to be able to handle all applicable status codes gracefully
    (i.e., falling back to the generic "n00" semantics of a given status
    code; e.g., "499" can be safely handled as "400" by clients that
-   don't recognise it).  This is preferable to creating a "laundry list"
-   of potential status codes, since such a list is never complete.
 
 
 
-Nottingham                Expires July 22, 2019                [Page 15]
+Nottingham                Expires July 24, 2019                [Page 15]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
+
+   don't recognise it).  This is preferable to creating a "laundry list"
+   of potential status codes, since such a list won't be complete in the
+   foreseeable future.
 
    Applications using HTTP MUST NOT re-specify the semantics of HTTP
    status codes, even if it is only by copying their definition.  They
    MUST NOT require specific reason phrases to be used; the reason
    phrase has no function in HTTP, is not guaranteed to be preserved by
-   implementations, and the reason phrase is not carried at all in the
-   HTTP/2 [RFC7540] message format.
+   implementations, and is not carried at all in the HTTP/2 [RFC7540]
+   message format.
 
    Applications MUST only use registered HTTP status codes.  As with
    methods, new HTTP status codes are rare, and required (by
@@ -889,11 +893,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-
-
-
-
-Nottingham                Expires July 22, 2019                [Page 16]
+Nottingham                Expires July 24, 2019                [Page 16]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -949,7 +949,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 17]
+Nottingham                Expires July 24, 2019                [Page 17]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1005,7 +1005,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 18]
+Nottingham                Expires July 24, 2019                [Page 18]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1061,7 +1061,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 19]
+Nottingham                Expires July 24, 2019                [Page 19]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1117,7 +1117,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 20]
+Nottingham                Expires July 24, 2019                [Page 20]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1173,7 +1173,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 21]
+Nottingham                Expires July 24, 2019                [Page 21]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 22]
+Nottingham                Expires July 24, 2019                [Page 22]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 23]
+Nottingham                Expires July 24, 2019                [Page 23]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1341,7 +1341,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 24]
+Nottingham                Expires July 24, 2019                [Page 24]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1397,7 +1397,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 25]
+Nottingham                Expires July 24, 2019                [Page 25]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1453,7 +1453,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 26]
+Nottingham                Expires July 24, 2019                [Page 26]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1509,7 +1509,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 27]
+Nottingham                Expires July 24, 2019                [Page 27]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1565,7 +1565,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 28]
+Nottingham                Expires July 24, 2019                [Page 28]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1621,7 +1621,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 29]
+Nottingham                Expires July 24, 2019                [Page 29]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1677,7 +1677,7 @@ Internet-Draft        Building Protocols with HTTP          January 2019
 
 
 
-Nottingham                Expires July 22, 2019                [Page 30]
+Nottingham                Expires July 24, 2019                [Page 30]
 
 Internet-Draft        Building Protocols with HTTP          January 2019
 
@@ -1733,4 +1733,4 @@ Author's Address
 
 
 
-Nottingham                Expires July 22, 2019                [Page 31]
+Nottingham                Expires July 24, 2019                [Page 31]
