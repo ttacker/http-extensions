@@ -514,15 +514,15 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
    values above 2^^53, so a JavaScript application may want to use
    2^^53-1 for a Very Large Value.  This value, however, would not be
    sufficient for all applications, such as continuously-streaming high-
-   bitrate streams.  So this draft recommends 2^^53-1 (9007199254740991)
-   as a Very Large Value unless an application has a good justification
-   to use a smaller or larger value. e.g.  If it's always known that the
-   resource won't exceed a value smaller than the recommended Very Large
-   Value for an application, a smaller value can be used for efficiency.
-   And if it's likely that an application will utilize resources larger
-   than the recommended Very Large Value - such as a continuously
-   aggregating high-bitrate media stream - a larger value should be
-   used.
+   bitrate streams.  So the value 2^^53-1 (9007199254740991) is
+   recommended as a Very Large Value unless an application has a good
+   justification to use a smaller or larger value. e.g.  If it's always
+   known that the resource won't exceed a value smaller than the
+   recommended Very Large Value for an application, a smaller value can
+   be used for efficiency.  And if it's likely that an application will
+   utilize resources larger than the recommended Very Large Value - such
+   as a continuously aggregating high-bitrate media stream - a larger
+   value should be used.
 
    Note that, in accordance with the semantics defined above, servers
    that support random-access live content will need to return the last-
