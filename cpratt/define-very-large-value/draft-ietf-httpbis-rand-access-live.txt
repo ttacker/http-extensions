@@ -238,7 +238,7 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
    from the server indicating that (1) the complete representation
    length is unknown (via the "*" in place of the complete-length field)
-   and (2) that only bytes 0-1234567 were accessable at the time the
+   and (2) that only bytes 0-1234567 were accessible at the time the
    request was processed by the server.  The client can infer from this
    response that bytes 0-1234567 of the representation can be requested
    and returned in a timely fashion (the bytes are immediately
@@ -285,7 +285,7 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
    proxies, and caches, this document proposes a mechanism for a client
    to indicate support for handling an indeterminate-length byte-range
    response, and a mechanism for a server to indicate if/when it's
-   providing a indeterminate-length response.
+   providing an indeterminate-length response.
 
    A client can indicate support for handling indeterminate-length byte-
    range responses by providing a very large value for the last-byte-pos
