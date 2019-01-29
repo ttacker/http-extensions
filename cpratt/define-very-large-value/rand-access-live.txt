@@ -510,7 +510,7 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
    While it would be ideal to define a single numerical Very Large
    Value, there's no single value that would work for all applications
-   and platforms. e.g.  JavaScript numbers cannot represent integer
+   and platforms. e.g.  JavaScript numbers cannot represent all integer
    values above 2^^53, so a JavaScript application may want to use
    2^^53-1 for a Very Large Value.  This value, however, would not be
    sufficient for all applications, such as continuously-streaming high-
@@ -519,10 +519,10 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
    justification to use a smaller or larger value. e.g.  If it's always
    known that the resource won't exceed a value smaller than the
    recommended Very Large Value for an application, a smaller value can
-   be used for efficiency.  And if it's likely that an application will
-   utilize resources larger than the recommended Very Large Value - such
-   as a continuously aggregating high-bitrate media stream - a larger
-   value should be used.
+   be used.  And if it's likely that an application will utilize
+   resources larger than the recommended Very Large Value - such as a
+   continuously aggregating high-bitrate media stream - a larger value
+   should be used.
 
    Note that, in accordance with the semantics defined above, servers
    that support random-access live content will need to return the last-
