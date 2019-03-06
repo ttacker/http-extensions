@@ -5,10 +5,10 @@
 HTTP Working Group                                              C. Pratt
 Internet-Draft
 Intended status: Experimental                                 D. Thakore
-Expires: September 2, 2018                                     CableLabs
+Expires: September 7, 2019                                     CableLabs
                                                                 B. Stark
                                                                     AT&T
-                                                           March 1, 2018
+                                                           March 6, 2019
 
 
                   HTTP Random Access and Live Content
@@ -47,20 +47,20 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 2, 2018.
+   This Internet-Draft will expire on September 7, 2019.
 
 
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 1]
+Pratt, et al.           Expires September 7, 2019               [Page 1]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
 Copyright Notice
 
-   Copyright (c) 2018 IETF Trust and the persons identified as the
+   Copyright (c) 2019 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 2]
+Pratt, et al.           Expires September 7, 2019               [Page 2]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
    without accepting performance or behavior sacrifices which are not
@@ -165,9 +165,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 3]
+Pratt, et al.           Expires September 7, 2019               [Page 3]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
 2.  Performing Range requests on Random-Access Aggregating ("live")
@@ -221,9 +221,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 4]
+Pratt, et al.           Expires September 7, 2019               [Page 4]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
        HEAD /resource HTTP/1.1
@@ -277,9 +277,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 5]
+Pratt, et al.           Expires September 7, 2019               [Page 5]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
    proxies, and caches, this document proposes a mechanism for a client
@@ -333,9 +333,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 6]
+Pratt, et al.           Expires September 7, 2019               [Page 6]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
        GET /resource HTTP/1.1
@@ -389,9 +389,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 7]
+Pratt, et al.           Expires September 7, 2019               [Page 7]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
        GET /resource HTTP/1.1
@@ -445,9 +445,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 8]
+Pratt, et al.           Expires September 7, 2019               [Page 8]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
        GET /resource HTTP/1.1
@@ -501,9 +501,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
 
-Pratt, et al.           Expires September 2, 2018               [Page 9]
+Pratt, et al.           Expires September 7, 2019               [Page 9]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
 4.  Recommendations for Very Large Values
@@ -557,9 +557,9 @@ Internet-Draft     HTTP Random Access and Live Content        March 2018
 
 
 
-Pratt, et al.           Expires September 2, 2018              [Page 10]
+Pratt, et al.           Expires September 7, 2019              [Page 10]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
 7.  References
@@ -613,9 +613,9 @@ Acknowledgements
 
 
 
-Pratt, et al.           Expires September 2, 2018              [Page 11]
+Pratt, et al.           Expires September 7, 2019              [Page 11]
 
-Internet-Draft     HTTP Random Access and Live Content        March 2018
+Internet-Draft     HTTP Random Access and Live Content        March 2019
 
 
 Authors' Addresses
@@ -669,4 +669,4 @@ Authors' Addresses
 
 
 
-Pratt, et al.           Expires September 2, 2018              [Page 12]
+Pratt, et al.           Expires September 7, 2019              [Page 12]
