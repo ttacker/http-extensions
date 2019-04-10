@@ -123,14 +123,14 @@ Internet-Draft         Structured Headers for HTTP            April 2019
            expose? . . . . . . . . . . . . . . . . . . . . . . . . .  31
    Appendix C.  Changes  . . . . . . . . . . . . . . . . . . . . . .  31
      C.1.  Since draft-ietf-httpbis-header-structure-09  . . . . . .  31
-     C.2.  Since draft-ietf-httpbis-header-structure-08  . . . . . .  31
+     C.2.  Since draft-ietf-httpbis-header-structure-08  . . . . . .  32
      C.3.  Since draft-ietf-httpbis-header-structure-07  . . . . . .  32
-     C.4.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  32
+     C.4.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  33
      C.5.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  33
      C.6.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  33
      C.7.  Since draft-ietf-httpbis-header-structure-03  . . . . . .  33
      C.8.  Since draft-ietf-httpbis-header-structure-02  . . . . . .  33
-     C.9.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  33
+     C.9.  Since draft-ietf-httpbis-header-structure-01  . . . . . .  34
      C.10. Since draft-ietf-httpbis-header-structure-00  . . . . . .  34
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  34
 
@@ -429,14 +429,14 @@ Internet-Draft         Structured Headers for HTTP            April 2019
 
 3.4.  Parameterised Lists
 
-   Parameterised Lists are arrays of parameterised identifier with one
+   Parameterised Lists are arrays of parameterised identifiers, with one
    or more members.
 
-   A parameterised identifier is a token (Section 3.9}) with an optional
-   set of parameters, each parameter having a textual name and an
-   optional value that is an item (Section 3.5).  Ordering between
-   parameters is not significant, and duplicate parameters MUST cause
-   parsing to fail.
+   A parameterised identifier is a primary identifier (a Section 3.9})
+   with associated parameters, an ordered map of key-value pairs where
+   the keys are short, textual strings and the values are items
+   (Section 3.5).  There can be zero or more parameters, and keys are
+   required to be unique.
 
    The ABNF for parameterised lists in HTTP/1 headers is:
 
@@ -1222,7 +1222,7 @@ Internet-Draft         Structured Headers for HTTP            April 2019
    1.  Let primary_identifier be the result of Parsing a Token from Text
        (Section 4.2.10) from input_string.
 
-   2.  Let parameters be an empty, unordered map.
+   2.  Let parameters be an empty, ordered map.
 
    3.  In a loop:
 
@@ -1716,6 +1716,11 @@ B.3.  What should generic Structured Headers implementations expose?
    this, a common test suite is being maintained by the community; see
    https://github.com/httpwg/structured-header-tests [7].
 
+   Implementers should note that dictionaries and parameters are order-
+   preserving maps.  Some headers may not convey meaning in the ordering
+   of these data types, but it should still be exposed so that
+   applications which need to use it will have it available.
+
 Appendix C.  Changes
 
    _RFC Editor: Please remove this section before publication._
@@ -1724,12 +1729,7 @@ C.1.  Since draft-ietf-httpbis-header-structure-09
 
    o  Changed Boolean from T/F to 1/0 (#784).
 
-C.2.  Since draft-ietf-httpbis-header-structure-08
-
-   o  Disallow whitespace before items properly (#703).
-
-
-
+   o  Parameters are now ordered maps (#765).
 
 
 
@@ -1737,6 +1737,10 @@ Nottingham & Kamp       Expires October 12, 2019               [Page 31]
 
 Internet-Draft         Structured Headers for HTTP            April 2019
 
+
+C.2.  Since draft-ietf-httpbis-header-structure-08
+
+   o  Disallow whitespace before items properly (#703).
 
    o  Created "key" for use in dictionaries and parameters, rather than
       relying on identifier (#702).  Identifiers have a separate minimum
@@ -1778,13 +1782,9 @@ C.3.  Since draft-ietf-httpbis-header-structure-07
    o  Explain the consequences of splitting a string across multiple
       headers (#686).
 
-C.4.  Since draft-ietf-httpbis-header-structure-06
 
-   o  Add a FAQ.
 
-   o  Allow non-zero pad bits.
 
-   o  Explicitly check for integers that violate constraints.
 
 
 
@@ -1793,6 +1793,14 @@ Nottingham & Kamp       Expires October 12, 2019               [Page 32]
 
 Internet-Draft         Structured Headers for HTTP            April 2019
 
+
+C.4.  Since draft-ietf-httpbis-header-structure-06
+
+   o  Add a FAQ.
+
+   o  Allow non-zero pad bits.
+
+   o  Explicitly check for integers that violate constraints.
 
 C.5.  Since draft-ietf-httpbis-header-structure-05
 
@@ -1835,20 +1843,18 @@ C.8.  Since draft-ietf-httpbis-header-structure-02
 
    o  Require parsers to combine header fields before processing.
 
-   o  Throw an error on trailing garbage.
-
-C.9.  Since draft-ietf-httpbis-header-structure-01
-
-   o  Replaced with draft-nottingham-structured-headers.
-
-
-
 
 
 Nottingham & Kamp       Expires October 12, 2019               [Page 33]
 
 Internet-Draft         Structured Headers for HTTP            April 2019
 
+
+   o  Throw an error on trailing garbage.
+
+C.9.  Since draft-ietf-httpbis-header-structure-01
+
+   o  Replaced with draft-nottingham-structured-headers.
 
 C.10.  Since draft-ietf-httpbis-header-structure-00
 
@@ -1872,12 +1878,6 @@ Authors' Addresses
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
-
-
-
-
 
 
 
