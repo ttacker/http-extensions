@@ -480,12 +480,12 @@ Internet-Draft         Structured Headers for HTTP            April 2019
 
 3.6.  Integers
 
-   Integers have a range of -9,223,372,036,854,775,808 to
-   9,223,372,036,854,775,807 inclusive (i.e., a 64-bit signed integer).
+   Integers have a range of -999,999,999,999,999 to 999,999,999,999,999
+   inclusive (i.e., up to fifteen digits, signed).
 
    The ABNF for integers in HTTP/1 headers is:
 
-   sh-integer = ["-"] 1*19DIGIT
+   sh-integer = ["-"] 1*15DIGIT
 
    For example:
 
@@ -832,8 +832,8 @@ Internet-Draft         Structured Headers for HTTP            April 2019
    Given an integer as input_integer:
 
    1.  If input_integer is not an integer in the range of
-       -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
-       inclusive, fail serialisation.
+       -999,999,999,999,999 to 999,999,999,999,999 inclusive, fail
+       serialisation.
 
 
 
@@ -1329,7 +1329,7 @@ Internet-Draft         Structured Headers for HTTP            April 2019
 
         4.  Otherwise, prepend char to input_string, and exit the loop.
 
-        5.  If type is "integer" and input_number contains more than 19
+        5.  If type is "integer" and input_number contains more than 15
             characters, fail parsing.
 
         6.  If type is "float" and input_number contains more than 16
@@ -1738,6 +1738,8 @@ Nottingham & Kamp       Expires October 12, 2019               [Page 31]
 Internet-Draft         Structured Headers for HTTP            April 2019
 
 
+   o  Clamp integers to 15 digits (#737).
+
 C.2.  Since draft-ietf-httpbis-header-structure-08
 
    o  Disallow whitespace before items properly (#703).
@@ -1781,8 +1783,6 @@ C.3.  Since draft-ietf-httpbis-header-structure-07
 
    o  Explain the consequences of splitting a string across multiple
       headers (#686).
-
-
 
 
 
