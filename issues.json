@@ -237,17 +237,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 7,
+    "comments": 8,
     "created_at": "2019-04-03T12:45:46Z",
-    "updated_at": "2019-04-06T05:38:10Z",
-    "closed_at": null,
+    "updated_at": "2019-04-10T07:28:34Z",
+    "closed_at": "2019-04-10T07:28:34Z",
     "author_association": "CONTRIBUTOR",
     "body": "The syntax requires a '*' at the end, but this doesn't seem to be necessary."
   },
@@ -292,7 +292,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -301,8 +301,8 @@
     "milestone": null,
     "comments": 15,
     "created_at": "2019-04-03T12:39:52Z",
-    "updated_at": "2019-04-05T12:35:40Z",
-    "closed_at": null,
+    "updated_at": "2019-04-10T07:37:00Z",
+    "closed_at": "2019-04-10T07:37:00Z",
     "author_association": "CONTRIBUTOR",
     "body": "This is going to sound like a bikeshed comment, but it's probably worth thinking about:\r\n\r\nThe current syntax uses `?T` and `?F`.  In sitting through a presentation today, I realized that, from a distance, these two strings are hard to distinguish if the text is small enough.  Looking at the QPACK table, I observe that existing header fields often use `1` to mean \"true\".\r\n\r\nI propose that the syntax be changed to `?0` and `?1`."
   },
