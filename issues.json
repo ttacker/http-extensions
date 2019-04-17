@@ -464,9 +464,9 @@
 
     ],
     "milestone": null,
-    "comments": 19,
+    "comments": 28,
     "created_at": "2019-03-28T10:36:09Z",
-    "updated_at": "2019-04-09T02:28:30Z",
+    "updated_at": "2019-04-15T06:25:35Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "The SH syntax does not directly allow empty field values, such as defined for Accept, although this might be allowed by field definitions like\r\n\r\n    MyField = [ sh-list ]\r\n\r\nLikewise, the list types do not allow for empty lists.\r\n\r\n    sh-list     = list-member *( OWS \",\" OWS list-member )\r\n    list-member = sh-item\r\n\r\nI think this is a very odd choice for a generic syntax because the empty set is often given semantic meaning in generic communication. It's hard to do math without zero.\r\n\r\nIf this is intended, the rationale should be explained in the spec, and there should be some discussion with examples about defining fields as an optional value."
@@ -1214,9 +1214,9 @@
 
     ],
     "milestone": null,
-    "comments": 30,
+    "comments": 31,
     "created_at": "2019-02-12T22:35:51Z",
-    "updated_at": "2019-04-08T16:40:08Z",
+    "updated_at": "2019-04-13T02:38:22Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "From PING:\r\n\r\nWe're concerned about the privacy implications of moving these attributes to header values, specifically since header values are more likely to wind up in passive / middle man / etc logs. Existing approaches require active techniques, and so (partially) reduce the fingerprinting risk.\r\n\r\nThe most on point issue I can find addressing this issue is https://github.com/httpwg/http-extensions/issues/215, but this isn't quite on point (does not address increased risk from moving to passive collection).\r\n\r\nI see the text added / modified in https://github.com/httpwg/http-extensions/commit/2ba199856ae926284fe868de7c257009f01fe3b8 that mentions that \"implementors can do otherwise for privacy\", but PING is uncomfortable with such text ( such text dissolve the point of the standard; a standard that says \"its w/in this standard to vary arbitrarily\", then all that is introduced is web compatibility problems for privacy oriented parties).\r\n\r\n* What discussion has been had regarding increased information leak into logs? \r\n* What measurements / data exists to suggest this is not a problem?"
@@ -1317,7 +1317,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1326,8 +1326,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-01-30T05:03:59Z",
-    "updated_at": "2019-01-30T05:03:59Z",
-    "closed_at": null,
+    "updated_at": "2019-04-10T07:45:23Z",
+    "closed_at": "2019-04-10T07:45:23Z",
     "author_association": "MEMBER",
     "body": "This is just a reminder to look into this."
   },
@@ -1866,7 +1866,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1875,8 +1875,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-01-13T21:13:23Z",
-    "updated_at": "2019-01-13T21:13:23Z",
-    "closed_at": null,
+    "updated_at": "2019-04-17T06:59:50Z",
+    "closed_at": "2019-04-17T06:59:50Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/755",
@@ -2179,7 +2179,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -2188,8 +2188,8 @@
     "milestone": null,
     "comments": 4,
     "created_at": "2019-01-10T00:26:23Z",
-    "updated_at": "2019-01-13T20:44:21Z",
-    "closed_at": null,
+    "updated_at": "2019-04-17T06:59:50Z",
+    "closed_at": "2019-04-17T06:59:50Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/749",
@@ -2878,17 +2878,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 55,
+    "comments": 58,
     "created_at": "2018-12-12T01:58:30Z",
-    "updated_at": "2019-02-27T05:06:21Z",
-    "closed_at": null,
+    "updated_at": "2019-04-11T04:04:08Z",
+    "closed_at": "2019-04-11T04:04:08Z",
     "author_association": "MEMBER",
     "body": "Working on evert/structured-headers, @evert [noticed](https://github.com/httpwg/structured-header-tests/issues/9) that representing the full range of SH integers is [hard](http://2ality.com/2013/10/safe-integers.html), and going beyond it can cause [problems](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER).\r\n\r\nGiven JS's place in the Web ecosystem and the relative rarity of headers that need integers that big (as well as the availability of floats), should we consider limiting the range of integer to match JS?"
   },
