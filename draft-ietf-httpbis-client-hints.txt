@@ -4,8 +4,8 @@
 
 HTTP Working Group                                           I. Grigorik
 Internet-Draft                                                    Google
-Intended status: Experimental                             April 17, 2019
-Expires: October 19, 2019
+Intended status: Experimental                             April 21, 2019
+Expires: October 23, 2019
 
 
                            HTTP Client Hints
@@ -25,8 +25,6 @@ Abstract
    headers for proactive content negotiation, along with a set of
    guidelines for the creation of such headers, colloquially known as
    "Client Hints."
-
-   It also defines an initial set of Client Hints.
 
 Note to Readers
 
@@ -50,18 +48,17 @@ Status of This Memo
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
 
 
 
-Grigorik                Expires October 19, 2019                [Page 1]
+Grigorik                Expires October 23, 2019                [Page 1]
 
 Internet-Draft              HTTP Client Hints                 April 2019
 
 
-   time.  It is inappropriate to use Internet-Drafts as reference
-   material or to cite them other than as "work in progress."
-
-   This Internet-Draft will expire on October 19, 2019.
+   This Internet-Draft will expire on October 23, 2019.
 
 Copyright Notice
 
@@ -88,34 +85,34 @@ Table of Contents
        2.2.1.  Advertising Support via Accept-CH Header Field  . . .   5
        2.2.2.  The Accept-CH-Lifetime Header Field . . . . . . . . .   5
        2.2.3.  Interaction with Caches . . . . . . . . . . . . . . .   6
-   3.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
+   3.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
    4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
-     4.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .   8
+     4.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .   7
      4.2.  Accept-CH-Lifetime  . . . . . . . . . . . . . . . . . . .   8
    5.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      5.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
      5.2.  Informative References  . . . . . . . . . . . . . . . . .   9
      5.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   9
    Appendix A.  Interaction with Key Response Header Field . . . . .   9
-   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  10
-     B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  10
+   Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .   9
+     B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .   9
      B.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.4.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.5.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  10
-     B.8.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  11
+     B.8.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  10
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  10
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
 
 
 
-Grigorik                Expires October 19, 2019                [Page 2]
+
+Grigorik                Expires October 23, 2019                [Page 2]
 
 Internet-Draft              HTTP Client Hints                 April 2019
 
-
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  11
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
 
 1.  Introduction
 
@@ -162,17 +159,16 @@ Internet-Draft              HTTP Client Hints                 April 2019
 
    Client Hints mitigate the performance concerns by assuring that
    clients will only send the request headers when they're actually
-
-
-
-Grigorik                Expires October 19, 2019                [Page 3]
-
-Internet-Draft              HTTP Client Hints                 April 2019
-
-
    going to be used, and the privacy concerns of passive fingerprinting
    by requiring explicit opt-in and disclosure of required headers by
    the server through the use of the Accept-CH response header.
+
+
+
+Grigorik                Expires October 23, 2019                [Page 3]
+
+Internet-Draft              HTTP Client Hints                 April 2019
+
 
    This document defines the Client Hints infrastructure, a framework
    that enables servers to opt-in to specific proactive content
@@ -218,18 +214,17 @@ Internet-Draft              HTTP Client Hints                 April 2019
    delegation policies that control access of third parties to same
    fields.
 
-
-
-
-Grigorik                Expires October 19, 2019                [Page 4]
-
-Internet-Draft              HTTP Client Hints                 April 2019
-
-
    Implementers should be aware of the passive fingerprinting
    implications when implementing support for Client Hints, and follow
    the considerations outlined in "Security Considerations" section of
    this document.
+
+
+
+Grigorik                Expires October 23, 2019                [Page 4]
+
+Internet-Draft              HTTP Client Hints                 April 2019
+
 
 2.2.  Server Processing of Client Hints
 
@@ -274,19 +269,19 @@ Internet-Draft              HTTP Client Hints                 April 2019
    delivery of Client Hints on subsequent requests to the server's
    origin ([RFC6454]).
 
-
-
-
-Grigorik                Expires October 19, 2019                [Page 5]
-
-Internet-Draft              HTTP Client Hints                 April 2019
-
-
      Accept-CH-Lifetime = #delta-seconds
 
    When a client receives an HTTP response that contains Accept-CH-
    Lifetime header field, the field-value indicates that the Accept-CH
    preference SHOULD be persisted and bound to the origin, and be
+
+
+
+Grigorik                Expires October 23, 2019                [Page 5]
+
+Internet-Draft              HTTP Client Hints                 April 2019
+
+
    considered stale after response's age ([RFC7234], section 4.2) is
    greater than the specified number of seconds.  The preference MUST be
    delivered over a secure transport, and MUST NOT be persisted for an
@@ -327,17 +322,6 @@ Internet-Draft              HTTP Client Hints                 April 2019
    Above example indicates that the cache key needs to include the Sec-
    CH-Example and Sec-CH-Example-2 header fields.
 
-
-
-
-
-
-
-Grigorik                Expires October 19, 2019                [Page 6]
-
-Internet-Draft              HTTP Client Hints                 April 2019
-
-
 3.  Security Considerations
 
    The request header fields defined in this document, and those that
@@ -345,6 +329,14 @@ Internet-Draft              HTTP Client Hints                 April 2019
    proactive content negotiation.  Such information may reveal new
    information about the user and implementers ought to consider the
    following considerations, recommendations, and best practices.
+
+
+
+
+Grigorik                Expires October 23, 2019                [Page 6]
+
+Internet-Draft              HTTP Client Hints                 April 2019
+
 
    Transmitted Client Hints header fields SHOULD NOT provide new
    information that is otherwise not available to the application via
@@ -386,14 +378,6 @@ Internet-Draft              HTTP Client Hints                 April 2019
    response fields, and registers them in the Permanent Message Header
    Fields registry.
 
-
-
-
-Grigorik                Expires October 19, 2019                [Page 7]
-
-Internet-Draft              HTTP Client Hints                 April 2019
-
-
 4.1.  Accept-CH
 
    o  Header field name: Accept-CH
@@ -402,6 +386,13 @@ Internet-Draft              HTTP Client Hints                 April 2019
    o  Author/Change controller: IETF
    o  Specification document(s): Section 2.2.1 of this document
    o  Related information: for Client Hints
+
+
+
+Grigorik                Expires October 23, 2019                [Page 7]
+
+Internet-Draft              HTTP Client Hints                 April 2019
+
 
 4.2.  Accept-CH-Lifetime
 
@@ -441,15 +432,6 @@ Internet-Draft              HTTP Client Hints                 April 2019
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <https://www.rfc-editor.org/info/rfc7230>.
 
-
-
-
-
-Grigorik                Expires October 19, 2019                [Page 8]
-
-Internet-Draft              HTTP Client Hints                 April 2019
-
-
    [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
               DOI 10.17487/RFC7231, June 2014,
@@ -459,6 +441,14 @@ Internet-Draft              HTTP Client Hints                 April 2019
               Ed., "Hypertext Transfer Protocol (HTTP/1.1): Caching",
               RFC 7234, DOI 10.17487/RFC7234, June 2014,
               <https://www.rfc-editor.org/info/rfc7234>.
+
+
+
+
+Grigorik                Expires October 23, 2019                [Page 8]
+
+Internet-Draft              HTTP Client Hints                 April 2019
+
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -497,15 +487,6 @@ Appendix A.  Interaction with Key Response Header Field
 
      Key: Width;Sec-CH-Example=320
 
-
-
-
-
-Grigorik                Expires October 19, 2019                [Page 9]
-
-Internet-Draft              HTTP Client Hints                 April 2019
-
-
    Above example indicates that the cache key needs to include the value
    of the Sec-CH-Example header field and be partitioned into groups of
    320: 0-320, 320-640, and so on.
@@ -517,6 +498,14 @@ B.1.  Since -00
    o  Issue 168 (make Save-Data extensible) updated ABNF.
    o  Issue 163 (CH review feedback) editorial feedback from httpwg
       list.
+
+
+
+Grigorik                Expires October 23, 2019                [Page 9]
+
+Internet-Draft              HTTP Client Hints                 April 2019
+
+
    o  Issue 153 (NetInfo API citation) added normative reference.
 
 B.2.  Since -01
@@ -553,15 +542,6 @@ B.7.  Since -06
 
    o  Issue 524: Save-Data is now defined by NetInfo spec, dropping
 
-
-
-
-
-Grigorik                Expires October 19, 2019               [Page 10]
-
-Internet-Draft              HTTP Client Hints                 April 2019
-
-
 B.8.  Since -07
 
    o  Removed specific features to be defined in other specifications
@@ -572,6 +552,15 @@ Acknowledgements
    Ben Greenstein, Tarun Bansal, Roy Fielding, Vasiliy Faronov, Ted
    Hardie, Jonas Sicking, and numerous other members of the IETF HTTP
    Working Group for invaluable help and feedback.
+
+
+
+
+
+Grigorik                Expires October 23, 2019               [Page 10]
+
+Internet-Draft              HTTP Client Hints                 April 2019
+
 
 Author's Address
 
@@ -613,4 +602,15 @@ Author's Address
 
 
 
-Grigorik                Expires October 19, 2019               [Page 11]
+
+
+
+
+
+
+
+
+
+
+
+Grigorik                Expires October 23, 2019               [Page 11]
