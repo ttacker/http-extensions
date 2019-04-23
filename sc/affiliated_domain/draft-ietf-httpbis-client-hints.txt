@@ -4,8 +4,8 @@
 
 HTTP Working Group                                           I. Grigorik
 Internet-Draft                                                    Google
-Intended status: Experimental                             March 25, 2019
-Expires: September 26, 2019
+Intended status: Experimental                             April 23, 2019
+Expires: October 25, 2019
 
 
                            HTTP Client Hints
@@ -53,15 +53,15 @@ Status of This Memo
 
 
 
-Grigorik               Expires September 26, 2019               [Page 1]
+Grigorik                Expires October 25, 2019                [Page 1]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 26, 2019.
+   This Internet-Draft will expire on October 25, 2019.
 
 Copyright Notice
 
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Grigorik               Expires September 26, 2019               [Page 2]
+Grigorik                Expires October 25, 2019                [Page 2]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  11
@@ -165,9 +165,9 @@ Internet-Draft              HTTP Client Hints                 March 2019
 
 
 
-Grigorik               Expires September 26, 2019               [Page 3]
+Grigorik                Expires October 25, 2019                [Page 3]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
    going to be used, and the privacy concerns of passive fingerprinting
@@ -221,9 +221,9 @@ Internet-Draft              HTTP Client Hints                 March 2019
 
 
 
-Grigorik               Expires September 26, 2019               [Page 4]
+Grigorik                Expires October 25, 2019                [Page 4]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
    Implementers should be aware of the passive fingerprinting
@@ -277,9 +277,9 @@ Internet-Draft              HTTP Client Hints                 March 2019
 
 
 
-Grigorik               Expires September 26, 2019               [Page 5]
+Grigorik                Expires October 25, 2019                [Page 5]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
      Accept-CH-Lifetime = #delta-seconds
@@ -333,9 +333,9 @@ Internet-Draft              HTTP Client Hints                 March 2019
 
 
 
-Grigorik               Expires September 26, 2019               [Page 6]
+Grigorik                Expires October 25, 2019                [Page 6]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
 3.  Security Considerations
@@ -389,9 +389,9 @@ Internet-Draft              HTTP Client Hints                 March 2019
 
 
 
-Grigorik               Expires September 26, 2019               [Page 7]
+Grigorik                Expires October 25, 2019                [Page 7]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
 4.1.  Accept-CH
@@ -445,9 +445,9 @@ Internet-Draft              HTTP Client Hints                 March 2019
 
 
 
-Grigorik               Expires September 26, 2019               [Page 8]
+Grigorik                Expires October 25, 2019                [Page 8]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
    [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
@@ -501,9 +501,9 @@ Appendix A.  Interaction with Key Response Header Field
 
 
 
-Grigorik               Expires September 26, 2019               [Page 9]
+Grigorik                Expires October 25, 2019                [Page 9]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
    Above example indicates that the cache key needs to include the value
@@ -557,9 +557,9 @@ B.7.  Since -06
 
 
 
-Grigorik               Expires September 26, 2019              [Page 10]
+Grigorik                Expires October 25, 2019               [Page 10]
 
-Internet-Draft              HTTP Client Hints                 March 2019
+Internet-Draft              HTTP Client Hints                 April 2019
 
 
 B.8.  Since -07
@@ -613,4 +613,4 @@ Author's Address
 
 
 
-Grigorik               Expires September 26, 2019              [Page 11]
+Grigorik                Expires October 25, 2019               [Page 11]
