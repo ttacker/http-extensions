@@ -4571,7 +4571,7 @@
     "id": 373217008,
     "node_id": "MDExOlB1bGxSZXF1ZXN0MjI1MTk4NDU5",
     "number": 709,
-    "title": "Affiliated Domains",
+    "title": "Required Primary Domain",
     "user": {
       "login": "MikeBishop",
       "id": 4273797,
@@ -4609,9 +4609,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 4,
     "created_at": "2018-10-23T21:48:18Z",
-    "updated_at": "2019-04-23T18:16:38Z",
+    "updated_at": "2019-04-24T18:21:52Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -4620,7 +4620,7 @@
       "diff_url": "https://github.com/httpwg/http-extensions/pull/709.diff",
       "patch_url": "https://github.com/httpwg/http-extensions/pull/709.patch"
     },
-    "body": "Fixes #522.\r\n\r\nDefines two certificate extensions:\r\n- **Affiliated Domain** effectively operates as a tag for all certificates managed by an entity (pick a domain you control), but doesn't make the certificate authoritative for that domain.\r\n- **Required Primary Domain** says that you can only use *this* cert as a Secondary Certificate if you've already presented a cert that says you control the indicated domain.\r\n\r\nThere are simpler designs that only use one of these, but they break in interesting ways for scenarios we care about.\r\n\r\n- If you only have RPD, you must explicitly list the set of all domains onto which you expect to be coalesced.  This makes for big certs, requires reissuing certs every time the list grows, and doesn't work for a CDN across customers unless the value is \"*\".\r\n- If you only have AffD, CDNs which allow customers to bring their own certificates won't be able to use Secondary Certs, because the customers can't prove ownership of the CDN's domain, and the CDN can't use a TBD mechanism to permit them without enabling one customer to perform the same attack we're trying to prevent against another customer.\r\n\r\nHaving both is somewhat more complex, but permits the full set of scenarios we care about.  In the simple case, you'd set both to the same value, \"example.com\" and any of your certificates can be coalesced with any of your other certificates.  A CDN which requests certs on behalf of its customers can do the same thing.\r\n\r\nIn the more complex case, customers create certificates with RPD=\"cdn.com\".  Now any customer's certificate can be coalesced onto any connection to the CDN *provided that* the CDN first presents a certificate for \"cdn.com\" (which could be AffD=\"cdn.com\") where RPD is either the primary certificate or \"*\".\r\n\r\n(One comment which has been raised in offline discussion:  Some origins might not want the CDN name human-readable in the certificate.  CDNs could address this by using a less-branded domain, but we could also address this in the extension design by using hashes of domain names if desired.)"
+    "body": "Fixes #522.\r\n\r\nDefines ~~two~~ certificate extension:\r\n- ~~**Affiliated Domain** effectively operates as a tag for all certificates managed by an entity (pick a domain you control), but doesn't make the certificate authoritative for that domain.~~\r\n- **Required Primary Domain** says that you can only use *this* cert as a Secondary Certificate if you've already presented a cert that says you control the indicated domain.\r\n\r\nIn the simple case, you'd set this to a domain you include on all your certificates, \"coalesce.example.com\", and any of your certificates can be coalesced with any of your other certificates.  A CDN which requests certs on behalf of its customers can do the same thing, adding an extra domain owned by the CDN to each certificate.\r\n\r\nIn the more complex case, customers create certificates with RPD=\"coalesce.cdn.com\".  Now any customer's certificate can be coalesced onto any connection to the CDN *provided that* the CDN first presents a certificate for \"coalesce.cdn.com\" where RPD is either the primary certificate or \"*\".\r\n\r\n(One comment which has been raised in offline discussion:  Some origins might not want the CDN name human-readable in the certificate.  CDNs could address this by using a less-branded domain, but we could also address this in the extension design by using hashes of domain names if desired.)"
   },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/708",
