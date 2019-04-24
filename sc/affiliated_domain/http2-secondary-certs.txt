@@ -5,10 +5,10 @@
 HTTP Working Group                                             M. Bishop
 Internet-Draft                                                    Akamai
 Intended status: Standards Track                             N. Sullivan
-Expires: October 25, 2019                                     Cloudflare
+Expires: October 26, 2019                                     Cloudflare
                                                               M. Thomson
                                                                  Mozilla
-                                                          April 23, 2019
+                                                          April 24, 2019
 
 
              Secondary Certificate Authentication in HTTP/2
@@ -46,14 +46,14 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 25, 2019.
+   This Internet-Draft will expire on October 26, 2019.
 
 
 
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 1]
+Bishop, et al.          Expires October 26, 2019                [Page 1]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -104,12 +104,12 @@ Table of Contents
      6.1.  Impersonation . . . . . . . . . . . . . . . . . . . . . .  19
      6.2.  Fingerprinting  . . . . . . . . . . . . . . . . . . . . .  20
      6.3.  Denial of Service . . . . . . . . . . . . . . . . . . . .  20
-     6.4.  Confusion About State . . . . . . . . . . . . . . . . . .  20
+     6.4.  Confusion About State . . . . . . . . . . . . . . . . . .  21
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  21
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 2]
+Bishop, et al.          Expires October 26, 2019                [Page 2]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -165,7 +165,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 3]
+Bishop, et al.          Expires October 26, 2019                [Page 3]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -221,7 +221,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 4]
+Bishop, et al.          Expires October 26, 2019                [Page 4]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -277,7 +277,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 5]
+Bishop, et al.          Expires October 26, 2019                [Page 5]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -333,7 +333,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 6]
+Bishop, et al.          Expires October 26, 2019                [Page 6]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -389,7 +389,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 7]
+Bishop, et al.          Expires October 26, 2019                [Page 7]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -445,7 +445,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 8]
+Bishop, et al.          Expires October 26, 2019                [Page 8]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -501,7 +501,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019                [Page 9]
+Bishop, et al.          Expires October 26, 2019                [Page 9]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -557,7 +557,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 10]
+Bishop, et al.          Expires October 26, 2019               [Page 10]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -613,7 +613,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 11]
+Bishop, et al.          Expires October 26, 2019               [Page 11]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -669,7 +669,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 12]
+Bishop, et al.          Expires October 26, 2019               [Page 12]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -725,7 +725,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 13]
+Bishop, et al.          Expires October 26, 2019               [Page 13]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -781,7 +781,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 14]
+Bishop, et al.          Expires October 26, 2019               [Page 14]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -837,7 +837,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 15]
+Bishop, et al.          Expires October 26, 2019               [Page 15]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -893,7 +893,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 16]
+Bishop, et al.          Expires October 26, 2019               [Page 16]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -949,13 +949,16 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 17]
+Bishop, et al.          Expires October 26, 2019               [Page 17]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
    Once the authenticator is accepted, the endpoint can perform any
    other checks for the acceptability of the certificate itself.
+   Clients MUST NOT accept any end-entity certificate from an exported
+   authenticator which does not contain the Required Domain extension;
+   see Section 5 and Section 6.1.
 
 4.  Indicating Failures During HTTP-Layer Certificate Authentication
 
@@ -998,17 +1001,17 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    The Required Domain extension allows certificates to limit their use
    with Secondary Certificate Authentication.  A client MUST verify that
    the server has proven ownership of the indicated identity before
-   accepting the limited certificate over Secondary Certificate
-   Authentication.
 
 
 
 
-
-Bishop, et al.          Expires October 25, 2019               [Page 18]
+Bishop, et al.          Expires October 26, 2019               [Page 18]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
+
+   accepting the limited certificate over Secondary Certificate
+   Authentication.
 
    The identity in this extension is a restriction asserted by the
    requester of the certificate and is not verified by the CA.
@@ -1055,16 +1058,17 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    in {extension}. Clients MUST require that server certificates
    presented via this mechanism contain the Required Domain extension
    and require that a certificate previously accepted on the connection
-   (including the certificate presented in TLS) lists the Required
-   Domain in the Subject field or the Subject Alternative Name
-   extension.
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 19]
+Bishop, et al.          Expires October 26, 2019               [Page 19]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
+
+   (including the certificate presented in TLS) lists the Required
+   Domain in the Subject field or the Subject Alternative Name
+   extension.
 
    As noted in the Security Considerations of
    [I-D.ietf-tls-exported-authenticator], it is difficult to formally
@@ -1107,6 +1111,17 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    implementation MAY instead disable HTTP-layer certificates for the
    current connection instead.
 
+
+
+
+
+
+
+Bishop, et al.          Expires October 26, 2019               [Page 20]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
+
+
 6.4.  Confusion About State
 
    Implementations need to be aware of the potential for confusion about
@@ -1114,14 +1129,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    certificate can change during the processing of a request,
    potentially multiple times, as "USE_CERTIFICATE" frames are received.
    A server that uses certificate authentication needs to be prepared to
-
-
-
-Bishop, et al.          Expires October 25, 2019               [Page 20]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
-
-
    reevaluate the authorization state of a request as the set of
    certificates changes.
 
@@ -1166,14 +1173,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-
-
-
-
-
-
-
-Bishop, et al.          Expires October 25, 2019               [Page 21]
+Bishop, et al.          Expires October 26, 2019               [Page 21]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -1229,7 +1229,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 22]
+Bishop, et al.          Expires October 26, 2019               [Page 22]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -1285,7 +1285,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 23]
+Bishop, et al.          Expires October 26, 2019               [Page 23]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -1341,7 +1341,7 @@ A.5.  Since draft-bishop-httpbis-http2-additional-certs-05:
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 24]
+Bishop, et al.          Expires October 26, 2019               [Page 24]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
@@ -1397,4 +1397,4 @@ Authors' Addresses
 
 
 
-Bishop, et al.          Expires October 25, 2019               [Page 25]
+Bishop, et al.          Expires October 26, 2019               [Page 25]
