@@ -1018,6 +1018,10 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    Conforming CAs SHOULD mark the requiredDomain extension as non-
    critical.  Conforming CAs MUST require the presence of a CAA record
    [RFC6844] prior to issuing a certificate with this extension.
+   Because a Required Domain value of "*" has a much higher risk of
+   reuse if compromised, conforming Certificate Authorities are
+   encouraged to require more extensive verification prior to issuing
+   such a certificate.
 
    The required domain is represented as a GeneralName, as specified in
    Section 4.2.1.6 of [RFC5280].  Unlike the subject field, conforming
@@ -1054,10 +1058,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    opting not to consult DNS ought to employ some alternative means to
    increase confidence that the certificate is legitimate.
 
-   One such means is the Required Domain certificate extension defined
-   in {extension}. Clients MUST require that server certificates
-   presented via this mechanism contain the Required Domain extension
-   and require that a certificate previously accepted on the connection
 
 
 
@@ -1066,6 +1066,10 @@ Bishop, et al.          Expires October 26, 2019               [Page 19]
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
+   One such means is the Required Domain certificate extension defined
+   in {extension}. Clients MUST require that server certificates
+   presented via this mechanism contain the Required Domain extension
+   and require that a certificate previously accepted on the connection
    (including the certificate presented in TLS) lists the Required
    Domain in the Subject field or the Subject Alternative Name
    extension.
@@ -1110,10 +1114,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    session error, to avoid further attacks from the peer, though an
    implementation MAY instead disable HTTP-layer certificates for the
    current connection instead.
-
-
-
-
 
 
 
