@@ -4752,7 +4752,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -4761,8 +4761,8 @@
     "milestone": null,
     "comments": 4,
     "created_at": "2018-10-23T21:48:18Z",
-    "updated_at": "2019-04-24T18:26:58Z",
-    "closed_at": null,
+    "updated_at": "2019-04-25T19:24:06Z",
+    "closed_at": "2019-04-25T19:24:06Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/709",
@@ -16263,7 +16263,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -16272,8 +16272,8 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2018-03-20T16:32:15Z",
-    "updated_at": "2018-10-29T03:35:28Z",
-    "closed_at": null,
+    "updated_at": "2019-04-25T19:24:05Z",
+    "closed_at": "2019-04-25T19:24:05Z",
     "author_association": "CONTRIBUTOR",
     "body": "ORIGIN removed the need for DNS lookups for servers, and IP connectivity.  Servers can look for bad DNS records or BGP hijacking to detect attacks without ORIGIN, but now those techniques don't work.  In particular, key compromise is a concern; misissuance is perhaps less of a concern.\r\n\r\nSecondary certificates makes the entire situation worse.\r\n\r\nIn particular, it means that you can get a standalone certificate for the victim.  Previously, with coalescing, you would need to have a certificate that has both your own origin and the victim's origin, so that would be visible in a CT log.\r\n\r\nSubcerts can help with this (they have much shorter lifetimes)."
   },
