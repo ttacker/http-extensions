@@ -127,7 +127,7 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
      A.2.  Since draft-ietf-httpbis-http2-secondary-certs-02:  . . .  25
      A.3.  Since draft-ietf-httpbis-http2-secondary-certs-01:  . . .  25
      A.4.  Since draft-ietf-httpbis-http2-secondary-certs-00:  . . .  25
-     A.5.  Since draft-bishop-httpbis-http2-additional-certs-05: . .  25
+     A.5.  Since draft-bishop-httpbis-http2-additional-certs-05: . .  26
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  26
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
 
@@ -1365,7 +1365,15 @@ Appendix A.  Change Log
 
 A.1.  Since draft-ietf-httpbis-http2-secondary-certs-03:
 
-   Nothing yet.
+   o  "CERTIFICATE_REQUEST" frames contain the Request-ID, which MUST be
+      checked against the "certificate_request_context" of the Exported
+      Authenticator Request
+
+   o  "CERTIFICATE" frames contain the Request-ID to which they respond,
+      unless the UNSOLICITED flag is set
+
+   o  The Required Domain extension is defined for certificates, which
+      must be present for certificates presented by servers
 
 A.2.  Since draft-ietf-httpbis-http2-secondary-certs-02:
 
@@ -1384,14 +1392,6 @@ A.4.  Since draft-ietf-httpbis-http2-secondary-certs-00:
    o  All frames sent on stream zero; replaced "AUTOMATIC_USE" on
       "CERTIFICATE" with "UNSOLICITED" on "USE_CERTIFICATE". (#482,#566)
 
-   o  Use Exported Requests from the TLS Exported Authenticators draft;
-      eliminate facilities for expressing certificate requirements in
-      "CERTIFICATE_REQUEST" frame. (#481)
-
-A.5.  Since draft-bishop-httpbis-http2-additional-certs-05:
-
-   o  Adopted as draft-ietf-httpbis-http2-secondary-certs
-
 
 
 
@@ -1401,6 +1401,14 @@ Bishop, et al.          Expires October 27, 2019               [Page 25]
 
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
+
+   o  Use Exported Requests from the TLS Exported Authenticators draft;
+      eliminate facilities for expressing certificate requirements in
+      "CERTIFICATE_REQUEST" frame. (#481)
+
+A.5.  Since draft-bishop-httpbis-http2-additional-certs-05:
+
+   o  Adopted as draft-ietf-httpbis-http2-secondary-certs
 
 Acknowledgements
 
@@ -1428,14 +1436,6 @@ Authors' Addresses
    Mozilla
 
    Email: martin.thomson@gmail.com
-
-
-
-
-
-
-
-
 
 
 
