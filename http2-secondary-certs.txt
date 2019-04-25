@@ -104,8 +104,8 @@ Table of Contents
      6.1.  Impersonation . . . . . . . . . . . . . . . . . . . . . .  20
      6.2.  Fingerprinting  . . . . . . . . . . . . . . . . . . . . .  21
      6.3.  Denial of Service . . . . . . . . . . . . . . . . . . . .  21
-     6.4.  Confusion About State . . . . . . . . . . . . . . . . . .  21
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  22
+     6.4.  Persistence of Service  . . . . . . . . . . . . . . . . .  21
+     6.5.  Confusion About State . . . . . . . . . . . . . . . . . .  22
 
 
 
@@ -114,21 +114,22 @@ Bishop, et al.          Expires October 27, 2019                [Page 2]
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  22
      7.1.  HTTP/2 SETTINGS_HTTP_CERT_AUTH Setting  . . . . . . . . .  22
      7.2.  New HTTP/2 Frames . . . . . . . . . . . . . . . . . . . .  22
-     7.3.  New HTTP/2 Error Codes  . . . . . . . . . . . . . . . . .  22
+     7.3.  New HTTP/2 Error Codes  . . . . . . . . . . . . . . . . .  23
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  23
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  23
      8.2.  Informative References  . . . . . . . . . . . . . . . . .  24
-     8.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  24
+     8.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  25
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  25
      A.1.  Since draft-ietf-httpbis-http2-secondary-certs-03:  . . .  25
      A.2.  Since draft-ietf-httpbis-http2-secondary-certs-02:  . . .  25
      A.3.  Since draft-ietf-httpbis-http2-secondary-certs-01:  . . .  25
      A.4.  Since draft-ietf-httpbis-http2-secondary-certs-00:  . . .  25
      A.5.  Since draft-bishop-httpbis-http2-additional-certs-05: . .  25
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  25
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  26
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  26
 
 1.  Introduction
 
@@ -161,7 +162,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    Section 9.1.1 of [RFC7540] describes how connections may be used to
    make requests from multiple origins as long as the server is
    authoritative for both.  A server is considered authoritative for an
-   origin if DNS resolves the origin to the IP address of the server and
 
 
 
@@ -170,6 +170,7 @@ Bishop, et al.          Expires October 27, 2019                [Page 3]
 Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
 
 
+   origin if DNS resolves the origin to the IP address of the server and
    (for TLS) if the certificate presented by the server contains the
    origin in the Subject Alternative Names field.
 
@@ -217,7 +218,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    hints about which certificate to offer.  Servers that rely on
    certificate-based authentication might request different certificates
    for different resources.  Such a server cannot use contextual
-
 
 
 
@@ -1152,7 +1152,33 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    implementation MAY instead disable HTTP-layer certificates for the
    current connection instead.
 
-6.4.  Confusion About State
+6.4.  Persistence of Service
+
+   CNAME records in the DNS are frequently used to delegate authority
+   for an origin to a third-party provider.  This delegation can be
+   changed without notice, even to the third-party provider, simply by
+   modifying the CNAME record in question.
+
+   After the owner of the domain has redirected traffic elsewhere by
+   changing the CNAME, new connections will not arrive for that origin,
+   but connections which are properly directed to this provider for
+   other origins would continue to claim control of this origin (via
+   ORIGIN frame and Secondary Certificates).  This is proper behavior
+   based on the third-party provider's configuration, but would likely
+   not be what is intended by the owner of the origin.
+
+   This is not an issue which can be mitigated by the protocol, but
+   something about which third-party providers SHOULD educate their
+   customers before using the features described in this document.
+
+
+
+Bishop, et al.          Expires October 27, 2019               [Page 21]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
+
+
+6.5.  Confusion About State
 
    Implementations need to be aware of the potential for confusion about
    the state of a connection.  The presence or absence of a validated
@@ -1170,14 +1196,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    about whether the server will use the referenced cert for any future
    request, or even for an existing request which has not yet completed.
    Clients MUST NOT set this flag on any certificate which is not
-
-
-
-Bishop, et al.          Expires October 27, 2019               [Page 21]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
-
-
    appropriate for currently-in-flight requests, and MUST NOT make any
    future requests on the same connection which they are not willing to
    have associated with the provided certificate.
@@ -1209,6 +1227,13 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    registry established in [RFC7540].  The entries in the following
    table are registered by this document.
 
+
+
+Bishop, et al.          Expires October 27, 2019               [Page 22]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
+
+
           +---------------------+--------------+---------------+
           | Frame Type          | Code         | Specification |
           +---------------------+--------------+---------------+
@@ -1226,13 +1251,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    Six new error codes are registered in the "HTTP/2 Error Code"
    registry established in [RFC7540].  The entries in the following
    table are registered by this document.
-
-
-
-Bishop, et al.          Expires October 27, 2019               [Page 22]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
-
 
         +-------------------------+--------------+---------------+
         | Name                    | Code         | Specification |
@@ -1264,6 +1282,14 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+
+
+
+Bishop, et al.          Expires October 27, 2019               [Page 23]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
+
+
    [RFC5246]  Dierks, T. and E. Rescorla, "The Transport Layer Security
               (TLS) Protocol Version 1.2", RFC 5246,
               DOI 10.17487/RFC5246, August 2008,
@@ -1279,16 +1305,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
               Extensions: Extension Definitions", RFC 6066,
               DOI 10.17487/RFC6066, January 2011,
               <https://www.rfc-editor.org/info/rfc6066>.
-
-
-
-
-
-
-Bishop, et al.          Expires October 27, 2019               [Page 23]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
-
 
    [RFC6844]  Hallam-Baker, P. and R. Stradling, "DNS Certification
               Authority Authorization (CAA) Resource Record", RFC 6844,
@@ -1323,6 +1339,13 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
               Alternative Services", RFC 7838, DOI 10.17487/RFC7838,
               April 2016, <https://www.rfc-editor.org/info/rfc7838>.
 
+
+
+Bishop, et al.          Expires October 27, 2019               [Page 24]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
+
+
    [RFC8336]  Nottingham, M. and E. Nygren, "The ORIGIN HTTP/2 Frame",
               RFC 8336, DOI 10.17487/RFC8336, March 2018,
               <https://www.rfc-editor.org/info/rfc8336>.
@@ -1334,17 +1357,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    [2] http://httpwg.github.io/
 
    [3] https://github.com/httpwg/http-extensions/labels/secondary-certs
-
-
-
-
-
-
-
-Bishop, et al.          Expires October 27, 2019               [Page 24]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
-
 
 Appendix A.  Change Log
 
@@ -1380,6 +1392,16 @@ A.5.  Since draft-bishop-httpbis-http2-additional-certs-05:
 
    o  Adopted as draft-ietf-httpbis-http2-secondary-certs
 
+
+
+
+
+
+Bishop, et al.          Expires October 27, 2019               [Page 25]
+
+Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
+
+
 Acknowledgements
 
    Eric Rescorla pointed out several failings in an earlier revision.
@@ -1396,12 +1418,6 @@ Authors' Addresses
    Email: mbishop@evequefou.be
 
 
-
-Bishop, et al.          Expires October 27, 2019               [Page 25]
-
-Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
-
-
    Nick Sullivan
    Cloudflare
 
@@ -1412,22 +1428,6 @@ Internet-Draft        Secondary Cert Auth in HTTP/2           April 2019
    Mozilla
 
    Email: martin.thomson@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
