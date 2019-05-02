@@ -128,38 +128,38 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
        5.3.6.  The HttpOnly Attribute  . . . . . . . . . . . . . . .  27
        5.3.7.  The SameSite Attribute  . . . . . . . . . . . . . . .  27
      5.4.  Storage Model . . . . . . . . . . . . . . . . . . . . . .  28
-     5.5.  The Cookie Header . . . . . . . . . . . . . . . . . . . .  34
-   6.  Implementation Considerations . . . . . . . . . . . . . . . .  36
-     6.1.  Limits  . . . . . . . . . . . . . . . . . . . . . . . . .  36
+     5.5.  The Cookie Header . . . . . . . . . . . . . . . . . . . .  33
+   6.  Implementation Considerations . . . . . . . . . . . . . . . .  35
+     6.1.  Limits  . . . . . . . . . . . . . . . . . . . . . . . . .  35
      6.2.  Application Programming Interfaces  . . . . . . . . . . .  36
      6.3.  IDNA Dependency and Migration . . . . . . . . . . . . . .  36
-   7.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .  37
+   7.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .  36
      7.1.  Third-Party Cookies . . . . . . . . . . . . . . . . . . .  37
-     7.2.  User Controls . . . . . . . . . . . . . . . . . . . . . .  38
+     7.2.  User Controls . . . . . . . . . . . . . . . . . . . . . .  37
      7.3.  Expiration Dates  . . . . . . . . . . . . . . . . . . . .  38
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .  38
      8.1.  Overview  . . . . . . . . . . . . . . . . . . . . . . . .  38
-     8.2.  Ambient Authority . . . . . . . . . . . . . . . . . . . .  39
+     8.2.  Ambient Authority . . . . . . . . . . . . . . . . . . . .  38
      8.3.  Clear Text  . . . . . . . . . . . . . . . . . . . . . . .  39
      8.4.  Session Identifiers . . . . . . . . . . . . . . . . . . .  40
-     8.5.  Weak Confidentiality  . . . . . . . . . . . . . . . . . .  41
+     8.5.  Weak Confidentiality  . . . . . . . . . . . . . . . . . .  40
      8.6.  Weak Integrity  . . . . . . . . . . . . . . . . . . . . .  41
      8.7.  Reliance on DNS . . . . . . . . . . . . . . . . . . . . .  42
      8.8.  SameSite Cookies  . . . . . . . . . . . . . . . . . . . .  42
        8.8.1.  Defense in depth  . . . . . . . . . . . . . . . . . .  42
-       8.8.2.  Top-level Navigations . . . . . . . . . . . . . . . .  43
+       8.8.2.  Top-level Navigations . . . . . . . . . . . . . . . .  42
        8.8.3.  Mashups and Widgets . . . . . . . . . . . . . . . . .  43
-       8.8.4.  Server-controlled . . . . . . . . . . . . . . . . . .  44
+       8.8.4.  Server-controlled . . . . . . . . . . . . . . . . . .  43
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  44
      9.1.  Cookie  . . . . . . . . . . . . . . . . . . . . . . . . .  44
      9.2.  Set-Cookie  . . . . . . . . . . . . . . . . . . . . . . .  44
-   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  45
-     10.1.  Normative References . . . . . . . . . . . . . . . . . .  45
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  44
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .  44
      10.2.  Informative References . . . . . . . . . . . . . . . . .  46
      10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  48
-   Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  49
-     A.1.  draft-ietf-httpbis-rfc6265bis-00  . . . . . . . . . . . .  49
-     A.2.  draft-ietf-httpbis-rfc6265bis-01  . . . . . . . . . . . .  49
+   Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  48
+     A.1.  draft-ietf-httpbis-rfc6265bis-00  . . . . . . . . . . . .  48
+     A.2.  draft-ietf-httpbis-rfc6265bis-01  . . . . . . . . . . . .  48
      A.3.  draft-ietf-httpbis-rfc6265bis-02  . . . . . . . . . . . .  49
      A.4.  draft-ietf-httpbis-rfc6265bis-03  . . . . . . . . . . . .  50
 
@@ -1728,7 +1728,7 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
         1.  If the cookie was received from a "non-HTTP" API, and the
             API was called from a context whose "site for cookies" is
-            not an exact match for request-uri's host's regisgered
+            not an exact match for request-uri's host's registered
 
 
 
@@ -1745,21 +1745,19 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
             defined in Section 5.2), skip the remaining substeps and
             continue processing the cookie.
 
-        3.  If the cookie's "same-site-flag" is "Lax", and the cookie
-            was received from a request which is navigating a top-level
-            browsing context [HTML] (e.g. if the request's "reserved
-            client" is either "null" or an environment whose target
-            browsing context is a top-level browing context [FETCH]),
-            skip the remaining substeps and continue processing the
-            cookie.
+        3.  If the cookie was received from a request which is
+            navigating a top-level browsing context [HTML] (e.g. if the
+            request's "reserved client" is either "null" or an
+            environment whose "target browsing context" is a top-level
+            browing context), skip the remaining substeps and continue
+            processing the cookie.
+
+            Note: Top-level navigations can create a cookie with any
+            "SameSite" value, even if the new cookie wouldn't have been
+            delivered along with the request had it existed.
 
         4.  Abort these steps and ignore the newly created cookie
             entirely.
-
-            Note: This includes cookies set with "SameSite=Strict" from
-            any non-same-site context, as well as cookies set with
-            "SameSite=Lax" from a context that is neither same-site nor
-            a top-level navigation.
 
    15.  If the cookie-name begins with a case-sensitive match for the
         string "__Secure-", abort these steps and ignore the cookie
@@ -1784,7 +1782,9 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
             cookie.  (Notice that this algorithm maintains the invariant
             that there is at most one such cookie.)
 
-
+        2.  If the newly-created cookie was received from a "non-HTTP"
+            API and the old-cookie's http-only-flag is true, abort these
+            steps and ignore the newly created cookie entirely.
 
 
 
@@ -1793,10 +1793,6 @@ Barth & West            Expires November 3, 2019               [Page 32]
 
 Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
-
-        2.  If the newly-created cookie was received from a "non-HTTP"
-            API and the old-cookie's http-only-flag is true, abort these
-            steps and ignore the newly created cookie entirely.
 
         3.  Update the creation-time of the newly-created cookie to
             match the creation-time of the old-cookie.
@@ -1839,17 +1835,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    the user agent MUST remove from the cookie store all cookies with the
    persistent-flag set to false.
 
-
-
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 33]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
 5.5.  The Cookie Header
 
    The user agent includes stored cookies in the Cookie HTTP request
@@ -1857,6 +1842,13 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
    When the user agent generates an HTTP request, the user agent MUST
    NOT attach more than one Cookie header field.
+
+
+
+Barth & West            Expires November 3, 2019               [Page 33]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
    A user agent MAY omit the Cookie header in its entirety.  For
    example, the user agent might wish to block sending cookies during
@@ -1899,13 +1891,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
           cookie if the cookie-string is being generated for a "non-
           HTTP" API (as defined by the user agent).
 
-
-
-Barth & West            Expires November 3, 2019               [Page 34]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
        *  If the cookie's same-site-flag is not "None", and the HTTP
           request is cross-site (as defined in Section 5.2) then exclude
           the cookie unless all of the following statements hold:
@@ -1913,6 +1898,13 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
           1.  The same-site-flag is "Lax"
 
           2.  The HTTP request's method is "safe".
+
+
+
+Barth & West            Expires November 3, 2019               [Page 34]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
           3.  The HTTP request's target browsing context is a top-level
               browsing context.
@@ -1952,16 +1944,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    This decoding might fail, however, because not every sequence of
    octets is valid UTF-8.
 
-
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 35]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
 6.  Implementation Considerations
 
 6.1.  Limits
@@ -1972,6 +1954,13 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
    o  At least 4096 bytes per cookie (as measured by the sum of the
       length of the cookie's name, value, and attributes).
+
+
+
+Barth & West            Expires November 3, 2019               [Page 35]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
    o  At least 50 cookies per domain.
 
@@ -2010,14 +1999,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    There will be a transition period of some time during which
    IDNA2003-based domain name labels will exist in the wild.  User
    agents SHOULD implement IDNA2008 [RFC5890] and MAY implement [UTS46]
-
-
-
-Barth & West            Expires November 3, 2019               [Page 36]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    or [RFC5895] in order to facilitate their IDNA transition.  If a user
    agent does not implement IDNA2008, the user agent MUST implement
    IDNA2003 [RFC3490].
@@ -2029,6 +2010,14 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    recognize when a user returns to a web site or visits another web
    site.  Although cookies are not the only mechanism servers can use to
    track users across HTTP requests, cookies facilitate tracking because
+
+
+
+Barth & West            Expires November 3, 2019               [Page 36]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
+
    they are persistent across user agent sessions and can be shared
    between hosts.
 
@@ -2063,17 +2052,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    servers can often track users without using cookies at all by
    injecting identifying information into dynamic URLs.
 
-
-
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 37]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
 7.2.  User Controls
 
    User agents SHOULD provide users with a mechanism for managing the
@@ -2087,6 +2065,14 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    cookies.  When cookies are disabled, the user agent MUST NOT include
    a Cookie header in outbound HTTP requests and the user agent MUST NOT
    process Set-Cookie headers in inbound HTTP responses.
+
+
+
+
+Barth & West            Expires November 3, 2019               [Page 37]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
    Some user agents provide users the option of preventing persistent
    storage of cookies across sessions.  When configured thusly, user
@@ -2122,14 +2108,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    session identifiers in cookies, developers often create session
    fixation vulnerabilities.
 
-
-
-
-Barth & West            Expires November 3, 2019               [Page 38]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    Transport-layer encryption, such as that employed in HTTPS, is
    insufficient to prevent a network attacker from obtaining or altering
    a victim's cookies because the cookie protocol itself has various
@@ -2144,6 +2122,14 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    vulnerabilities because some user agents let remote parties issue
    HTTP requests from the user agent (e.g., via HTTP redirects or HTML
    forms).  When issuing those requests, user agents attach cookies even
+
+
+
+Barth & West            Expires November 3, 2019               [Page 38]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
+
    if the remote party does not know the contents of the cookies,
    potentially letting the remote party exercise authority at an unwary
    server.
@@ -2177,15 +2163,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    2.  A malicious intermediary could alter the headers as they travel
        in either direction, with unpredictable results.
 
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 39]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    3.  A malicious client could alter the Cookie header before
        transmission, with unpredictable results.
 
@@ -2201,6 +2178,14 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    and Set-Cookie headers only over a secure channel.  When using
    cookies over a secure channel, servers SHOULD set the Secure
    attribute (see Section 4.1.2.5) for every cookie.  If a server does
+
+
+
+Barth & West            Expires November 3, 2019               [Page 39]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
+
    not set the Secure attribute, the protection provided by the secure
    channel will be largely moot.
 
@@ -2234,14 +2219,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
    Using session identifiers is not without risk.  For example, the
    server SHOULD take care to avoid "session fixation" vulnerabilities.
-
-
-
-Barth & West            Expires November 3, 2019               [Page 40]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    A session fixation attack proceeds in three steps.  First, the
    attacker transplants a session identifier from his or her user agent
    to the victim's user agent.  Second, the victim uses that session
@@ -2257,6 +2234,14 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    a service running on one port, the cookie is also readable by a
    service running on another port of the same server.  If a cookie is
    writable by a service on one port, the cookie is also writable by a
+
+
+
+Barth & West            Expires November 3, 2019               [Page 40]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
+
    service running on another port of the same server.  For this reason,
    servers SHOULD NOT both run mutually distrusting services on
    different ports of the same host and use cookies to store security-
@@ -2289,15 +2274,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    include that cookie in HTTP requests to bar.example.com.  In the
    worst case, bar.example.com will be unable to distinguish this cookie
    from a cookie it set itself.  The foo.example.com server might be
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 41]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    able to leverage this ability to mount an attack against
    bar.example.com.
 
@@ -2314,6 +2290,14 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    header sent to https://example.com/ by impersonating a response from
    http://example.com/ and injecting a Set-Cookie header.  The HTTPS
    server at example.com will be unable to distinguish these cookies
+
+
+
+Barth & West            Expires November 3, 2019               [Page 41]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
+
    from cookies that it set itself in an HTTPS response.  An active
    network attacker might be able to leverage this ability to mount an
    attack against example.com even if example.com uses HTTPS
@@ -2345,15 +2329,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    deployed in strict mode, and when supported by the client.  It is,
    however, prudent to ensure that this designation is not the extent of
    a site's defense against CSRF, as same-site navigations and
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 42]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    submissions can certainly be executed in conjunction with other
    attack vectors such as cross-site scripting.
 
@@ -2370,6 +2345,15 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    Setting the "SameSite" attribute in "strict" mode provides robust
    defense in depth against CSRF attacks, but has the potential to
    confuse users unless sites' developers carefully ensure that their
+
+
+
+
+Barth & West            Expires November 3, 2019               [Page 42]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
+
    cookie-based session management systems deal reasonably well with
    top-level navigations.
 
@@ -2401,15 +2385,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    contexts in order to provide seamless functionality that relies on a
    user's state.
 
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 43]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    Likewise, some forms of Single-Sign-On might require cookie-based
    authentication in a cross-site context; these mechanisms will not
    function as intended with same-site cookies.
@@ -2425,6 +2400,15 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    distinct requests even in the absence of cookies.  Connection and/or
    socket pooling, Token Binding, and Channel ID all offer explicit
    methods of identification that servers could take advantage of.
+
+
+
+
+
+Barth & West            Expires November 3, 2019               [Page 43]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
 9.  IANA Considerations
 
@@ -2455,17 +2439,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
    Specification document:  this specification (Section 5.3)
 
-
-
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 44]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
 10.  References
 
 10.1.  Normative References
@@ -2483,6 +2456,15 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    [RFC1034]  Mockapetris, P., "Domain names - concepts and facilities",
               STD 13, RFC 1034, DOI 10.17487/RFC1034, November 1987,
               <https://www.rfc-editor.org/info/rfc1034>.
+
+
+
+
+
+Barth & West            Expires November 3, 2019               [Page 44]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
    [RFC1123]  Braden, R., Ed., "Requirements for Internet Hosts -
               Application and Support", STD 3, RFC 1123,
@@ -2511,17 +2493,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
 
-
-
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 45]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    [RFC5890]  Klensin, J., "Internationalized Domain Names for
               Applications (IDNA): Definitions and Document Framework",
               RFC 5890, DOI 10.17487/RFC5890, August 2010,
@@ -2540,6 +2511,16 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
               Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
               DOI 10.17487/RFC7231, June 2014,
               <https://www.rfc-editor.org/info/rfc7231>.
+
+
+
+
+
+
+Barth & West            Expires November 3, 2019               [Page 45]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
    [SERVICE-WORKERS]
               Russell, A., Song, J., and J. Archibald, "Service
@@ -2565,19 +2546,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
               <http://www.collinjackson.com/research/papers/
               appisolation.pdf>.
 
-
-
-
-
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 46]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    [CSRF]     Barth, A., Jackson, C., and J. Mitchell, "Robust Defenses
               for Cross-Site Request Forgery",
               DOI 10.1145/1455770.1455782, ISBN 978-1-59593-810-7,
@@ -2598,6 +2566,17 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    [I-D.ietf-httpbis-cookie-same-site]
               West, M. and M. Goodwin, "Same-Site Cookies", draft-ietf-
               httpbis-cookie-same-site-00 (work in progress), June 2016.
+
+
+
+
+
+
+
+Barth & West            Expires November 3, 2019               [Page 46]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
    [prerendering]
               Bentzel, C., "Chrome Prerendering", n.d.,
@@ -2626,14 +2605,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
               Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
               <https://www.rfc-editor.org/info/rfc4648>.
 
-
-
-
-Barth & West            Expires November 3, 2019               [Page 47]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    [RFC5895]  Resnick, P. and P. Hoffman, "Mapping Characters for
               Internationalized Domain Names in Applications (IDNA)
               2008", RFC 5895, DOI 10.17487/RFC5895, September 2010,
@@ -2650,6 +2621,18 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    [UTS46]    Davis, M. and M. Suignard, "Unicode IDNA Compatibility
               Processing", UNICODE Unicode Technical Standards # 46,
               June 2016, <http://unicode.org/reports/tr46/>.
+
+
+
+
+
+
+
+
+Barth & West            Expires November 3, 2019               [Page 47]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
 10.3.  URIs
 
@@ -2683,13 +2666,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
    [15] https://github.com/httpwg/http-extensions/issues/389
 
-
-
-Barth & West            Expires November 3, 2019               [Page 48]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    [16] https://github.com/httpwg/http-extensions/issues/199
 
    [17] https://github.com/httpwg/http-extensions/issues/788
@@ -2706,6 +2682,13 @@ A.2.  draft-ietf-httpbis-rfc6265bis-01
       Markdown:
 
       *  https://github.com/httpwg/http-extensions/issues/243 [5]
+
+
+
+Barth & West            Expires November 3, 2019               [Page 48]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
       *  https://github.com/httpwg/http-extensions/issues/246 [6]
 
@@ -2737,15 +2720,6 @@ A.3.  draft-ietf-httpbis-rfc6265bis-02
       *  Clarified address bar behavior for SameSite cookies:
          https://github.com/httpwg/http-extensions/issues/201 [9]
 
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 49]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
       *  Added the word "Cookies" to the document's name:
          https://github.com/httpwg/http-extensions/issues/204 [10]
 
@@ -2764,6 +2738,13 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
       *  Fixed the "site for cookies" algorithm to return something that
          makes sense: https://github.com/httpwg/http-extensions/
          issues/302 [14]
+
+
+
+Barth & West            Expires November 3, 2019               [Page 49]
+
+Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
+
 
 A.4.  draft-ietf-httpbis-rfc6265bis-03
 
@@ -2791,17 +2772,6 @@ Authors' Addresses
    URI:   https://www.adambarth.com/
 
 
-
-
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 50]
-
-Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
-
-
    Mike West
    Google, Inc
 
@@ -2827,30 +2797,4 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Barth & West            Expires November 3, 2019               [Page 51]
+Barth & West            Expires November 3, 2019               [Page 50]
