@@ -34,17 +34,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-04-26T18:01:36Z",
-    "updated_at": "2019-04-26T18:01:36Z",
-    "closed_at": null,
+    "updated_at": "2019-04-29T19:17:13Z",
+    "closed_at": "2019-04-29T19:17:13Z",
     "author_association": "NONE",
     "body": "I wanted to bring this up as a suggestion, I hope it's not too late in the development in the draft.\r\n\r\nI intended to use the structured headers format for a draft I'm working on: [Prefer-Push](https://tools.ietf.org/html/draft-pot-prefer-push-00).\r\n\r\nThe specific format I'm using right now is a list:\r\n\r\n    Prefer-Push: rel1, rel2, \"rel3\"\r\n\r\nIt occurred to me that it might be a good idea to keep a door open to future extensions. If I tell folks from Day 1 that the value _must_ be parsed as a parameterized list, it allows this to be extended further down the line despite that there's no parameters defined right now.\r\n\r\nThis led me to wonder... well, is this even a good idea? It seems reasonable to try and keep things open for future extension.\r\n\r\nThis led me to my second thought: is there ever a point to *not* parse lists as if they were parameterized lists. The implication is that any of these headers can always be more easily extended."
   },
@@ -267,9 +267,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-04-24T22:03:43Z",
-    "updated_at": "2019-04-24T22:03:43Z",
+    "updated_at": "2019-04-28T21:06:48Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "Hi everyone!\r\n\r\nDraft-10 contains the following excerpt:\r\n\r\n>    3.  If input_item is a string, return the result of applying\r\n>        Serialising a String (Section 4.1.8) to input_item.\r\n> \r\n>    4.  If input_item is a token, return the result of Serialising a\r\n>        Token (Section 4.1.9) to input_item.\r\n\r\nI am currently writing a [javascript implementation](https://github.com/evert/structured-headers), where there is no real native 'token' type (I suspect that this is true for most languages).\r\n\r\nI'm curious, as an implementer, what should I do with that sentence? I have a few options:\r\n\r\n1. Treat any string that can be represented as a token by serializing it as a token, but anything else as a string.\r\n2. Treat everything as a string and ignore the token\r\n3. Expose a sort of wrapper that marks certain strings as tokens.\r\n\r\nEven though I feel that 1 is the nicest user experience, I worry that this will cause issues for future use-cases of structured headers that explicitly demand certain members to be serialized as either a token or string.\r\n\r\nCan you give a recommendation on what I should do?"
@@ -369,7 +369,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "mikewest",
@@ -416,8 +416,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-04-09T11:39:23Z",
-    "updated_at": "2019-04-09T11:39:23Z",
-    "closed_at": null,
+    "updated_at": "2019-04-30T06:57:47Z",
+    "closed_at": "2019-04-30T06:57:47Z",
     "author_association": "MEMBER",
     "body": "Giving developers an explicit keyword that asserts non-`SameSite`ness  seems like it's both helpful from an explanatory perspective, and could open paths towards tightening cookie behavior in the future. Perhaps something like `SameSite=None` to represent the status quo default behavior. That is, the following two `Set-Cookie` header values would produce the same cookie today:\r\n\r\n```\r\nname=value\r\n```\r\n\r\n```\r\nname=value; SameSite=None\r\n```"
   },
@@ -12022,9 +12022,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 7,
     "created_at": "2018-04-25T20:11:36Z",
-    "updated_at": "2018-12-11T17:13:33Z",
+    "updated_at": "2019-05-01T11:39:24Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "What happens when a page tries to set a samesite cookie when we are not in a samesite context? For instance, a top-level a.com has an iframe to b.com and b.com tries to set a cookie with the samesite attribute. It sounds like we would want the cookie to not be writeable since it's not readable in that case.\r\n\r\ncc @mikewest"
