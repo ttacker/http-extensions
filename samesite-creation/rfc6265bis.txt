@@ -159,7 +159,7 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
      10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  48
    Appendix A.  Changes  . . . . . . . . . . . . . . . . . . . . . .  48
      A.1.  draft-ietf-httpbis-rfc6265bis-00  . . . . . . . . . . . .  48
-     A.2.  draft-ietf-httpbis-rfc6265bis-01  . . . . . . . . . . . .  48
+     A.2.  draft-ietf-httpbis-rfc6265bis-01  . . . . . . . . . . . .  49
      A.3.  draft-ietf-httpbis-rfc6265bis-02  . . . . . . . . . . . .  49
      A.4.  draft-ietf-httpbis-rfc6265bis-03  . . . . . . . . . . . .  50
 
@@ -170,6 +170,7 @@ Barth & West            Expires November 4, 2019                [Page 3]
 Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
 
+     A.5.  draft-ietf-httpbis-rfc6265bis-04  . . . . . . . . . . . .  50
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  50
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  50
 
@@ -217,7 +218,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
    represent a preferred subset of current server behavior, and even the
    more liberal cookie processing algorithm provided in Section 5 does
    not recommend all of the syntactic and semantic variations in use
-   today.  Where some existing software differs from the recommended
 
 
 
@@ -226,6 +226,7 @@ Barth & West            Expires November 4, 2019                [Page 4]
 Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
 
+   today.  Where some existing software differs from the recommended
    protocol in significant ways, the document contains a note explaining
    the difference.
 
@@ -272,7 +273,6 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
    OWS SHOULD either not be produced or be produced as a single SP
    character.
-
 
 
 
@@ -1754,8 +1754,8 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
             Note: Top-level navigations can create a cookie with any
             "SameSite" value, even if the new cookie wouldn't have been
-            delivered along with the request had it already existed
-            prior to the navigation.
+            sent along with the request had it already existed prior to
+            the navigation.
 
         4.  Abort these steps and ignore the newly created cookie
             entirely.
@@ -2670,18 +2670,18 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
    [17] https://github.com/httpwg/http-extensions/issues/788
 
+   [18] https://github.com/httpwg/http-extensions/issues/594
+
 Appendix A.  Changes
 
 A.1.  draft-ietf-httpbis-rfc6265bis-00
 
    o  Port [RFC6265] to Markdown.  No (intentional) normative changes.
 
-A.2.  draft-ietf-httpbis-rfc6265bis-01
 
-   o  Fixes to formatting caused by mistakes in the initial port to
-      Markdown:
 
-      *  https://github.com/httpwg/http-extensions/issues/243 [5]
+
+
 
 
 
@@ -2689,6 +2689,13 @@ Barth & West            Expires November 4, 2019               [Page 48]
 
 Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
+
+A.2.  draft-ietf-httpbis-rfc6265bis-01
+
+   o  Fixes to formatting caused by mistakes in the initial port to
+      Markdown:
+
+      *  https://github.com/httpwg/http-extensions/issues/243 [5]
 
       *  https://github.com/httpwg/http-extensions/issues/246 [6]
 
@@ -2731,13 +2738,6 @@ A.3.  draft-ietf-httpbis-rfc6265bis-02
          include a brief mention of partitioning based on first-party:
          https://github.com/httpwg/http-extensions/issues/248 [12]
 
-      *  Noted that double-quotes in cookie values are part of the
-         value, and are not stripped: https://github.com/httpwg/http-
-         extensions/issues/295 [13]
-
-      *  Fixed the "site for cookies" algorithm to return something that
-         makes sense: https://github.com/httpwg/http-extensions/
-         issues/302 [14]
 
 
 
@@ -2745,6 +2745,14 @@ Barth & West            Expires November 4, 2019               [Page 49]
 
 Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
+
+      *  Noted that double-quotes in cookie values are part of the
+         value, and are not stripped: https://github.com/httpwg/http-
+         extensions/issues/295 [13]
+
+      *  Fixed the "site for cookies" algorithm to return something that
+         makes sense: https://github.com/httpwg/http-extensions/
+         issues/302 [14]
 
 A.4.  draft-ietf-httpbis-rfc6265bis-03
 
@@ -2757,6 +2765,11 @@ A.4.  draft-ietf-httpbis-rfc6265bis-03
 
    o  Introduced an explicit "None" value for the SameSite attribute:
       https://github.com/httpwg/http-extensions/issues/788 [17]
+
+A.5.  draft-ietf-httpbis-rfc6265bis-04
+
+   o  Allow "SameSite" cookies to be set for all top-level navigations.
+      https://github.com/httpwg/http-extensions/issues/594 [18]
 
 Acknowledgements
 
@@ -2777,19 +2790,6 @@ Authors' Addresses
 
    Email: mkwst@google.com
    URI:   https://mikewest.org/
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
