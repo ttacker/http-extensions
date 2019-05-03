@@ -1754,8 +1754,8 @@ Internet-Draft  Cookies: HTTP State Management Mechanism        May 2019
 
             Note: Top-level navigations can create a cookie with any
             "SameSite" value, even if the new cookie wouldn't have been
-            sent along with the request had it already existed prior to
-            the navigation.
+            delivered along with the request had it already existed
+            prior to the navigation.
 
         4.  Abort these steps and ignore the newly created cookie
             entirely.
