@@ -792,7 +792,7 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Description: The intermediary tried to forward the request to
       itself, or a loop has been detected using different means (e.g.
-      [I-D.ietf-httpbis-cdn-loop]).
+      [RFC8586]).
 
    o  Extra Parameters: None.
 
@@ -908,10 +908,10 @@ Internet-Draft                Proxy-Status                     July 2019
 
 7.2.  Informative References
 
-   [I-D.ietf-httpbis-cdn-loop]
-              Ludin, S., Nottingham, M., and N. Sullivan, "CDN Loop
-              Detection", draft-ietf-httpbis-cdn-loop-02 (work in
-              progress), February 2019.
+   [RFC8586]  Ludin, S., Nottingham, M., and N. Sullivan, "Loop
+              Detection in Content Delivery Networks (CDNs)", RFC 8586,
+              DOI 10.17487/RFC8586, April 2019,
+              <https://www.rfc-editor.org/info/rfc8586>.
 
 7.3.  URIs
 
