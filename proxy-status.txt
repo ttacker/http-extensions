@@ -101,11 +101,11 @@ Table of Contents
      3.19. HTTP Response Transfer-Coding Error . . . . . . . . . . .  11
      3.20. HTTP Response Content-Coding Error  . . . . . . . . . . .  11
      3.21. HTTP Response Timeout . . . . . . . . . . . . . . . . . .  11
-     3.22. TLS Handshake Error . . . . . . . . . . . . . . . . . . .  12
+     3.22. TLS Handshake Error . . . . . . . . . . . . . . . . . . .  11
      3.23. TLS Untrusted Peer Certificate  . . . . . . . . . . . . .  12
      3.24. TLS Expired Peer Certificate  . . . . . . . . . . . . . .  12
      3.25. TLS Unexpected Peer Certificate . . . . . . . . . . . . .  12
-     3.26. TLS Unexpected Peer Identity  . . . . . . . . . . . . . .  13
+     3.26. TLS Unexpected Peer Identity  . . . . . . . . . . . . . .  12
 
 
 
@@ -117,7 +117,7 @@ Internet-Draft                Proxy-Status                     July 2019
      3.27. TLS Missing Proxy Certificate . . . . . . . . . . . . . .  13
      3.28. TLS Rejected Proxy Certificate  . . . . . . . . . . . . .  13
      3.29. TLS Error . . . . . . . . . . . . . . . . . . . . . . . .  13
-     3.30. HTTP Request Error  . . . . . . . . . . . . . . . . . . .  14
+     3.30. HTTP Request Error  . . . . . . . . . . . . . . . . . . .  13
      3.31. HTTP Request Denied . . . . . . . . . . . . . . . . . . .  14
      3.32. HTTP Upgrade Failed . . . . . . . . . . . . . . . . . . .  14
      3.33. Proxy Internal Error  . . . . . . . . . . . . . . . . . .  14
@@ -263,8 +263,8 @@ Internet-Draft                Proxy-Status                     July 2019
       [RFC7301] used to connect to the next hop.  This is only
       applicable when that connection was actually established.
 
-   o  tries - a sh-integer indicating the number of times that the error
-      has occurred before this response.
+   o  tries - a sh-integer indicating the number of times that the
+      indicated error occurred when attempting to satisfy the request.
 
    o  details - a sh-string containing additional information not
       captured anywhere else.  This can include implementation-specific
@@ -492,11 +492,11 @@ Internet-Draft                Proxy-Status                     July 2019
       when communicating with the next hop.  This error should only be
       used when a more specific one is not defined.
 
-   o  Extra Parameters:
+   o  Extra Parameters: None.
 
-      *  details: a sh-string containing details about the error
-         condition.  For example, this might be the HTTP/2 error code or
-         free-form text describing the condition.
+   o  Recommended HTTP status code: 502
+
+
 
 
 
@@ -505,8 +505,6 @@ Nottingham & Sikora      Expires January 2, 2020                [Page 9]
 
 Internet-Draft                Proxy-Status                     July 2019
 
-
-   o  Recommended HTTP status code: 502
 
 3.16.  HTTP Response Header Block Too Large
 
@@ -557,6 +555,8 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
+
+
 Nottingham & Sikora      Expires January 2, 2020               [Page 10]
 
 Internet-Draft                Proxy-Status                     July 2019
@@ -574,9 +574,6 @@ Internet-Draft                Proxy-Status                     July 2019
       *  coding: a sh-token containing the specific coding that caused
          the error.
 
-      *  details: a sh-string containing details about the error
-         condition.
-
    o  Recommended HTTP status code: 502
 
 3.20.  HTTP Response Content-Coding Error
@@ -591,9 +588,6 @@ Internet-Draft                Proxy-Status                     July 2019
       *  coding: a sh-token containing the specific coding that caused
          the error.
 
-      *  details: a sh-string containing details about the error
-         condition.
-
    o  Recommended HTTP status code: 502
 
 3.21.  HTTP Response Timeout
@@ -607,17 +601,6 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Recommended HTTP status code: 504
 
-
-
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 11]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
 3.22.  TLS Handshake Error
 
    o  Name: tls_handshake_error
@@ -626,6 +609,14 @@ Internet-Draft                Proxy-Status                     July 2019
       handshake with the next hop.
 
    o  Extra Parameters:
+
+
+
+
+Nottingham & Sikora      Expires January 2, 2020               [Page 11]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
       *  alert_message: a sh-token containing the applicable description
          string from the TLS Alerts registry.
@@ -666,14 +657,6 @@ Internet-Draft                Proxy-Status                     July 2019
       *  details: a sh-string containing the checksum or SPKI of the
          certificate received from the next hop.
 
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 12]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
    o  Recommended HTTP status code: 502
 
 3.26.  TLS Unexpected Peer Identity
@@ -683,6 +666,13 @@ Internet-Draft                Proxy-Status                     July 2019
    o  Description: The intermediary received peer certificate with
       unexpected identity (e.g., Subject Alternative Name doesn't match)
       during TLS handshake with the next hop.
+
+
+
+Nottingham & Sikora      Expires January 2, 2020               [Page 12]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
    o  Extra Parameters:
 
@@ -722,14 +712,6 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Extra Parameters:
 
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 13]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
       *  alert_message: a sh-token containing the applicable description
          string from the TLS Alerts registry.
 
@@ -738,6 +720,15 @@ Internet-Draft                Proxy-Status                     July 2019
 3.30.  HTTP Request Error
 
    o  Name: http_request_error
+
+
+
+
+
+Nottingham & Sikora      Expires January 2, 2020               [Page 13]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
    o  Description: The intermediary is generating a client (4xx)
       response on the origin's behalf.  Applicable status codes include
@@ -777,15 +768,6 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Name: proxy_internal_error
 
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 14]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
    o  Description: The intermediary encountered an internal error
       unrelated to the origin.
 
@@ -795,6 +777,14 @@ Internet-Draft                Proxy-Status                     July 2019
          condition.
 
    o  Recommended HTTP status code: 500
+
+
+
+
+Nottingham & Sikora      Expires January 2, 2020               [Page 14]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
 3.34.  Proxy Loop Detected
 
@@ -835,13 +825,6 @@ Internet-Draft                Proxy-Status                     July 2019
    o  Description: [a description of the conditions that generate the
       Proxy Status Types]
 
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 15]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
    o  Extra Parameters: [zero or more optional parameters, typed using
       one of the types available in sh-item]
 
@@ -850,6 +833,14 @@ Internet-Draft                Proxy-Status                     July 2019
 
    See the registry at https://iana.org/assignments/http-proxy-statuses
    [4] for details on where to send registration requests.
+
+
+
+
+Nottingham & Sikora      Expires January 2, 2020               [Page 15]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
 5.  IANA Considerations
 
@@ -889,15 +880,6 @@ Internet-Draft                Proxy-Status                     July 2019
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 16]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
    [RFC7301]  Friedl, S., Popov, A., Langley, A., and E. Stephan,
               "Transport Layer Security (TLS) Application-Layer Protocol
               Negotiation Extension", RFC 7301, DOI 10.17487/RFC7301,
@@ -907,6 +889,14 @@ Internet-Draft                Proxy-Status                     July 2019
               Writing an IANA Considerations Section in RFCs", BCP 26,
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/info/rfc8126>.
+
+
+
+
+Nottingham & Sikora      Expires January 2, 2020               [Page 16]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -944,16 +934,6 @@ Authors' Addresses
    URI:   https://www.mnot.net/
 
 
-
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 17]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
    Piotr Sikora
    Google
 
@@ -969,40 +949,4 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 18]
+Nottingham & Sikora      Expires January 2, 2020               [Page 17]
