@@ -253,11 +253,11 @@ Internet-Draft                Proxy-Status                     July 2019
    This section lists parameters that are potentially applicable to most
    Proxy Status Types.
 
-   o  proxy - a sh-token identifying the HTTP intermediary generating
-      this response.
+   o  node - a sh-string identifying the intermediary generating this
+      Proxy Status Type.  MAY be a hostname, IP address, or alias.
 
-   o  origin - a sh-token identifying the origin server whose behaviour
-      triggered this response.
+   o  origin - a sh-string identifying the origin server whose behaviour
+      triggered this response.  MAY be a hostname, IP address, or alias.
 
    o  protocol - a sh-token indicating the ALPN protocol identifier
       [RFC7301] used to connect to the next hop.  This is only
