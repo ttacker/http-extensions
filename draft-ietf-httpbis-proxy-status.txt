@@ -120,8 +120,9 @@ Internet-Draft                Proxy-Status                     July 2019
      3.30. HTTP Request Error  . . . . . . . . . . . . . . . . . . .  13
      3.31. HTTP Request Denied . . . . . . . . . . . . . . . . . . .  14
      3.32. HTTP Upgrade Failed . . . . . . . . . . . . . . . . . . .  14
-     3.33. Proxy Internal Error  . . . . . . . . . . . . . . . . . .  14
-     3.34. Proxy Loop Detected . . . . . . . . . . . . . . . . . . .  15
+     3.33. Proxy Internal Response . . . . . . . . . . . . . . . . .  14
+     3.34. Proxy Internal Error  . . . . . . . . . . . . . . . . . .  15
+     3.35. Proxy Loop Detected . . . . . . . . . . . . . . . . . . .  15
    4.  Defining New Proxy Status Types . . . . . . . . . . . . . . .  15
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
@@ -160,7 +161,6 @@ Internet-Draft                Proxy-Status                     July 2019
    "OPTIONAL" in this document are to be interpreted as described in BCP
    14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
-
 
 
 
@@ -764,7 +764,29 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Recommended HTTP status code: 502
 
-3.33.  Proxy Internal Error
+3.33.  Proxy Internal Response
+
+   o  Name: proxy_internal_response
+
+   o  Description: The intermediary generated the response locally,
+      without attempting to connect to the next hop (e.g. in response to
+      a request to a debug endpoint terminated at the intermediary).
+
+   o  Extra Parameters: None.
+
+   o  Recommended HTTP status code:
+
+
+
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 14]
+
+Internet-Draft                Proxy-Status                     July 2019
+
+
+3.34.  Proxy Internal Error
 
    o  Name: proxy_internal_error
 
@@ -778,15 +800,7 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Recommended HTTP status code: 500
 
-
-
-
-Nottingham & Sikora      Expires January 4, 2020               [Page 14]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
-3.34.  Proxy Loop Detected
+3.35.  Proxy Loop Detected
 
    o  Name: proxy_loop_detected
 
@@ -819,6 +833,15 @@ Internet-Draft                Proxy-Status                     July 2019
 
    Registration requests should use the following template:
 
+
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 15]
+
+Internet-Draft                Proxy-Status                     July 2019
+
+
    o  Name: [a name for the Proxy Status Type that is allowable as a sh-
       param-list key]
 
@@ -833,14 +856,6 @@ Internet-Draft                Proxy-Status                     July 2019
 
    See the registry at https://iana.org/assignments/http-proxy-statuses
    [4] for details on where to send registration requests.
-
-
-
-
-Nottingham & Sikora      Expires January 4, 2020               [Page 15]
-
-Internet-Draft                Proxy-Status                     July 2019
-
 
 5.  IANA Considerations
 
@@ -875,6 +890,14 @@ Internet-Draft                Proxy-Status                     July 2019
               draft-ietf-httpbis-header-structure-10 (work in progress),
               April 2019.
 
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 16]
+
+Internet-Draft                Proxy-Status                     July 2019
+
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -889,14 +912,6 @@ Internet-Draft                Proxy-Status                     July 2019
               Writing an IANA Considerations Section in RFCs", BCP 26,
               RFC 8126, DOI 10.17487/RFC8126, June 2017,
               <https://www.rfc-editor.org/info/rfc8126>.
-
-
-
-
-Nottingham & Sikora      Expires January 4, 2020               [Page 16]
-
-Internet-Draft                Proxy-Status                     July 2019
-
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -927,6 +942,18 @@ Internet-Draft                Proxy-Status                     July 2019
 
 Authors' Addresses
 
+
+
+
+
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 17]
+
+Internet-Draft                Proxy-Status                     July 2019
+
+
    Mark Nottingham
    Fastly
 
@@ -949,4 +976,33 @@ Authors' Addresses
 
 
 
-Nottingham & Sikora      Expires January 4, 2020               [Page 17]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 18]
