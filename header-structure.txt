@@ -631,7 +631,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
 4.1.  Serializing Structured Headers into HTTP/1
 
-   Given a structured defined in this specification:
+   Given a structure defined in this specification:
 
    1.  If the structure is a dictionary, let output_string be the result
        of Serializing a Dictionary (Section 4.1.1).
@@ -651,7 +651,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    6.  Else, fail serialisation.
 
-   7.  Return output_string converted in to an array of bytes, using
+   7.  Return output_string converted into an array of bytes, using
        ASCII encoding [RFC0020].
 
 4.1.1.  Serializing a Dictionary
