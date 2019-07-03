@@ -140,8 +140,8 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 1.  Introduction
 
    Integrity protection for HTTP content is multi layered and is usually
-   achieved across the protocol stack: TCP checksums and TLS record to
-   name but some.
+   achieved across the protocol stack: TCP checksums and TLS [RFC2818]
+   record to name but some.
 
    The HTTP protocol does not provide means to protect the various
    message parts.  Besides, it might be desirable to add additional
@@ -193,7 +193,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
    This approach can be easily adapted to use-cases where the
    transferred data does require some sort of manipulation to be
    considered a representation or conveys a partial representation of a
-   resource (eg.  Range Requests).
+   resource (eg.  Range Requests [RFC7233]).
 
    Changes are semantically compatible with existing implementations and
    better cover both the request and response cases.
@@ -270,7 +270,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
    should decouple the checksum calculation:
 
    o  from the payload body - which may be altered by mechanism like
-      Range Requests or the method (eg.  HEAD);
+      Range Requests [RFC7233] or the method (eg.  HEAD);
 
    o  and from the message body - which depends on "Transfer-Encoding"
       and whatever tranformations the intermediaries may apply.
@@ -989,18 +989,18 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               <https://csrc.nist.gov/csrc/media/publications/fips/180/3/
               archive/2008-10-31/documents/fips180-3_final.pdf>.
 
-   [FIPS180-4]
-              Department of Commerce, National., "NIST FIPS 180-4,
-              Secure Hash Standard", March 2012,
-              <http://csrc.nist.gov/publications/fips/fips180-4/
-              fips-180-4.pdf>.
-
    [IACR-2019-459]
               Inria, France; Nanyang Technological University,
               Singapore; Temasek Laboratories, Singapore, ., "From
               Collisions to Chosen-Prefix Collisions Application to Full
               SHA-1", May 2019, <https://eprint.iacr.org/2019/459.pdf>.
 
+   [NIST800-32]
+              Department of Commerce, National., "Introduction to Public
+              Key Technology and the Federal PKI Infrastructure",
+              February 2001,
+              <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/
+              nistspecialpublication800-32.pdf>.
 
 
 
@@ -1009,13 +1009,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 18]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-   [NIST800-32]
-              Department of Commerce, National., "Introduction to Public
-              Key Technology and the Federal PKI Infrastructure",
-              February 2001,
-              <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/
-              nistspecialpublication800-32.pdf>.
 
    [RFC1321]  Rivest, R., "The MD5 Message-Digest Algorithm", RFC 1321,
               DOI 10.17487/RFC1321, April 1992,
@@ -1057,6 +1050,13 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <https://www.rfc-editor.org/info/rfc7230>.
 
+   [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
+              Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
+              DOI 10.17487/RFC7231, June 2014,
+              <https://www.rfc-editor.org/info/rfc7231>.
+
+
+
 
 
 
@@ -1065,11 +1065,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 19]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-   [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
-              Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
-              DOI 10.17487/RFC7231, June 2014,
-              <https://www.rfc-editor.org/info/rfc7231>.
 
    [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
               "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
@@ -1093,34 +1088,18 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               DOI 10.17487/RFC2818, May 2000,
               <https://www.rfc-editor.org/info/rfc2818>.
 
-   [RFC5788]  Melnikov, A. and D. Cridland, "IMAP4 Keyword Registry",
-              RFC 5788, DOI 10.17487/RFC5788, March 2010,
-              <https://www.rfc-editor.org/info/rfc5788>.
-
-   [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
-              Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
-              <https://www.rfc-editor.org/info/rfc6962>.
-
    [RFC7396]  Hoffman, P. and J. Snell, "JSON Merge Patch", RFC 7396,
               DOI 10.17487/RFC7396, October 2014,
               <https://www.rfc-editor.org/info/rfc7396>.
 
    [SRI]      Akhawe, D., Braun, F., Marier, F., and J. Weinberger,
-              "Subresource Integrity", n.d..
+              "Subresource Integrity", June 2016.
 
 10.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
    [2] https://github.com/httpwg/http-extensions
-
-
-
-
-Polli & Pardue           Expires January 4, 2020               [Page 20]
-
-Internet-Draft          Resource Digests for HTTP              July 2019
-
 
    [3] https://tools.ietf.org/html/rfc7231#section-3.1.2.1
 
@@ -1135,6 +1114,13 @@ Internet-Draft          Resource Digests for HTTP              July 2019
    [8] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
    [9] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
+
+
+
+Polli & Pardue           Expires January 4, 2020               [Page 20]
+
+Internet-Draft          Resource Digests for HTTP              July 2019
+
 
 Appendix A.  Change Log
 
@@ -1169,15 +1155,6 @@ Appendix C.  FAQ
        *  PATCH entity-headers apply to the patch document and MUST NOT
           be applied to the target resource, see [RFC5789], Section 2.
 
-
-
-
-
-Polli & Pardue           Expires January 4, 2020               [Page 21]
-
-Internet-Draft          Resource Digests for HTTP              July 2019
-
-
        *  servers shouldn't assume PATCH semantics for generic media
           types like "application/json" but should instead use a proper
           content-type, eg [RFC7396]
@@ -1192,6 +1169,15 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
        Unnecessary for a correct implementation of this spec.  The
        revised spec can be nicely adapted to "delta encoding", but all
+
+
+
+
+Polli & Pardue           Expires January 4, 2020               [Page 21]
+
+Internet-Draft          Resource Digests for HTTP              July 2019
+
+
        the references here to delta encoding don't add anything to this
        RFC.  Another job would be to refresh delta encoding.
 
@@ -1225,6 +1211,20 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
