@@ -1323,8 +1323,8 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    3.   Let input_number be an empty string.
 
-   4.   If the first character of input_string is "-", remove it from
-        input_string and set sign to -1.
+   4.   If the first character of input_string is "-", consume it and
+        set sign to -1.
 
    5.   If input_string is empty, fail parsing.
 
@@ -1333,7 +1333,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    7.   While input_string is not empty:
 
-        1.  Let char be the result of removing the first character of
+        1.  Let char be the result of consuming the first character of
             input_string.
 
         2.  If char is a DIGIT, append it to input_number.
@@ -1388,7 +1388,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    4.  While input_string is not empty:
 
-       1.  Let char be the result of removing the first character of
+       1.  Let char be the result of consuming the first character of
            input_string.
 
        2.  If char is a backslash ("\"):
@@ -1404,7 +1404,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
            2.  Else:
 
-               1.  Let next_char be the result of removing the first
+               1.  Let next_char be the result of consuming the first
                    character of input_string.
 
                2.  If next_char is not DQUOTE or "\", fail parsing.
@@ -1433,7 +1433,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    3.  While input_string is not empty:
 
-       1.  Let char be the result of removing the first character of
+       1.  Let char be the result of consuming the first character of
            input_string.
 
        2.  If char is not one of ALPHA, DIGIT, "_", "-", ".", ":", "%",
@@ -1470,8 +1470,9 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    3.  If there is not a "*" character before the end of input_string,
        fail parsing.
 
-   4.  Let b64_content be the result of removing content of input_string
-       up to but not including the first instance of the character "*".
+   4.  Let b64_content be the result of consuming content of
+       input_string up to but not including the first instance of the
+       character "*".
 
    5.  Consume the "*" character at the beginning of input_string.
 
@@ -1505,7 +1506,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    1.  If the first character of input_string is not "?", fail parsing.
 
-   2.  Discard the first character of input_string.
 
 
 
@@ -1513,6 +1513,8 @@ Nottingham & Kamp        Expires January 4, 2020               [Page 27]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+   2.  Discard the first character of input_string.
 
    3.  If the first character of input_string matches "1", discard the
        first character, and return true.
@@ -1560,8 +1562,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
-
-
 
 
 
