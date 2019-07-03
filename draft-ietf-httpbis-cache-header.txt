@@ -239,19 +239,19 @@ Internet-Draft                Cache Header                     July 2019
 
    Their semantics are:
 
-   o  "node" - a string identifying for the cache node.  MAY be a
-      hostname, IP address, or alias.
+   o  "node" - a sh-string identifying the cache node adding the cache-
+      action.  MAY be a hostname, IP address, or alias.
 
-   o  "fresh" - an integer indicating the cache's estimation of the
+   o  "fresh" - a sh-integer indicating the cache's estimation of the
       freshness lifetime ([RFC7234], Section 4.2.1) of this response in
       seconds, including any locally applied configuration.  MAY be
       negative.
 
-   o  "age" - an integer indicating the cache's estimation of the age
+   o  "age" - a sh-integer indicating the cache's estimation of the age
       ([RFC7234], Section 4.2.3) of this response in seconds.  MUST be 0
       or greater.
 
-   o  "cacheable" - a boolean indicating whether the cache can store
+   o  "cacheable" - a sh-boolean indicating whether the cache can store
       this response, according to [RFC7234], Section 3 and any locally
       applied configuration.
 
@@ -259,14 +259,14 @@ Internet-Draft                Cache Header                     July 2019
       associated with this response.  This might include the request
       URL, request headers, and other values.
 
-   o  "latency" - an integer indicating the amount of time in
+   o  "latency" - a sh-integer indicating the amount of time in
       milliseconds between the receipt of a complete set of request
       headers and sending the complete set of response headers of this
       response, from the viewpoint of the cache.  Note that this may not
       include buffering time in transport protocols and similar delays.
 
-   o  "cl_nm" - a boolean indicating whether the response to the client
-      had a 304 Not Modified status code.
+   o  "cl_nm" - a sh-boolean indicating whether the response to the
+      client had a 304 Not Modified status code.
 
    While all of these parameters are OPTIONAL, caches are encouraged to
    use the 'node' parameter to identify themselves.
