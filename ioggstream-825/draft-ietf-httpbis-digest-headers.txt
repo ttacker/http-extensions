@@ -135,6 +135,8 @@ Internet-Draft          Resource Digests for HTTP              July 2019
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  21
    Appendix B.  Acknowledgements . . . . . . . . . . . . . . . . . .  21
    Appendix C.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  21
+   Appendix D.  Changes  . . . . . . . . . . . . . . . . . . . . . .  22
+     D.1.  Since draft-ietf-httpbis-digest-headers-00  . . . . . . .  22
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
 
 1.  Introduction
@@ -158,8 +160,6 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
    o  provide additional protection against failures or attack (see
       [SRI]).
-
-
 
 
 
@@ -1213,7 +1213,26 @@ Internet-Draft          Resource Digests for HTTP              July 2019
        ID-SHA-512 which allows to send a checksum of a resource
        representation with no content codings applied.
 
+Appendix D.  Changes
+
+   _RFC Editor: Please remove this section before publication._
+
+D.1.  Since draft-ietf-httpbis-digest-headers-00
+
+   o  None yet
+
 Authors' Addresses
+
+
+
+
+
+
+
+Polli & Pardue           Expires January 4, 2020               [Page 22]
+
+Internet-Draft          Resource Digests for HTTP              July 2019
+
 
    Roberto Polli
    Team Digitale, Italian Government
@@ -1229,4 +1248,41 @@ Authors' Addresses
 
 
 
-Polli & Pardue           Expires January 4, 2020               [Page 22]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Polli & Pardue           Expires January 4, 2020               [Page 23]
