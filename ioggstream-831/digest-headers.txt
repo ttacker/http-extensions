@@ -989,18 +989,18 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               <https://csrc.nist.gov/csrc/media/publications/fips/180/3/
               archive/2008-10-31/documents/fips180-3_final.pdf>.
 
-   [FIPS180-4]
-              Department of Commerce, National., "NIST FIPS 180-4,
-              Secure Hash Standard", March 2012,
-              <http://csrc.nist.gov/publications/fips/fips180-4/
-              fips-180-4.pdf>.
-
    [IACR-2019-459]
               Inria, France; Nanyang Technological University,
               Singapore; Temasek Laboratories, Singapore, ., "From
               Collisions to Chosen-Prefix Collisions Application to Full
               SHA-1", May 2019, <https://eprint.iacr.org/2019/459.pdf>.
 
+   [NIST800-32]
+              Department of Commerce, National., "Introduction to Public
+              Key Technology and the Federal PKI Infrastructure",
+              February 2001,
+              <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/
+              nistspecialpublication800-32.pdf>.
 
 
 
@@ -1009,13 +1009,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 18]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-   [NIST800-32]
-              Department of Commerce, National., "Introduction to Public
-              Key Technology and the Federal PKI Infrastructure",
-              February 2001,
-              <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/
-              nistspecialpublication800-32.pdf>.
 
    [RFC1321]  Rivest, R., "The MD5 Message-Digest Algorithm", RFC 1321,
               DOI 10.17487/RFC1321, April 1992,
@@ -1057,6 +1050,13 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <https://www.rfc-editor.org/info/rfc7230>.
 
+   [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
+              Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
+              DOI 10.17487/RFC7231, June 2014,
+              <https://www.rfc-editor.org/info/rfc7231>.
+
+
+
 
 
 
@@ -1065,11 +1065,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 19]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-   [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
-              Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
-              DOI 10.17487/RFC7231, June 2014,
-              <https://www.rfc-editor.org/info/rfc7231>.
 
    [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
               "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
@@ -1114,6 +1109,11 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
    [6] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
+   [7] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
+
+   [8] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
+
+   [9] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
 
 
@@ -1121,12 +1121,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 20]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-   [7] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
-
-   [8] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
-
-   [9] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
 Appendix A.  Change Log
 
@@ -1171,6 +1165,12 @@ Appendix C.  FAQ
           gives the client low probability of guessing the actual
           outcome of this operation (eg. concurrent changes, ...)
 
+   4.  Why remove references to delta-encoding?
+
+       Unnecessary for a correct implementation of this spec.  The
+       revised spec can be nicely adapted to "delta encoding", but all
+
+
 
 
 Polli & Pardue           Expires January 4, 2020               [Page 21]
@@ -1178,10 +1178,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 21]
 Internet-Draft          Resource Digests for HTTP              July 2019
 
 
-   4.  Why remove references to delta-encoding?
-
-       Unnecessary for a correct implementation of this spec.  The
-       revised spec can be nicely adapted to "delta encoding", but all
        the references here to delta encoding don't add anything to this
        RFC.  Another job would be to refresh delta encoding.
 
@@ -1215,6 +1211,10 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
+
+
+
+
 
 
 
