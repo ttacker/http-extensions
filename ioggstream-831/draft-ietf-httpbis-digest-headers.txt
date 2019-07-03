@@ -1093,10 +1093,6 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               DOI 10.17487/RFC2818, May 2000,
               <https://www.rfc-editor.org/info/rfc2818>.
 
-   [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
-              Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
-              <https://www.rfc-editor.org/info/rfc6962>.
-
    [RFC7396]  Hoffman, P. and J. Snell, "JSON Merge Patch", RFC 7396,
               DOI 10.17487/RFC7396, October 2014,
               <https://www.rfc-editor.org/info/rfc7396>.
@@ -1114,6 +1110,10 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
    [4] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
+   [5] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
+
+   [6] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
+
 
 
 
@@ -1121,10 +1121,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 20]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-   [5] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
-
-   [6] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
    [7] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
@@ -1169,7 +1165,11 @@ Appendix C.  FAQ
           types like "application/json" but should instead use a proper
           content-type, eg [RFC7396]
 
-
+       *  a "200 OK" response to a PATCH request would contain the
+          digest of the patched item, and the etag of the new object.
+          This behavior - tighly coupled to the application logic -
+          gives the client low probability of guessing the actual
+          outcome of this operation (eg. concurrent changes, ...)
 
 
 
@@ -1177,12 +1177,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 21]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-       *  a "200 OK" response to a PATCH request would contain the
-          digest of the patched item, and the etag of the new object.
-          This behavior - tighly coupled to the application logic -
-          gives the client low probability of guessing the actual
-          outcome of this operation (eg. concurrent changes, ...)
 
    4.  Why remove references to delta-encoding?
 
@@ -1221,6 +1215,12 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
+
+
+
+
+
+
 
 
 
