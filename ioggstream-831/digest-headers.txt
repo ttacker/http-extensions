@@ -140,8 +140,8 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 1.  Introduction
 
    Integrity protection for HTTP content is multi layered and is usually
-   achieved across the protocol stack: TCP checksums and TLS record to
-   name but some.
+   achieved across the protocol stack: TCP checksums and TLS [RFC2818]
+   record to name but some.
 
    The HTTP protocol does not provide means to protect the various
    message parts.  Besides, it might be desirable to add additional
@@ -1093,10 +1093,6 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               DOI 10.17487/RFC2818, May 2000,
               <https://www.rfc-editor.org/info/rfc2818>.
 
-   [RFC5788]  Melnikov, A. and D. Cridland, "IMAP4 Keyword Registry",
-              RFC 5788, DOI 10.17487/RFC5788, March 2010,
-              <https://www.rfc-editor.org/info/rfc5788>.
-
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
               <https://www.rfc-editor.org/info/rfc6962>.
@@ -1114,6 +1110,10 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
    [2] https://github.com/httpwg/http-extensions
 
+   [3] https://tools.ietf.org/html/rfc7231#section-3.1.2.1
+
+   [4] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
+
 
 
 
@@ -1121,10 +1121,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 20]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-   [3] https://tools.ietf.org/html/rfc7231#section-3.1.2.1
-
-   [4] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
    [5] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
@@ -1169,6 +1165,10 @@ Appendix C.  FAQ
        *  PATCH entity-headers apply to the patch document and MUST NOT
           be applied to the target resource, see [RFC5789], Section 2.
 
+       *  servers shouldn't assume PATCH semantics for generic media
+          types like "application/json" but should instead use a proper
+          content-type, eg [RFC7396]
+
 
 
 
@@ -1177,10 +1177,6 @@ Polli & Pardue           Expires January 4, 2020               [Page 21]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
-
-       *  servers shouldn't assume PATCH semantics for generic media
-          types like "application/json" but should instead use a proper
-          content-type, eg [RFC7396]
 
        *  a "200 OK" response to a PATCH request would contain the
           digest of the patched item, and the etag of the new object.
@@ -1225,6 +1221,10 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
+
+
+
+
 
 
 
