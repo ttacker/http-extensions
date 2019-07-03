@@ -5,8 +5,8 @@
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P. Sikora
-Expires: January 2, 2020                                          Google
-                                                            July 1, 2019
+Expires: January 4, 2020                                          Google
+                                                            July 3, 2019
 
 
                    The Proxy-Status HTTP Header Field
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 2, 2020.
+   This Internet-Draft will expire on January 4, 2020.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham & Sikora      Expires January 2, 2020                [Page 1]
+Nottingham & Sikora      Expires January 4, 2020                [Page 1]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -101,15 +101,15 @@ Table of Contents
      3.19. HTTP Response Transfer-Coding Error . . . . . . . . . . .  11
      3.20. HTTP Response Content-Coding Error  . . . . . . . . . . .  11
      3.21. HTTP Response Timeout . . . . . . . . . . . . . . . . . .  11
-     3.22. TLS Handshake Error . . . . . . . . . . . . . . . . . . .  12
+     3.22. TLS Handshake Error . . . . . . . . . . . . . . . . . . .  11
      3.23. TLS Untrusted Peer Certificate  . . . . . . . . . . . . .  12
      3.24. TLS Expired Peer Certificate  . . . . . . . . . . . . . .  12
      3.25. TLS Unexpected Peer Certificate . . . . . . . . . . . . .  12
-     3.26. TLS Unexpected Peer Identity  . . . . . . . . . . . . . .  13
+     3.26. TLS Unexpected Peer Identity  . . . . . . . . . . . . . .  12
 
 
 
-Nottingham & Sikora      Expires January 2, 2020                [Page 2]
+Nottingham & Sikora      Expires January 4, 2020                [Page 2]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -117,11 +117,12 @@ Internet-Draft                Proxy-Status                     July 2019
      3.27. TLS Missing Proxy Certificate . . . . . . . . . . . . . .  13
      3.28. TLS Rejected Proxy Certificate  . . . . . . . . . . . . .  13
      3.29. TLS Error . . . . . . . . . . . . . . . . . . . . . . . .  13
-     3.30. HTTP Request Error  . . . . . . . . . . . . . . . . . . .  14
+     3.30. HTTP Request Error  . . . . . . . . . . . . . . . . . . .  13
      3.31. HTTP Request Denied . . . . . . . . . . . . . . . . . . .  14
      3.32. HTTP Upgrade Failed . . . . . . . . . . . . . . . . . . .  14
-     3.33. Proxy Internal Error  . . . . . . . . . . . . . . . . . .  14
-     3.34. Proxy Loop Detected . . . . . . . . . . . . . . . . . . .  15
+     3.33. Proxy Internal Response . . . . . . . . . . . . . . . . .  14
+     3.34. Proxy Internal Error  . . . . . . . . . . . . . . . . . .  15
+     3.35. Proxy Loop Detected . . . . . . . . . . . . . . . . . . .  15
    4.  Defining New Proxy Status Types . . . . . . . . . . . . . . .  15
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
@@ -164,8 +165,7 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-
-Nottingham & Sikora      Expires January 2, 2020                [Page 3]
+Nottingham & Sikora      Expires January 4, 2020                [Page 3]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -221,7 +221,7 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-Nottingham & Sikora      Expires January 2, 2020                [Page 4]
+Nottingham & Sikora      Expires January 4, 2020                [Page 4]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -253,18 +253,18 @@ Internet-Draft                Proxy-Status                     July 2019
    This section lists parameters that are potentially applicable to most
    Proxy Status Types.
 
-   o  proxy - a sh-token identifying the HTTP intermediary generating
-      this response.
+   o  node - a sh-string identifying the intermediary generating this
+      Proxy Status Type.  MAY be a hostname, IP address, or alias.
 
-   o  origin - a sh-token identifying the origin server whose behaviour
-      triggered this response.
+   o  origin - a sh-string identifying the origin server whose behaviour
+      triggered this response.  MAY be a hostname, IP address, or alias.
 
    o  protocol - a sh-token indicating the ALPN protocol identifier
       [RFC7301] used to connect to the next hop.  This is only
       applicable when that connection was actually established.
 
-   o  tries - a sh-integer indicating the number of times that the error
-      has occurred before this response.
+   o  tries - a sh-integer indicating the number of times that the
+      indicated error occurred when attempting to satisfy the request.
 
    o  details - a sh-string containing additional information not
       captured anywhere else.  This can include implementation-specific
@@ -277,7 +277,7 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-Nottingham & Sikora      Expires January 2, 2020                [Page 5]
+Nottingham & Sikora      Expires January 4, 2020                [Page 5]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -333,7 +333,7 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-Nottingham & Sikora      Expires January 2, 2020                [Page 6]
+Nottingham & Sikora      Expires January 4, 2020                [Page 6]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -389,7 +389,7 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-Nottingham & Sikora      Expires January 2, 2020                [Page 7]
+Nottingham & Sikora      Expires January 4, 2020                [Page 7]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -445,7 +445,7 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-Nottingham & Sikora      Expires January 2, 2020                [Page 8]
+Nottingham & Sikora      Expires January 4, 2020                [Page 8]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -492,21 +492,19 @@ Internet-Draft                Proxy-Status                     July 2019
       when communicating with the next hop.  This error should only be
       used when a more specific one is not defined.
 
-   o  Extra Parameters:
+   o  Extra Parameters: None.
 
-      *  details: a sh-string containing details about the error
-         condition.  For example, this might be the HTTP/2 error code or
-         free-form text describing the condition.
+   o  Recommended HTTP status code: 502
 
 
 
 
-Nottingham & Sikora      Expires January 2, 2020                [Page 9]
+
+
+Nottingham & Sikora      Expires January 4, 2020                [Page 9]
 
 Internet-Draft                Proxy-Status                     July 2019
 
-
-   o  Recommended HTTP status code: 502
 
 3.16.  HTTP Response Header Block Too Large
 
@@ -557,7 +555,9 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-Nottingham & Sikora      Expires January 2, 2020               [Page 10]
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 10]
 
 Internet-Draft                Proxy-Status                     July 2019
 
@@ -574,9 +574,6 @@ Internet-Draft                Proxy-Status                     July 2019
       *  coding: a sh-token containing the specific coding that caused
          the error.
 
-      *  details: a sh-string containing details about the error
-         condition.
-
    o  Recommended HTTP status code: 502
 
 3.20.  HTTP Response Content-Coding Error
@@ -591,9 +588,6 @@ Internet-Draft                Proxy-Status                     July 2019
       *  coding: a sh-token containing the specific coding that caused
          the error.
 
-      *  details: a sh-string containing details about the error
-         condition.
-
    o  Recommended HTTP status code: 502
 
 3.21.  HTTP Response Timeout
@@ -607,17 +601,6 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Recommended HTTP status code: 504
 
-
-
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 11]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
 3.22.  TLS Handshake Error
 
    o  Name: tls_handshake_error
@@ -626,6 +609,14 @@ Internet-Draft                Proxy-Status                     July 2019
       handshake with the next hop.
 
    o  Extra Parameters:
+
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 11]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
       *  alert_message: a sh-token containing the applicable description
          string from the TLS Alerts registry.
@@ -666,14 +657,6 @@ Internet-Draft                Proxy-Status                     July 2019
       *  details: a sh-string containing the checksum or SPKI of the
          certificate received from the next hop.
 
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 12]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
    o  Recommended HTTP status code: 502
 
 3.26.  TLS Unexpected Peer Identity
@@ -683,6 +666,13 @@ Internet-Draft                Proxy-Status                     July 2019
    o  Description: The intermediary received peer certificate with
       unexpected identity (e.g., Subject Alternative Name doesn't match)
       during TLS handshake with the next hop.
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 12]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
    o  Extra Parameters:
 
@@ -722,14 +712,6 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Extra Parameters:
 
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 13]
-
-Internet-Draft                Proxy-Status                     July 2019
-
-
       *  alert_message: a sh-token containing the applicable description
          string from the TLS Alerts registry.
 
@@ -738,6 +720,15 @@ Internet-Draft                Proxy-Status                     July 2019
 3.30.  HTTP Request Error
 
    o  Name: http_request_error
+
+
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 13]
+
+Internet-Draft                Proxy-Status                     July 2019
+
 
    o  Description: The intermediary is generating a client (4xx)
       response on the origin's behalf.  Applicable status codes include
@@ -773,18 +764,31 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Recommended HTTP status code: 502
 
-3.33.  Proxy Internal Error
+3.33.  Proxy Internal Response
 
-   o  Name: proxy_internal_error
+   o  Name: proxy_internal_response
+
+   o  Description: The intermediary generated the response locally,
+      without attempting to connect to the next hop (e.g. in response to
+      a request to a debug endpoint terminated at the intermediary).
+
+   o  Extra Parameters: None.
+
+   o  Recommended HTTP status code:
 
 
 
 
 
-Nottingham & Sikora      Expires January 2, 2020               [Page 14]
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 14]
 
 Internet-Draft                Proxy-Status                     July 2019
 
+
+3.34.  Proxy Internal Error
+
+   o  Name: proxy_internal_error
 
    o  Description: The intermediary encountered an internal error
       unrelated to the origin.
@@ -796,13 +800,13 @@ Internet-Draft                Proxy-Status                     July 2019
 
    o  Recommended HTTP status code: 500
 
-3.34.  Proxy Loop Detected
+3.35.  Proxy Loop Detected
 
    o  Name: proxy_loop_detected
 
    o  Description: The intermediary tried to forward the request to
       itself, or a loop has been detected using different means (e.g.
-      [I-D.ietf-httpbis-cdn-loop]).
+      [RFC8586]).
 
    o  Extra Parameters: None.
 
@@ -829,18 +833,20 @@ Internet-Draft                Proxy-Status                     July 2019
 
    Registration requests should use the following template:
 
+
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 15]
+
+Internet-Draft                Proxy-Status                     July 2019
+
+
    o  Name: [a name for the Proxy Status Type that is allowable as a sh-
       param-list key]
 
    o  Description: [a description of the conditions that generate the
       Proxy Status Types]
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 15]
-
-Internet-Draft                Proxy-Status                     July 2019
-
 
    o  Extra Parameters: [zero or more optional parameters, typed using
       one of the types available in sh-item]
@@ -884,19 +890,18 @@ Internet-Draft                Proxy-Status                     July 2019
               draft-ietf-httpbis-header-structure-10 (work in progress),
               April 2019.
 
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 16]
+
+Internet-Draft                Proxy-Status                     July 2019
+
+
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
-
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 16]
-
-Internet-Draft                Proxy-Status                     July 2019
-
 
    [RFC7301]  Friedl, S., Popov, A., Langley, A., and E. Stephan,
               "Transport Layer Security (TLS) Application-Layer Protocol
@@ -918,10 +923,10 @@ Internet-Draft                Proxy-Status                     July 2019
 
 7.2.  Informative References
 
-   [I-D.ietf-httpbis-cdn-loop]
-              Ludin, S., Nottingham, M., and N. Sullivan, "CDN Loop
-              Detection", draft-ietf-httpbis-cdn-loop-02 (work in
-              progress), February 2019.
+   [RFC8586]  Ludin, S., Nottingham, M., and N. Sullivan, "Loop
+              Detection in Content Delivery Networks (CDNs)", RFC 8586,
+              DOI 10.17487/RFC8586, April 2019,
+              <https://www.rfc-editor.org/info/rfc8586>.
 
 7.3.  URIs
 
@@ -937,21 +942,23 @@ Internet-Draft                Proxy-Status                     July 2019
 
 Authors' Addresses
 
+
+
+
+
+
+
+
+Nottingham & Sikora      Expires January 4, 2020               [Page 17]
+
+Internet-Draft                Proxy-Status                     July 2019
+
+
    Mark Nottingham
    Fastly
 
    Email: mnot@mnot.net
    URI:   https://www.mnot.net/
-
-
-
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 17]
-
-Internet-Draft                Proxy-Status                     July 2019
 
 
    Piotr Sikora
@@ -998,11 +1005,4 @@ Internet-Draft                Proxy-Status                     July 2019
 
 
 
-
-
-
-
-
-
-
-Nottingham & Sikora      Expires January 2, 2020               [Page 18]
+Nottingham & Sikora      Expires January 4, 2020               [Page 18]
