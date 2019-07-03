@@ -133,8 +133,8 @@ Internet-Draft          Resource Digests for HTTP              July 2019
      10.2.  Informative References . . . . . . . . . . . . . . . . .  20
      10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  20
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  21
-   Appendix B.  Acknowledgements . . . . . . . . . . . . . . . . . .  21
-   Appendix C.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  21
+   Appendix B.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  21
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  22
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  22
 
 1.  Introduction
@@ -1126,15 +1126,7 @@ Appendix A.  Change Log
 
    RFC EDITOR PLEASE DELETE THIS SECTION.
 
-Appendix B.  Acknowledgements
-
-   The vast majority of this document is inherited from [RFC3230], so
-   thanks to J.  Mogul and A.  Van Hoff for their great work.  The
-   original idea of refreshing this document arose from an interesting
-   discussion with M.  Nottingham, J.  Yasskin and M.  Thomson when
-   reviewing the MICE content coding.
-
-Appendix C.  FAQ
+Appendix B.  FAQ
 
    1.  Why remove all references to content-md5?
 
@@ -1169,15 +1161,6 @@ Appendix C.  FAQ
 
        Unnecessary for a correct implementation of this spec.  The
        revised spec can be nicely adapted to "delta encoding", but all
-
-
-
-
-Polli & Pardue           Expires January 4, 2020               [Page 21]
-
-Internet-Draft          Resource Digests for HTTP              July 2019
-
-
        the references here to delta encoding don't add anything to this
        RFC.  Another job would be to refresh delta encoding.
 
@@ -1187,6 +1170,13 @@ Internet-Draft          Resource Digests for HTTP              July 2019
        Authentication but for the word "Digest".
 
    6.  What changes in "Want-Digest"?
+
+
+
+Polli & Pardue           Expires January 4, 2020               [Page 21]
+
+Internet-Draft          Resource Digests for HTTP              July 2019
+
 
        We allow to use the "Want-Digest" in responses to advertise the
        supported digest-algorithms and the inability to accept requests
@@ -1198,6 +1188,14 @@ Internet-Draft          Resource Digests for HTTP              July 2019
        algorithms updates, and adds two more algorithms: ID-SHA-256 and
        ID-SHA-512 which allows to send a checksum of a resource
        representation with no content codings applied.
+
+Acknowledgements
+
+   The vast majority of this document is inherited from [RFC3230], so
+   thanks to J.  Mogul and A.  Van Hoff for their great work.  The
+   original idea of refreshing this document arose from an interesting
+   discussion with M.  Nottingham, J.  Yasskin and M.  Thomson when
+   reviewing the MICE content coding.
 
 Authors' Addresses
 
@@ -1211,6 +1209,8 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
+
+
 
 
 
