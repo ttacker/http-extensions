@@ -631,7 +631,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
 4.1.  Serializing Structured Headers into HTTP/1
 
-   Given a structured defined in this specification:
+   Given a structure defined in this specification:
 
    1.  If the structure is a dictionary, list, parameterized list, or
        list of lists, and its value is empty (i.e., it has no members),
@@ -655,7 +655,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    7.  Else, fail serialisation.
 
-   8.  Return output_string converted in to an array of bytes, using
+   8.  Return output_string converted into an array of bytes, using
        ASCII encoding [RFC0020].
 
 4.1.1.  Serializing a Dictionary
@@ -1330,8 +1330,8 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    3.   Let input_number be an empty string.
 
-   4.   If the first character of input_string is "-", remove it from
-        input_string and set sign to -1.
+   4.   If the first character of input_string is "-", consume it and
+        set sign to -1.
 
    5.   If input_string is empty, fail parsing.
 
@@ -1348,7 +1348,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    7.   While input_string is not empty:
 
-        1.  Let char be the result of removing the first character of
+        1.  Let char be the result of consuming the first character of
             input_string.
 
         2.  If char is a DIGIT, append it to input_number.
@@ -1402,7 +1402,7 @@ Nottingham & Kamp        Expires January 4, 2020               [Page 25]
 Internet-Draft         Structured Headers for HTTP             July 2019
 
 
-       1.  Let char be the result of removing the first character of
+       1.  Let char be the result of consuming the first character of
            input_string.
 
        2.  If char is a backslash ("\"):
@@ -1411,7 +1411,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
            2.  Else:
 
-               1.  Let next_char be the result of removing the first
+               1.  Let next_char be the result of consuming the first
                    character of input_string.
 
                2.  If next_char is not DQUOTE or "\", fail parsing.
@@ -1440,7 +1440,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    3.  While input_string is not empty:
 
-       1.  Let char be the result of removing the first character of
+       1.  Let char be the result of consuming the first character of
            input_string.
 
        2.  If char is not one of ALPHA, DIGIT, "_", "-", ".", ":", "%",
@@ -1474,8 +1474,9 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    3.  If there is not a "*" character before the end of input_string,
        fail parsing.
 
-   4.  Let b64_content be the result of removing content of input_string
-       up to but not including the first instance of the character "*".
+   4.  Let b64_content be the result of consuming content of
+       input_string up to but not including the first instance of the
+       character "*".
 
    5.  Consume the "*" character at the beginning of input_string.
 
@@ -1501,7 +1502,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    This specification does not relax the requirements in [RFC4648],
    Section 3.1 and 3.3; therefore, parsers MUST fail on characters
    outside the base64 alphabet, and on line feeds in encoded data.
-
 
 
 
