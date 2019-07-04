@@ -1,6 +1,913 @@
 [
 
   {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/838",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/838/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/838/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/838/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/838",
+    "id": 463687011,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MTE1MDcy",
+    "number": 838,
+    "title": "use standard form for referring to RFCs",
+    "user": {
+      "login": "reschke",
+      "id": 332994,
+      "node_id": "MDQ6VXNlcjMzMjk5NA==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/332994?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/reschke",
+      "html_url": "https://github.com/reschke",
+      "followers_url": "https://api.github.com/users/reschke/followers",
+      "following_url": "https://api.github.com/users/reschke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/reschke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/reschke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/reschke/subscriptions",
+      "organizations_url": "https://api.github.com/users/reschke/orgs",
+      "repos_url": "https://api.github.com/users/reschke/repos",
+      "events_url": "https://api.github.com/users/reschke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/reschke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T11:01:11Z",
+    "updated_at": "2019-07-03T11:05:44Z",
+    "closed_at": "2019-07-03T11:05:44Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/838",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/838",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/838.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/838.patch"
+    },
+    "body": "see https://tools.ietf.org/html/rfc7322#section-3.5"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/837",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/837/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/837/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/837/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/837",
+    "id": 463681355,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MTEwMzY5",
+    "number": 837,
+    "title": "Fix: #836. Remove citations from abstracts.",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T10:47:54Z",
+    "updated_at": "2019-07-03T10:55:21Z",
+    "closed_at": "2019-07-03T10:54:46Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/837",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/837",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/837.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/837.patch"
+    },
+    "body": "## This PR\r\n\r\nremoves citations from abstract."
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/836",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/836/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/836/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/836/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/836",
+    "id": 463680269,
+    "node_id": "MDU6SXNzdWU0NjM2ODAyNjk=",
+    "number": 836,
+    "title": "Digest:  abstract should not contain citations.",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T10:45:12Z",
+    "updated_at": "2019-07-03T10:54:48Z",
+    "closed_at": "2019-07-03T10:54:48Z",
+    "author_association": "CONTRIBUTOR",
+    "body": "## I expect\r\n\r\nAbstract should not contain citations. See https://tools.ietf.org/html/rfc7322#section-4.3\r\n\r\n## Instead\r\n\r\nWARNING: xref not allowed inside t (inside <abstract>) (at line 48)\r\nWARNING: xref not allowed inside t (inside <abstract>) (at line 49)\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/835",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/835/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/835/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/835/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/835",
+    "id": 463674370,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MTA0Njc1",
+    "number": 835,
+    "title": "Fix: #834. Add -latest to docname.",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T10:31:21Z",
+    "updated_at": "2019-07-03T10:39:12Z",
+    "closed_at": "2019-07-03T10:38:52Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/835",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/835",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/835.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/835.patch"
+    },
+    "body": "## This PR\r\n\r\nAdds -latest to docname"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/834",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/834/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/834/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/834/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/834",
+    "id": 463671523,
+    "node_id": "MDU6SXNzdWU0NjM2NzE1MjM=",
+    "number": 834,
+    "title": "Digest: add -latest to docname",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "assignees": [
+      {
+        "login": "ioggstream",
+        "id": 1140844,
+        "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+        "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ioggstream",
+        "html_url": "https://github.com/ioggstream",
+        "followers_url": "https://api.github.com/users/ioggstream/followers",
+        "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+        "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+        "repos_url": "https://api.github.com/users/ioggstream/repos",
+        "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+        "type": "User",
+        "site_admin": false
+      }
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T10:24:56Z",
+    "updated_at": "2019-07-03T10:38:55Z",
+    "closed_at": "2019-07-03T10:38:55Z",
+    "author_association": "CONTRIBUTOR",
+    "body": "- [x] WARNING: The Internet-Draft name 'draft-ietf-httpbis-digest-headers' should end with a two-digit sequence number or 'latest'. (at line 20)\r\n\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/833",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/833/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/833/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/833/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/833",
+    "id": 463659482,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MDkyNTg3",
+    "number": 833,
+    "title": "Fix unused references",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T09:58:04Z",
+    "updated_at": "2019-07-03T10:17:03Z",
+    "closed_at": "2019-07-03T10:16:57Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/833",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/833",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/833.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/833.patch"
+    },
+    "body": "## This PR\r\n\r\nFixes unused references.    \r\n\r\n- Removed reference to FIPS180-4 and opened issue #832\r\n- Removed unneeded references\r\n- Uses required references."
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/832",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/832/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/832/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/832/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/832",
+    "id": 463657356,
+    "node_id": "MDU6SXNzdWU0NjM2NTczNTY=",
+    "number": 832,
+    "title": "Digest: consider referencing FIPS180-4",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2019-07-03T09:53:59Z",
+    "updated_at": "2019-07-04T01:40:11Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "## Question\r\n\r\nShould we update the FIPS180 reference to the latest one?\r\n\r\n## Context\r\n\r\nNIST updated the document defining SHA-* algoritms.\r\n\r\nThe latest reference is\r\n\r\n```\r\n  FIPS180-4:\r\n    title: NIST FIPS 180-4, Secure Hash Standard\r\n    author:\r\n      name: NIST\r\n      ins: National Institute of Standards and Technology, U.S. Department of Commerce\r\n    date: 2015-08\r\n    target: https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf\r\n```\r\n\r\ndigest-headers references preserve the ones cited in RFC3230 and subsequent."
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/831",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/831/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/831/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/831/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/831",
+    "id": 463640384,
+    "node_id": "MDU6SXNzdWU0NjM2NDAzODQ=",
+    "number": 831,
+    "title": "Digest: unused references",
+    "user": {
+      "login": "reschke",
+      "id": 332994,
+      "node_id": "MDQ6VXNlcjMzMjk5NA==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/332994?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/reschke",
+      "html_url": "https://github.com/reschke",
+      "followers_url": "https://api.github.com/users/reschke/followers",
+      "following_url": "https://api.github.com/users/reschke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/reschke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/reschke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/reschke/subscriptions",
+      "organizations_url": "https://api.github.com/users/reschke/orgs",
+      "repos_url": "https://api.github.com/users/reschke/repos",
+      "events_url": "https://api.github.com/users/reschke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/reschke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "assignees": [
+      {
+        "login": "ioggstream",
+        "id": 1140844,
+        "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+        "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/ioggstream",
+        "html_url": "https://github.com/ioggstream",
+        "followers_url": "https://api.github.com/users/ioggstream/followers",
+        "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+        "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+        "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+        "repos_url": "https://api.github.com/users/ioggstream/repos",
+        "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+        "type": "User",
+        "site_admin": false
+      }
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-07-03T09:20:06Z",
+    "updated_at": "2019-07-03T10:22:36Z",
+    "closed_at": "2019-07-03T10:22:35Z",
+    "author_association": "CONTRIBUTOR",
+    "body": "- [x] Warning: no \\<xref> in \\<rfc> targets \\<reference anchor='RFC7233'>\r\n- [x] Warning: no \\<xref> in \\<rfc> targets \\<reference anchor='FIPS180-4'>\r\n- [x] Warning: no \\<xref> in \\<rfc> targets \\<reference anchor='RFC2818'>\r\n- [x] Warning: no \\<xref> in \\<rfc> targets \\<reference anchor='RFC5788'>\r\n- [x] Warning: no \\<xref> in \\<rfc> targets \\<reference anchor='RFC6962'>\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/830",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/830/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/830/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/830/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/830",
+    "id": 463637982,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MDc1Mzcz",
+    "number": 830,
+    "title": "Digest: move Acks section to end (and make it unnumbered)",
+    "user": {
+      "login": "reschke",
+      "id": 332994,
+      "node_id": "MDQ6VXNlcjMzMjk5NA==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/332994?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/reschke",
+      "html_url": "https://github.com/reschke",
+      "followers_url": "https://api.github.com/users/reschke/followers",
+      "following_url": "https://api.github.com/users/reschke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/reschke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/reschke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/reschke/subscriptions",
+      "organizations_url": "https://api.github.com/users/reschke/orgs",
+      "repos_url": "https://api.github.com/users/reschke/repos",
+      "events_url": "https://api.github.com/users/reschke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/reschke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T09:15:12Z",
+    "updated_at": "2019-07-03T10:59:24Z",
+    "closed_at": "2019-07-03T10:59:24Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/830",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/830",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/830.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/830.patch"
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/829",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/829/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/829/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/829/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/829",
+    "id": 463625889,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MDY1OTgy",
+    "number": 829,
+    "title": "Fix: #827. typo in reference: FIPS-180 -> FIPS180",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T08:50:39Z",
+    "updated_at": "2019-07-03T09:10:39Z",
+    "closed_at": "2019-07-03T09:10:39Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/829",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/829",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/829.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/829.patch"
+    },
+    "body": "## This PR\r\n\r\nfixes typo in reference #827 "
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/828",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/828/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/828/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/828/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/828",
+    "id": 463625775,
+    "node_id": "MDU6SXNzdWU0NjM2MjU3NzU=",
+    "number": 828,
+    "title": "Digest Headers: what about the other algorithms?",
+    "user": {
+      "login": "phluid61",
+      "id": 324275,
+      "node_id": "MDQ6VXNlcjMyNDI3NQ==",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/324275?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/phluid61",
+      "html_url": "https://github.com/phluid61",
+      "followers_url": "https://api.github.com/users/phluid61/followers",
+      "following_url": "https://api.github.com/users/phluid61/following{/other_user}",
+      "gists_url": "https://api.github.com/users/phluid61/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/phluid61/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/phluid61/subscriptions",
+      "organizations_url": "https://api.github.com/users/phluid61/orgs",
+      "repos_url": "https://api.github.com/users/phluid61/repos",
+      "events_url": "https://api.github.com/users/phluid61/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/phluid61/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 5,
+    "created_at": "2019-07-03T08:50:24Z",
+    "updated_at": "2019-07-03T23:34:24Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "ADLER32 and CRC32c are in the registry, but not mentioned in the text (although they are covered by this blanket statement)\r\n\r\n> ## Changes compared to RFC5843\r\n>\r\n> [...]\r\n>\r\n> The status for all other algorithms have been updated to \"standard\".\r\n\r\nIs it ok to gloss them this way?"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/827",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/827/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/827/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/827/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/827",
+    "id": 463625209,
+    "node_id": "MDU6SXNzdWU0NjM2MjUyMDk=",
+    "number": 827,
+    "title": "Digest headers: typo in reference",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-07-03T08:49:17Z",
+    "updated_at": "2019-07-03T10:41:04Z",
+    "closed_at": "2019-07-03T10:41:04Z",
+    "author_association": "CONTRIBUTOR",
+    "body": "## I expect\r\n\r\nreferences to FIPS180-3\r\n\r\n## Instead\r\n\r\nI have a reference to FIPS-180-3"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/826",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/826/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/826/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/826/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/826",
+    "id": 463619007,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MDYwNzUz",
+    "number": 826,
+    "title": "[WIP] Fix: #825. Add post -00 sections.",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T08:36:30Z",
+    "updated_at": "2019-07-03T08:36:30Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/826",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/826",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/826.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/826.patch"
+    },
+    "body": "## This PR\r\n\r\n- [ ] adds post-00 sections as per SUBMITTING.md\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/825",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/825/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/825/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/825/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/825",
+    "id": 463617722,
+    "node_id": "MDU6SXNzdWU0NjM2MTc3MjI=",
+    "number": 825,
+    "title": "Digest Headers: add post-00 sections",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "e5dc2b",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T08:33:36Z",
+    "updated_at": "2019-07-03T10:09:55Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "## I expect\r\n\r\nthe draft after the -00  to contain the following section\r\n\r\n```\r\n# Changes\r\n\r\n_RFC Editor: Please remove this section before publication._\r\n\r\n\r\n## Since draft-ietf-httpbis-digest-headers-00\r\n\r\n```"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/824",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/824/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/824/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/824/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/824",
+    "id": 463559620,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0Mjk0MDEzODI1",
+    "number": 824,
+    "title": "Mnot 816",
+    "user": {
+      "login": "mnot",
+      "id": 74384,
+      "node_id": "MDQ6VXNlcjc0Mzg0",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/74384?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/mnot",
+      "html_url": "https://github.com/mnot",
+      "followers_url": "https://api.github.com/users/mnot/followers",
+      "following_url": "https://api.github.com/users/mnot/following{/other_user}",
+      "gists_url": "https://api.github.com/users/mnot/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/mnot/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/mnot/subscriptions",
+      "organizations_url": "https://api.github.com/users/mnot/orgs",
+      "repos_url": "https://api.github.com/users/mnot/repos",
+      "events_url": "https://api.github.com/users/mnot/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/mnot/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-07-03T06:00:21Z",
+    "updated_at": "2019-07-04T02:53:29Z",
+    "closed_at": null,
+    "author_association": "MEMBER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/824",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/824",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/824.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/824.patch"
+    },
+    "body": "Proposal for #816. "
+  },
+  {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/823",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
     "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/823/labels{/name}",
@@ -34,18 +941,18 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 3,
     "created_at": "2019-07-02T08:24:49Z",
-    "updated_at": "2019-07-03T01:33:05Z",
-    "closed_at": null,
-    "author_association": "FIRST_TIME_CONTRIBUTOR",
+    "updated_at": "2019-07-03T08:29:06Z",
+    "closed_at": "2019-07-03T07:53:10Z",
+    "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/823",
       "html_url": "https://github.com/httpwg/http-extensions/pull/823",
@@ -88,7 +995,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "ioggstream",
@@ -135,9 +1042,9 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-02T08:04:14Z",
-    "updated_at": "2019-07-02T08:04:14Z",
-    "closed_at": null,
-    "author_association": "NONE",
+    "updated_at": "2019-07-03T07:53:10Z",
+    "closed_at": "2019-07-03T07:53:10Z",
+    "author_association": "CONTRIBUTOR",
     "body": "## Task\r\n\r\nAdd draft-ietf-httpbis-digest-headers.md as it has been adopted by the http workgroup."
   },
   {
@@ -188,9 +1095,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-07-01T07:47:53Z",
-    "updated_at": "2019-07-02T12:23:13Z",
+    "updated_at": "2019-07-03T04:32:57Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "All proxy status types share a property; they indicate that the response was generated by a proxy, rather than the origin. This is useful; it allows a recipient to know not only that, but where it _was_ generated (by inspecting `proxy`).\r\n\r\nHowever, there is one exception -- `http_response_status` is explicitly decorating a response that's been forwarded by the origin. \r\n\r\nBesides the _one-of-these-things-is-not-like-the-others_ factor, I suspect this is going to trip some folks up, because they'll log or otherwise act on the presence of the header field with an understanding of \"this response was generated by a proxy, not by the origin.\" Since it's a debugging tool, that's especially concerning.\r\n\r\nI think this could be addressed by moving those use cases into a new header field (still defined by this document; e.g., `Proxy-Info`), but I'm open to other approaches.\r\n\r\n@PiotrSikora I know you had use cases around this, so would be very interested in your take.\r\n"
@@ -297,9 +1204,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-07-01T05:12:55Z",
-    "updated_at": "2019-07-02T12:48:02Z",
+    "updated_at": "2019-07-03T04:23:00Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "This field uses `details` for a specific purpose, but that's already in the generic parameters. Suggest `cert_id` or similar. \r\n\r\n/cc @PiotrSikora "
@@ -347,7 +1254,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-01T04:36:43Z",
-    "updated_at": "2019-07-01T04:36:43Z",
+    "updated_at": "2019-07-03T06:51:10Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -368,7 +1275,7 @@
     "id": 462487953,
     "node_id": "MDExOlB1bGxSZXF1ZXN0MjkzMTYxNjYx",
     "number": 817,
-    "title": "Allow empty dicitionaries and lists.",
+    "title": "Allow empty dictionaries and lists.",
     "user": {
       "login": "mnot",
       "id": 74384,
@@ -401,7 +1308,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-01T02:59:13Z",
-    "updated_at": "2019-07-01T02:59:13Z",
+    "updated_at": "2019-07-03T06:53:39Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -460,9 +1367,9 @@
 
     ],
     "milestone": null,
-    "comments": 24,
+    "comments": 40,
     "created_at": "2019-06-25T07:28:34Z",
-    "updated_at": "2019-07-03T01:49:43Z",
+    "updated_at": "2019-07-03T10:09:08Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "_I kinda expect that this is a dupe, as I know there's been conversation on this topic (https://github.com/httpwg/http-extensions/issues/476 is close, for example). But I didn't find anything specifically on point, so I'm erring on the side of another issue._\r\n\r\nThe discussion of substructures in https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-10#appendix-B.2 is somewhat unsatisfying, as it seems there are a number of cases in which a little support for additional structure would be helpful. In particular, allowing the values of dictionary members to be lists would open up a syntax for a few of the policy headers I'm somewhat responsible for that seems difficult to replicate otherwise.\r\n\r\nEven the example in that section:\r\n\r\n> ```\r\n> Example-Thing: name=\"Widget\", cost=89.2, descriptions=\"foo bar\"\r\n> Example-Description: foo; url=\"https://example.net\"; context=123,\r\n>                      bar; url=\"https://example.org\"; context=456\r\n> ```\r\n\r\nimplicitly treats the `descriptions` member as a space-separated list which requires parsing logic above and beyond what structured headers themselves offer. It seems like a very common pattern, and one which would be hard to layer in after the fact in a v2 if we decide that syntax really would be nice.\r\n\r\nI am 100% sure that y'all considered a syntax like:\r\n\r\n```\r\nExample-Dictionary-Header: ..., memberName=[thing1, thing2, thing3]\r\n```\r\n\r\n(which, of course, could also be used for [lists of lists](https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-10#section-3.3)). I'm not sure why you rejected it. The discussion in #476 seemed to be about the narrow value of allowing parsing without context. I happen to believe that that's actually valuable, but I also think there's both semantic and aesthetic value in explicitly demarcating lists as a primitive that can exist basically anywhere `sh-item` exists in the current spec.\r\n\r\nI'm happy to send a PR and add tests to https://github.com/httpwg/structured-header-tests/ if you'd accept them, conceptually. :)"
@@ -512,7 +1419,7 @@
     "created_at": "2019-06-21T16:23:45Z",
     "updated_at": "2019-06-25T06:01:37Z",
     "closed_at": "2019-06-25T06:01:37Z",
-    "author_association": "NONE",
+    "author_association": "CONTRIBUTOR",
     "body": "## I expect\r\n\r\nThis bcp56bis to refer to methods properly defined in  httpbis-semantics\r\n\r\nhttps://github.com/httpwg/http-extensions/blame/master/draft-ietf-httpbis-bcp56bis.md#L420\r\n\r\n## Instead\r\n\r\n `PATCH`  is still entangled with entity, entity-header & co\r\n\r\n\r\n## Note\r\n\r\n- is that an issue?\r\n- should we introduce PATCH in httpbis-semantics ?\r\n- should we add an httpbis-patch ?"
   },
   {
@@ -547,7 +1454,14 @@
       "site_admin": false
     },
     "labels": [
-
+      {
+        "id": 329793151,
+        "node_id": "MDU6TGFiZWwzMjk3OTMxNTE=",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/6265bis",
+        "name": "6265bis",
+        "color": "fbca04",
+        "default": false
+      }
     ],
     "state": "open",
     "locked": false,
@@ -558,7 +1472,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-06-04T09:21:53Z",
-    "updated_at": "2019-06-04T12:24:40Z",
+    "updated_at": "2019-07-03T07:26:25Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "As far as @bakulf and I can tell, https://github.com/web-platform-tests/wpt/blob/master/cookies/samesite/form-get-blank.html attempts to set SameSite cookies cross-site, in particular line `create_test(CROSS_SITE_ORIGIN, CROSS_SITE_ORIGIN, SameSiteStatus.LAX, \"Cross-site top-level form GETs are laxly same-site\");`.\r\n\r\nThis seems counter to step 14 of https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-03#section-5.4.\r\n\r\nYet Chrome passes this test.\r\n\r\ncc @mikewest "
@@ -820,7 +1734,10 @@
     "closed_at": "2019-05-06T18:13:02Z",
     "author_association": "NONE",
     "body": "Hi all,\r\n\r\nbased on the work we did on https://www.w3.org/Submission/viwi-protocol/ I want to request adding new functionality which can be implemented with two new VERBS and two new headers.\r\n\r\n**Use Case:**\r\nClients want to subscribe to `urls`, as topics with all the filtering, paging information etc. being expressed in the `url`. This would allow services to push information into clients whenever it is considered necessary.\r\n\r\n**Implementation:**\r\nAs subscriptions are a \"convenience\" method compared to polling via `GET`, I propose two new HTTP Verbs\r\n\r\n* SUB for subscription to `url`\r\n* UNSUB for un-subscribing from `url`\r\n\r\nTo control the frequency of updates, we would need additional headers:\r\n\r\n* subscription-interval: <timeStepInMs> \r\n* subscription-updatelimit: <timeStepInMs>\r\n\r\n_Periodic_\r\nThe optional interval attribute specifies the update frequency in milliseconds for periodic updates, while the optional updatelimit attribute specifies the maximum update rate in milliseconds for ‘on change’ notification. If interval is set, updatelimit is always overruled.\r\n\r\n_On change_\r\nIf interval is not set, the notification interval is defined ‘on change’ and can be limited by specifying an updatelimit. If an ‘on change’ occours before updatelimit elapsed, an event will be sent as soon as updatelimit elapsed. If there are multiple changes before the next possible update, only the last one know state is sent after updatelimit elapsed.\r\n\r\n**Summary**\r\nAs this is very close to a regular GET, it would be easy and we could also standardise that per each client-server relation, there would just be a single UDP/IP channel for notifications used and held up. We could also specify that this is a \"simplex\" connection regarding payload data. as clients would use other HTTP verbs to send data. Each data sent from the server to the client would be exactly the same as a GET response. Very straight forward from my perspective and a valuable extension of the standard for all things \"realtime\". \r\n\r\nAll the Headers we replicate in WebSockets today.. puuuffff gone ;) we can just plain HTTP headers... \r\n\r\nThe viwi/RSI spec would than be just rewrote to hold the interface design rules etc. the entire WebSocket parts would be obsolete.\r\n\r\nAlso It would than not be relevant anymore wether we transmit JSON (text) or binary content.. \r\n\r\nThink of it as a GET with multiple responses.. same formats, payloads, everything.. just not req/res but req/res/res/res/res... including all status codes etc.\r\n\r\nRe-Auth would also just be another SUB request with a new Token.. super easy ;)\r\n\r\nThere are a couple of solutions discussed and implemented. As described in the spec I reference to, WebSockets are used, replicating some of the HTTP headers and a topic. \r\n\r\nWith this proposal, I want to reduce friction. - ¥ Why setup two sockets, if you can handle it via one?\r\n\r\nThe socket you use for HTTP GET, PUT, POST etc. would have to kept open but could then be used to push information in the other direction.\r\n\r\nThink of a multi-repsonse GET request. Super convenient to work with from developers point of view on both ends of the connection. No extra protocol needed, no extra syntax to learn. Just multiple responses to the same GET request, either on an `on change` or a periodic basis, limited to a certain rate by either the client or the server.\r\n\r\n**Use-case 1 - chat messages**\r\n```\r\nSUB /messages/\r\n```\r\n\r\ninitial response\r\n```\r\n290 OK\r\n```\r\n\r\n1st data response\r\n```\r\n200 OK\r\n[\r\n  \"foo\",\r\n  \"bar\"\r\n]\r\n```\r\n\r\n2nd data response (100ms later)\r\n```\r\n200 OK\r\n[\r\n  \"foo\",\r\n  \"bar\",\r\n  \"boo\"\r\n]\r\n```\r\n\r\netc."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/808",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -917,17 +1834,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-05-03T01:34:21Z",
-    "updated_at": "2019-07-02T11:19:20Z",
-    "closed_at": null,
+    "updated_at": "2019-07-03T04:20:22Z",
+    "closed_at": "2019-07-03T04:20:22Z",
     "author_association": "CONTRIBUTOR",
     "body": "This is proposal to add `Proxy Internal Response` type that could be used to indicate that the response was generated by the intermediary (since we don't have any type that could be used in such case).\r\n\r\n* Name: proxy_internal_response\r\n* Description: The intermediary generated the response locally, without attempting to connect to the next hop (e.g. in response to a request to a debug endpoint terminated at the intermediary).\r\n* Extra Parameters: None.\r\n* Recommended HTTP status code:\r\n\r\nPR: #806 \r\n\r\ncc @mnot "
   },
@@ -965,7 +1882,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -974,8 +1891,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-05-03T01:25:06Z",
-    "updated_at": "2019-05-03T01:55:48Z",
-    "closed_at": null,
+    "updated_at": "2019-07-03T04:19:56Z",
+    "closed_at": "2019-07-03T04:19:56Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/806",
@@ -1196,17 +2113,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-05-02T18:16:53Z",
-    "updated_at": "2019-07-02T10:59:54Z",
-    "closed_at": null,
+    "updated_at": "2019-07-03T04:12:13Z",
+    "closed_at": "2019-07-03T04:11:59Z",
     "author_association": "CONTRIBUTOR",
     "body": "We should standardize on the format and naming of node identifiers, since right now they are in different format in each draft.\r\n\r\nFrom [draft-ietf-httpbis-cache-header](https://tools.ietf.org/html/draft-ietf-httpbis-cache-header):\r\n```\r\no  \"node\" - a string identifying for the cache node.  MAY be a\r\n   hostname, IP address, or alias.\r\n```\r\n\r\nFrom [draft-ietf-httpbis-proxy-status](https://httpwg.org/http-extensions/draft-ietf-httpbis-proxy-status.html):\r\n```\r\n* proxy - a sh-token identifying the HTTP intermediary generating this response.\r\n```\r\n\r\nFrom [RFC7239 (Forwarded HTTP Extension)](https://tools.ietf.org/html/rfc7239):\r\n```\r\no  \"by\" identifies the user-agent facing interface of the proxy.\r\n```\r\n```\r\nThe node identifier is one of the following:\r\n\r\no  The client's IP address, with an optional port number\r\n\r\no  A token indicating that the IP address of the client is not known\r\n   to the proxy server\r\n\r\no  A generated token, allowing for tracing and debugging, while\r\n   allowing the internal structure or sensitive information to be\r\n   hidden\r\n\r\nThe node identifier is defined by the ABNF syntax as:\r\n\r\n    node     = nodename [ \":\" node-port ]\r\n    nodename = IPv4address / \"[\" IPv6address \"]\" /\r\n                \"unknown\" / obfnode\r\n\r\n    IPv4address = <Defined in [RFC3986], Section 3.2.2>\r\n    IPv6address = <Defined in [RFC3986], Section 3.2.2>\r\n    obfnode = \"_\" 1*( ALPHA / DIGIT / \".\" / \"_\" / \"-\")\r\n\r\n    node-port     = port / obfport\r\n    port          = 1*5DIGIT\r\n    obfport       = \"_\" 1*(ALPHA / DIGIT / \".\" / \"_\" / \"-\")\r\n\r\n    DIGIT = <Defined in [RFC5234], Section 3.4>\r\n    ALPHA = <Defined in [RFC5234], Section B.1>\r\n```\r\n\r\ncc @mnot"
   },
@@ -1483,9 +2400,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 5,
     "created_at": "2019-05-02T06:15:34Z",
-    "updated_at": "2019-05-02T07:56:08Z",
+    "updated_at": "2019-07-03T07:49:12Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "in [Signed Exchanges](https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses-05#section-3.1.2), @jyasskin asks about having Parameterised Lists whose parameterised identifiers are things other than Tokens. \r\n\r\nBecause of the way SH is put together, I think this would be a fairly easy change, in terms of the spec and implementations; it would require a few more tests.\r\n\r\nThe only downside I can think of immediately is that specs would need to constrain the type of the parameterised identifier themselves, and specify error handling (if it weren't the default \"blow up\").\r\n\r\nThoughts?\r\n\r\nI also wonder if we should come up with a better name than \"parameterised identifier\", especially since we've ditched \"identifier\" elsewhere. _member name_? _member id_? _primary identifier_?"
@@ -1645,10 +2562,7 @@
     "closed_at": "2019-04-29T19:17:13Z",
     "author_association": "CONTRIBUTOR",
     "body": "I wanted to bring this up as a suggestion, I hope it's not too late in the development in the draft.\r\n\r\nI intended to use the structured headers format for a draft I'm working on: [Prefer-Push](https://tools.ietf.org/html/draft-pot-prefer-push-00).\r\n\r\nThe specific format I'm using right now is a list:\r\n\r\n    Prefer-Push: rel1, rel2, \"rel3\"\r\n\r\nIt occurred to me that it might be a good idea to keep a door open to future extensions. If I tell folks from Day 1 that the value _must_ be parsed as a parameterized list, it allows this to be extended further down the line despite that there's no parameters defined right now.\r\n\r\nThis led me to wonder... well, is this even a good idea? It seems reasonable to try and keep things open for future extension.\r\n\r\nThis led me to my second thought: is there ever a point to *not* parse lists as if they were parameterized lists. The implication is that any of these headers can always be more easily extended."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/793",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -1876,7 +2790,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1885,8 +2799,8 @@
     "milestone": null,
     "comments": 12,
     "created_at": "2019-04-24T22:03:43Z",
-    "updated_at": "2019-07-01T03:00:52Z",
-    "closed_at": null,
+    "updated_at": "2019-07-03T03:54:38Z",
+    "closed_at": "2019-07-03T03:54:38Z",
     "author_association": "CONTRIBUTOR",
     "body": "Hi everyone!\r\n\r\nDraft-10 contains the following excerpt:\r\n\r\n>    3.  If input_item is a string, return the result of applying\r\n>        Serialising a String (Section 4.1.8) to input_item.\r\n> \r\n>    4.  If input_item is a token, return the result of Serialising a\r\n>        Token (Section 4.1.9) to input_item.\r\n\r\nI am currently writing a [javascript implementation](https://github.com/evert/structured-headers), where there is no real native 'token' type (I suspect that this is true for most languages).\r\n\r\nI'm curious, as an implementer, what should I do with that sentence? I have a few options:\r\n\r\n1. Treat any string that can be represented as a token by serializing it as a token, but anything else as a string.\r\n2. Treat everything as a string and ignore the token\r\n3. Expose a sort of wrapper that marks certain strings as tokens.\r\n\r\nEven though I feel that 1 is the nicest user experience, I worry that this will cause issues for future use-cases of structured headers that explicitly demand certain members to be serialized as either a token or string.\r\n\r\nCan you give a recommendation on what I should do?"
   },
@@ -2530,7 +3444,10 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/778",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -2634,9 +3551,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 4,
     "created_at": "2019-03-11T16:45:26Z",
-    "updated_at": "2019-05-07T01:03:04Z",
+    "updated_at": "2019-07-03T13:30:02Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -3350,10 +4267,7 @@
     "closed_at": "2019-05-18T15:08:06Z",
     "author_association": "MEMBER",
     "body": "Per the [discussion on HTTPWG mailing list](https://lists.w3.org/Archives/Public/ietf-http-wg/2019JanMar/thread.html#msg92), we need to...\r\n\r\n* [ ] Spec the framework in the IETF draft: how to declare which hints you want to receive, how those prefs are stored, expected and recommended cache behaviors\r\n* [ ] Move individual hints into relevant implementation specs: HTML, Fetch, or feature specific specs like NetInfo — this should resolve #697 and #698.\r\n* [ ] Updated Security and Privacy sections to capture benefits offered by CH against passive fingerprinting (see linked thread)\r\n\r\n@yoavweiss @mikewest please jump in anything if I'm forgetting anything. On a related note, for User-Agent and Accept-Language, we should work on defining those in HTML/Fetch. Does that all make sense?\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/763",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -4177,7 +5091,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/749.patch"
     },
     "body": "Fixes #737"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/748",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5041,10 +5958,7 @@
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache says:\r\n\r\n> Given incoming-request (a mapping of field-names to lists of field values)\r\n\r\nIt doesn't specify how to calculate this from the HTTP request (https://fetch.spec.whatwg.org/#requests? I don't see a version-independent definition of a request in the HTTP specs.) that the cache actually receives, and it doesn't deal with request headers like https://httpwg.org/http-extensions/client-hints.html#dpr that hold a single value instead of a list."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/733",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5954,7 +6868,10 @@
     "closed_at": "2018-11-12T22:15:54Z",
     "author_association": "MEMBER",
     "body": "I think either @phluid61 or @LPardue suggested `?`, since `!` will be read as \"NOT\" by many, and therefore confuse..."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/718",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -6862,10 +7779,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/704.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/703",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7743,7 +8657,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/689.patch"
     },
     "body": "fixes #688"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/688",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -8547,10 +9464,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/674.patch"
     },
     "body": "Purely editorial."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/673",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -9206,17 +10120,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 8,
+    "comments": 10,
     "created_at": "2018-07-03T04:55:10Z",
-    "updated_at": "2019-07-03T03:13:26Z",
-    "closed_at": null,
+    "updated_at": "2019-07-03T14:22:00Z",
+    "closed_at": "2019-07-03T03:55:17Z",
     "author_association": "MEMBER",
     "body": "From [Kari](https://www.w3.org/mid/20180702190902.6769054978@welho-filter1.welho.com):\r\n\r\nBut parsing algorith seems missing text:\r\n\r\n\tIf non-ASCII characters seen, fail parsing.\r\n\r\nAll algrithm have text\r\n\r\n\t\"Given an ASCII string input_string\"\r\n\r\nso they do not apply situation when there is non-ASCII characters.\r\n\r\nSo there seems to missing top level algorithm, which is\r\n\r\n   Given an string input_string, return parsed context.\r\n\r\n   1. Check input_string character values.\r\n\r\n      1. If all characters are on range %x00-%x7f,\r\n         let output be the result of \r\n         Parsing HTTP/1 Header Fields into Structured Headers\r\n         (Section 4.2)\r\n\r\n      2. Otherwise, fail parsing."
   },
@@ -9398,7 +10312,10 @@
     "closed_at": "2018-08-19T06:20:48Z",
     "author_association": "MEMBER",
     "body": "Should dicts be ordered? It might be a bit harder to surface them in some APIs, but still possible, and it would allow some use cases (this has come up once or twice).\r\n\r\nOther option would be to have an explicitly ordered dict as a separate type."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/658",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -10330,10 +11247,7 @@
     "closed_at": "2018-06-04T21:56:55Z",
     "author_association": "CONTRIBUTOR",
     "body": "Suggestions from http://lists.w3.org/Archives/Public/ietf-http-wg/2018AprJun/0238.html:\r\n\r\n> 2.3.1 contains two lead-ins to the list.  I think that the processing\r\n> order is a little misleading.  In particular, the second lead-in\r\n> doesn't say that Expect-CT is present.  You want to say something like\r\n> \"If a host is CT-qualified, then process a response that contains a\r\n> Expect-CT header field in one of the two following ways:\"\r\n> \r\n> Overall, I think that 2.3 could be structured differently.  This\r\n> section includes cases for when the Expect-CT header field is\r\n> malformed (equivalent to not being present) as well as for when the\r\n> host is CT-qualified.  I would move the processing for absent and\r\n> invalid Expect-CT header fields into another section that simply says\r\n> that no change is made to the value of \"Expect-CT metadata\" for that\r\n> host.  Then you only have to worry about updating Expect-CT metadata -\r\n> which can be moved to 2.3.2, and reporting, which deserves its own\r\n> section.\r\n> \r\n> Something like:\r\n> \r\n> - Responses Without Expect-CT\r\n>   When the header is absent or malformed, the status of the host is\r\n> unchanged.  That is, any Expect-CT metadata for the host is unchanged.\r\n> \r\n> - Updating Expect-CT Metadata\r\n>   The Expect-CT header field is ignored if a connection is not\r\n> CT-qualified (see previous section), but it might generate a report\r\n> (see next section).\r\n>   If the connection is CT-qualified, then CT-metadata is created or\r\n> updated for the corresponding host based on the value of the Expect-CT\r\n> header field.\r\n> \r\n> - Reporting Expect-CT Problems\r\n>   If a connection is not CT-qualified, but the Expect-CT header field\r\n> is present and contains a report-uri, then a report is generated\r\n> (Section 3).\r\n\r\n> For 2.4, I would start by saying that when evaluating a connection,\r\n> the UA determines if the UA is a Known Expect-CT Host.  It does this\r\n> by looking for records that aren't expired.  Then talk about the extra\r\n> checks.  The current arrangement of paragraphs doesn't have a\r\n> consistent flow, it's currently: extra-checks, expiration, not\r\n> CT-qualified, more on reporting for not-CT-qualified hosts,\r\n> extra-checks again, disabling CT.  The bit on disabling CT belongs\r\n> elsewhere, I think, because it risks being missed."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/643",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -11483,7 +12397,10 @@
     "closed_at": "2018-10-08T07:46:20Z",
     "author_association": "NONE",
     "body": "@mikewest suggested using structured headers for Cross-Origin-Resource-Policy in https://github.com/whatwg/fetch/pull/733 which makes sense, but requiring origins to be embedded in strings seems rather awkward and doesn't have precedent with the existing headers."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/628",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -12513,10 +13430,7 @@
     "closed_at": "2018-05-31T03:25:19Z",
     "author_association": "MEMBER",
     "body": "All of the references are currently normative. After a quick read, I think the following can be moved to Informative:\r\n\r\n* HTML / HTML5\r\n* FETCH\r\n* RFC5246\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/613",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -13405,7 +14319,10 @@
     "closed_at": "2018-05-04T02:45:07Z",
     "author_association": "CONTRIBUTOR",
     "body": "Does it really *update* RFC 7234? If it really does, it should say how exactly."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/598",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -14282,10 +15199,7 @@
     "closed_at": "2018-04-19T07:45:42Z",
     "author_association": "MEMBER",
     "body": "Source: https://www.mnot.net/blog/2007/05/15/expires_max-age"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/583",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -15260,7 +16174,10 @@
     "closed_at": "2018-04-10T05:38:33Z",
     "author_association": "MEMBER",
     "body": "... needs some tweaking."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/568",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -16111,10 +17028,7 @@
     "closed_at": "2018-04-09T06:28:42Z",
     "author_association": "NONE",
     "body": "I had previous asked about this [during the WG session during IETF 101](https://youtu.be/RaNy8HewRqM?t=8911).\r\n\r\nI believe this specification should explicitly declare if servers are obligated to honor quality value prioritisation as given to them from clients. The [example provided in the introduction](https://tools.ietf.org/html/draft-ietf-httpbis-variants-00#section-1) shows the server serving the French version of the content despite having the English variant available and the user agent setting preference for it. Does this imply that quality values are to be ignored?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/553",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -17032,7 +17946,10 @@
     "closed_at": "2018-04-19T07:29:33Z",
     "author_association": "NONE",
     "body": "@martinthomson gave me the impression somewhere that new base64 usage should use the base64url.\r\n\r\nhttps://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-4.9 doesn't, which makes me worry browsers would use https://infra.spec.whatwg.org/#forgiving-base64 here leading to the interoperability issues already anticipated by that section."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/538",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -17938,10 +18855,7 @@
     "closed_at": "2018-04-10T16:09:22Z",
     "author_association": "NONE",
     "body": "It looks like the network information hints (Downlink) were removed, but there are still a couple references to network information, particularly in security considerations discussion, since there were security/privacy issues related to exposing network information through this. Should we just remove those references to network information?\r\n\r\n(`Save-Data` is potentially network-related, but I'm less concerned about that as a network information property that users might not realize is being disclosed.)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/523",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -18937,7 +19851,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/509.patch"
     },
     "body": "(this change will be in conflict with the JSON reference update though)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/508",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -19874,10 +20791,7 @@
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "This foremost relates to the arbitrary limits that cookie stores place on cookies, both globally and per-domain.\r\n\r\nRFC 6265 says the following:\r\n\r\n>   At any time, the user agent MAY \"remove excess cookies\" from the\r\n>   cookie store if the number of cookies sharing a domain field exceeds\r\n>   some implementation-defined upper bound (such as 50 cookies).\r\n>\r\n>   At any time, the user agent MAY \"remove excess cookies\" from the\r\n>   cookie store if the cookie store exceeds some predetermined upper\r\n>   bound (such as 3000 cookies).\r\n>\r\n>   When the user agent removes excess cookies from the cookie store, the\r\n>   user agent MUST evict cookies in the following priority order:\r\n>\r\n>   1.  Expired cookies.\r\n>\r\n>   2.  Cookies that share a domain field with more than a predetermined\r\n>       number of other cookies.\r\n>\r\n>   3.  All cookies.\r\n>\r\n>   If two cookies have the same removal priority, the user agent MUST\r\n>   evict the cookie with the earliest last-access date first.\r\n\r\nWe did some investigation into this and discovered some problems with this process as implemented.  Browsers tend to remove a fixed number of cookies once they hit storage limits.  From what I can tell, browsers sort by last-access, but remove up to a fixed number of cookies.\r\n\r\nThis is bad for the integrity of storage.  Retaining some, but not all cookies is a great recipe for getting incomplete state. That can be a security exposure. That was part of what made some of the attacks in [this paper](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-zheng.pdf) possible and motivated the the [leave-secure-cookies-alone](https://tools.ietf.org/html/draft-west-leave-secure-cookies-alone) fix.\r\n\r\nWhen we looked at this we first concluded on the following algorithm:\r\n\r\n1. If cookies exceed the limit, remove all cookies for other domains (for `foo.example.com`, remove `(!foo).example.com` cookies, but not example.com cookies).\r\n2. If cookies still exceed the limit, remove all cookies for other paths (for `foo.example.com/foo`, remove `foo.example.com/(!foo)`).\r\n3. If cookies still exceed the limit, remove all related cookies (for `foo.example.com`, remove anything ending in `example.com`).\r\n\r\nOn review, I think that we can continue to use last-access date to drive this, with a much smaller change.  I'm proposing two small changes:\r\n\r\n* Require that last-access is set to the same value for every accessed cookie when constructing the Cookie header field (the text currently says the \"current date and time\".\r\n\r\n* Require that when an unexpired cookie is removed, require that all cookies that share a domain and have the same (or older) last-access date also be removed.\r\n\r\nThis ensures that if a site receives incomplete cookie state, then it is at least an incomplete state that might reasonably have been created by an adjacent site.  For example, say that `foo.example.com` installs and depends on cookies at `example.com`, then if `bar.example.com` triggers deletion, then it will remove only `foo.example.com` cookies.  It can't be perfect because there is a risk that `example.com` cookies are actually specific to `foo.example.com` and have an interdependency on `foo.example.com` cookies, but that's a risk we're already exposed to.\r\n\r\nThis can result in the same results as the algorithm I described above, but it also might allow for more granular removal.  For instance, if `1.example.com` through `9.example.com` are visited in that order and `9.example.com` causes cookies to exceed the limit, then cookies will be removed for `1.example.com` first The algorithm above would cause cookies for 1 through 8 to be removed at once, which is more severe than we need.\r\n\r\nAs the people driving this no longer work for Mozilla, I thought that I would record our conclusions.  I don't know if we have the resources to continue to investigate implementation, but I'm happy to create a PR for the relevant section if the WG thinks that this is a reasonable change.\r\n\r\nI understand that @mikewest still prefers [cookie priorities](https://tools.ietf.org/html/draft-west-cookie-priority), but no one at Mozilla has any interest in that solution and it didn't seem to get any traction when we discussed it before."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/493",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -20831,7 +21745,10 @@
     "closed_at": "2018-02-16T03:15:16Z",
     "author_association": "MEMBER",
     "body": "The dict parsing algorithm currently allows a trailing comma (and OWS). \r\n\r\nIs the comma intentional?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/478",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -21762,10 +22679,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/464.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/463",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22756,7 +23670,10 @@
     "closed_at": "2017-12-13T07:01:28Z",
     "author_association": "MEMBER",
     "body": "On https://github.com/httpwg/http-extensions, pointers to editor drafts all return 404s:\r\n\r\n- http://httpwg.org/http-extensions/rand-access-live.html\r\n- http://httpwg.org/http-extensions/client-hints.html\r\n- http://httpwg.org/http-extensions/key.html\r\n- ...\r\n\r\nDid something change / break recently?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/448",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -23641,10 +24558,7 @@
     "closed_at": "2018-02-01T07:25:42Z",
     "author_association": "MEMBER",
     "body": "There's been a wide-ranging discussion of numbers on-list.\r\n\r\nI *think* the current proposal is to define separate int and float type, with the former probably being 64 bits, and the latter probably being something like what's in the current draft. Both probably signed (?).\r\n\r\nFuture number types might be defined, but these should catch the majority of cases."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/433",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -24869,7 +25783,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/419.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/418",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -25962,10 +26879,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/404.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/403",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -27013,7 +27927,10 @@
     "closed_at": "2018-04-11T06:43:21Z",
     "author_association": "NONE",
     "body": "https://bugs.chromium.org/p/chromium/issues/detail?id=635882\r\n\r\nSection 3.1 of the spec states that \"SameSite\" alone (without an attribute value) is a valid token: https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00#section-3.1\r\n\r\nSection 4.1 https://tools.ietf.org/html/draft-ietf-httpbis-cookie-same-site-00#section-4.1 states \r\n\r\n   1.  If \"cookie-av\"'s \"attribute-value\" is not a case-insensitive\r\n       match for \"Strict\" or \"Lax\", ignore the \"cookie-av\"."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/388",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -28002,10 +28919,7 @@
     "closed_at": "2017-07-31T12:56:05Z",
     "author_association": "NONE",
     "body": "The proposal for the _103 Early Hints_ response contains a few examples referencing (probably caching) intermediaries. For example, to trigger a h2 server-push when an origin sends a 103 carrying `Link` headers. However, there is no explicit definition on what a cache or proxy server may or may not do with 103 responses.\r\n\r\nBy definition, the informational response cannot have any own meta data:\r\n\r\n_\"A client MUST NOT interpret the 103 (Early Hints) response header fields as if they applied to the informational response itself\"._\r\n\r\nObviously, 103 is not among the status codes cacheable by default defined in [RFC7231 6.1](https://tools.ietf.org/html/rfc7231#section-6.1). Furthermore the response cannot contain an entity body and it must be considered an intermediate response as the final response is still to come. I assume all that forbids storing the 103 in a cache.\r\n\r\nConsidering the objective to speed up Web site delivery, I would like to discuss the idea of adding a mechanism that would allow an intermediary cache to store data from the 103 response.\r\n\r\nIn a CDN-like setup an edge-server first receives an HTTP request and forwards it to the origin. Let's say the final answer took a long time, was private and could not be stored in the cache. However, a 103 intermediate response was received in the mean time and forwarded to the client. For subsequent requests to the same URL (according to the cache key calculation…) the edge cache could send the _cached_ 103 downstream to the client while the original request is sent upstream to the origin _at the same time_. I think this could be a very effective way to use waiting time.\r\n\r\nA similar situation was proposed at the end of section 2, where an _\"intermediary generates a 103 (Early Hints) response based on the header fields of a stale-cached response\"_. However, this can only apply to cacheable content. But HTML documents are most often private.\r\n\r\nTo avoid \"guessing\" in intermediaries, we could define a special Cache Control header field accompanying the 103 status, such as `Early-Hint-Control`. An origin could then define a 103 to be cacheable in a proxy server or cache. For subsequent requests the stored 103 could be sent downstream regardless of whether the final response is public or private.\r\n\r\nThe header field could follow the `Cache-Control` semantics. The `public` and `max-age=N` directives seem appropriate. A proxy server would have to store the Early Hint information apart from regular responses (e.g. 200) to not confuse it with a final response. When the field `Early-Hint-Control: public` is not present, the 103 response should not be stored."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/373",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -29029,7 +29943,10 @@
     "closed_at": "2017-07-21T15:05:20Z",
     "author_association": "MEMBER",
     "body": "http://www.w3.org/mid/624e3e87-43bc-0dc2-d38c-2d69cbb9e93b@gmx.de\r\n\r\nMost of this is editorial, so you can dispose of it as you see fit (although some of it is likely to come back up in IETF LC if not addressed. The exceptions are **bold**; I think we need to give some sort of response to those.\r\n\r\n* [x] Througout: avoid lowercase BCP14 keywords (may->can, should->ought to, ...), or actually invoke the new boilerplate defined in draft-leiba-rfc2119-update.\r\n* [x] s/headers/header fields/\r\n* [x] **It's not optimal to mention a draft that for now is work in progress so close to a \"MUST\", even with \"optionally\" sprinkled in. My recommendation continues to move all material that refers to the Key header field to an appendix.**\r\n* [x] s/defines/defines the/\r\n* [x] We should define \"origin\" somewhere (and also explain \"subresource\").\r\n* [x] Througout: uppercase \"header field\" in section titles.\r\n* [x] Isn't that evident because sending the hints is purely OPTIONAL anyway?\r\n* [x] **Why aren't we using HTTP list syntax here? Also, what does it mean when the field appears more than once?**\r\n* [x] I would rename this to \"CSSVAL\" (or something like that) for readability.\r\n* [x] I would rename this to \"HTML5\" (or something like that) for readability. \r\n* [x] I would rename this to \"KEY\" (or something like that) for readability. \r\n* [x] Finally: no Acknowledgements?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/358",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -30198,10 +31115,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/344.patch"
     },
     "body": "(taken from 6265)\r\n\r\nNote this requires kramdown-rfc2629 version 1.2.2 or newer  - please make sure to use this when generating submissions"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/343",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -31281,7 +32195,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/329.patch"
     },
     "body": "1. Fix one typo.\r\n2. Technically, a set is always a subset of itself.  Therefore current wording implies that if two connections have identical Origin Sets, then neither should be used for new requests, and both should be closed.  Fix this by saying \"proper subset\" instead of \"subset\"."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/328",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -32171,10 +33088,7 @@
     "closed_at": "2017-04-20T00:34:19Z",
     "author_association": "CONTRIBUTOR",
     "body": "7540 has coalescing rules that are overruled by Origin frames - we all know that can't take effect until the origin frame(s) have been received at the client - so that's the basic race condition that we're comfortable with.\r\n\r\nBut because the origin set is done one origin in one frame at a time, and there is no End-of-Set marker on it, the set can become initialized before it is complete upon receipt of the first frame. Initialization means any origin that will soon be in the set but has not yet been processed will not be coalesced onto this connection even if it meets the rules of 7540.. that's the state that is intended at the end of origin set processing, but this interim state seems counterproductive.\r\n\r\nThe easiest thing to do seems to be to create some kind of checkpoint flag that means 'generation done for now'."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/313",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -33130,7 +34044,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/299.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/298",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -34108,10 +35025,7 @@
     "closed_at": "2017-02-27T05:48:57Z",
     "author_association": "MEMBER",
     "body": "As discussed on list, a formal requirement to see `Accept-CH` before sending hints might be desirable, to reduce fingerprinting surface."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/283",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -34992,7 +35906,10 @@
     "closed_at": "2016-12-22T03:36:09Z",
     "author_association": "CONTRIBUTOR",
     "body": "Can we coalesce http and https?  The implication from everything we've said is \"yes\", but Erik remains reluctant."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/268",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -35894,10 +36811,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/254.patch"
     },
     "body": "We've been circling an answer to this for a while.  The entire gamut of possible solutions is broad, and we haven't had much luck in reaching clarity here.\n\nOne the one end of the scale, it should be perfectly OK to send a request for an `http` origin over an authenticated TLS connection.  But we still have the (entirely legitimate) concern there is that some servers might get themselves confused by this.\n\nThe other end of the scale is the bells and whistles JSON stuff.  @mcmanus seemed OK with this based on his implementation experience, but it is a little complicated.  We found too many corner cases for me to be happy that it implementations wouldn't end up busted.  And now that we insist on authentication for the server, many of the features didn't make sense.\n\nWe've also considered an HTTP/2 setting.  That's appealing, but it does limit the applicability a little.\n## This proposal\n\nThis change aims more to the conservative end of that scale.  It keeps the `/.well-known/` resource, but simplifies it, reducing it to a flat list of origins.  The client only needs to acquire this from the authenticated server.\n\nThis doesn't defend against Alt-Svc attacks mounted by attackers with the ability to both send header fields and run an authenticated server, but we're in a very strange place if this is the sort of capabilities we ascribe to our attackers in our threat models.\n## Other changes\n\nI've explicitly added `http/1.1` here.  I believe that's reflective of consensus, but that part is easy to revert.\n\nThe text about client certificates is now clearer.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/253",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -36842,7 +37756,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/239.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/238",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -37712,10 +38629,7 @@
     "closed_at": "2016-08-18T00:04:00Z",
     "author_association": "MEMBER",
     "body": "Discuss taking CH to Experimental.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/223",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -38770,7 +39684,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/209.patch"
     },
     "body": "The key phrase is \"Serving ... requires\", not \"URIs require\".\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/208",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39694,10 +40611,7 @@
     "closed_at": "2016-06-22T06:28:40Z",
     "author_association": "CONTRIBUTOR",
     "body": "`draft-ietf-httpbis-encryption-encoding.md`:\n\n> ```\n>  encryption_params = [ parameter *( \";\" parameter ) ]\n> \n>  crypto_key_params = [ parameter *( \";\" parameter ) ]\n> ```\n\nThese rules do not permit whitespace between a semicolon and a parameter, which was probably intended (judging from the examples and from similar rules elsewhere in HTTP). They should be rewritten as follows:\n\n> ```\n>  encryption_params = [ parameter *( OWS \";\" OWS parameter ) ]\n> \n>  crypto_key_params = [ parameter *( OWS \";\" OWS parameter ) ]\n> ```\n\nand the import of the `OWS` rule from RFC 7230 should be noted in the preceding text (“The \"Encryption\" header field uses the extended ABNF syntax . . .” and similarly for `Crypto-Key`).\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/193",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -40578,7 +41492,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/179.patch"
     },
     "body": "- only one \"on\" value is recognized today\n- allow parameters on token\n\nDiscussion: https://github.com/httpwg/http-extensions/issues/168\n\n@mnot @reschke can you please do a quick sanity check?\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/178",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -41417,10 +42334,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/164.patch"
     },
     "body": "I think that I caught everything in the first round of discussion.  There aren't any substantial changes here, but it's a PR so that others can confirm.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/163",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -42254,7 +43168,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/149.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/148",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -43079,10 +43996,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/134.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/133",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -43974,7 +44888,10 @@
     "closed_at": "2015-11-22T20:35:27Z",
     "author_association": "CONTRIBUTOR",
     "body": "https://httpwg.github.io/http-extensions/alt-svc.html#alternative\n\n>  Each origin maps to a set of these routes — the default route is derived from the origin itself and the other routes are introduced based on alternative-protocol information. \n\nThis looks like it may be a remnant from Alternate-Protocol. [Section 2.4](https://httpwg.github.io/http-extensions/alt-svc.html#switching) uses the phrase `alternative service protocol`, which seems a little clearer.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/118",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -44840,10 +45757,7 @@
     "closed_at": "2016-03-02T04:23:56Z",
     "author_association": "MEMBER",
     "body": "See: \n  https://github.com/mnot/I-D/issues/21\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/103",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -45758,7 +46672,10 @@
     "closed_at": "2015-11-09T07:29:05Z",
     "author_association": "CONTRIBUTOR",
     "body": "You can identify an alternative on a different port on localhost trivially and it might be considered authoritative.  You probably don't want to accept localhost as a valid alternative for an `http://example.com` origin.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/88",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -46726,10 +47643,7 @@
     "closed_at": "2015-10-06T20:00:20Z",
     "author_association": "CONTRIBUTOR",
     "body": "When the origin delegates to an alternate for 30 seconds, and the alternate delegates somewhere else (or to itself) for 7 days, how long does the client keep it?  30 seconds because that’s what the origin said, or 7 days because the alternate is supposed to be equivalent in authority to the origin?\n\nI'm inclined toward the second, since the alternate is supposed to be fully authoritative and since it enables use of an alternate to be persistent so long as you regularly visit the origin.  It feels odd to let a delegate grant itself more power than the delegation originally gave it, though....\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/73",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -47642,7 +48556,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/59.patch"
     },
     "body": "Solves #58 \n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/58",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -48524,10 +49441,7 @@
     "closed_at": "2015-04-21T06:29:10Z",
     "author_association": "CONTRIBUTOR",
     "body": "section 4 of alt-svc clearly describes origin field handling for stream 0 and client initiated (odd) streams, but it is silent on pushed streams.\n\nI think it should say must ignore\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/43",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -49461,7 +50375,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/29.patch"
     },
     "body": "Mark moved this note in his edits, but I think that we don't need it any more at all.  The security considerations will suffice.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/28",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -50358,10 +51275,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/14.patch"
     },
     "body": "As discussed; a quick pass to trim down RTCweb stuff, etc.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/13",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
