@@ -423,23 +423,23 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
 3.3.  Parameterized Lists
 
-   Parameterized Lists are arrays of parameterized identifiers, with one
-   or more members.
+   Parameterized Lists are arrays of parameterized items, with one or
+   more members.
 
-   A parameterized identifier is a primary identifier (a Section 3.8})
-   with associated parameters, an ordered map of key-value pairs where
-   the keys are short, textual strings and the values are items
-   (Section 3.4).  There can be zero or more parameters, and keys are
-   required to be unique.
+   A parameterized item is an item (Section 3.4) with associated
+   parameters, an ordered map of key-value pairs where the keys are
+   short, textual strings and the values are items (Section 3.4).  There
+   can be zero or more parameters, and keys are required to be unique.
 
    The ABNF for parameterized lists in HTTP/1 headers is:
 
    sh-param-list = param-item *( OWS "," OWS param-item )
-   param-item    = primary-id *parameter
-   primary-id    = sh-token
+   param-item    = primary-item *parameter
+   primary-item  = item
    parameter     = OWS ";" OWS param-name [ "=" param-value ]
    param-name    = key
    param-value   = sh-item
+
 
 
 
@@ -450,7 +450,7 @@ Nottingham & Kamp        Expires January 5, 2020                [Page 8]
 Internet-Draft         Structured Headers for HTTP             July 2019
 
 
-   In HTTP/1, each param-id is separated by a comma and optional
+   In HTTP/1, each param-item is separated by a comma and optional
    whitespace (as in Lists), and the parameters are separated by
    semicolons.  For example:
 
@@ -764,10 +764,10 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    2.  For each member mem of input_plist:
 
-       1.  Let id be the result of applying Serializing a Token
-           (Section 4.1.8) to mem's token.
+       1.  Let item be the result of applying Serializing an item
+           (Section 4.1.4) to mem's primary-item.
 
-       2.  Append id to output.
+       2.  Append item to output.
 
        3.  For each parameter in mem's parameters:
 
@@ -1187,14 +1187,14 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 4.2.4.  Parsing a Parameterized List from Text
 
    Given an ASCII string input_string, return a list of parameterized
-   identifiers. input_string is modified to remove the parsed value.
+   items. input_string is modified to remove the parsed value.
 
    1.  Let items be an empty array.
 
    2.  While input_string is not empty:
 
-       1.  Let item be the result of running Parse Parameterized
-           Identifier from Text (Section 4.2.5) with input_string.
+       1.  Let item be the result of running Parse Parameterized Item
+           from Text (Section 4.2.5) with input_string.
 
        2.  Append item to items.
 
@@ -1211,14 +1211,14 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    3.  No structured data has been found; fail parsing.
 
-4.2.5.  Parsing a Parameterized Identifier from Text
+4.2.5.  Parsing a Parameterized Item from Text
 
    Given an ASCII string input_string, return an token with an unordered
    map of parameters. input_string is modified to remove the parsed
    value.
 
-   1.  Let primary_identifier be the result of Parsing a Token from Text
-       (Section 4.2.9) from input_string.
+   1.  Let primary_item be the result of Parsing an item from Text
+       (Section 4.2.6) from input_string.
 
    2.  Let parameters be an empty, ordered map.
 
@@ -1258,7 +1258,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
        9.  Add key param_name with value param_value to parameters.
 
-   4.  Return the tuple (primary_identifier, parameters).
+   4.  Return the tuple (primary_item, parameters).
 
 4.2.6.  Parsing an Item from Text
 
@@ -1751,6 +1751,8 @@ D.1.  Since draft-ietf-httpbis-header-structure-10
    o  Implementations need to preserve difference between token and
       string (#790).
 
+   o  Change parameterized lists to have primary items (#797).
+
    o  Allow inner lists in both dictionaries and lists; removes lists of
       lists (#816).
 
@@ -1784,8 +1786,6 @@ D.3.  Since draft-ietf-httpbis-header-structure-08
 
    o  Rename Identifier to Token (#725).
 
-   o  Add implementation guidance (#727).
-
 
 
 
@@ -1793,6 +1793,8 @@ Nottingham & Kamp        Expires January 5, 2020               [Page 32]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+   o  Add implementation guidance (#727).
 
 D.4.  Since draft-ietf-httpbis-header-structure-07
 
@@ -1840,8 +1842,6 @@ D.7.  Since draft-ietf-httpbis-header-structure-04
    o  Remove most limits on sizes.
 
    o  Refine number parsing.
-
-
 
 
 
