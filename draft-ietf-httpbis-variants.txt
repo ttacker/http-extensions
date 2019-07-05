@@ -570,7 +570,9 @@ Internet-Draft        HTTP Representation Variants             July 2019
    requirement to apply the members of the Vary header field that are
    not covered by Variants.
 
-   Given stored-response (a stored response):
+   Given incoming-request (a mapping of field-names to field-values,
+   after being combined as allowed by Section 3.2.2 of [RFC7230]), and
+   stored-response (a stored response):
 
    1.  Let filtered-vary be the field-value(s) of stored-response's
        "Vary" header field.
@@ -608,8 +610,6 @@ Internet-Draft        HTTP Representation Variants             July 2019
    Accept-Language: fr;q=1.0, en;q=0.1
    Accept-Encoding: gzip
 
-   Then the sorted-variants would be:
-
 
 
 
@@ -617,6 +617,8 @@ Nottingham               Expires January 6, 2020               [Page 11]
 
 Internet-Draft        HTTP Representation Variants             July 2019
 
+
+   Then the sorted-variants would be:
 
    [
      ["fr", "en"]         // prefers French, will accept English
@@ -663,9 +665,7 @@ Internet-Draft        HTTP Representation Variants             July 2019
    Variant-Key: fr
    Variant-Key: en
 
-   Then the cache needs to forward the request to the origin server,
-   since Variants indicates that "de" is available, and that is
-   acceptable to the client.
+
 
 
 
@@ -673,6 +673,10 @@ Nottingham               Expires January 6, 2020               [Page 12]
 
 Internet-Draft        HTTP Representation Variants             July 2019
 
+
+   Then the cache needs to forward the request to the origin server,
+   since Variants indicates that "de" is available, and that is
+   acceptable to the client.
 
 4.3.2.  Variants That Don't Overlap the Client's Request
 
@@ -717,10 +721,6 @@ Internet-Draft        HTTP Representation Variants             July 2019
 
    Origin servers are advised to carefully consider which content
    negotiation mechanisms to enumerate in Variants; if a mechanism is
-   not supported by a receiving cache, it will "downgrade" to Vary
-   handling, which can negatively impact cache efficiency.
-
-
 
 
 
@@ -729,6 +729,9 @@ Nottingham               Expires January 6, 2020               [Page 13]
 
 Internet-Draft        HTTP Representation Variants             July 2019
 
+
+   not supported by a receiving cache, it will "downgrade" to Vary
+   handling, which can negatively impact cache efficiency.
 
 5.1.  Examples
 
@@ -774,9 +777,6 @@ Internet-Draft        HTTP Representation Variants             July 2019
 
    Note that Accept-Language is listed in Vary, to assure backwards-
    compatibility with caches that do not support Variants.
-
-
-
 
 
 
