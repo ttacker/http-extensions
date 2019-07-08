@@ -928,19 +928,19 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    Given an array of bytes input_bytes that represents the chosen
    header's field-value (which is an empty string if that header is not
-   present), and header_type (one of "dictionary", "list", "param-list",
-   or "item"), return the parsed header value.
+   present), and header_type (one of "dictionary", "list", or "item"),
+   return the parsed header value.
 
    1.  Convert input_bytes into an ASCII string input_string; if
        conversion fails, fail parsing.
 
    2.  Discard any leading OWS from input_string.
 
-   3.  If header_type is "dictionary", let output be the result of
-       Parsing a Dictionary from Text (Section 4.2.2).
-
-   4.  If header_type is "list", let output be the result of Parsing a
+   3.  If header_type is "list", let output be the result of Parsing a
        List from Text (Section 4.2.1).
+
+   4.  If header_type is "dictionary", let output be the result of
+       Parsing a Dictionary from Text (Section 4.2.2).
 
    5.  If header_type is "item", let output be the result of Parsing an
        Item from Text (Section 4.2.4).
@@ -974,8 +974,9 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    Since concatenation might be done by an upstream intermediary, the
    results are not under the control of the serializer or the parser.
 
-   Integers, Floats and Byte Sequences cannot be split across multiple
-   headers because the inserted commas will cause parsing to fail.
+   Tokens, Integers, Floats and Byte Sequences cannot be split across
+   multiple headers because the inserted commas will cause parsing to
+   fail.
 
    If parsing fails - including when calling another algorithm - the
    entire header field's value MUST be discarded.  This is intentionally
@@ -1000,8 +1001,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
        4.  If input_string is empty, return members.
 
-       5.  Consume the first character of input_string; if it is not
-           COMMA, fail parsing.
+
 
 
 
@@ -1009,6 +1009,9 @@ Nottingham & Kamp        Expires January 9, 2020               [Page 18]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+       5.  Consume the first character of input_string; if it is not
+           COMMA, fail parsing.
 
        6.  Discard any leading OWS from input_string.
 
@@ -1055,9 +1058,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
            1.  Consume the "=" character at the beginning of
                input_string.
 
-           2.  Let param_value be the result of Parsing an Item from
-               Text (Section 4.2.4) from input_string.
-
 
 
 
@@ -1065,6 +1065,9 @@ Nottingham & Kamp        Expires January 9, 2020               [Page 19]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+           2.  Let param_value be the result of Parsing an Item from
+               Text (Section 4.2.4) from input_string.
 
        9.  Add key param_name with value param_value to parameters.
 
@@ -1111,9 +1114,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
        1.   Let this_key be the result of running Parsing a Key from
             Text (Section 4.2.3) with input_string.
 
-       2.   If dictionary already contains this_key, fail parsing.
-
-
 
 
 
@@ -1121,6 +1121,9 @@ Nottingham & Kamp        Expires January 9, 2020               [Page 20]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+       2.   If dictionary already contains the name this_key, fail
+            parsing.
 
        3.   Consume the first character of input_string; if it is not
             "=", fail parsing.
@@ -1132,7 +1135,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
        5.   Else, let this_value be the result of running Parsing an
             Item (Section 4.2.4) with input_string.
 
-       6.   Add key this_key with value this_value to dictionary.
+       6.   Add name this_key with value this_value to dictionary.
 
        7.   Discard any leading OWS from input_string.
 
@@ -1167,9 +1170,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
            1.  Prepend char to input_string.
 
-           2.  Return output_string.
-
-       3.  Append char to output_string.
 
 
 
@@ -1177,6 +1177,10 @@ Nottingham & Kamp        Expires January 9, 2020               [Page 21]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+           2.  Return output_string.
+
+       3.  Append char to output_string.
 
    4.  Return output_string.
 
@@ -1223,16 +1227,15 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    5.   If input_string is empty, fail parsing.
 
-   6.   If the first character of input_string is not a DIGIT, fail
-        parsing.
-
-
 
 
 Nottingham & Kamp        Expires January 9, 2020               [Page 22]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+   6.   If the first character of input_string is not a DIGIT, fail
+        parsing.
 
    7.   While input_string is not empty:
 
@@ -1279,9 +1282,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    2.  If the first character of input_string is not DQUOTE, fail
        parsing.
 
-   3.  Discard the first character of input_string.
-
-   4.  While input_string is not empty:
 
 
 
@@ -1289,6 +1289,10 @@ Nottingham & Kamp        Expires January 9, 2020               [Page 23]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+   3.  Discard the first character of input_string.
+
+   4.  While input_string is not empty:
 
        1.  Let char be the result of consuming the first character of
            input_string.
@@ -1334,10 +1338,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
        2.  If char is not one of ALPHA, DIGIT, "_", "-", ".", ":", "%",
            "*" or "/":
 
-           1.  Prepend char to input_string.
-
-           2.  Return output_string.
-
 
 
 
@@ -1345,6 +1345,10 @@ Nottingham & Kamp        Expires January 9, 2020               [Page 24]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
 
+
+           1.  Prepend char to input_string.
+
+           2.  Return output_string.
 
        3.  Append char to output_string.
 
@@ -1390,10 +1394,6 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    This specification does not relax the requirements in [RFC4648],
    Section 3.1 and 3.3; therefore, parsers MUST fail on characters
    outside the base64 alphabet, and on line feeds in encoded data.
-
-
-
-
 
 
 
