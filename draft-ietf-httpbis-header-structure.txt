@@ -18,7 +18,7 @@ Abstract
    that are intended to make it easier and safer to define and handle
    HTTP header fields.  It is intended for use by specifications of new
    HTTP header fields that wish to use a common syntax that is more
-   restrictive than traditional HTTP/1.x field values.
+   restrictive than traditional HTTP field values.
 
 Note to Readers
 
@@ -96,9 +96,9 @@ Table of Contents
      3.7.  Tokens  . . . . . . . . . . . . . . . . . . . . . . . . .  10
      3.8.  Byte Sequences  . . . . . . . . . . . . . . . . . . . . .  10
      3.9.  Booleans  . . . . . . . . . . . . . . . . . . . . . . . .  11
-   4.  Working With Structured Headers in HTTP/1 . . . . . . . . . .  11
-     4.1.  Serializing Structured Headers into HTTP/1  . . . . . . .  11
-     4.2.  Parsing HTTP/1 Header Fields into Structured Headers  . .  17
+   4.  Working With Structured Headers in Textual HTTP Headers . . .  11
+     4.1.  Serializing Structured Headers  . . . . . . . . . . . . .  11
+     4.2.  Parsing Header Fields into Structured Headers . . . . . .  17
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  26
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  26
@@ -147,7 +147,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    definitions of new HTTP header field values to address these
    problems.  In particular, it defines a generic, abstract model for
    header field values, along with a concrete serialisation for
-   expressing that model in HTTP/1 [RFC7230] header fields.
+   expressing that model in textual HTTP [RFC7230] header fields.
 
    HTTP headers that are defined as "Structured Headers" use the types
    defined in this specification to define their syntax and basic
@@ -174,8 +174,8 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    Section 3 defines a number of abstract data types that can be used in
    Structured Headers.  Those abstract types can be serialized into and
-   parsed from textual headers - such as those used in HTTP/1 - using
-   the algorithms described in Section 4.
+   parsed from textual HTTP headers using the algorithms described in
+   Section 4.
 
 1.1.  Intentionally Strict Processing
 
@@ -209,14 +209,14 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    This document uses algorithms to specify parsing and serialisation
    behaviours, and the Augmented Backus-Naur Form (ABNF) notation of
-   [RFC5234] to illustrate expected syntax in HTTP/1-style header
+   [RFC5234] to illustrate expected syntax in textual HTTP header
    fields.  In doing so, uses the VCHAR, SP, DIGIT, ALPHA and DQUOTE
    rules from [RFC5234].  It also includes the OWS rule from [RFC7230].
 
-   When parsing from HTTP/1 header fields, implementations MUST follow
-   the algorithms, but MAY vary in implementation so as the behaviours
-   are indistinguishable from specified behaviour.  If there is
-   disagreement between the parsing algorithms and ABNF, the specified
+   When parsing from textual HTTP header fields, implementations MUST
+   follow the algorithms, but MAY vary in implementation so as the
+   behaviours are indistinguishable from specified behaviour.  If there
+   is disagreement between the parsing algorithms and ABNF, the
 
 
 
@@ -226,10 +226,10 @@ Nottingham & Kamp        Expires January 9, 2020                [Page 4]
 Internet-Draft         Structured Headers for HTTP             July 2019
 
 
-   algorithms take precedence.  In some places, the algorithms are
-   "greedy" with whitespace, but this should not affect conformance.
+   specified algorithms take precedence.  In some places, the algorithms
+   are "greedy" with whitespace, but this should not affect conformance.
 
-   For serialisation to HTTP/1 header fields, the ABNF illustrates the
+   For serialisation to textual header fields, the ABNF illustrates the
    range of acceptable wire representations with as much fidelity as
    possible, and the algorithms define the recommended way to produce
    them.  Implementations MAY vary from the specified behaviour so long
@@ -317,7 +317,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    This section defines the abstract value types that can be composed
    into Structured Headers.  The ABNF provided represents the on-wire
-   format in HTTP/1.
+   format in HTTP.
 
 3.1.  Lists
 
@@ -338,7 +338,7 @@ Nottingham & Kamp        Expires January 9, 2020                [Page 6]
 Internet-Draft         Structured Headers for HTTP             July 2019
 
 
-   The ABNF for lists in HTTP/1 headers is:
+   The ABNF for lists is:
 
    sh-list       = list-member *( OWS "," OWS list-member )
    list-member   = ( sh-item / inner-list ) *parameter
@@ -349,22 +349,23 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    lcalpha       = %x61-7A ; a-z
    param-value   = sh-item
 
-   In HTTP/1, each member is separated by a comma and optional
-   whitespace.  For example, a header field whose value is defined as a
-   list of strings could look like:
+   In textual HTTP headers, each member is separated by a comma and
+   optional whitespace.  For example, a header field whose value is
+   defined as a list of strings could look like:
 
    Example-StrListHeader: "foo", "bar", "It was the best of times."
 
-   In HTTP/1, inner lists are denoted by surrounding parenthesis, and
-   have their values delimited by a single space.  A header field whose
-   value is defined as a list of lists of strings could look like:
+   In textual HTTP headers, inner lists are denoted by surrounding
+   parenthesis, and have their values delimited by a single space.  A
+   header field whose value is defined as a list of lists of strings
+   could look like:
 
    Example-StrListListHeader: ("foo" "bar"), ("baz"), ("bat" "one"), ()
 
    Note that the last member in this example is an empty inner list.
 
-   In HTTP/1, members' parameters are separated from the member and each
-   other by semicolons.  For example:
+   In textual HTTP headers, members' parameters are separated from the
+   member and each other by semicolons.  For example:
 
 Example-ParamListHeader: abc_123;a=1;b=2; cdef_456, (ghi jkl);q="9";r="w"
 
@@ -388,7 +389,6 @@ Example-ParamListHeader: abc_123;a=1;b=2; cdef_456, (ghi jkl);q="9";r="w"
 
 
 
-
 Nottingham & Kamp        Expires January 9, 2020                [Page 7]
 
 Internet-Draft         Structured Headers for HTTP             July 2019
@@ -398,16 +398,16 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    by name.  Specifications MAY use either means of accessing the
    members.
 
-   The ABNF for dictionaries in HTTP/1 headers is:
+   The ABNF for dictionaries in textual HTTP headers is:
 
    sh-dictionary  = dict-member *( OWS "," OWS dict-member )
    dict-member    = member-name "=" member-value
    member-name    = key
    member-value   = sh-item / inner-list
 
-   In HTTP/1, members are separated by a comma with optional whitespace,
-   while names and values are separated by "=" (without whitespace).
-   For example:
+   In textual HTTP headers, members are separated by a comma with
+   optional whitespace, while names and values are separated by "="
+   (without whitespace).  For example:
 
    Example-DictHeader: en="Applepie", da=*w4ZibGV0w6ZydGU=*
 
@@ -430,7 +430,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    string (Section 3.6), token (Section 3.7), byte sequence
    (Section 3.8), or Boolean (Section 3.9).
 
-   The ABNF for items in HTTP/1 headers is:
+   The ABNF for items in textual HTTP headers is:
 
    sh-item = sh-integer / sh-float / sh-string / sh-token / sh-binary
              / sh-boolean
@@ -441,7 +441,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    inclusive (i.e., up to fifteen digits, signed), for IEEE 754
    compatibility ([IEEE754]).
 
-   The ABNF for integers in HTTP/1 headers is:
+   The ABNF for integers in textual HTTP headers is:
 
 
 
@@ -464,7 +464,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    Floats are integers with a fractional part, that can be stored as
    IEEE 754 double precision numbers (binary64) ([IEEE754]).
 
-   The ABNF for floats in HTTP/1 headers is:
+   The ABNF for floats in textual HTTP headers is:
 
    sh-float    = ["-"] (
                 DIGIT "." 1*14DIGIT /
@@ -493,7 +493,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    the range 0x20 to 0x7E).  Note that this excludes tabs, newlines,
    carriage returns, etc.
 
-   The ABNF for strings in HTTP/1 headers is:
+   The ABNF for strings in textual HTTP headers is:
 
 
 
@@ -511,8 +511,8 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    unescaped = %x20-21 / %x23-5B / %x5D-7E
    escaped   = "\" ( DQUOTE / "\" )
 
-   In HTTP/1 headers, strings are delimited with double quotes, using a
-   backslash ("\") to escape double quotes and backslashes.  For
+   In textual HTTP headers, strings are delimited with double quotes,
+   using a backslash ("\") to escape double quotes and backslashes.  For
    example:
 
    Example-StringHeader: "hello world"
@@ -536,7 +536,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    Tokens are short textual words; their abstract model is identical to
    their expression in the textual HTTP serialisation.
 
-   The ABNF for tokens in HTTP/1 headers is:
+   The ABNF for tokens in textual HTTP headers is:
 
    sh-token = ALPHA
               *( ALPHA / DIGIT / "_" / "-" / "." / ":" / "%"
@@ -551,7 +551,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    Byte sequences can be conveyed in Structured Headers.
 
-   The ABNF for a byte sequence in HTTP/1 headers is:
+   The ABNF for a byte sequence in textual HTTP headers is:
 
 
 
@@ -565,8 +565,8 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    sh-binary = "*" *(base64) "*"
    base64    = ALPHA / DIGIT / "+" / "/" / "="
 
-   In HTTP/1 headers, a byte sequence is delimited with asterisks and
-   encoded using base64 ([RFC4648], Section 4).  For example:
+   In textual HTTP headers, a byte sequence is delimited with asterisks
+   and encoded using base64 ([RFC4648], Section 4).  For example:
 
    Example-BinaryHdr: *cHJldGVuZCB0aGlzIGlzIGJpbmFyeSBjb250ZW50Lg==*
 
@@ -577,23 +577,23 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    Boolean values can be conveyed in Structured Headers.
 
-   The ABNF for a Boolean in HTTP/1 headers is:
+   The ABNF for a Boolean in textual HTTP headers is:
 
    sh-boolean = "?" boolean
    boolean    = "0" / "1"
 
-   In HTTP/1 headers, a boolean is indicated with a leading "?"
+   In textual HTTP headers, a boolean is indicated with a leading "?"
    character.  For example:
 
    Example-BoolHdr: ?1
 
-4.  Working With Structured Headers in HTTP/1
+4.  Working With Structured Headers in Textual HTTP Headers
 
    This section defines how to serialize and parse Structured Headers in
-   HTTP/1 textual header fields, and protocols compatible with them
-   (e.g., in HTTP/2 [RFC7540] before HPACK [RFC7541] is applied).
+   textual header fields, and protocols compatible with them (e.g., in
+   HTTP/2 [RFC7540] before HPACK [RFC7541] is applied).
 
-4.1.  Serializing Structured Headers into HTTP/1
+4.1.  Serializing Structured Headers
 
    Given a structure defined in this specification:
 
@@ -678,11 +678,9 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    Given an array inner_list:
 
-   1.  If inner_list is not an array, fail serialisation.
+   1.  Let output be the string "(".
 
-   2.  Let output be the string "(".
-
-   3.  For each member mem of inner_list:
+   2.  For each member mem of inner_list:
 
        1.  Let value be the result of applying Serializing an Item
            (Section 4.1.3) to mem.
@@ -691,9 +689,9 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
        3.  If inner_list is not empty, append a single WS to output.
 
-   4.  Append ")" to output.
+   3.  Append ")" to output.
 
-   5.  Return output.
+   4.  Return output.
 
 4.1.1.2.  Serializing a Key
 
@@ -722,6 +720,8 @@ Internet-Draft         Structured Headers for HTTP             July 2019
        2.  Append name to output.
 
        3.  Append "=" to output.
+
+
 
 
 
@@ -914,13 +914,13 @@ Internet-Draft         Structured Headers for HTTP             July 2019
 
    6.  Return output.
 
-4.2.  Parsing HTTP/1 Header Fields into Structured Headers
+4.2.  Parsing Header Fields into Structured Headers
 
    When a receiving implementation parses textual HTTP header fields
-   (e.g., in HTTP/1 or HTTP/2) that are known to be Structured Headers,
-   it is important that care be taken, as there are a number of edge
-   cases that can cause interoperability or even security problems.
-   This section specifies the algorithm for doing so.
+   that are known to be Structured Headers, it is important that care be
+   taken, as there are a number of edge cases that can cause
+   interoperability or even security problems.  This section specifies
+   the algorithm for doing so.
 
    Given an array of bytes input_bytes that represents the chosen
    header's field-value (which is an empty string if that header is not
