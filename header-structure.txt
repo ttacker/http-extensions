@@ -15,11 +15,10 @@ Expires: January 9, 2020                       The Varnish Cache Project
 Abstract
 
    This document describes a set of data types and associated algorithms
-   associated with them that are intended to make it easier and safer to
-   define and handle HTTP header fields.  It is intended for use by
-   specifications of new HTTP header fields that wish to use a common
-   syntax that is more restrictive than traditional HTTP/1.x field
-   values.
+   that are intended to make it easier and safer to define and handle
+   HTTP header fields.  It is intended for use by specifications of new
+   HTTP header fields that wish to use a common syntax that is more
+   restrictive than traditional HTTP/1.x field values.
 
 Note to Readers
 
@@ -49,6 +48,7 @@ Status of This Memo
    Task Force (IETF).  Note that other groups may also distribute
    working documents as Internet-Drafts.  The list of current Internet-
    Drafts is at https://datatracker.ietf.org/drafts/current/.
+
 
 
 
@@ -170,14 +170,12 @@ Nottingham & Kamp        Expires January 9, 2020                [Page 3]
 Internet-Draft         Structured Headers for HTTP             July 2019
 
 
-   To specify a header field that is a Structured Header, see Section 2.
+   Section 2 describes how to specify a Structured Header.
 
    Section 3 defines a number of abstract data types that can be used in
-   Structured Headers.
-
-   Those abstract types can be serialized into and parsed from textual
-   headers - such as those used in HTTP/1 - using the algorithms
-   described in Section 4.
+   Structured Headers.  Those abstract types can be serialized into and
+   parsed from textual headers - such as those used in HTTP/1 - using
+   the algorithms described in Section 4.
 
 1.1.  Intentionally Strict Processing
 
@@ -185,11 +183,11 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    serialisation behaviours using step-by-step algorithms; the only
    error handling defined is to fail the operation altogether.
 
-   This is designed to encourage faithful implementation and therefore
-   good interoperability.  Therefore, implementations that try to be
-   "helpful" by being more tolerant of input are doing a disservice to
-   the overall community, since it will encourage other implementations
-   to implement similar (but likely subtly different) workarounds.
+   It is designed to encourage faithful implementation and therefore
+   good interoperability.  Therefore, an implementation that tried to be
+   "helpful" by being more tolerant of input would make interoperability
+   worse, since that would create pressure on other implementations to
+   implement similar (but likely subtly different) workarounds.
 
    In other words, strict processing is an intentional feature of this
    specification; it allows non-conformant input to be discovered and
@@ -209,14 +207,16 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-   This document uses the Augmented Backus-Naur Form (ABNF) notation of
-   [RFC5234], including the VCHAR, SP, DIGIT, ALPHA and DQUOTE rules
-   from that document.  It also includes the OWS rule from [RFC7230].
-
    This document uses algorithms to specify parsing and serialisation
-   behaviours, and ABNF to illustrate expected syntax in HTTP/1-style
-   header fields.
+   behaviours, and the Augmented Backus-Naur Form (ABNF) notation of
+   [RFC5234] to illustrate expected syntax in HTTP/1-style header
+   fields.  In doing so, uses the VCHAR, SP, DIGIT, ALPHA and DQUOTE
+   rules from [RFC5234].  It also includes the OWS rule from [RFC7230].
 
+   When parsing from HTTP/1 header fields, implementations MUST follow
+   the algorithms, but MAY vary in implementation so as the behaviours
+   are indistinguishable from specified behaviour.  If there is
+   disagreement between the parsing algorithms and ABNF, the specified
 
 
 
@@ -226,10 +226,6 @@ Nottingham & Kamp        Expires January 9, 2020                [Page 4]
 Internet-Draft         Structured Headers for HTTP             July 2019
 
 
-   For parsing from HTTP/1 header fields, implementations MUST follow
-   the algorithms, but MAY vary in implementation so as the behaviours
-   are indistinguishable from specified behaviour.  If there is
-   disagreement between the parsing algorithms and ABNF, the specified
    algorithms take precedence.  In some places, the algorithms are
    "greedy" with whitespace, but this should not affect conformance.
 
@@ -267,6 +263,10 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    thereof.
 
    For example:
+
+
+
+
 
 
 
