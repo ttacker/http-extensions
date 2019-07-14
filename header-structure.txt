@@ -855,7 +855,7 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    Given a token as input_token:
 
    1.  If input_token is not a sequence of characters, or contains
-       characters not allowed in Section 3.7}, fail serialisation.
+       characters not allowed in Section 3.7, fail serialisation.
 
    2.  Let output be an empty string.
 
@@ -1211,8 +1211,8 @@ Internet-Draft         Structured Headers for HTTP             July 2019
    Given an ASCII string input_string, return a number. input_string is
    modified to remove the parsed value.
 
-   NOTE: This algorithm parses both Integers Section 3.4 and Floats
-   Section 3.5, and returns the corresponding structure.
+   NOTE: This algorithm parses both Integers (Section 3.4) and Floats
+   (Section 3.5), and returns the corresponding structure.
 
    1.   Let type be "integer".
 
