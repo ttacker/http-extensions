@@ -828,6 +828,16 @@ Specification document(s):  {{digest-header}} of this document
 
 RFC EDITOR PLEASE DELETE THIS SECTION.
 
+# Use Cases
+
+## Integrity
+
+While `Digest` alone does not cover the complete resource integrity, 
+it can be combined with other mechanisms, like digital signatures, 
+that protect representation-metadata.
+
+Signing `Digest` together with other HTTP headers you can 
+create an L7 protection solution that transcend transport.
 
 # FAQ
 
