@@ -93,16 +93,16 @@ Table of Contents
      5.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
      5.2.  Informative References  . . . . . . . . . . . . . . . . .   9
      5.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   9
-   Appendix A.  Interaction with Key Response Header Field . . . . .   9
+   Appendix A.  Interaction with Variants Response Header Field  . .   9
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  10
      B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.4.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.5.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  10
-     B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  11
-     B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  11
-     B.8.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  11
+     B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  10
+     B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  10
+     B.8.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  10
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  11
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
 
@@ -479,6 +479,10 @@ Internet-Draft              HTTP Client Hints                  July 2019
               DOI 10.17487/RFC6265, April 2011,
               <https://www.rfc-editor.org/info/rfc6265>.
 
+   [VARIANTS]
+              Nottingham, M., "HTTP Representation Variants", draft-
+              ietf-httpbis-variants-05 (work in progress), March 2019.
+
 5.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
@@ -487,17 +491,13 @@ Internet-Draft              HTTP Client Hints                  July 2019
 
    [3] https://github.com/httpwg/http-extensions/labels/client-hints
 
-Appendix A.  Interaction with Key Response Header Field
+Appendix A.  Interaction with Variants Response Header Field
 
-   Client Hints may be combined with Key response header field ([KEY])
-   to enable fine-grained control of the cache key for improved cache
-   efficiency.  For example, the server can return the following set of
-   instructions:
-
-     Key: Sec-CH-Example;partition=1.5:2.5:4.0
-
-
-
+   Client Hints may be combined with Variants response header field
+   [VARIANTS] to enable fine-grained control of the cache key for
+   improved cache efficiency.  Features that define Client Hints will
+   need to specify the related variants algorithms as described in
+   Section 6 of [VARIANTS].
 
 
 
@@ -505,16 +505,6 @@ Grigorik                Expires January 26, 2020                [Page 9]
 
 Internet-Draft              HTTP Client Hints                  July 2019
 
-
-   Above example indicates that the cache key needs to include the value
-   of the Sec-CH-Example header field with three segments: less than
-   1.5, 1.5 to less than 2.5, and 4.0 or greater.
-
-     Key: Width;Sec-CH-Example=320
-
-   Above example indicates that the cache key needs to include the value
-   of the Sec-CH-Example header field and be partitioned into groups of
-   320: 0-320, 320-640, and so on.
 
 Appendix B.  Changes
 
@@ -550,18 +540,6 @@ B.5.  Since -04
    o  Issue 361: Removed Downlink
    o  Issue 361: Moved Key to appendix, plus other editorial feedback
 
-
-
-
-
-
-
-
-Grigorik                Expires January 26, 2020               [Page 10]
-
-Internet-Draft              HTTP Client Hints                  July 2019
-
-
 B.6.  Since -05
 
    o  Issue 372: Scoped CH opt-in and delivery to secure transports
@@ -574,6 +552,15 @@ B.7.  Since -06
 B.8.  Since -07
 
    o  Removed specific features to be defined in other specifications
+
+
+
+
+
+Grigorik                Expires January 26, 2020               [Page 10]
+
+Internet-Draft              HTTP Client Hints                  July 2019
+
 
 Acknowledgements
 
@@ -589,6 +576,19 @@ Author's Address
 
    Email: ilya@igvita.com
    URI:   https://www.igvita.com/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
