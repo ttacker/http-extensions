@@ -82,30 +82,30 @@ Table of Contents
    2.  Client Hint Request Header Fields . . . . . . . . . . . . . .   4
      2.1.  Sending Client Hints  . . . . . . . . . . . . . . . . . .   4
      2.2.  Server Processing of Client Hints . . . . . . . . . . . .   5
-       2.2.1.  Advertising Support via Accept-CH Header Field  . . .   5
-       2.2.2.  The Accept-CH-Lifetime Header Field . . . . . . . . .   5
-       2.2.3.  Interaction with Caches . . . . . . . . . . . . . . .   6
-   3.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
-   4.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
-     4.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .   8
-     4.2.  Accept-CH-Lifetime  . . . . . . . . . . . . . . . . . . .   8
-   5.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
-     5.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
-     5.2.  Informative References  . . . . . . . . . . . . . . . . .   9
-     5.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   9
-   Appendix A.  Interaction with Variants Response Header Field  . .   9
+   3.  Advertising Server Support  . . . . . . . . . . . . . . . . .   5
+     3.1.  The Accept-CH Response Header Field . . . . . . . . . . .   5
+     3.2.  The Accept-CH-Lifetime Response Header Field  . . . . . .   6
+       3.2.1.  Interaction with Caches . . . . . . . . . . . . . . .   6
+   4.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
+     5.1.  Accept-CH . . . . . . . . . . . . . . . . . . . . . . . .   8
+     5.2.  Accept-CH-Lifetime  . . . . . . . . . . . . . . . . . . .   8
+   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     6.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+     6.2.  Informative References  . . . . . . . . . . . . . . . . .   9
+     6.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   9
+   Appendix A.  Interaction with Variants Response Header Field  . .  10
    Appendix B.  Changes  . . . . . . . . . . . . . . . . . . . . . .  10
      B.1.  Since -00 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.2.  Since -01 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.3.  Since -02 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.4.  Since -03 . . . . . . . . . . . . . . . . . . . . . . . .  10
      B.5.  Since -04 . . . . . . . . . . . . . . . . . . . . . . . .  10
-     B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  10
-     B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  10
-     B.8.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  10
+     B.6.  Since -05 . . . . . . . . . . . . . . . . . . . . . . . .  11
+     B.7.  Since -06 . . . . . . . . . . . . . . . . . . . . . . . .  11
+     B.8.  Since -07 . . . . . . . . . . . . . . . . . . . . . . . .  11
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  11
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
-
 
 
 
@@ -240,15 +240,20 @@ Internet-Draft              HTTP Client Hints                  July 2019
    additional response header fields to convey related values to aid
    client processing.
 
-2.2.1.  Advertising Support via Accept-CH Header Field
+3.  Advertising Server Support
 
-   Servers can advertise support for Client Hints using the Accept-CH
-   header field or an equivalent HTML meta element with http-equiv
-   attribute ([HTML5]).  Accept-CH is a Structured Header
-   [I-D.ietf-httpbis-header-structure].  Its value MUST be an sh-list
-   (Section 3.1 of [I-D.ietf-httpbis-header-structure]) whose members
-   are tokens (Section 3.7 of [I-D.ietf-httpbis-header-structure]).  Its
-   ABNF is:
+   Servers can advertise support for Client Hints using the mechnisms
+   described below.
+
+3.1.  The Accept-CH Response Header Field
+
+   The Accept-CH response header field or the equivalent HTML meta
+   element with http-equiv attribute ([HTML5]) indicate server support
+   for particular hints indicated in its value.  Accept-CH is a
+   Structured Header [I-D.ietf-httpbis-header-structure].  Its value
+   MUST be an sh-list (Section 3.1 of
+   [I-D.ietf-httpbis-header-structure]) whose members are tokens
+   (Section 3.7 of [I-D.ietf-httpbis-header-structure]).  Its ABNF is:
 
      Accept-CH = sh-list
 
@@ -266,12 +271,7 @@ Internet-Draft              HTTP Client Hints                  July 2019
    same-origin resource requests initiated by the page constructed from
    the response.
 
-2.2.2.  The Accept-CH-Lifetime Header Field
 
-   Servers can ask the client to remember the set of Client Hints that
-   the server supports for a specified period of time, to enable
-   delivery of Client Hints on subsequent requests to the server's
-   origin ([RFC6454]).
 
 
 
@@ -281,6 +281,13 @@ Grigorik                Expires January 26, 2020                [Page 5]
 
 Internet-Draft              HTTP Client Hints                  July 2019
 
+
+3.2.  The Accept-CH-Lifetime Response Header Field
+
+   Servers can ask the client to remember the set of Client Hints that
+   the server supports for a specified period of time, to enable
+   delivery of Client Hints on subsequent requests to the server's
+   origin ([RFC6454]).
 
    Accept-CH-Lifetime is a Structured Header
    [I-D.ietf-httpbis-header-structure].  Its value MUST be sh-integer
@@ -313,7 +320,7 @@ Internet-Draft              HTTP Client Hints                  July 2019
    If Accept-CH-Lifetime occurs in a message more than once, the last
    value overrides all previous occurrences.
 
-2.2.3.  Interaction with Caches
+3.2.1.  Interaction with Caches
 
    When selecting an optimized response based on one or more Client
    Hints, and if the resource is cacheable, the server needs to generate
@@ -323,13 +330,6 @@ Internet-Draft              HTTP Client Hints                  July 2019
 
      Vary: Sec-CH-Example
 
-   Above example indicates that the cache key needs to include the Sec-
-   CH-Example header field.
-
-     Vary: Sec-CH-Example, Sec-CH-Example-2
-
-   Above example indicates that the cache key needs to include the Sec-
-   CH-Example and Sec-CH-Example-2 header fields.
 
 
 
@@ -338,7 +338,15 @@ Grigorik                Expires January 26, 2020                [Page 6]
 Internet-Draft              HTTP Client Hints                  July 2019
 
 
-3.  Security Considerations
+   Above example indicates that the cache key needs to include the Sec-
+   CH-Example header field.
+
+     Vary: Sec-CH-Example, Sec-CH-Example-2
+
+   Above example indicates that the cache key needs to include the Sec-
+   CH-Example and Sec-CH-Example-2 header fields.
+
+4.  Security Considerations
 
    The request header fields defined in this document, and those that
    extend it, expose information about the user's environment to enable
@@ -376,15 +384,7 @@ Internet-Draft              HTTP Client Hints                  July 2019
       example, avoid transmission of header fields that can carry higher
       risks of linkability.
 
-   Implementers SHOULD support Client Hints opt-in mechanisms and MUST
-   clear persisted opt-in preferences when any one of site data,
-   browsing history, browsing cache, or similar, are cleared.
 
-4.  IANA Considerations
-
-   This document defines the "Accept-CH" and "Accept-CH-Lifetime" HTTP
-   response fields, and registers them in the Permanent Message Header
-   Fields registry.
 
 
 
@@ -394,27 +394,37 @@ Grigorik                Expires January 26, 2020                [Page 7]
 Internet-Draft              HTTP Client Hints                  July 2019
 
 
-4.1.  Accept-CH
+   Implementers SHOULD support Client Hints opt-in mechanisms and MUST
+   clear persisted opt-in preferences when any one of site data,
+   browsing history, browsing cache, or similar, are cleared.
+
+5.  IANA Considerations
+
+   This document defines the "Accept-CH" and "Accept-CH-Lifetime" HTTP
+   response fields, and registers them in the Permanent Message Header
+   Fields registry.
+
+5.1.  Accept-CH
 
    o  Header field name: Accept-CH
    o  Applicable protocol: HTTP
    o  Status: standard
    o  Author/Change controller: IETF
-   o  Specification document(s): Section 2.2.1 of this document
+   o  Specification document(s): Section 3.1 of this document
    o  Related information: for Client Hints
 
-4.2.  Accept-CH-Lifetime
+5.2.  Accept-CH-Lifetime
 
    o  Header field name: Accept-CH-Lifetime
    o  Applicable protocol: HTTP
    o  Status: standard
    o  Author/Change controller: IETF
-   o  Specification document(s): Section 2.2.2 of this document
+   o  Specification document(s): Section 3.2 of this document
    o  Related information: for Client Hints
 
-5.  References
+6.  References
 
-5.1.  Normative References
+6.1.  Normative References
 
    [HTML5]    Hickson, I., Berjon, R., Faulkner, S., Leithead, T.,
               Navara, E., O&#039;Connor, T., and S. Pfeiffer, "HTML5",
@@ -432,6 +442,14 @@ Internet-Draft              HTTP Client Hints                  July 2019
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+
+
+
+Grigorik                Expires January 26, 2020                [Page 8]
+
+Internet-Draft              HTTP Client Hints                  July 2019
+
+
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
@@ -440,15 +458,6 @@ Internet-Draft              HTTP Client Hints                  July 2019
    [RFC6454]  Barth, A., "The Web Origin Concept", RFC 6454,
               DOI 10.17487/RFC6454, December 2011,
               <https://www.rfc-editor.org/info/rfc6454>.
-
-
-
-
-
-Grigorik                Expires January 26, 2020                [Page 8]
-
-Internet-Draft              HTTP Client Hints                  July 2019
-
 
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
@@ -469,7 +478,7 @@ Internet-Draft              HTTP Client Hints                  July 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-5.2.  Informative References
+6.2.  Informative References
 
    [KEY]      Fielding, R. and M. Nottingham, "The Key HTTP Response
               Header Field", draft-ietf-httpbis-key-01 (work in
@@ -483,11 +492,19 @@ Internet-Draft              HTTP Client Hints                  July 2019
               Nottingham, M., "HTTP Representation Variants", draft-
               ietf-httpbis-variants-05 (work in progress), March 2019.
 
-5.3.  URIs
+6.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
 
    [2] http://httpwg.github.io/
+
+
+
+
+Grigorik                Expires January 26, 2020                [Page 9]
+
+Internet-Draft              HTTP Client Hints                  July 2019
+
 
    [3] https://github.com/httpwg/http-extensions/labels/client-hints
 
@@ -498,13 +515,6 @@ Appendix A.  Interaction with Variants Response Header Field
    improved cache efficiency.  Features that define Client Hints will
    need to specify the related variants algorithms as described in
    Section 6 of [VARIANTS].
-
-
-
-Grigorik                Expires January 26, 2020                [Page 9]
-
-Internet-Draft              HTTP Client Hints                  July 2019
-
 
 Appendix B.  Changes
 
@@ -540,6 +550,18 @@ B.5.  Since -04
    o  Issue 361: Removed Downlink
    o  Issue 361: Moved Key to appendix, plus other editorial feedback
 
+
+
+
+
+
+
+
+Grigorik                Expires January 26, 2020               [Page 10]
+
+Internet-Draft              HTTP Client Hints                  July 2019
+
+
 B.6.  Since -05
 
    o  Issue 372: Scoped CH opt-in and delivery to secure transports
@@ -552,15 +574,6 @@ B.7.  Since -06
 B.8.  Since -07
 
    o  Removed specific features to be defined in other specifications
-
-
-
-
-
-Grigorik                Expires January 26, 2020               [Page 10]
-
-Internet-Draft              HTTP Client Hints                  July 2019
-
 
 Acknowledgements
 
@@ -576,19 +589,6 @@ Author's Address
 
    Email: ilya@igvita.com
    URI:   https://www.igvita.com/
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
