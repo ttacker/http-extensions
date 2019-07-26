@@ -5,8 +5,8 @@
 HTTP Working Group                                              R. Polli
 Internet-Draft                         Team Digitale, Italian Government
 Intended status: Standards Track                               L. Pardue
-Expires: January 26, 2020                                     Cloudflare
-                                                           July 25, 2019
+Expires: January 27, 2020                                     Cloudflare
+                                                           July 26, 2019
 
 
                        Resource Digests for HTTP
@@ -48,12 +48,12 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on January 26, 2020.
+   This Internet-Draft will expire on January 27, 2020.
 
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 1]
+Polli & Pardue          Expires January 27, 2020                [Page 1]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -88,7 +88,7 @@ Table of Contents
      4.1.  Want-Digest . . . . . . . . . . . . . . . . . . . . . . .  10
      4.2.  Digest  . . . . . . . . . . . . . . . . . . . . . . . . .  10
    5.  Deprecate Negotiation of Content-MD5  . . . . . . . . . . . .  11
-   6.  Broken cryptographic algorithms are NOT RECOMMENDED . . . . .  11
+   6.  Broken cryptographic algorithms . . . . . . . . . . . . . . .  11
    7.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . .  11
      7.1.  Unsolicited Digest response . . . . . . . . . . . . . . .  11
        7.1.1.  Representation data is fully contained in the payload  11
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 2]
+Polli & Pardue          Expires January 27, 2020                [Page 2]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -121,7 +121,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
    9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
      9.1.  Establish the HTTP Digest Algorithm Values  . . . . . . .  16
      9.2.  The "status" field in the HTTP Digest Algorithm Values  .  16
-     9.3.  Obsolete "MD5" Digest Algorithm . . . . . . . . . . . . .  16
+     9.3.  Deprecate "MD5" Digest Algorithm  . . . . . . . . . . . .  16
      9.4.  Obsolete "SHA" Digest Algorithm . . . . . . . . . . . . .  16
      9.5.  The "ID-SHA-256" Digest Algorithm . . . . . . . . . . . .  17
      9.6.  The "ID-SHA-512" Digest Algorithm . . . . . . . . . . . .  17
@@ -165,7 +165,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 3]
+Polli & Pardue          Expires January 27, 2020                [Page 3]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -221,7 +221,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 4]
+Polli & Pardue          Expires January 27, 2020                [Page 4]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -277,7 +277,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 5]
+Polli & Pardue          Expires January 27, 2020                [Page 5]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -333,7 +333,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 6]
+Polli & Pardue          Expires January 27, 2020                [Page 6]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -389,19 +389,19 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 7]
+Polli & Pardue          Expires January 27, 2020                [Page 7]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
 
       *  Description: The MD5 algorithm, as specified in [RFC1321].  The
          output of this algorithm is encoded using the base64 encoding
-         [RFC4648].  The MD5 algorithm is NOT RECOMMENDED as it's now
+         [RFC4648].  The MD5 algorithm MUST NOT be used as it's now
          vulnerable to collision attacks [CMU-836068].
 
       *  Reference: [RFC1321], [RFC4648], this document.
 
-      *  Status: obsoleted
+      *  Status: deprecated
 
    SHA:
 
@@ -445,7 +445,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 8]
+Polli & Pardue          Expires January 27, 2020                [Page 8]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -501,7 +501,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020                [Page 9]
+Polli & Pardue          Expires January 27, 2020                [Page 9]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -557,7 +557,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020               [Page 10]
+Polli & Pardue          Expires January 27, 2020               [Page 10]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -592,9 +592,9 @@ Internet-Draft          Resource Digests for HTTP              July 2019
    This RFC deprecates the negotiation of Content-MD5 as it has been
    obsoleted by [RFC7231]
 
-6.  Broken cryptographic algorithms are NOT RECOMMENDED
+6.  Broken cryptographic algorithms
 
-   The MD5 algorithm is NOT RECOMMENDED as it's now vulnerable to
+   The MD5 algorithm MUST NOT be used as it's now vulnerable to
    collision attacks [CMU-836068].
 
    The SHA algorithm is NOT RECOMMENDED as it's now vulnerable to
@@ -613,7 +613,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020               [Page 11]
+Polli & Pardue          Expires January 27, 2020               [Page 11]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -669,7 +669,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020               [Page 12]
+Polli & Pardue          Expires January 27, 2020               [Page 12]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -725,7 +725,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020               [Page 13]
+Polli & Pardue          Expires January 27, 2020               [Page 13]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -781,7 +781,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020               [Page 14]
+Polli & Pardue          Expires January 27, 2020               [Page 14]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -796,7 +796,8 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
    However, these rely on collision-resistance for their security proofs
    [CMU-836068].  The MD5 and SHA-1 algorithms are vulnerable to
-   collisions attacks and they are NOT RECOMMENDED.
+   collisions attacks, so MD5 MUST NOT be used and SHA-1 is NOT
+   RECOMMENDED.
 
 8.3.  Digest for end-to-end integrity
 
@@ -836,8 +837,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-
-Polli & Pardue          Expires January 26, 2020               [Page 15]
+Polli & Pardue          Expires January 27, 2020               [Page 15]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -867,7 +867,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
       or "deprecated" according to the type and status of the primary
       document in which the algorithm is defined.
 
-9.3.  Obsolete "MD5" Digest Algorithm
+9.3.  Deprecate "MD5" Digest Algorithm
 
    This memo updates the "MD5" digest algorithm in the HTTP Digest
    Algorithm Values [6] registry:
@@ -893,7 +893,7 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 
 
-Polli & Pardue          Expires January 26, 2020               [Page 16]
+Polli & Pardue          Expires January 27, 2020               [Page 16]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
@@ -922,9 +922,11 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
 9.7.  Changes compared to RFC5843
 
-   The status has been updated to "obsoleted" for both "SHA" and "MD5",
-   and their descriptions states that those algorithms are NOT
-   RECOMMENDED.
+   The status of "MD5" has been updated to "deprecated", and its
+   description states that this algoritm MUST NOT be used.
+
+   The status of "SHA" has been updated to "obsoleted", and its
+   description states that this algorithm is NOT RECOMMENDED.
 
    The status for all other algorithms have been updated to "standard".
 
@@ -944,15 +946,15 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
    Author/Change controller: IETF
 
-   Specification document(s): Section 4.1 of this document
 
 
 
-
-Polli & Pardue          Expires January 26, 2020               [Page 17]
+Polli & Pardue          Expires January 27, 2020               [Page 17]
 
 Internet-Draft          Resource Digests for HTTP              July 2019
 
+
+   Specification document(s): Section 4.1 of this document
 
 9.9.  Digest Header Field Registration
 
@@ -995,20 +997,25 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               Collisions to Chosen-Prefix Collisions Application to Full
               SHA-1", May 2019, <https://eprint.iacr.org/2019/459.pdf>.
 
+
+
+
+
+
+
+
+
+Polli & Pardue          Expires January 27, 2020               [Page 18]
+
+Internet-Draft          Resource Digests for HTTP              July 2019
+
+
    [NIST800-32]
               Department of Commerce, National., "Introduction to Public
               Key Technology and the Federal PKI Infrastructure",
               February 2001,
               <https://nvlpubs.nist.gov/nistpubs/Legacy/SP/
               nistspecialpublication800-32.pdf>.
-
-
-
-
-Polli & Pardue          Expires January 26, 2020               [Page 18]
-
-Internet-Draft          Resource Digests for HTTP              July 2019
-
 
    [RFC1321]  Rivest, R., "The MD5 Message-Digest Algorithm", RFC 1321,
               DOI 10.17487/RFC1321, April 1992,
@@ -1050,21 +1057,19 @@ Internet-Draft          Resource Digests for HTTP              July 2019
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
               <https://www.rfc-editor.org/info/rfc7230>.
 
+
+
+
+
+Polli & Pardue          Expires January 27, 2020               [Page 19]
+
+Internet-Draft          Resource Digests for HTTP              July 2019
+
+
    [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
               DOI 10.17487/RFC7231, June 2014,
               <https://www.rfc-editor.org/info/rfc7231>.
-
-
-
-
-
-
-
-Polli & Pardue          Expires January 26, 2020               [Page 19]
-
-Internet-Draft          Resource Digests for HTTP              July 2019
-
 
    [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
               "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
@@ -1109,18 +1114,19 @@ Internet-Draft          Resource Digests for HTTP              July 2019
 
    [6] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
+
+
+
+Polli & Pardue          Expires January 27, 2020               [Page 20]
+
+Internet-Draft          Resource Digests for HTTP              July 2019
+
+
    [7] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
    [8] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
    [9] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
-
-
-
-Polli & Pardue          Expires January 26, 2020               [Page 20]
-
-Internet-Draft          Resource Digests for HTTP              July 2019
-
 
 Appendix A.  Change Log
 
@@ -1164,19 +1170,20 @@ Appendix B.  FAQ
        the references here to delta encoding don't add anything to this
        RFC.  Another job would be to refresh delta encoding.
 
+
+
+
+Polli & Pardue          Expires January 27, 2020               [Page 21]
+
+Internet-Draft          Resource Digests for HTTP              July 2019
+
+
    5.  Why remove references to Digest Authentication?
 
        This RFC seems to me completely unrelated to Digest
        Authentication but for the word "Digest".
 
    6.  What changes in "Want-Digest"?
-
-
-
-Polli & Pardue          Expires January 26, 2020               [Page 21]
-
-Internet-Draft          Resource Digests for HTTP              July 2019
-
 
        We allow to use the "Want-Digest" in responses to advertise the
        supported digest-algorithms and the inability to accept requests
@@ -1222,11 +1229,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-Polli & Pardue          Expires January 26, 2020               [Page 22]
+Polli & Pardue          Expires January 27, 2020               [Page 22]
