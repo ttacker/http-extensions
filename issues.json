@@ -41,9 +41,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-07-26T01:55:00Z",
-    "updated_at": "2019-07-26T01:55:00Z",
+    "updated_at": "2019-07-29T02:04:46Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -104,7 +104,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-25T15:55:50Z",
-    "updated_at": "2019-07-25T16:21:36Z",
+    "updated_at": "2019-07-29T02:49:51Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -219,7 +219,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-25T07:39:19Z",
-    "updated_at": "2019-07-25T07:39:39Z",
+    "updated_at": "2019-07-29T02:10:45Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -325,17 +325,17 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-07-24T14:28:32Z",
-    "updated_at": "2019-07-24T16:16:28Z",
-    "closed_at": null,
+    "updated_at": "2019-07-26T14:57:52Z",
+    "closed_at": "2019-07-26T14:57:51Z",
     "author_association": "CONTRIBUTOR",
     "body": "## Considering that\r\n\r\n- Digest specs allows the receiver to skip digest validation\r\n\r\n## We could\r\n\r\n- Provide some method to mandate digest validation. Clearly the receiver may cheat :P \r\n\r\nA discussion on the subject happened here:\r\n\r\nhttps://github.com/fcrepo/fcrepo-specification/issues/373#issuecomment-391833541"
   },
@@ -662,9 +662,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-07-22T20:01:56Z",
-    "updated_at": "2019-07-23T13:09:04Z",
+    "updated_at": "2019-07-29T02:08:33Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "It would be awesome if this could relate directly to [SRI](https://w3c.github.io/webappsec-subresource-integrity/).  Ideally, if SRI uses the same hash function, the value in the `Digest` header field is the same."
@@ -1787,9 +1787,9 @@
 
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 8,
     "created_at": "2019-07-08T12:19:52Z",
-    "updated_at": "2019-07-26T07:33:41Z",
+    "updated_at": "2019-07-29T02:33:59Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "The current definition of sh-float is surprisingly hard to serialize correctly, the best C-code I could come up with is:\r\n\r\n        int\r\n        serialize_sh_float(char buf[18], double d)\r\n        {\r\n                int p = 0, l, dig;\r\n\r\n                buf[0] = '*';\r\n                buf[1] = '\\0';\r\n                if (isnan(d))\r\n                        return (-1);\r\n                if (fabs(d) >= 99999999999999.95)\r\n                        return (-1);\r\n\r\n                if (d < 0) {\r\n                        buf[p++] = '-';\r\n                        d = -d;\r\n                        l = 18;\r\n                } else {\r\n                        l = 17;\r\n                }\r\n                dig = trunc(log10(d));\r\n                p += snprintf(buf + p, l - p, \"%.*f\", 15-dig, d);\r\n                while (buf[p-2] == '0') {\r\n                        buf[p-1] = '\\0';\r\n                        p--;\r\n                }\r\n                return (p);\r\n        }\r\n\r\nAnd that is horrible in severale levels.\r\n\r\nIf we insist instead that sh-float can have maximum six digits after the decimal point, people can rely on the default \"6 decimals\" behaviour of \"%f\" formatters, and use the simpler:\r\n\r\n        int\r\n        serialize_sh_float(char buf[18], double d)\r\n        {\r\n                int p = 0, l, dig;\r\n\r\n                if (isnan(d))\r\n                        return (-1);\r\n                if (fabs(d) >= 99999999999999.95)\r\n                        return (-1);\r\n\r\n                if (d < 0) {\r\n                        buf[p++] = '-';\r\n                        d = -d;\r\n                }\r\n                p += snprintf(buf + p, 18 - p, \"%-16f\", d);\r\n                while (buf[p-1] == ' ')\r\n                        p -= 1;\r\n                buf[p] = '\\0';\r\n                return (p);\r\n        }\r\n"
@@ -5941,9 +5941,9 @@
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 6,
     "created_at": "2019-03-11T14:32:26Z",
-    "updated_at": "2019-07-26T13:33:40Z",
+    "updated_at": "2019-07-26T19:46:15Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
