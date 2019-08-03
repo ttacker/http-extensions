@@ -3,10 +3,10 @@
 
 
 HTTP Working Group                                         M. Nottingham
-Internet-Draft                                             July 31, 2019
+Internet-Draft                                            August 3, 2019
 Obsoletes: 3205 (if approved)
 Intended status: Best Current Practice
-Expires: February 1, 2020
+Expires: February 4, 2020
 
 
                       Building Protocols with HTTP
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 1, 2020.
+   This Internet-Draft will expire on February 4, 2020.
 
 
 
@@ -53,9 +53,9 @@ Status of This Memo
 
 
 
-Nottingham              Expires February 1, 2020                [Page 1]
+Nottingham              Expires February 4, 2020                [Page 1]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
 Copyright Notice
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Nottingham              Expires February 1, 2020                [Page 2]
+Nottingham              Expires February 4, 2020                [Page 2]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
      6.1.  Privacy Considerations  . . . . . . . . . . . . . . . . .  25
@@ -165,9 +165,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020                [Page 3]
+Nottingham              Expires February 4, 2020                [Page 3]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    More generally, application protocols using HTTP face a number of
@@ -221,9 +221,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020                [Page 4]
+Nottingham              Expires February 4, 2020                [Page 4]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    o  the IANA registries defined for HTTP are updated or modified.
@@ -277,9 +277,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020                [Page 5]
+Nottingham              Expires February 4, 2020                [Page 5]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    status code might differ in a real deployment.  If the client does
@@ -333,9 +333,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020                [Page 6]
+Nottingham              Expires February 4, 2020                [Page 6]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    It also becomes possible to "mix and match" different applications on
@@ -389,9 +389,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020                [Page 7]
+Nottingham              Expires February 4, 2020                [Page 7]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
 4.  Best Practices for Using HTTP
@@ -445,9 +445,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020                [Page 8]
+Nottingham              Expires February 4, 2020                [Page 8]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
 4.2.  Defining HTTP Resources
@@ -501,9 +501,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020                [Page 9]
+Nottingham              Expires February 4, 2020                [Page 9]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
 4.3.  Specifying Client Behaviours
@@ -557,9 +557,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 10]
+Nottingham              Expires February 4, 2020               [Page 10]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    URL) with the capabilities that resource supports, bringing about
@@ -613,9 +613,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 11]
+Nottingham              Expires February 4, 2020               [Page 11]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
       example, a client library might fail to dispatch the request; a
@@ -669,9 +669,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 12]
+Nottingham              Expires February 4, 2020               [Page 12]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    See [RFC7605] for further guidance.
@@ -725,9 +725,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 13]
+Nottingham              Expires February 4, 2020               [Page 13]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    linking to query results are lost.  Therefore, applications using
@@ -781,9 +781,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 14]
+Nottingham              Expires February 4, 2020               [Page 14]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    o  For metadata about a specific resource, create a separate resource
@@ -837,9 +837,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 15]
+Nottingham              Expires February 4, 2020               [Page 15]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    don't recognise it).  This is preferable to creating a "laundry list"
@@ -893,9 +893,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 16]
+Nottingham              Expires February 4, 2020               [Page 16]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    +-------------------------------------------+-----------+-----------+
@@ -949,9 +949,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 17]
+Nottingham              Expires February 4, 2020               [Page 17]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    See [I-D.ietf-httpbis-semantics], Section 4.1.3 for guidelines to
@@ -1005,9 +1005,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 18]
+Nottingham              Expires February 4, 2020               [Page 18]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    and reverse proxies, Content Delivery Networks and as part of server
@@ -1061,9 +1061,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 19]
+Nottingham              Expires February 4, 2020               [Page 19]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    can be stored for 60 seconds by both private and shared caches, can
@@ -1117,9 +1117,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 20]
+Nottingham              Expires February 4, 2020               [Page 20]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    Mitigations include using a request-specific token to assure the
@@ -1173,9 +1173,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 21]
+Nottingham              Expires February 4, 2020               [Page 21]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    This is only a small sample of the kinds of issues that applications
@@ -1229,9 +1229,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 22]
+Nottingham              Expires February 4, 2020               [Page 22]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    HTTP/1.1 200 OK
@@ -1285,9 +1285,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 23]
+Nottingham              Expires February 4, 2020               [Page 23]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
 4.14.  Server Push
@@ -1341,9 +1341,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 24]
+Nottingham              Expires February 4, 2020               [Page 24]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    o  Using a distinct link relation type [RFC8288] to identify a URL
@@ -1397,9 +1397,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 25]
+Nottingham              Expires February 4, 2020               [Page 25]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    This includes session information, tracking the client through
@@ -1440,28 +1440,28 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
    [I-D.ietf-httpbis-cache]
               Fielding, R., Nottingham, M., and J. Reschke, "HTTP
-              Caching", draft-ietf-httpbis-cache-04 (work in progress),
-              March 2019.
+              Caching", draft-ietf-httpbis-cache-05 (work in progress),
+              July 2019.
 
    [I-D.ietf-httpbis-messaging]
               Fielding, R., Nottingham, M., and J. Reschke, "HTTP/1.1
-              Messaging", draft-ietf-httpbis-messaging-04 (work in
-              progress), March 2019.
+              Messaging", draft-ietf-httpbis-messaging-05 (work in
+              progress), July 2019.
 
 
 
 
 
 
-Nottingham              Expires February 1, 2020               [Page 26]
+Nottingham              Expires February 4, 2020               [Page 26]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    [I-D.ietf-httpbis-semantics]
               Fielding, R., Nottingham, M., and J. Reschke, "HTTP
-              Semantics", draft-ietf-httpbis-semantics-04 (work in
-              progress), March 2019.
+              Semantics", draft-ietf-httpbis-semantics-05 (work in
+              progress), July 2019.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1509,9 +1509,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 27]
+Nottingham              Expires February 4, 2020               [Page 27]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    [RFC8288]  Nottingham, M., "Web Linking", RFC 8288,
@@ -1532,8 +1532,8 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
-              draft-ietf-httpbis-header-structure-10 (work in progress),
-              April 2019.
+              draft-ietf-httpbis-header-structure-11 (work in progress),
+              July 2019.
 
    [I-D.ietf-httpbis-rfc6265bis]
               Barth, A. and M. West, "Cookies: HTTP State Management
@@ -1565,9 +1565,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 28]
+Nottingham              Expires February 4, 2020               [Page 28]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    [RFC4791]  Daboo, C., Desruisseaux, B., and L. Dusseault,
@@ -1621,9 +1621,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 29]
+Nottingham              Expires February 4, 2020               [Page 29]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    [RFC7605]  Touch, J., "Recommendations on Using Assigned Transport
@@ -1677,9 +1677,9 @@ Internet-Draft        Building Protocols with HTTP             July 2019
 
 
 
-Nottingham              Expires February 1, 2020               [Page 30]
+Nottingham              Expires February 4, 2020               [Page 30]
 
-Internet-Draft        Building Protocols with HTTP             July 2019
+Internet-Draft        Building Protocols with HTTP           August 2019
 
 
 Appendix A.  Changes from RFC 3205
@@ -1733,4 +1733,4 @@ Author's Address
 
 
 
-Nottingham              Expires February 1, 2020               [Page 31]
+Nottingham              Expires February 4, 2020               [Page 31]
