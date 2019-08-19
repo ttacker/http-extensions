@@ -9,7 +9,7 @@ Expires: February 20, 2020                                    Cloudflare
                                                          August 19, 2019
 
 
-                       Resource Digests for HTTP
+                             Digest Headers
                 draft-ietf-httpbis-digest-headers-latest
 
 Abstract
@@ -55,7 +55,7 @@ Status of This Memo
 
 Polli & Pardue          Expires February 20, 2020               [Page 1]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
 Copyright Notice
@@ -111,7 +111,7 @@ Table of Contents
 
 Polli & Pardue          Expires February 20, 2020               [Page 2]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
      8.1.  Digest does not protect the full HTTP message . . . . . .  15
@@ -167,7 +167,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020               [Page 3]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
 1.1.  Brief history of integrity header fields
@@ -223,7 +223,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020               [Page 4]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    The goals do not include:
@@ -279,7 +279,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020               [Page 5]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    The following examples show how representation metadata, payload
@@ -335,7 +335,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020               [Page 6]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    Request:
@@ -391,7 +391,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020               [Page 7]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
       *  Description: The MD5 algorithm, as specified in [RFC1321].  The
@@ -447,7 +447,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020               [Page 8]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    ID-SHA-512:
@@ -503,7 +503,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020               [Page 9]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    The "UNIXsum" digest-algorithm uses ASCII string of decimal digits.
@@ -559,7 +559,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 10]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    The resource is specified by the effective Request-URI and any cache-
@@ -615,7 +615,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 11]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
 7.1.  Unsolicited Digest response
@@ -671,7 +671,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 12]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    Request:
@@ -727,7 +727,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 13]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    o  one taking into account the "Content-Encoding".
@@ -783,7 +783,7 @@ Response:
 
 Polli & Pardue          Expires February 20, 2020              [Page 14]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
 Request:
@@ -839,7 +839,7 @@ Response:
 
 Polli & Pardue          Expires February 20, 2020              [Page 15]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
 8.2.  Broken cryptographic algorithms
@@ -895,7 +895,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 16]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
 8.5.  Message Truncation
@@ -951,7 +951,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 17]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
 9.5.  The "ID-SHA-256" Digest Algorithm
@@ -1007,7 +1007,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 18]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    Specification document(s): Section 4.1 of this document
@@ -1063,7 +1063,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 19]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    [NIST800-32]
@@ -1119,7 +1119,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 20]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
@@ -1175,7 +1175,7 @@ Internet-Draft          Resource Digests for HTTP            August 2019
 
 Polli & Pardue          Expires February 20, 2020              [Page 21]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    [7] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
@@ -1231,7 +1231,7 @@ Appendix B.  FAQ
 
 Polli & Pardue          Expires February 20, 2020              [Page 22]
 
-Internet-Draft          Resource Digests for HTTP            August 2019
+Internet-Draft               Digest Headers                  August 2019
 
 
    5.  Why remove references to Digest Authentication?
