@@ -1089,7 +1089,7 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    3.  Let parameters be an empty, ordered map.
 
-   4.  In a loop:
+   4.  While input_string is not empty:
 
        1.  Discard any leading OWS from input_string.
 
