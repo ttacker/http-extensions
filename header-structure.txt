@@ -731,7 +731,8 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
 
    1.  If input_key is not a sequence of characters, or contains
-       characters not allowed in the ABNF for key, fail serialisation.
+       characters not in lcalpha, DIGIT, "*", "_", or "-", fail
+       serialisation.
 
    2.  Let output be an empty string.
 
@@ -773,10 +774,9 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    3.  Return output.
 
-4.1.3.  Serializing an Item
 
-   Given an item as input_item, return an ASCII string suitable for use
-   in a textual HTTP header value.
+
+
 
 
 
@@ -785,6 +785,11 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 14]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+4.1.3.  Serializing an Item
+
+   Given an item as input_item, return an ASCII string suitable for use
+   in a textual HTTP header value.
 
    1.  If input_item is an integer, return the result of applying
        Serializing an Integer (Section 4.1.4) to input_item.
@@ -825,13 +830,8 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    5.  Return output.
 
-4.1.5.  Serializing a Float
 
-   Given a float as input_float, return an ASCII string suitable for use
-   in a textual HTTP header value.
 
-   1.  If input_float's fractional component has more than six digits of
-       precision, fail serialisation.
 
 
 
@@ -841,6 +841,14 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 15]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+4.1.5.  Serializing a Float
+
+   Given a float as input_float, return an ASCII string suitable for use
+   in a textual HTTP header value.
+
+   1.  If input_float's fractional component has more than six digits of
+       precision, fail serialisation.
 
    2.  If the number of digits of precision in input_float's fractional
        component plus those in its integer component add to more than
@@ -867,8 +875,8 @@ Internet-Draft         Structured Headers for HTTP           August 2019
    use in a textual HTTP header value.
 
    1.  If input_string is not a sequence of characters, or contains
-       characters outside the range allowed by VCHAR or SP, fail
-       serialisation.
+       characters outside the range %x00-1f or %x7f (i.e., is not in
+       VCHAR or SP), fail serialisation.
 
    2.  Let output be an empty string.
 
@@ -882,14 +890,6 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
        2.  Append char to output.
 
-   5.  Append DQUOTE to output.
-
-   6.  Return output.
-
-
-
-
-
 
 
 
@@ -898,13 +898,18 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 16]
 Internet-Draft         Structured Headers for HTTP           August 2019
 
 
+   5.  Append DQUOTE to output.
+
+   6.  Return output.
+
 4.1.7.  Serializing a Token
 
    Given a token as input_token, return an ASCII string suitable for use
    in a textual HTTP header value.
 
    1.  If input_token is not a sequence of characters, or contains
-       characters not allowed in Section 3.7, fail serialisation.
+       characters not in ALPHA, DIGIT, "_", "-", ".", ":", "%", "*" or
+       "/", fail serialisation.
 
    2.  Let output be an empty string.
 
@@ -937,14 +942,9 @@ Internet-Draft         Structured Headers for HTTP           August 2019
    [RFC4648], Section 3.5, unless it is not possible to do so due to
    implementation constraints.
 
-4.1.9.  Serializing a Boolean
 
-   Given a Boolean as input_boolean, return an ASCII string suitable for
-   use in a textual HTTP header value.
 
-   1.  If input_boolean is not a boolean, fail serialisation.
 
-   2.  Let output be an empty string.
 
 
 
@@ -953,6 +953,15 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 17]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+4.1.9.  Serializing a Boolean
+
+   Given a Boolean as input_boolean, return an ASCII string suitable for
+   use in a textual HTTP header value.
+
+   1.  If input_boolean is not a boolean, fail serialisation.
+
+   2.  Let output be an empty string.
 
    3.  Append "?" to output.
 
@@ -993,6 +1002,14 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    7.  If input_string is not empty, fail parsing.
 
+
+
+
+Nottingham & Kamp       Expires February 27, 2020              [Page 18]
+
+Internet-Draft         Structured Headers for HTTP           August 2019
+
+
    8.  Otherwise, return output.
 
    When generating input_bytes, parsers MUST combine all instances of
@@ -1002,14 +1019,6 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    For Lists and Dictionaries, this has the effect of correctly
    concatenating all instances of the header field, as long as
-
-
-
-Nottingham & Kamp       Expires February 27, 2020              [Page 18]
-
-Internet-Draft         Structured Headers for HTTP           August 2019
-
-
    individual individual members of the top-level data structure are not
    split across multiple header instances.
 
@@ -1049,15 +1058,6 @@ Internet-Draft         Structured Headers for HTTP           August 2019
        5.  Consume the first character of input_string; if it is not
            COMMA, fail parsing.
 
-       6.  Discard any leading OWS from input_string.
-
-       7.  If input_string is empty, there is a trailing comma; fail
-           parsing.
-
-   3.  No structured data has been found; return members (which is
-       empty).
-
-
 
 
 
@@ -1065,6 +1065,14 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 19]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+       6.  Discard any leading OWS from input_string.
+
+       7.  If input_string is empty, there is a trailing comma; fail
+           parsing.
+
+   3.  No structured data has been found; return members (which is
+       empty).
 
 4.2.1.1.  Parsing a Parameterized Member from Text
 
@@ -1105,14 +1113,6 @@ Internet-Draft         Structured Headers for HTTP           August 2019
            1.  Consume the "=" character at the beginning of
                input_string.
 
-           2.  Let param_value be the result of Parsing an Item from
-               Text (Section 4.2.3) from input_string.
-
-       9.  Append key param_name with value param_value to parameters.
-
-   5.  Return the tuple (member, parameters).
-
-
 
 
 
@@ -1121,6 +1121,13 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 20]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+           2.  Let param_value be the result of Parsing an Item from
+               Text (Section 4.2.3) from input_string.
+
+       9.  Append key param_name with value param_value to parameters.
+
+   5.  Return the tuple (member, parameters).
 
 4.2.1.2.  Parsing an Inner List
 
@@ -1164,19 +1171,18 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    3.  While input_string is not empty:
 
-       1.  If the first character of input_string is not one of lcalpha,
-           DIGIT, "*", "_", or "-", return output_string.
-
-       2.  Let char be the result of removing the first character of
-           input_string.
-
-
 
 
 Nottingham & Kamp       Expires February 27, 2020              [Page 21]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+       1.  If the first character of input_string is not one of lcalpha,
+           DIGIT, "*", "_", or "-", return output_string.
+
+       2.  Let char be the result of removing the first character of
+           input_string.
 
        3.  Append char to output_string.
 
@@ -1220,12 +1226,6 @@ Internet-Draft         Structured Headers for HTTP           August 2019
    3.  No structured data has been found; return dictionary (which is
        empty).
 
-4.2.3.  Parsing an Item from Text
-
-   Given an ASCII string as input_string, return an item. input_string
-   is modified to remove the parsed value.
-
-
 
 
 
@@ -1233,6 +1233,11 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 22]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+4.2.3.  Parsing an Item from Text
+
+   Given an ASCII string as input_string, return an item. input_string
+   is modified to remove the parsed value.
 
    1.  If the first character of input_string is a "-" or a DIGIT,
        process input_string as a number (Section 4.2.4) and return the
@@ -1278,17 +1283,17 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    7.   While input_string is not empty:
 
-        1.  Let char be the result of consuming the first character of
-            input_string.
-
-        2.  If char is a DIGIT, append it to input_number.
-
 
 
 Nottingham & Kamp       Expires February 27, 2020              [Page 23]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+        1.  Let char be the result of consuming the first character of
+            input_string.
+
+        2.  If char is a DIGIT, append it to input_number.
 
         3.  Else, if type is "integer" and char is ".", append char to
             input_number and set type to "float".
@@ -1333,11 +1338,6 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    3.  Discard the first character of input_string.
 
-   4.  While input_string is not empty:
-
-       1.  Let char be the result of consuming the first character of
-           input_string.
-
 
 
 
@@ -1345,6 +1345,11 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 24]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+   4.  While input_string is not empty:
+
+       1.  Let char be the result of consuming the first character of
+           input_string.
 
        2.  If char is a backslash ("\"):
 
@@ -1389,11 +1394,6 @@ Internet-Draft         Structured Headers for HTTP           August 2019
        3.  Append char to output_string.
 
    4.  Return output_string.
-
-
-
-
-
 
 
 
