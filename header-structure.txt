@@ -137,7 +137,7 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 1.  Introduction
 
    Specifying the syntax of new HTTP header fields is an onerous task;
-   even with the guidance in [RFC7231], Section 8.3.1, there are many
+   even with the guidance in Section 8.3.1 of [RFC7231], there are many
    decisions - and pitfalls - for a prospective HTTP header field
    author.
 
@@ -1664,7 +1664,7 @@ Appendix C.  Implementation Notes
 
    For interoperability, it's important that generic implementations be
    complete and follow the algorithms closely; see Section 1.1.  To aid
-   this, a common test suite is being maintained by the community; see
+   this, a common test suite is being maintained by the community at
    https://github.com/httpwg/structured-header-tests [7].
 
    Implementers should note that dictionaries and parameters are order-
