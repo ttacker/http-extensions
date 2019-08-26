@@ -863,7 +863,7 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    6.   Let digits_avail be 15 minus integer_digits.
 
-   7.   Let fractional_digits_avail be the maximum of digits_avail and
+   7.   Let fractional_digits_avail be the minimum of digits_avail and
         6.
 
    8.   Append "." to output.
@@ -1043,9 +1043,9 @@ Internet-Draft         Structured Headers for HTTP           August 2019
    referencing this document are not allowed to loosen this requirement.
 
    Note that this requirement does not apply to an implementation that
-   is not parsing the header field as a Structured Header; for example,
-   an intermediary is not required to strip a failing header field from
-   a message before forwarding it.
+   is not parsing the header field; for example, an intermediary is not
+   required to strip a failing header field from a message before
+   forwarding it.
 
 4.2.1.  Parsing a List from Text
 
