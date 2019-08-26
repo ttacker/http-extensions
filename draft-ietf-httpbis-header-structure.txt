@@ -124,11 +124,11 @@ Internet-Draft         Structured Headers for HTTP           August 2019
      D.3.  Since draft-ietf-httpbis-header-structure-10  . . . . . .  31
      D.4.  Since draft-ietf-httpbis-header-structure-09  . . . . . .  32
      D.5.  Since draft-ietf-httpbis-header-structure-08  . . . . . .  32
-     D.6.  Since draft-ietf-httpbis-header-structure-07  . . . . . .  32
+     D.6.  Since draft-ietf-httpbis-header-structure-07  . . . . . .  33
      D.7.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  33
      D.8.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  33
      D.9.  Since draft-ietf-httpbis-header-structure-04  . . . . . .  33
-     D.10. Since draft-ietf-httpbis-header-structure-03  . . . . . .  33
+     D.10. Since draft-ietf-httpbis-header-structure-03  . . . . . .  34
      D.11. Since draft-ietf-httpbis-header-structure-02  . . . . . .  34
      D.12. Since draft-ietf-httpbis-header-structure-01  . . . . . .  34
      D.13. Since draft-ietf-httpbis-header-structure-00  . . . . . .  34
@@ -1713,6 +1713,8 @@ D.1.  Since draft-ietf-httpbis-header-structure-12
 
    o  Editorial improvements.
 
+   o  Reworked float serialisation (#896).
+
 D.2.  Since draft-ietf-httpbis-header-structure-11
 
    o  Allow * in key (#844).
@@ -1727,8 +1729,6 @@ D.3.  Since draft-ietf-httpbis-header-structure-10
 
    o  Input and output are now arrays of bytes (#662).
 
-   o  Implementations need to preserve difference between token and
-      string (#790).
 
 
 
@@ -1737,6 +1737,9 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 31]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+   o  Implementations need to preserve difference between token and
+      string (#790).
 
    o  Allow empty dictionaries and lists (#781).
 
@@ -1779,12 +1782,9 @@ D.5.  Since draft-ietf-httpbis-header-structure-08
 
    o  Add implementation guidance (#727).
 
-D.6.  Since draft-ietf-httpbis-header-structure-07
 
-   o  Make Dictionaries ordered mappings (#659).
 
-   o  Changed "binary content" to "byte sequence" to align with Infra
-      specification (#671).
+
 
 
 
@@ -1793,6 +1793,13 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 32]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+D.6.  Since draft-ietf-httpbis-header-structure-07
+
+   o  Make Dictionaries ordered mappings (#659).
+
+   o  Changed "binary content" to "byte sequence" to align with Infra
+      specification (#671).
 
    o  Changed "mapping" to "map" for #671.
 
@@ -1834,13 +1841,6 @@ D.9.  Since draft-ietf-httpbis-header-structure-04
 
    o  Refine number parsing.
 
-D.10.  Since draft-ietf-httpbis-header-structure-03
-
-   o  Strengthen language around failure handling.
-
-
-
-
 
 
 
@@ -1849,6 +1849,10 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 33]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+D.10.  Since draft-ietf-httpbis-header-structure-03
+
+   o  Strengthen language around failure handling.
 
 D.11.  Since draft-ietf-httpbis-header-structure-02
 
@@ -1892,6 +1896,16 @@ Authors' Addresses
    URI:   https://www.mnot.net/
 
 
+
+
+
+
+
+Nottingham & Kamp       Expires February 27, 2020              [Page 34]
+
+Internet-Draft         Structured Headers for HTTP           August 2019
+
+
    Poul-Henning Kamp
    The Varnish Cache Project
 
@@ -1901,4 +1915,46 @@ Authors' Addresses
 
 
 
-Nottingham & Kamp       Expires February 27, 2020              [Page 34]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Nottingham & Kamp       Expires February 27, 2020              [Page 35]
