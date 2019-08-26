@@ -694,14 +694,14 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
 4.1.1.2.  Serializing Parameters
 
-   Given an ordered dictionary as parameters (each with a param-name and
-   an optional param-value), return an ASCII string suitable for use in
-   a textual HTTP header value.
+   Given an ordered dictionary as input_parameters (each member having a
+   param-name and a param-value), return an ASCII string suitable for
+   use in a textual HTTP header value.
 
    1.  Let output be an empty string.
 
    2.  For each parameter-name with a value of param-value in
-       parameters:
+       input_parameters:
 
        1.  Append ";" to output.
 
@@ -741,9 +741,9 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
 4.1.2.  Serializing a Dictionary
 
-   Given a dictionary whose values are (member-value, parameters) tuples
-   as input_dictionary, return an ASCII string suitable for use in a
-   textual HTTP header value.
+   Given an ordered dictionary as input_dictionary (each member having a
+   member-name and a tuple value of (member-value, parameters)), return
+   an ASCII string suitable for use in a textual HTTP header value.
 
    1.  Let output be an empty string.
 
