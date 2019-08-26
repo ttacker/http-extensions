@@ -656,7 +656,7 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
    2.  For each (member-value, parameters) of input_list:
 
-       1.  If member is an array, append the result of applying
+       1.  If member-value is an array, append the result of applying
            Serialising an Inner List (Section 4.1.1.1) with member-value
            to output.
 
@@ -674,7 +674,7 @@ Nottingham & Kamp       Expires February 27, 2020              [Page 12]
 Internet-Draft         Structured Headers for HTTP           August 2019
 
 
-       4.  If more members remain in input_plist:
+       4.  If more member-values remain in input_plist:
 
            1.  Append a COMMA to output.
 
@@ -1042,10 +1042,10 @@ Internet-Draft         Structured Headers for HTTP           August 2019
    strict, to improve interoperability and safety, and specifications
    referencing this document are not allowed to loosen this requirement.
 
-   Note that this requirement does not apply to software that is not
-   parsing the header field as a Structured Header; for example, an
-   intermediary is not required to strip a failing header field from a
-   message before forwarding it.
+   Note that this requirement does not apply to an implementation that
+   is not parsing the header field as a Structured Header; for example,
+   an intermediary is not required to strip a failing header field from
+   a message before forwarding it.
 
 4.2.1.  Parsing a List from Text
 
