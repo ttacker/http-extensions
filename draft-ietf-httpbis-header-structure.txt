@@ -121,19 +121,19 @@ Internet-Draft         Structured Headers for HTTP           August 2019
    Appendix D.  Changes  . . . . . . . . . . . . . . . . . . . . . .  31
      D.1.  Since draft-ietf-httpbis-header-structure-13  . . . . . .  31
      D.2.  Since draft-ietf-httpbis-header-structure-12  . . . . . .  31
-     D.3.  Since draft-ietf-httpbis-header-structure-11  . . . . . .  31
+     D.3.  Since draft-ietf-httpbis-header-structure-11  . . . . . .  32
      D.4.  Since draft-ietf-httpbis-header-structure-10  . . . . . .  32
      D.5.  Since draft-ietf-httpbis-header-structure-09  . . . . . .  32
      D.6.  Since draft-ietf-httpbis-header-structure-08  . . . . . .  32
      D.7.  Since draft-ietf-httpbis-header-structure-07  . . . . . .  33
      D.8.  Since draft-ietf-httpbis-header-structure-06  . . . . . .  33
      D.9.  Since draft-ietf-httpbis-header-structure-05  . . . . . .  33
-     D.10. Since draft-ietf-httpbis-header-structure-04  . . . . . .  33
+     D.10. Since draft-ietf-httpbis-header-structure-04  . . . . . .  34
      D.11. Since draft-ietf-httpbis-header-structure-03  . . . . . .  34
      D.12. Since draft-ietf-httpbis-header-structure-02  . . . . . .  34
      D.13. Since draft-ietf-httpbis-header-structure-01  . . . . . .  34
      D.14. Since draft-ietf-httpbis-header-structure-00  . . . . . .  34
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  34
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  35
 
 1.  Introduction
 
@@ -700,7 +700,8 @@ Internet-Draft         Structured Headers for HTTP           August 2019
        1.  Append the result of applying Serializing an Item
            (Section 4.1.3) with member-value to output.
 
-       2.  If inner_list is not empty, append a single WS to output.
+       2.  If more member-values remain in inner_list, append a single
+           WS to output.
 
    3.  Append ")" to output.
 
@@ -721,7 +722,6 @@ Internet-Draft         Structured Headers for HTTP           August 2019
 
        2.  Append the result of applying Serializing a Key
            (Section 4.1.1.3) with param-name to output.
-
 
 
 
@@ -1725,11 +1725,11 @@ D.2.  Since draft-ietf-httpbis-header-structure-12
 
    o  Reworked float serialisation (#896).
 
-D.3.  Since draft-ietf-httpbis-header-structure-11
+   o  Don't add a trailing space in inner-list (#904).
 
-   o  Allow * in key (#844).
 
-   o  Constrain floats to six digits of precision (#848).
+
+
 
 
 
@@ -1737,6 +1737,12 @@ Nottingham & Kamp         Expires March 2, 2020                [Page 31]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+D.3.  Since draft-ietf-httpbis-header-structure-11
+
+   o  Allow * in key (#844).
+
+   o  Constrain floats to six digits of precision (#848).
 
    o  Allow dictionary members to have parameters (#842).
 
@@ -1781,18 +1787,17 @@ D.6.  Since draft-ietf-httpbis-header-structure-08
 
    o  Added "Intentionally Strict Processing" (#684).
 
-   o  Gave better names for referring specs to use in Parameterised
-      Lists (#720).
-
-   o  Added Lists of Lists (#721).
-
-
 
 
 Nottingham & Kamp         Expires March 2, 2020                [Page 32]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+   o  Gave better names for referring specs to use in Parameterised
+      Lists (#720).
+
+   o  Added Lists of Lists (#721).
 
    o  Rename Identifier to Token (#725).
 
@@ -1837,11 +1842,6 @@ D.9.  Since draft-ietf-httpbis-header-structure-05
    o  Refine relationship between ABNF, parsing and serialisation
       algorithms.
 
-D.10.  Since draft-ietf-httpbis-header-structure-04
-
-   o  Remove identifiers from item.
-
-   o  Remove most limits on sizes.
 
 
 
@@ -1849,6 +1849,12 @@ Nottingham & Kamp         Expires March 2, 2020                [Page 33]
 
 Internet-Draft         Structured Headers for HTTP           August 2019
 
+
+D.10.  Since draft-ietf-httpbis-header-structure-04
+
+   o  Remove identifiers from item.
+
+   o  Remove most limits on sizes.
 
    o  Refine number parsing.
 
@@ -1889,13 +1895,7 @@ D.14.  Since draft-ietf-httpbis-header-structure-00
 
    o  Change h1_blob delimiter to ":" since "'" is valid t_char
 
-Authors' Addresses
 
-   Mark Nottingham
-   Fastly
-
-   Email: mnot@mnot.net
-   URI:   https://www.mnot.net/
 
 
 
@@ -1906,19 +1906,19 @@ Nottingham & Kamp         Expires March 2, 2020                [Page 34]
 Internet-Draft         Structured Headers for HTTP           August 2019
 
 
+Authors' Addresses
+
+   Mark Nottingham
+   Fastly
+
+   Email: mnot@mnot.net
+   URI:   https://www.mnot.net/
+
+
    Poul-Henning Kamp
    The Varnish Cache Project
 
    Email: phk@varnish-cache.org
-
-
-
-
-
-
-
-
-
 
 
 
