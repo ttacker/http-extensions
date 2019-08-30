@@ -90,6 +90,7 @@ Table of Contents
        4.4.1.  Initial URL Discovery . . . . . . . . . . . . . . . .  11
        4.4.2.  URI Schemes . . . . . . . . . . . . . . . . . . . . .  12
        4.4.3.  Transport Ports . . . . . . . . . . . . . . . . . . .  13
+       4.4.4.  Query Strings . . . . . . . . . . . . . . . . . . . .  13
      4.5.  HTTP Methods  . . . . . . . . . . . . . . . . . . . . . .  13
        4.5.1.  GET . . . . . . . . . . . . . . . . . . . . . . . . .  13
        4.5.2.  OPTIONS . . . . . . . . . . . . . . . . . . . . . . .  14
@@ -105,7 +106,6 @@ Table of Contents
      4.10. Application State . . . . . . . . . . . . . . . . . . . .  21
      4.11. Client Authentication . . . . . . . . . . . . . . . . . .  22
      4.12. Co-Existing with Web Browsing . . . . . . . . . . . . . .  22
-     4.13. Application Boundaries  . . . . . . . . . . . . . . . . .  24
 
 
 
@@ -114,6 +114,7 @@ Nottingham                Expires March 2, 2020                 [Page 2]
 Internet-Draft        Building Protocols with HTTP           August 2019
 
 
+     4.13. Application Boundaries  . . . . . . . . . . . . . . . . .  24
      4.14. Server Push . . . . . . . . . . . . . . . . . . . . . . .  24
      4.15. Versioning and Evolution  . . . . . . . . . . . . . . . .  25
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
@@ -160,7 +161,6 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    uncoordinated servers, and is consumed by diverse clients - as is
    often the case for standards efforts to define new HTTP APIs - tools
    and practices intended for limited deployment can become unsuitable.
-
 
 
 
@@ -406,36 +406,36 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
 4.1.  Specifying the Use of HTTP
 
-   When specifying the use of HTTP, an application SHOULD use
+   When specifying the use of HTTP, an application should use
    [I-D.ietf-httpbis-semantics] as the primary reference; it is not
    necessary to reference all of the specifications in the HTTP suite
    unless there are specific reasons to do so (e.g., a particular
    feature is called out).
 
-   Applications using HTTP SHOULD NOT specify a minimum version of HTTP
-   to be used; because it is a hop-by-hop protocol, a HTTP connection
-   can be handled by implementations that are not controlled by the
-   application; for example, proxies, CDNs, firewalls and so on.
-   Requiring a particular version of HTTP makes it difficult to use in
-   these situations, and harms interoperability for little reason (since
-   HTTP's semantics are stable between protocol versions).
+   Because it is a hop-by-hop protocol, a HTTP connection can be handled
+   by implementations that are not controlled by the application; for
+   example, proxies, CDNs, firewalls and so on.  Requiring a particular
+   version of HTTP makes it difficult to use in these situations, and
+   harms interoperability for little reason (since HTTP's semantics are
+   stable between protocol versions).  Therefore, it is RECOMMENDED that
+   applications using HTTP not specify a minimum version of HTTP to be
+   used.
 
    However, if an application's deployment would benefit from the use of
    a particular version of HTTP (for example, HTTP/2's multiplexing),
-   this SHOULD be noted.
+   this ought be noted.
 
    Applications using HTTP MUST NOT specify a maximum version, to
    preserve the protocol's ability to evolve.
 
    When specifying examples of protocol interactions, applications
-   SHOULD document both the request and response messages, with full
+   should document both the request and response messages, with full
    headers, preferably in HTTP/1.1 format.  For example:
 
    GET /thing HTTP/1.1
    Host: example.com
    Accept: application/things+json
    User-Agent: Foo/1.0
-
 
 
 
@@ -534,11 +534,11 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    o  Redirect handling - Applications need to specify how redirects are
       expected to be handled; see Section 4.6.1.
 
-   o  Cookies - Applications using HTTP MUST explicitly reference the
+   o  Cookies - Applications using HTTP should explicitly reference the
       Cookie specification [I-D.ietf-httpbis-rfc6265bis] if they are
       required.
 
-   o  Certificates - Applications using HTTP MUST specify that TLS
+   o  Certificates - Applications using HTTP should specify that TLS
       certificates are to be checked according to [RFC2818] when HTTPS
       is used.
 
@@ -565,7 +565,7 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    coding ([I-D.ietf-httpbis-semantics], Section 6.2.2) instead of
    negotiating for it ([I-D.ietf-httpbis-semantics], Section 8.4.4)
    means that otherwise conformant clients cannot interoperate with the
-   application.  Applications MAY encourage the implementation of such
+   application.  Applications can encourage the implementation of such
    features, though.
 
 4.4.  HTTP URLs
@@ -696,6 +696,8 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
    See [RFC7605] for further guidance.
 
+4.4.4.  Query Strings
+
 4.5.  HTTP Methods
 
    Applications that use HTTP MUST confine themselves to using
@@ -720,8 +722,6 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    GET is the most common and useful HTTP method; its retrieval
    semantics allow caching, side-effect free linking and underlies many
    of the benefits of using HTTP.
-
-
 
 
 
@@ -848,18 +848,18 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    Instead, applications using HTTP should define their errors to use
    the most applicable status code, making generous use of the general
    status codes (200, 400 and 500) when in doubt.  Importantly, they
-   SHOULD NOT specify a one-to-one relationship between status codes and
+   should not specify a one-to-one relationship between status codes and
    application errors, thereby avoiding the exhaustion issue outlined
    above.
 
    To distinguish between multiple error conditions that are mapped to
    the same status code, and to avoid the misattribution issue outlined
-   above, applications using HTTP SHOULD convey finer-grained error
+   above, applications using HTTP should convey finer-grained error
    information in the response's message body and/or header fields.
    [RFC7807] provides one way to do so.
 
    Because the set of registered HTTP status codes can expand,
-   applications using HTTP SHOULD explicitly point out that clients
+   applications using HTTP should explicitly point out that clients
    ought to be able to handle all applicable status codes gracefully
    (i.e., falling back to the generic "n00" semantics of a given status
    code; e.g., "499" can be safely handled as "400" by clients that
@@ -868,11 +868,11 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    foreseeable future.
 
    Applications using HTTP MUST NOT re-specify the semantics of HTTP
-   status codes, even if it is only by copying their definition.  They
-   MUST NOT require specific reason phrases to be used; the reason
-   phrase has no function in HTTP, is not guaranteed to be preserved by
-   implementations, and is not carried at all in the HTTP/2 [RFC7540]
-   message format.
+   status codes, even if it is only by copying their definition.  It is
+   RECOMMENDED they require specific reason phrases to be used; the
+   reason phrase has no function in HTTP, is not guaranteed to be
+   preserved by implementations, and is not carried at all in the HTTP/2
+   [RFC7540] message format.
 
    Applications MUST only use registered HTTP status codes.  As with
    methods, new HTTP status codes are rare, and required (by
@@ -937,9 +937,9 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    automatically followed, it needs to explicitly specify the
    circumstances when this is required.
 
-   Applications using HTTP SHOULD specify that 301 and 302 responses
-   change the subsequent request method from POST (but no other method)
-   to GET, to be compatible with browsers.
+   Applications using HTTP are encouraged to specify that 301 and 302
+   responses change the subsequent request method from POST (but no
+   other method) to GET, to be compatible with browsers.
 
    Generally, when a redirected request is made, its header fields are
    copied from the original request's.  However, they can be modified by
@@ -955,14 +955,14 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
 
    (and sometimes path) of the request changes.  An application using
-   HTTP SHOULD specify if any request headers that it defines need to be
+   HTTP should specify if any request headers that it defines need to be
    modified or removed upon a redirect; however, this behaviour cannot
    be relied upon, since a generic client (like a browser) will be
    unaware of such requirements.
 
 4.7.  HTTP Header Fields
 
-   Applications MAY define new HTTP header fields.  Typically, using
+   Applications often define new HTTP header fields.  Typically, using
    HTTP header fields is appropriate in a few different situations:
 
    o  Their content is useful to intermediaries (who often wish to avoid
@@ -986,7 +986,7 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    It is RECOMMENDED that header field names be short (even when HTTP/2
    header compression is in effect, there is an overhead) but
    appropriately specific.  In particular, if a header field is specific
-   to an application, an identifier for that application SHOULD form a
+   to an application, an identifier for that application can form a
    prefix to the header field name, separated by a "-".
 
    For example, if the "example" application needs to create three
@@ -1023,7 +1023,7 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    [RFC8259], XML [XML], and CBOR [RFC7049].  Best practices for their
    use are out of scope for this document.
 
-   Applications SHOULD register distinct media types for each format
+   Applications should register distinct media types for each format
    they define; this makes it possible to identify them unambiguously
    and negotiate for their use.  See [RFC6838] for more information.
 
@@ -1156,7 +1156,7 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
 4.10.  Application State
 
-   Applications MAY use stateful cookies [I-D.ietf-httpbis-rfc6265bis]
+   Applications can use stateful cookies [I-D.ietf-httpbis-rfc6265bis]
    to identify a client and/or store client-specific data to
    contextualise requests.
 
@@ -1183,7 +1183,7 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
 4.11.  Client Authentication
 
-   Applications MAY use HTTP authentication [I-D.ietf-httpbis-semantics]
+   Applications can use HTTP authentication [I-D.ietf-httpbis-semantics]
    to identify clients.  The Basic authentication scheme [RFC7617] MUST
    NOT be used unless the underlying transport is authenticated,
    integrity-protected and confidential (e.g., as provided the "HTTPS"
@@ -1316,9 +1316,9 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
    To enable this, when specifying the use of Cookies, HTTP
    authentication realms [I-D.ietf-httpbis-semantics], or other origin-
-   wide HTTP mechanisms, applications using HTTP SHOULD NOT mandate the
+   wide HTTP mechanisms, applications using HTTP should not mandate the
    use of a particular name, but instead let deployments configure them.
-   Consideration SHOULD be given to scoping them to part of the origin,
+   Consideration should be given to scoping them to part of the origin,
    using their specified mechanisms for doing so.
 
    Modern Web browsers constrain the ability of content from one origin
