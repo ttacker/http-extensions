@@ -102,9 +102,9 @@ Table of Contents
      A.1.  Accept  . . . . . . . . . . . . . . . . . . . . . . . . .  19
      A.2.  Accept-Encoding . . . . . . . . . . . . . . . . . . . . .  20
      A.3.  Accept-Language . . . . . . . . . . . . . . . . . . . . .  21
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  21
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  22
-
+     A.4.  Cookie  . . . . . . . . . . . . . . . . . . . . . . . . .  21
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  23
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  23
 
 
 
@@ -238,9 +238,9 @@ Internet-Draft        HTTP Representation Variants           August 2019
    notation of [RFC5234] but relies on Structured Headers from
    [I-D.ietf-httpbis-header-structure] for parsing.
 
-   Additionally, it uses the "field-name" rule from [RFC7230], and
-   "type", "subtype", "content-coding" and "language-range" from
-   [RFC7231].
+   Additionally, it uses the "field-name" rule from [RFC7230], "type",
+   "subtype", "content-coding" and "language-range" from [RFC7231], and
+   "cookie-name" from [RFC6265].
 
 2.  The "Variants" HTTP Header Field
 
@@ -968,6 +968,10 @@ Internet-Draft        HTTP Representation Variants           August 2019
               DOI 10.17487/RFC5234, January 2008,
               <https://www.rfc-editor.org/info/rfc5234>.
 
+   [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
+              DOI 10.17487/RFC6265, April 2011,
+              <https://www.rfc-editor.org/info/rfc6265>.
+
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
@@ -997,10 +1001,6 @@ Internet-Draft        HTTP Representation Variants           August 2019
               in HTTP", RFC 2295, DOI 10.17487/RFC2295, March 1998,
               <https://www.rfc-editor.org/info/rfc2295>.
 
-   [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
-              Procedures for Message Header Fields", BCP 90, RFC 3864,
-              DOI 10.17487/RFC3864, September 2004,
-              <https://www.rfc-editor.org/info/rfc3864>.
 
 
 
@@ -1009,6 +1009,11 @@ Nottingham                Expires March 2, 2020                [Page 18]
 
 Internet-Draft        HTTP Representation Variants           August 2019
 
+
+   [RFC3864]  Klyne, G., Nottingham, M., and J. Mogul, "Registration
+              Procedures for Message Header Fields", BCP 90, RFC 3864,
+              DOI 10.17487/RFC3864, September 2004,
+              <https://www.rfc-editor.org/info/rfc3864>.
 
 9.3.  URIs
 
@@ -1052,11 +1057,6 @@ A.1.  Accept
            using the media-range matching mechanism specified in
            Section 5.3.2 of [RFC7231] (which is case-insensitive),
            append those members of available-values to preferred-
-           available (preserving the precedence order implied by the
-           media ranges' specificity).
-
-   4.  If preferred-available is empty, append the first member of
-       available-values to preferred-available.  This makes the first
 
 
 
@@ -1066,6 +1066,11 @@ Nottingham                Expires March 2, 2020                [Page 19]
 Internet-Draft        HTTP Representation Variants           August 2019
 
 
+           available (preserving the precedence order implied by the
+           media ranges' specificity).
+
+   4.  If preferred-available is empty, append the first member of
+       available-values to preferred-available.  This makes the first
        available-value the default when none of the client's preferences
        are available.
 
@@ -1107,11 +1112,6 @@ A.2.  Accept-Encoding
 
    6.  Return preferred-available.
 
-   Note that the unencoded variant needs to have a Variant-Key header
-   field with a value of "identity" (as defined in Section 5.3.4 of
-   [RFC7231]).
-
-
 
 
 
@@ -1121,6 +1121,10 @@ Nottingham                Expires March 2, 2020                [Page 20]
 
 Internet-Draft        HTTP Representation Variants           August 2019
 
+
+   Note that the unencoded variant needs to have a Variant-Key header
+   field with a value of "identity" (as defined in Section 5.3.4 of
+   [RFC7231]).
 
 A.3.  Accept-Language
 
@@ -1158,6 +1162,78 @@ A.3.  Accept-Language
 
    5.  Return preferred-available.
 
+A.4.  Cookie
+
+   This section defines variant handling for the Cookie request header
+   ([RFC6265]).
+
+   This syntax of an available-value for Cookie is:
+
+   cookie-available-value = cookie-name
+
+
+
+Nottingham                Expires March 2, 2020                [Page 21]
+
+Internet-Draft        HTTP Representation Variants           August 2019
+
+
+   To perform content negotiation for Cookie given a request-value and
+   available-values:
+
+   1.  Let cookies-available be an empty list.
+
+   2.  For each available-value of available-values:
+
+       1.  Parse request-value as a Cookie header field [RFC6265] and
+           let request-cookie-value be the cookie-value corresponding to
+           a cookie with a cookie-name that matches available-value.  If
+           no match is found, continue to the next available-value.
+
+       2.  append request-cookie-value to cookies-available.
+
+   3.  Return cookies-available.
+
+   A simple example is allowing a page designed for users that aren't
+   logged in (denoted by the "logged_in" cookie-name) to be cached:
+
+   Variants: Cookie=(logged_in)
+   Variant-Key: (0)
+
+   Here, a cache that implements Variants will only use this response to
+   satisfy requests with "Cookie: logged_in=0".
+
+   Or, consider this example:
+
+   Variants: Cookie=(user_priority)
+   Variant-Key: (silver), ("bronze")
+
+   Here, the "user_priority" cookie-name allows requests from "gold"
+   users to be separated from "silver" and "bronze" ones; this response
+   is only served to the latter two.
+
+   It is possible to target a response to a single user; for example:
+
+   Variants: Cookie=(user_id)
+   Variant-Key: (some_person)
+
+   Here, only the "some_person" "user_id" will have this response served
+   to them again.
+
+   Note that if more than one cookie-name serves as a cache key, they'll
+   need to be listed in separate Variants members, like this:
+
+   Variants: Cookie=(user_priority), Cookie=(user_region)
+   Variant-Key: (gold europe)
+
+
+
+
+Nottingham                Expires March 2, 2020                [Page 22]
+
+Internet-Draft        HTTP Representation Variants           August 2019
+
+
 Acknowledgements
 
    This protocol is conceptually similar to, but simpler than,
@@ -1169,14 +1245,6 @@ Acknowledgements
 
    Thanks to Hooman Beheshti, Ilya Grigorik, Leif Hedstrom, and Jeffrey
    Yasskin for their review and input.
-
-
-
-
-Nottingham                Expires March 2, 2020                [Page 21]
-
-Internet-Draft        HTTP Representation Variants           August 2019
-
 
 Author's Address
 
@@ -1217,16 +1285,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Nottingham                Expires March 2, 2020                [Page 22]
+Nottingham                Expires March 2, 2020                [Page 23]
