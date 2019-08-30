@@ -90,7 +90,6 @@ Table of Contents
        4.4.1.  Initial URL Discovery . . . . . . . . . . . . . . . .  11
        4.4.2.  URI Schemes . . . . . . . . . . . . . . . . . . . . .  12
        4.4.3.  Transport Ports . . . . . . . . . . . . . . . . . . .  13
-       4.4.4.  Query Strings . . . . . . . . . . . . . . . . . . . .  13
      4.5.  HTTP Methods  . . . . . . . . . . . . . . . . . . . . . .  13
        4.5.1.  GET . . . . . . . . . . . . . . . . . . . . . . . . .  13
        4.5.2.  OPTIONS . . . . . . . . . . . . . . . . . . . . . . .  14
@@ -106,6 +105,7 @@ Table of Contents
      4.10. Application State . . . . . . . . . . . . . . . . . . . .  21
      4.11. Client Authentication . . . . . . . . . . . . . . . . . .  22
      4.12. Co-Existing with Web Browsing . . . . . . . . . . . . . .  22
+     4.13. Application Boundaries  . . . . . . . . . . . . . . . . .  24
 
 
 
@@ -114,7 +114,6 @@ Nottingham                Expires March 2, 2020                 [Page 2]
 Internet-Draft        Building Protocols with HTTP           August 2019
 
 
-     4.13. Application Boundaries  . . . . . . . . . . . . . . . . .  24
      4.14. Server Push . . . . . . . . . . . . . . . . . . . . . . .  24
      4.15. Versioning and Evolution  . . . . . . . . . . . . . . . .  25
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
@@ -161,6 +160,7 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    uncoordinated servers, and is consumed by diverse clients - as is
    often the case for standards efforts to define new HTTP APIs - tools
    and practices intended for limited deployment can become unsuitable.
+
 
 
 
@@ -696,8 +696,6 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
    See [RFC7605] for further guidance.
 
-4.4.4.  Query Strings
-
 4.5.  HTTP Methods
 
    Applications that use HTTP MUST confine themselves to using
@@ -722,6 +720,8 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    GET is the most common and useful HTTP method; its retrieval
    semantics allow caching, side-effect free linking and underlies many
    of the benefits of using HTTP.
+
+
 
 
 
@@ -974,6 +974,10 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    o  It is not possible to include their content in the message body
       (usually because a format does not allow it).
 
+   When the conditions above are not met, it is usually better to convey
+   application-specific information in other places; e.g., the message
+   body or the URL query string.
+
    New header fields MUST be registered, as per
    [I-D.ietf-httpbis-semantics].
 
@@ -998,10 +1002,6 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
    The semantics of existing HTTP header fields MUST NOT be re-defined
    without updating their registration or defining an extension to them
-   (if allowed).  For example, an application using HTTP cannot specify
-   that the "Location" header has a special meaning in a certain
-   context.
-
 
 
 
@@ -1009,6 +1009,10 @@ Nottingham                Expires March 2, 2020                [Page 18]
 
 Internet-Draft        Building Protocols with HTTP           August 2019
 
+
+   (if allowed).  For example, an application using HTTP cannot specify
+   that the "Location" header has a special meaning in a certain
+   context.
 
    See Section 4.9 for the interaction between headers and HTTP caching;
    in particular, request headers that are used to "select" a response
@@ -1054,10 +1058,6 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    response directive (Section 5.2.2.8 of [I-D.ietf-httpbis-cache]).
    The Expires header (Section 5.3 of [I-D.ietf-httpbis-cache]) can also
    be used, but it is not necessary; all modern cache implementations
-   support Cache-Control, and specifying freshness as a delta is usually
-   more convenient and less error-prone.
-
-
 
 
 
@@ -1065,6 +1065,9 @@ Nottingham                Expires March 2, 2020                [Page 19]
 
 Internet-Draft        Building Protocols with HTTP           August 2019
 
+
+   support Cache-Control, and specifying freshness as a delta is usually
+   more convenient and less error-prone.
 
    In some situations, responses without explicit cache freshness
    directives will be stored and served using a heuristic freshness
@@ -1112,9 +1115,6 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    need to be carefully considered, since the response will be used as
    long as it is considered fresh.
 
-   In particular, application authors need to consider how responses
-   that are not freshly obtained from the origin server should be
-
 
 
 Nottingham                Expires March 2, 2020                [Page 20]
@@ -1122,6 +1122,8 @@ Nottingham                Expires March 2, 2020                [Page 20]
 Internet-Draft        Building Protocols with HTTP           August 2019
 
 
+   In particular, application authors need to consider how responses
+   that are not freshly obtained from the origin server should be
    handled; if they have a concept like a validity period, this will
    need to be calculated considering the age of the response (see
    Section 4.2.3 of [I-D.ietf-httpbis-cache]).
@@ -1168,8 +1170,6 @@ Internet-Draft        Building Protocols with HTTP           August 2019
 
    Applications MUST NOT make assumptions about the relationship between
    separate requests on a single transport connection; doing so breaks
-   many of the assumptions of HTTP as a stateless protocol, and will
-
 
 
 
@@ -1178,6 +1178,7 @@ Nottingham                Expires March 2, 2020                [Page 21]
 Internet-Draft        Building Protocols with HTTP           August 2019
 
 
+   many of the assumptions of HTTP as a stateless protocol, and will
    cause problems in interoperability, security, operability and
    evolution.
 
@@ -1225,7 +1226,6 @@ Internet-Draft        Building Protocols with HTTP           August 2019
    using HTTP must consider.  Generally, the best approach is to
    consider the application actually as a Web application, and to follow
    best practices for their secure development.
-
 
 
 
