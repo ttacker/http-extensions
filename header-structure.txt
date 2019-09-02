@@ -619,7 +619,8 @@ Internet-Draft         Structured Headers for HTTP        September 2019
 
 
    In textual HTTP headers, a boolean is indicated with a leading "?"
-   character.  For example:
+   character followed by a "1" for a true value or "0" for false.  For
+   example:
 
    Example-BoolHdr: ?1
 
@@ -664,7 +665,6 @@ Internet-Draft         Structured Headers for HTTP        September 2019
        1.  If member-value is an array, append the result of applying
            Serialising an Inner List (Section 4.1.1.1) with member-value
            to output.
-
 
 
 
