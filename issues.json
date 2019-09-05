@@ -555,9 +555,9 @@
 
     ],
     "milestone": null,
-    "comments": 9,
+    "comments": 20,
     "created_at": "2019-08-30T09:11:37Z",
-    "updated_at": "2019-08-30T10:58:49Z",
+    "updated_at": "2019-09-04T09:37:56Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "For https://github.com/whatwg/fetch/issues/930 I was trying to think of a natural mapping and I see a potential problem with String and Token. A natural way to do this in JavaScript would be to treat both as a JavaScript string and depending on the content serialize as one or the other. However, this would mean that if something takes a String that could also be represented as a Token, it gets a Token. And unless consumers are always required to support that, there's a problem.\r\n\r\nAn alternative here is that we do something less ergonomic, but that'll likely end up favoring one of these over the other.\r\n\r\n(Depending on the outcome of #907 for the getter side we might need a wrapper Item object of sorts that could indicate whether something is a string or token and you could use the same on the setter side, but passing a string when setting should probably work as well.)"
@@ -610,9 +610,9 @@
 
     ],
     "milestone": null,
-    "comments": 9,
+    "comments": 13,
     "created_at": "2019-08-30T08:11:13Z",
-    "updated_at": "2019-09-01T12:29:38Z",
+    "updated_at": "2019-09-04T09:49:02Z",
     "closed_at": "2019-08-30T09:37:30Z",
     "author_association": "NONE",
     "body": "If I understand @mnot correctly Structured Headers effectively patches the HTTP protocol. What forbids a request from containing two headers with the same name with different value types?"
@@ -658,9 +658,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-08-30T07:47:22Z",
-    "updated_at": "2019-08-30T07:59:47Z",
+    "updated_at": "2019-09-05T13:33:57Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "## I expect\r\n\r\nThat the following references contain Section\r\n\r\n- [ ] https://github.com/httpwg/http-extensions/blame/master/draft-ietf-httpbis-bcp56bis.md#L187 as this is quite a different approach respect to the widely used OpenAPI one."
@@ -884,9 +884,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 5,
     "created_at": "2019-08-28T07:31:41Z",
-    "updated_at": "2019-08-30T10:20:26Z",
+    "updated_at": "2019-09-05T04:45:21Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "As discussed around https://github.com/httpwg/http-extensions/issues/839#issuecomment-508367966, it would be lovely if we could address the use case raised in https://httpwg.org/http-extensions/draft-ietf-httpbis-header-structure.html#structured-headers-dont-fit-my-data by allowing list items themselves to contain parameters. This would allow the example in the specification:\r\n\r\n```\r\nExample-Thing: name=\"Widget\", cost=89.2, descriptions=(foo bar)\r\nExample-Description: foo; url=\"https://example.net\"; context=123,\r\n                     bar; url=\"https://example.org\"; context=456\r\n```\r\n\r\nto be written as:\r\n\r\n```\r\nExample-Thing:\r\n    name=\"Widget\",\r\n    cost=89.2,\r\n    descriptions=(foo;url=\"https://example.net\";context=123\r\n                  bar;url=\"https://example.org\";context=456)\r\n```"
@@ -1008,9 +1008,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 5,
     "created_at": "2019-08-26T13:21:13Z",
-    "updated_at": "2019-09-01T12:34:58Z",
+    "updated_at": "2019-09-04T09:25:50Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "This makes it more immediately apparent that this is far more limited than strings of modern programming languages and you likely want to use a (UTF-8) Byte Sequence for representing those."
@@ -2527,7 +2527,7 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2019-07-26T01:55:00Z",
-    "updated_at": "2019-08-28T20:25:21Z",
+    "updated_at": "2019-09-05T08:38:44Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -2710,7 +2710,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-07-25T07:39:19Z",
-    "updated_at": "2019-08-30T09:51:37Z",
+    "updated_at": "2019-09-05T15:31:33Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -3160,9 +3160,9 @@
 
     ],
     "milestone": null,
-    "comments": 7,
+    "comments": 9,
     "created_at": "2019-07-22T20:01:56Z",
-    "updated_at": "2019-08-09T10:28:42Z",
+    "updated_at": "2019-09-05T14:57:03Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "It would be awesome if this could relate directly to [SRI](https://w3c.github.io/webappsec-subresource-integrity/).  Ideally, if SRI uses the same hash function, the value in the `Digest` header field is the same."
@@ -4018,9 +4018,9 @@
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 6,
     "created_at": "2019-07-10T09:53:46Z",
-    "updated_at": "2019-07-10T13:04:05Z",
+    "updated_at": "2019-09-05T14:03:49Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "## About PATCH\r\n\r\n1- `PATCH` is not in http 723x\r\n2- `PATCH` media type should be something like https://tools.ietf.org/html/rfc7396 because \r\nservers SHOULD NOT assume PATCH semantics for generic\r\n   media types that don't define them, such as \"application/xml\" or\r\n   \"application/json\".  Doing so will cause interoperability issues,\r\n   because the semantics of PATCH become specific to that resource,\r\n   rather than general.\r\n3- it's difficult to use patch + checksums, like @LPardue said\r\n\r\n## As of now we\r\n\r\n1- warn people about PATCH+Digest\r\n2- don't forbid PATCH+Digest\r\n\r\n## Notes\r\n\r\n-  it could be useful to validate the PATCH request body before applying it to the resource\r\n- guidance of the usage of Digest+PATCH is welcome to confirm  if the current expression of Digest support that use."
@@ -5662,9 +5662,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-07-03T08:33:36Z",
-    "updated_at": "2019-07-03T10:09:55Z",
+    "updated_at": "2019-09-05T13:38:09Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "## I expect\r\n\r\nthe draft after the -00  to contain the following section\r\n\r\n```\r\n# Changes\r\n\r\n_RFC Editor: Please remove this section before publication._\r\n\r\n\r\n## Since draft-ietf-httpbis-digest-headers-00\r\n\r\n```"
@@ -8449,7 +8449,7 @@
     "milestone": null,
     "comments": 7,
     "created_at": "2019-03-11T14:32:26Z",
-    "updated_at": "2019-08-19T09:23:58Z",
+    "updated_at": "2019-09-05T08:49:29Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
