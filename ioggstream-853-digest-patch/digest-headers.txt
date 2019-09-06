@@ -119,17 +119,18 @@ Internet-Draft               Digest Headers               September 2019
      9.2.  Broken cryptographic algorithms . . . . . . . . . . . . .  17
      9.3.  Digest for end-to-end integrity . . . . . . . . . . . . .  17
      9.4.  Usage in signatures . . . . . . . . . . . . . . . . . . .  17
-     9.5.  Message Truncation  . . . . . . . . . . . . . . . . . . .  18
-     9.6.  Algorithm Agility . . . . . . . . . . . . . . . . . . . .  18
+     9.5.  Usage with PATCH  . . . . . . . . . . . . . . . . . . . .  18
+     9.6.  Message Truncation  . . . . . . . . . . . . . . . . . . .  18
+     9.7.  Algorithm Agility . . . . . . . . . . . . . . . . . . . .  18
    10. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
      10.1.  Establish the HTTP Digest Algorithm Values . . . . . . .  18
      10.2.  The "status" field in the HTTP Digest Algorithm Values .  18
      10.3.  Deprecate "MD5" Digest Algorithm . . . . . . . . . . . .  18
-     10.4.  Obsolete "SHA" Digest Algorithm  . . . . . . . . . . . .  18
+     10.4.  Obsolete "SHA" Digest Algorithm  . . . . . . . . . . . .  19
      10.5.  The "ID-SHA-256" Digest Algorithm  . . . . . . . . . . .  19
      10.6.  The "ID-SHA-512" Digest Algorithm  . . . . . . . . . . .  19
      10.7.  Changes compared to RFC5843  . . . . . . . . . . . . . .  19
-     10.8.  Want-Digest Header Field Registration  . . . . . . . . .  19
+     10.8.  Want-Digest Header Field Registration  . . . . . . . . .  20
      10.9.  Digest Header Field Registration . . . . . . . . . . . .  20
    11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  20
      11.1.  Normative References . . . . . . . . . . . . . . . . . .  20
@@ -161,7 +162,6 @@ Internet-Draft               Digest Headers               September 2019
 
    o  provide additional protection against failures or attack (see
       [SRI]).
-
 
 
 
@@ -607,9 +607,9 @@ Internet-Draft               Digest Headers               September 2019
 
 7.  Use of Digest when acting on resources
 
-   As the representation-data-digest is calculated on the selected
-   representation, you need all the representation-metadata to compute
-   it.
+   A representation-data-digest is calculated on the selected
+   representation, which requires complete representation metadata.
+
 
 
 
@@ -618,19 +618,22 @@ Polli & Pardue            Expires March 9, 2020                [Page 11]
 Internet-Draft               Digest Headers               September 2019
 
 
-   Methods acting on resources, like PATCH and POST while seamingly may
-   convey partial representations are semantically acting on resources.
+   PATCH or POST requests may appear to convey partial representations
+   but are semantically acting on resources.  In these cases the
+   representation-data-digest MUST refer to the representation-data of
+   that action.
 
-   PATCH representation metadata apply to the patch document and not to
-   the target resource, as stated in Section 2 of [RFC5789], and should
-   instead use a proper content-type, eg [RFC7396].
+   The response to such requests can convey the representation-data-
+   digest of the target resource, eventually identified by the
+   "Location" or "Content-Location" header field.
 
-   In these cases, the representation-data-digest MUST be computed on
-   the action of the payload.
+   In the case of PATCH, a request conveys representation metadata that
+   applies to the patch document and not to the target resource (see
+   Section 2 of [RFC5789]).
 
-   The response instead can convey the representation-data-digest of the
-   representation as long as it contains all the required representation
-   metadata.
+   The following example shows a PATCH request (using a proper content-
+   type defined in [RFC7396]) and a response containing the
+   representation-data-digest of the patched resource.
 
    Request:
 
@@ -656,9 +659,6 @@ Internet-Draft               Digest Headers               September 2019
 8.1.  Unsolicited Digest response
 
 8.1.1.  Representation data is fully contained in the payload
-
-
-
 
 
 
@@ -954,11 +954,20 @@ Polli & Pardue            Expires March 9, 2020                [Page 17]
 Internet-Draft               Digest Headers               September 2019
 
 
-9.5.  Message Truncation
+9.5.  Usage with PATCH
+
+   A "200 OK" response to a PATCH request would contain the "Digest" of
+   the patched item, and the etag of the new object.
+
+   This behavior is tighly coupled to the application logic and gives
+   the client low probability of guessing the actual outcome of this
+   operation (eg. concurrent changes, ...).
+
+9.6.  Message Truncation
 
    ...
 
-9.6.  Algorithm Agility
+9.7.  Algorithm Agility
 
    ...
 
@@ -990,6 +999,17 @@ Internet-Draft               Digest Headers               September 2019
 
    o  Status: As specified in Section 3.
 
+
+
+
+
+
+
+Polli & Pardue            Expires March 9, 2020                [Page 18]
+
+Internet-Draft               Digest Headers               September 2019
+
+
 10.4.  Obsolete "SHA" Digest Algorithm
 
    This memo updates the "SHA" digest algorithm in the HTTP Digest
@@ -1000,15 +1020,6 @@ Internet-Draft               Digest Headers               September 2019
    o  Description: As specified in Section 3.
 
    o  Status: As specified in Section 3.
-
-
-
-
-
-Polli & Pardue            Expires March 9, 2020                [Page 18]
-
-Internet-Draft               Digest Headers               September 2019
-
 
 10.5.  The "ID-SHA-256" Digest Algorithm
 
@@ -1045,6 +1056,16 @@ Internet-Draft               Digest Headers               September 2019
    The "ID-SHA-256" and "ID-SHA-512" algorithms have been added to the
    registry.
 
+
+
+
+
+
+Polli & Pardue            Expires March 9, 2020                [Page 19]
+
+Internet-Draft               Digest Headers               September 2019
+
+
 10.8.  Want-Digest Header Field Registration
 
    This section registers the "Want-Digest" header field in the
@@ -1057,14 +1078,6 @@ Internet-Draft               Digest Headers               September 2019
    Status: standard
 
    Author/Change controller: IETF
-
-
-
-
-Polli & Pardue            Expires March 9, 2020                [Page 19]
-
-Internet-Draft               Digest Headers               September 2019
-
 
    Specification document(s): Section 4.1 of this document
 
@@ -1098,6 +1111,17 @@ Internet-Draft               Digest Headers               September 2019
               Collisions to Chosen-Prefix Collisions Application to Full
               SHA-1", May 2019, <https://eprint.iacr.org/2019/459.pdf>.
 
+
+
+
+
+
+
+Polli & Pardue            Expires March 9, 2020                [Page 20]
+
+Internet-Draft               Digest Headers               September 2019
+
+
    [NIST800-32]
               Department of Commerce, National., "Introduction to Public
               Key Technology and the Federal PKI Infrastructure",
@@ -1113,14 +1137,6 @@ Internet-Draft               Digest Headers               September 2019
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
-
-
-
-
-Polli & Pardue            Expires March 9, 2020                [Page 20]
-
-Internet-Draft               Digest Headers               September 2019
-
 
    [RFC3174]  Eastlake 3rd, D. and P. Jones, "US Secure Hash Algorithm 1
               (SHA1)", RFC 3174, DOI 10.17487/RFC3174, September 2001,
@@ -1153,6 +1169,15 @@ Internet-Draft               Digest Headers               September 2019
               DOI 10.17487/RFC6234, May 2011,
               <https://www.rfc-editor.org/info/rfc6234>.
 
+
+
+
+
+Polli & Pardue            Expires March 9, 2020                [Page 21]
+
+Internet-Draft               Digest Headers               September 2019
+
+
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing",
               RFC 7230, DOI 10.17487/RFC7230, June 2014,
@@ -1167,16 +1192,6 @@ Internet-Draft               Digest Headers               September 2019
               "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
               RFC 7233, DOI 10.17487/RFC7233, June 2014,
               <https://www.rfc-editor.org/info/rfc7233>.
-
-
-
-
-
-
-Polli & Pardue            Expires March 9, 2020                [Page 21]
-
-Internet-Draft               Digest Headers               September 2019
-
 
    [RFC7405]  Kyzivat, P., "Case-Sensitive String Support in ABNF",
               RFC 7405, DOI 10.17487/RFC7405, December 2014,
@@ -1212,6 +1227,13 @@ Internet-Draft               Digest Headers               September 2019
 
    [2] https://github.com/httpwg/http-extensions
 
+
+
+Polli & Pardue            Expires March 9, 2020                [Page 22]
+
+Internet-Draft               Digest Headers               September 2019
+
+
    [3] https://tools.ietf.org/html/rfc7231#section-3.1.2.1
 
    [4] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
@@ -1225,14 +1247,6 @@ Internet-Draft               Digest Headers               September 2019
    [8] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
    [9] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
-
-
-
-
-Polli & Pardue            Expires March 9, 2020                [Page 22]
-
-Internet-Draft               Digest Headers               September 2019
-
 
 Appendix A.  Change Log
 
@@ -1253,14 +1267,7 @@ Appendix B.  FAQ
 
    3.  How to use "Digest" with "PATCH" method?
 
-       The PATCH verb brings some complexities (eg. about representation
-       metadata header fields, patch document format, ...),
-
-       *  a "200 OK" response to a PATCH request would contain the
-          digest of the patched item, and the etag of the new object.
-          This behavior - tighly coupled to the application logic -
-          gives the client low probability of guessing the actual
-          outcome of this operation (eg. concurrent changes, ...)
+       See Section 7
 
    4.  Why remove references to delta-encoding?
 
@@ -1276,19 +1283,18 @@ Appendix B.  FAQ
 
    6.  What changes in "Want-Digest"?
 
-       We allow to use the "Want-Digest" in responses to advertise the
-       supported digest-algorithms and the inability to accept requests
-       with unsupported digest-algorithms.
-
-   7.  Does this spec changes supported algorithms?
-
-
 
 
 Polli & Pardue            Expires March 9, 2020                [Page 23]
 
 Internet-Draft               Digest Headers               September 2019
 
+
+       We allow to use the "Want-Digest" in responses to advertise the
+       supported digest-algorithms and the inability to accept requests
+       with unsupported digest-algorithms.
+
+   7.  Does this spec changes supported algorithms?
 
        This RFC updates [RFC5843] which is still delegated for all
        algorithms updates, and adds two more algorithms: ID-SHA-256 and
@@ -1315,12 +1321,6 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
-
-
-
-
-
-
 
 
 
