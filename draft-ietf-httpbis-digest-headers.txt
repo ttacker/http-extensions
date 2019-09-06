@@ -137,6 +137,8 @@ Internet-Draft               Digest Headers               September 2019
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  22
    Appendix B.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  22
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  23
+   Changes . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  23
+     D.1.  Since draft-ietf-httpbis-digest-headers-00  . . . . . . .  23
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
 
 1.  Introduction
@@ -160,8 +162,6 @@ Internet-Draft               Digest Headers               September 2019
 
    o  provide additional protection against failures or attack (see
       [SRI]).
-
-
 
 
 
@@ -1255,6 +1255,20 @@ Acknowledgements
    discussion with M.  Nottingham, J.  Yasskin and M.  Thomson when
    reviewing the MICE content coding.
 
+Changes
+
+   _RFC Editor: Please remove this section before publication._
+
+D.1.  Since draft-ietf-httpbis-digest-headers-00
+
+   o  Align title with document name
+
+   o  Add id-sha-* algorithm examples
+
+   o  Reference RFC6234 and RFC3174 instead of FIPS-1
+
+   o  Deprecate MD5
+
 Authors' Addresses
 
    Roberto Polli
@@ -1267,20 +1281,6 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
