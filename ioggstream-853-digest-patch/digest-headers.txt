@@ -89,10 +89,10 @@ Table of Contents
      4.2.  Digest  . . . . . . . . . . . . . . . . . . . . . . . . .  10
    5.  Deprecate Negotiation of Content-MD5  . . . . . . . . . . . .  11
    6.  Broken cryptographic algorithms . . . . . . . . . . . . . . .  11
-   7.  Use of Digest with representation manipulations . . . . . . .  11
-   8.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . .  13
-     8.1.  Unsolicited Digest response . . . . . . . . . . . . . . .  13
-       8.1.1.  Representation data is fully contained in the payload  13
+   7.  Use of Digest when acting on resources  . . . . . . . . . . .  11
+   8.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . .  12
+     8.1.  Unsolicited Digest response . . . . . . . . . . . . . . .  12
+       8.1.1.  Representation data is fully contained in the payload  12
        8.1.2.  Representation data is not contained in the payload .  13
        8.1.3.  Representation data is partially contained in the
                payload i.e. range request  . . . . . . . . . . . . .  13
@@ -605,7 +605,7 @@ Internet-Draft               Digest Headers               September 2019
    The SHA algorithm is NOT RECOMMENDED as it's now vulnerable to
    collision attacks [IACR-2019-459].
 
-7.  Use of Digest with representation manipulations
+7.  Use of Digest when acting on resources
 
    As the representation-data-digest is calculated on the selected
    representation, you need all the representation-metadata to compute
@@ -618,18 +618,15 @@ Polli & Pardue            Expires March 9, 2020                [Page 11]
 Internet-Draft               Digest Headers               September 2019
 
 
-   When a manipulation mechanism does not identify the selected
-   representation, Digest has no defined semantic.
-
-   This is the case of the PATCH method, if we see it as a
-   representation manipulation.
+   Methods acting on resources, like PATCH and POST while seamingly may
+   convey partial representations are semantically acting on resources.
 
    PATCH representation metadata apply to the patch document and not to
    the target resource, as stated in Section 2 of [RFC5789], and should
    instead use a proper content-type, eg [RFC7396].
 
-   The following PATCH request then doesn't convey the resource content-
-   type and cannot thus define a representation-data-digest.
+   In these cases, the representation-data-digest MUST be computed on
+   the action of the payload.
 
    The response instead can convey the representation-data-digest of the
    representation as long as it contains all the required representation
@@ -654,16 +651,19 @@ Internet-Draft               Digest Headers               September 2019
      {"id": "123", "title": "New Title"}
 
 
-   Notes for discussion, to be removed in the final PR.
+8.  Examples
 
-   o  If we do not interpret PATCH semantic as a representation
-      manipulation and see the patch document as a representation, we
-      could convey the patch document's Digest.
+8.1.  Unsolicited Digest response
 
-   o  If we further refine the patch semantic, we could use "Accept-*"
-      headers to convey the content-type and content-encoding used to
-      compute the representation-data-digest of the expected status of
-      the resource.
+8.1.1.  Representation data is fully contained in the payload
+
+
+
+
+
+
+
+
 
 
 
@@ -673,12 +673,6 @@ Polli & Pardue            Expires March 9, 2020                [Page 12]
 
 Internet-Draft               Digest Headers               September 2019
 
-
-8.  Examples
-
-8.1.  Unsolicited Digest response
-
-8.1.1.  Representation data is fully contained in the payload
 
    Request:
 
@@ -713,23 +707,6 @@ Internet-Draft               Digest Headers               September 2019
 8.1.3.  Representation data is partially contained in the payload i.e.
         range request
 
-
-
-
-
-
-
-
-
-
-
-
-
-Polli & Pardue            Expires March 9, 2020                [Page 13]
-
-Internet-Draft               Digest Headers               September 2019
-
-
    Request:
 
      GET /items/123
@@ -744,6 +721,13 @@ Internet-Draft               Digest Headers               September 2019
      Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
      "hello"
+
+
+
+
+Polli & Pardue            Expires March 9, 2020                [Page 13]
+
+Internet-Draft               Digest Headers               September 2019
 
 
 8.1.4.  Digest in both Request and Response.  Returned value depends on
@@ -779,14 +763,28 @@ Internet-Draft               Digest Headers               September 2019
       accidentally matches the unencoded digest-value sent in the
       request;
 
+   o  one taking into account the "Content-Encoding".
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Polli & Pardue            Expires March 9, 2020                [Page 14]
 
 Internet-Draft               Digest Headers               September 2019
 
-
-   o  one taking into account the "Content-Encoding".
 
 Request:
 
@@ -833,6 +831,8 @@ Response:
 
    The client requests a sha digest only.  The server is currently free
    to reply with a Digest containing an unsupported algorithm
+
+
 
 
 
