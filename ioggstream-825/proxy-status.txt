@@ -5,8 +5,8 @@
 HTTP Working Group                                         M. Nottingham
 Internet-Draft                                                    Fastly
 Intended status: Standards Track                               P. Sikora
-Expires: March 8, 2020                                            Google
-                                                       September 5, 2019
+Expires: March 9, 2020                                            Google
+                                                       September 6, 2019
 
 
                    The Proxy-Status HTTP Header Field
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on March 8, 2020.
+   This Internet-Draft will expire on March 9, 2020.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 1]
+Nottingham & Sikora       Expires March 9, 2020                 [Page 1]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -105,24 +105,23 @@ Table of Contents
      3.23. TLS Untrusted Peer Certificate  . . . . . . . . . . . . .  12
      3.24. TLS Expired Peer Certificate  . . . . . . . . . . . . . .  12
      3.25. TLS Unexpected Peer Certificate . . . . . . . . . . . . .  12
-     3.26. TLS Unexpected Peer Identity  . . . . . . . . . . . . . .  12
+     3.26. TLS Missing Proxy Certificate . . . . . . . . . . . . . .  13
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 2]
+Nottingham & Sikora       Expires March 9, 2020                 [Page 2]
 
 Internet-Draft                Proxy-Status                September 2019
 
 
-     3.27. TLS Missing Proxy Certificate . . . . . . . . . . . . . .  13
-     3.28. TLS Rejected Proxy Certificate  . . . . . . . . . . . . .  13
-     3.29. TLS Error . . . . . . . . . . . . . . . . . . . . . . . .  13
-     3.30. HTTP Request Error  . . . . . . . . . . . . . . . . . . .  13
-     3.31. HTTP Request Denied . . . . . . . . . . . . . . . . . . .  14
-     3.32. HTTP Upgrade Failed . . . . . . . . . . . . . . . . . . .  14
-     3.33. Proxy Internal Response . . . . . . . . . . . . . . . . .  14
-     3.34. Proxy Internal Error  . . . . . . . . . . . . . . . . . .  15
-     3.35. Proxy Loop Detected . . . . . . . . . . . . . . . . . . .  15
+     3.27. TLS Rejected Proxy Certificate  . . . . . . . . . . . . .  13
+     3.28. TLS Error . . . . . . . . . . . . . . . . . . . . . . . .  13
+     3.29. HTTP Request Error  . . . . . . . . . . . . . . . . . . .  13
+     3.30. HTTP Request Denied . . . . . . . . . . . . . . . . . . .  14
+     3.31. HTTP Upgrade Failed . . . . . . . . . . . . . . . . . . .  14
+     3.32. Proxy Internal Response . . . . . . . . . . . . . . . . .  14
+     3.33. Proxy Internal Error  . . . . . . . . . . . . . . . . . .  14
+     3.34. Proxy Loop Detected . . . . . . . . . . . . . . . . . . .  15
    4.  Defining New Proxy Status Types . . . . . . . . . . . . . . .  15
    5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  16
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
@@ -165,7 +164,8 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 3]
+
+Nottingham & Sikora       Expires March 9, 2020                 [Page 3]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -221,7 +221,7 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 4]
+Nottingham & Sikora       Expires March 9, 2020                 [Page 4]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -277,7 +277,7 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 5]
+Nottingham & Sikora       Expires March 9, 2020                 [Page 5]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -333,7 +333,7 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 6]
+Nottingham & Sikora       Expires March 9, 2020                 [Page 6]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -389,7 +389,7 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 7]
+Nottingham & Sikora       Expires March 9, 2020                 [Page 7]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -445,7 +445,7 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 8]
+Nottingham & Sikora       Expires March 9, 2020                 [Page 8]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -501,7 +501,7 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                 [Page 9]
+Nottingham & Sikora       Expires March 9, 2020                 [Page 9]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -557,7 +557,7 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                [Page 10]
+Nottingham & Sikora       Expires March 9, 2020                [Page 10]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -613,7 +613,7 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-Nottingham & Sikora       Expires March 8, 2020                [Page 11]
+Nottingham & Sikora       Expires March 9, 2020                [Page 11]
 
 Internet-Draft                Proxy-Status                September 2019
 
@@ -654,33 +654,27 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Extra Parameters:
 
-      *  details: a sh-string containing the checksum or SPKI of the
+      *  identity: a sh-string containing a comma-separated list of
+         Subject Alternative Names from the certificate received from
+         the next hop.
+
+      *  sha256: a sh-string containing the hex-encoded SHA-256 of the
          certificate received from the next hop.
+
+      *  spki: a sh-string containing the base64-encoded SHA-256 of the
+         Subject Public Key Info (SPKI) from the certificate received
+         from the next hop.
 
    o  Recommended HTTP status code: 502
 
-3.26.  TLS Unexpected Peer Identity
-
-   o  Name: tls_unexpected_peer_identity
-
-   o  Description: The intermediary received peer certificate with
-      unexpected identity (e.g., Subject Alternative Name doesn't match)
-      during TLS handshake with the next hop.
 
 
-
-Nottingham & Sikora       Expires March 8, 2020                [Page 12]
+Nottingham & Sikora       Expires March 9, 2020                [Page 12]
 
 Internet-Draft                Proxy-Status                September 2019
 
 
-   o  Extra Parameters:
-
-      *  details: a sh-string containing the identity of the next hop.
-
-   o  Recommended HTTP status code: 502
-
-3.27.  TLS Missing Proxy Certificate
+3.26.  TLS Missing Proxy Certificate
 
    o  Name: tls_missing_proxy_certificate
 
@@ -692,7 +686,7 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Recommended HTTP status code: 500
 
-3.28.  TLS Rejected Proxy Certificate
+3.27.  TLS Rejected Proxy Certificate
 
    o  Name: tls_rejected_proxy_certificate
 
@@ -703,7 +697,7 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Recommended HTTP status code: 500
 
-3.29.  TLS Error
+3.28.  TLS Error
 
    o  Name: tls_error
 
@@ -717,18 +711,9 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Recommended HTTP status code: 502
 
-3.30.  HTTP Request Error
+3.29.  HTTP Request Error
 
    o  Name: http_request_error
-
-
-
-
-
-Nottingham & Sikora       Expires March 8, 2020                [Page 13]
-
-Internet-Draft                Proxy-Status                September 2019
-
 
    o  Description: The intermediary is generating a client (4xx)
       response on the origin's behalf.  Applicable status codes include
@@ -737,11 +722,19 @@ Internet-Draft                Proxy-Status                September 2019
       between responses generated by intermediaries from those generated
       by the origin.
 
+
+
+
+Nottingham & Sikora       Expires March 9, 2020                [Page 13]
+
+Internet-Draft                Proxy-Status                September 2019
+
+
    o  Extra Parameters: None.
 
    o  Recommended HTTP status code: The applicable 4xx status code
 
-3.31.  HTTP Request Denied
+3.30.  HTTP Request Denied
 
    o  Name: http_request_denied
 
@@ -753,7 +746,7 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Recommended HTTP status code: 400
 
-3.32.  HTTP Upgrade Failed
+3.31.  HTTP Upgrade Failed
 
    o  Name: http_upgrade_failed
 
@@ -764,7 +757,7 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Recommended HTTP status code: 502
 
-3.33.  Proxy Internal Response
+3.32.  Proxy Internal Response
 
    o  Name: proxy_internal_response
 
@@ -776,17 +769,7 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Recommended HTTP status code:
 
-
-
-
-
-
-Nottingham & Sikora       Expires March 8, 2020                [Page 14]
-
-Internet-Draft                Proxy-Status                September 2019
-
-
-3.34.  Proxy Internal Error
+3.33.  Proxy Internal Error
 
    o  Name: proxy_internal_error
 
@@ -795,12 +778,20 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Extra Parameters:
 
+
+
+
+Nottingham & Sikora       Expires March 9, 2020                [Page 14]
+
+Internet-Draft                Proxy-Status                September 2019
+
+
       *  details: a sh-string containing details about the error
          condition.
 
    o  Recommended HTTP status code: 500
 
-3.35.  Proxy Loop Detected
+3.34.  Proxy Loop Detected
 
    o  Name: proxy_loop_detected
 
@@ -833,15 +824,6 @@ Internet-Draft                Proxy-Status                September 2019
 
    Registration requests should use the following template:
 
-
-
-
-
-Nottingham & Sikora       Expires March 8, 2020                [Page 15]
-
-Internet-Draft                Proxy-Status                September 2019
-
-
    o  Name: [a name for the Proxy Status Type that is allowable as a sh-
       param-list key]
 
@@ -850,6 +832,15 @@ Internet-Draft                Proxy-Status                September 2019
 
    o  Extra Parameters: [zero or more optional parameters, typed using
       one of the types available in sh-item]
+
+
+
+
+
+Nottingham & Sikora       Expires March 9, 2020                [Page 15]
+
+Internet-Draft                Proxy-Status                September 2019
+
 
    o  Recommended HTTP status code: [the appropriate HTTP status code
       for this entry]
@@ -890,14 +881,6 @@ Internet-Draft                Proxy-Status                September 2019
               draft-ietf-httpbis-header-structure-13 (work in progress),
               August 2019.
 
-
-
-
-Nottingham & Sikora       Expires March 8, 2020                [Page 16]
-
-Internet-Draft                Proxy-Status                September 2019
-
-
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -907,6 +890,13 @@ Internet-Draft                Proxy-Status                September 2019
               "Transport Layer Security (TLS) Application-Layer Protocol
               Negotiation Extension", RFC 7301, DOI 10.17487/RFC7301,
               July 2014, <https://www.rfc-editor.org/info/rfc7301>.
+
+
+
+Nottingham & Sikora       Expires March 9, 2020                [Page 16]
+
+Internet-Draft                Proxy-Status                September 2019
+
 
    [RFC8126]  Cotton, M., Leiba, B., and T. Narten, "Guidelines for
               Writing an IANA Considerations Section in RFCs", BCP 26,
@@ -942,18 +932,6 @@ Internet-Draft                Proxy-Status                September 2019
 
 Authors' Addresses
 
-
-
-
-
-
-
-
-Nottingham & Sikora       Expires March 8, 2020                [Page 17]
-
-Internet-Draft                Proxy-Status                September 2019
-
-
    Mark Nottingham
    Fastly
 
@@ -971,38 +949,4 @@ Internet-Draft                Proxy-Status                September 2019
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Nottingham & Sikora       Expires March 8, 2020                [Page 18]
+Nottingham & Sikora       Expires March 9, 2020                [Page 17]
