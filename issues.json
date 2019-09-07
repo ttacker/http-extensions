@@ -1,6 +1,299 @@
 [
 
   {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/927",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/927/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/927/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/927/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/927",
+    "id": 490600325,
+    "node_id": "MDU6SXNzdWU0OTA2MDAzMjU=",
+    "number": 927,
+    "title": "digest: unnumbered section (appendix) needs to be last",
+    "user": {
+      "login": "reschke",
+      "id": 332994,
+      "node_id": "MDQ6VXNlcjMzMjk5NA==",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/332994?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/reschke",
+      "html_url": "https://github.com/reschke",
+      "followers_url": "https://api.github.com/users/reschke/followers",
+      "following_url": "https://api.github.com/users/reschke/following{/other_user}",
+      "gists_url": "https://api.github.com/users/reschke/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/reschke/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/reschke/subscriptions",
+      "organizations_url": "https://api.github.com/users/reschke/orgs",
+      "repos_url": "https://api.github.com/users/reschke/repos",
+      "events_url": "https://api.github.com/users/reschke/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/reschke/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-09-07T06:46:27Z",
+    "updated_at": "2019-09-07T18:46:49Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "~~~\r\nWarning: Numbered sections are not permitted after unnumbered sections: found section \"Changes\" without attribute numbered=\"no\"\r\nWarning: Numbered sections are not permitted after unnumbered sections: found section \"Changes\" without attribute numbered=\"no\"\r\n~~~\r\n\r\nEither move \"Changes\" before \"Acknowledgements\", or make it unnumbered."
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/926",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/926/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/926/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/926/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/926",
+    "id": 490266834,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzE0OTA1MTY2",
+    "number": 926,
+    "title": "Fix: #925. Example with PUT+204.",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-09-06T11:02:48Z",
+    "updated_at": "2019-09-06T11:39:44Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/926",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/926",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/926.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/926.patch"
+    },
+    "body": "## This PR\r\n\r\nAdds an example with PUT + 204 No Content.\r\n\r\nResponse contains a Digest computed on the selected representation.\r\n\r\nRelated to #853\r\nFixes #925 "
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/925",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/925/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/925/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/925/events",
+    "html_url": "https://github.com/httpwg/http-extensions/issues/925",
+    "id": 490262915,
+    "node_id": "MDU6SXNzdWU0OTAyNjI5MTU=",
+    "number": 925,
+    "title": "Add example with PUT + 204",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-09-06T10:52:50Z",
+    "updated_at": "2019-09-06T11:13:14Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "body": "## I expect\r\n\r\nan example digest of PUT  + 204\r\n\r\n## Note \r\n\r\nPUT without complete representation\r\nIf PUT returns 204 it may return a Digest header, provided that the response contains all the required representation metadata.\r\n\r\n```\r\nPUT /books/123 HTTP/1.1\r\nContent-Type: application/json\r\n\r\n{\"id\": \"123\", \"title\": \"Foo\"}\r\n\r\n---\r\n\r\nHTTP/1.1 204 No Content\r\nContent-Type: application/json\r\nDigest: sha256=TtjhvKObwiGt3XI75TExBCKFSkySLPWqQptGn190rMQ=\r\n```"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/924",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/924/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/924/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/924/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/924",
+    "id": 490255513,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzE0ODk1ODMw",
+    "number": 924,
+    "title": "Fixing typos",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-09-06T10:33:59Z",
+    "updated_at": "2019-09-06T10:49:08Z",
+    "closed_at": "2019-09-06T10:49:07Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/924",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/924",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/924.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/924.patch"
+    },
+    "body": "## This PR\r\n\r\n- removes trailing spaces\r\n- links rfcs"
+  },
+  {
+    "url": "https://api.github.com/repos/httpwg/http-extensions/issues/923",
+    "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
+    "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/923/labels{/name}",
+    "comments_url": "https://api.github.com/repos/httpwg/http-extensions/issues/923/comments",
+    "events_url": "https://api.github.com/repos/httpwg/http-extensions/issues/923/events",
+    "html_url": "https://github.com/httpwg/http-extensions/pull/923",
+    "id": 490235033,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzE0ODc5MTI1",
+    "number": 923,
+    "title": "[WIP] Fix #853. Use when acting on resources",
+    "user": {
+      "login": "ioggstream",
+      "id": 1140844,
+      "node_id": "MDQ6VXNlcjExNDA4NDQ=",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1140844?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ioggstream",
+      "html_url": "https://github.com/ioggstream",
+      "followers_url": "https://api.github.com/users/ioggstream/followers",
+      "following_url": "https://api.github.com/users/ioggstream/following{/other_user}",
+      "gists_url": "https://api.github.com/users/ioggstream/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/ioggstream/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/ioggstream/subscriptions",
+      "organizations_url": "https://api.github.com/users/ioggstream/orgs",
+      "repos_url": "https://api.github.com/users/ioggstream/repos",
+      "events_url": "https://api.github.com/users/ioggstream/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/ioggstream/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+      {
+        "id": 1434097433,
+        "node_id": "MDU6TGFiZWwxNDM0MDk3NDMz",
+        "url": "https://api.github.com/repos/httpwg/http-extensions/labels/digest-headers",
+        "name": "digest-headers",
+        "color": "fbca04",
+        "default": false
+      }
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-09-06T09:47:28Z",
+    "updated_at": "2019-09-07T18:48:48Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/923",
+      "html_url": "https://github.com/httpwg/http-extensions/pull/923",
+      "diff_url": "https://github.com/httpwg/http-extensions/pull/923.diff",
+      "patch_url": "https://github.com/httpwg/http-extensions/pull/923.patch"
+    },
+    "body": "## This PR\r\n\r\nClarifies the relations b/w Digest,  PATCH and POST:\r\n\r\n- PATCH and POST does not convey partial representations;\r\n- they instead specify actions on resources\r\n- Digest should refer to the representation-data of the action"
+  },
+  {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/922",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
     "labels_url": "https://api.github.com/repos/httpwg/http-extensions/issues/922/labels{/name}",
@@ -1500,7 +1793,10 @@
     "closed_at": "2019-08-26T01:55:09Z",
     "author_association": "MEMBER",
     "body": "... is fuzzy. Needs more precision.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/897",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -1797,10 +2093,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/893.patch"
     },
     "body": "Fixes #848 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/892",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -1966,7 +2259,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-08-09T09:40:13Z",
-    "updated_at": "2019-08-18T08:46:23Z",
+    "updated_at": "2019-09-06T10:26:11Z",
     "closed_at": "2019-08-18T08:46:23Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -3227,7 +3520,10 @@
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "It would be awesome if this could relate directly to [SRI](https://w3c.github.io/webappsec-subresource-integrity/).  Ideally, if SRI uses the same hash function, the value in the `Digest` header field is the same."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/867",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -3519,10 +3815,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/862.patch"
     },
     "body": "Closes #700\r\n\r\n@mnot - can you take a look?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/861",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -4079,9 +4372,9 @@
 
     ],
     "milestone": null,
-    "comments": 11,
+    "comments": 15,
     "created_at": "2019-07-10T09:53:46Z",
-    "updated_at": "2019-09-06T08:21:33Z",
+    "updated_at": "2019-09-06T11:05:57Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "## About PATCH\r\n\r\n1- `PATCH` is not in http 723x\r\n2- `PATCH` media type should be something like https://tools.ietf.org/html/rfc7396 because \r\nservers SHOULD NOT assume PATCH semantics for generic\r\n   media types that don't define them, such as \"application/xml\" or\r\n   \"application/json\".  Doing so will cause interoperability issues,\r\n   because the semantics of PATCH become specific to that resource,\r\n   rather than general.\r\n3- it's difficult to use patch + checksums, like @LPardue said\r\n\r\n## As of now we\r\n\r\n1- warn people about PATCH+Digest\r\n2- don't forbid PATCH+Digest\r\n\r\n## Notes\r\n\r\n-  it could be useful to validate the PATCH request body before applying it to the resource\r\n- guidance of the usage of Digest+PATCH is welcome to confirm  if the current expression of Digest support that use."
@@ -4917,7 +5210,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-03T11:01:11Z",
-    "updated_at": "2019-07-03T11:05:44Z",
+    "updated_at": "2019-09-06T10:26:25Z",
     "closed_at": "2019-07-03T11:05:44Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -4981,7 +5274,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/837.patch"
     },
     "body": "## This PR\r\n\r\nremoves citations from abstract."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/836",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5292,10 +5588,7 @@
     "closed_at": "2019-09-05T15:49:55Z",
     "author_association": "CONTRIBUTOR",
     "body": "## Question\r\n\r\nShould we update the FIPS180 reference to the latest one?\r\n\r\n## Context\r\n\r\nNIST updated the document defining SHA-* algoritms.\r\n\r\nThe latest reference is\r\n\r\n```\r\n  FIPS180-4:\r\n    title: NIST FIPS 180-4, Secure Hash Standard\r\n    author:\r\n      name: NIST\r\n      ins: National Institute of Standards and Technology, U.S. Department of Commerce\r\n    date: 2015-08\r\n    target: https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf\r\n```\r\n\r\ndigest-headers references preserve the ones cited in RFC3230 and subsequent."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/831",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -5655,7 +5948,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -5664,8 +5957,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-07-03T08:36:30Z",
-    "updated_at": "2019-09-05T16:06:04Z",
-    "closed_at": null,
+    "updated_at": "2019-09-06T10:23:48Z",
+    "closed_at": "2019-09-06T10:23:47Z",
     "author_association": "CONTRIBUTOR",
     "pull_request": {
       "url": "https://api.github.com/repos/httpwg/http-extensions/pulls/826",
@@ -5673,7 +5966,7 @@
       "diff_url": "https://github.com/httpwg/http-extensions/pull/826.diff",
       "patch_url": "https://github.com/httpwg/http-extensions/pull/826.patch"
     },
-    "body": "## This PR\r\n\r\n- [x] adds post-00 sections as per SUBMITTING.md\r\n"
+    "body": "## This PR\r\n\r\n- [x] adds post-00 sections as per SUBMITTING.md\r\n\r\nFixes #825"
   },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/825",
@@ -5716,7 +6009,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -5725,8 +6018,8 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2019-07-03T08:33:36Z",
-    "updated_at": "2019-09-05T13:38:09Z",
-    "closed_at": null,
+    "updated_at": "2019-09-06T10:23:47Z",
+    "closed_at": "2019-09-06T10:23:47Z",
     "author_association": "CONTRIBUTOR",
     "body": "## I expect\r\n\r\nthe draft after the -00  to contain the following section\r\n\r\n```\r\n# Changes\r\n\r\n_RFC Editor: Please remove this section before publication._\r\n\r\n\r\n## Since draft-ietf-httpbis-digest-headers-00\r\n\r\n```"
   },
@@ -6743,7 +7036,10 @@
     "closed_at": "2019-07-03T04:20:22Z",
     "author_association": "CONTRIBUTOR",
     "body": "This is proposal to add `Proxy Internal Response` type that could be used to indicate that the response was generated by the intermediary (since we don't have any type that could be used in such case).\r\n\r\n* Name: proxy_internal_response\r\n* Description: The intermediary generated the response locally, without attempting to connect to the next hop (e.g. in response to a request to a debug endpoint terminated at the intermediary).\r\n* Extra Parameters: None.\r\n* Recommended HTTP status code:\r\n\r\nPR: #806 \r\n\r\ncc @mnot "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/806",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -7022,10 +7318,7 @@
     "closed_at": "2019-07-03T04:11:59Z",
     "author_association": "CONTRIBUTOR",
     "body": "We should standardize on the format and naming of node identifiers, since right now they are in different format in each draft.\r\n\r\nFrom [draft-ietf-httpbis-cache-header](https://tools.ietf.org/html/draft-ietf-httpbis-cache-header):\r\n```\r\no  \"node\" - a string identifying for the cache node.  MAY be a\r\n   hostname, IP address, or alias.\r\n```\r\n\r\nFrom [draft-ietf-httpbis-proxy-status](https://httpwg.org/http-extensions/draft-ietf-httpbis-proxy-status.html):\r\n```\r\n* proxy - a sh-token identifying the HTTP intermediary generating this response.\r\n```\r\n\r\nFrom [RFC7239 (Forwarded HTTP Extension)](https://tools.ietf.org/html/rfc7239):\r\n```\r\no  \"by\" identifies the user-agent facing interface of the proxy.\r\n```\r\n```\r\nThe node identifier is one of the following:\r\n\r\no  The client's IP address, with an optional port number\r\n\r\no  A token indicating that the IP address of the client is not known\r\n   to the proxy server\r\n\r\no  A generated token, allowing for tracing and debugging, while\r\n   allowing the internal structure or sensitive information to be\r\n   hidden\r\n\r\nThe node identifier is defined by the ABNF syntax as:\r\n\r\n    node     = nodename [ \":\" node-port ]\r\n    nodename = IPv4address / \"[\" IPv6address \"]\" /\r\n                \"unknown\" / obfnode\r\n\r\n    IPv4address = <Defined in [RFC3986], Section 3.2.2>\r\n    IPv6address = <Defined in [RFC3986], Section 3.2.2>\r\n    obfnode = \"_\" 1*( ALPHA / DIGIT / \".\" / \"_\" / \"-\")\r\n\r\n    node-port     = port / obfport\r\n    port          = 1*5DIGIT\r\n    obfport       = \"_\" 1*(ALPHA / DIGIT / \".\" / \"_\" / \"-\")\r\n\r\n    DIGIT = <Defined in [RFC5234], Section 3.4>\r\n    ALPHA = <Defined in [RFC5234], Section B.1>\r\n```\r\n\r\ncc @mnot"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/801",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -8459,7 +8752,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/777.patch"
     },
     "body": "Cache-Status seems to better describe the information this header carries\r\nand is potentially less confusing. It also seems more consistent with other\r\nCache-related headers (e.g. Cache-Control).\r\n\r\nFWIW, some variants of *-Cache-Control are also somewhat popular in the\r\nwild, e.g. the NGINX caching guide [0] uses X-Cache-Status and Cloudflare\r\nuses CF-Cache-Control (though I'm not sure popularity matters much, since\r\neither way servers will need to be updated).\r\n\r\n[0] https://www.nginx.com/blog/nginx-caching-guide/\r\n\r\n---\r\n\r\n@mnot As proposed a while ago on the mailing list https://lists.w3.org/Archives/Public/ietf-http-wg/2018JulSep/0318.html Happy to discuss this more in Prague."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/776",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -8738,10 +9034,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/772.patch"
     },
     "body": "HTTP/2 blocked renegotiation for a number of reasons. Among other\r\nproblems, as this document notes in section 1.2.3, there is no defined\r\nway to correlate application-visible renegotiation events\r\n(CertificateRequest) with HTTP/2 requests. In essence, the prohibition\r\nis a reflection of TLS+renegotiation being the wrong API shape for\r\nHTTP/2 (and most protocols).\r\n\r\nTLS 1.3 removed renegotiation, but added post-handshake client\r\nauthentication to replace some of renegotiation's use cases. This\r\nretains the problems above. However, with the feature renamed,\r\nRFC7540's prohibition no longer applies and we're stuck with an\r\nincompatibility between RFC8446 and RFC7540.\r\n\r\nPost-handshake authentication is optional in TLS 1.3 and advertised with\r\nan extension, but this is not sufficient. Most HTTP/2 clients are also\r\nHTTP/1.1 clients and TLS parameters are negotiated in parallel. An\r\nHTTP/1.1+HTTP/2 client that advertises the extension for HTTP/1.1 (see\r\nsection 1.2.2 of this document) also advertises it for HTTP/2.\r\n\r\nBy a strict composition of the existing specification text,\r\nHTTP/2-capable clients cannot offer post-handshake authentication to\r\nHTTP/1.1 servers.\r\n\r\nIn reality, existing HTTP/2 servers won't use this mechanism because no\r\none has defined a request correlation. Thus we can fix all this by\r\nclarifying that TLS 1.3 post-handshake auth is forbidden whether or not\r\nthe client offered it.\r\n\r\nIf some future use case comes up, it can define an overriding extension\r\nwith a correlation mechanism. It would already need to do so, because\r\nexisting clients wouldn't know about the correlation. This is unlikely\r\nto happen anyway because this document *is* that use case, and it\r\nalready defines a separate mechanism."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/771",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -10100,7 +10393,10 @@
     "closed_at": "2019-01-10T01:39:08Z",
     "author_association": "CONTRIBUTOR",
     "body": "We're looking at shipping a version of Signed Exchanges (https://github.com/WICG/webpackage/issues/350; designed to expect more changes in the future, of course) that uses the draft `Variants` header. In https://tools.ietf.org/html/draft-thomson-http-mice-03#page-4, we specify that implementations of the MICE draft use digests named `mi-sha256-##`, so `mi-sha256-03` for draft-03. Variants does not yet specify anything like this, which introduces a risk that we'll unintentionally introduce uses of the current draft into the wild, which could make it harder to change in the future.\r\n\r\nI'll send a PR to suggest that draft implementations use HTTP headers named `Variants-05` and `Variant-Key-05` later this week, if you don't mind."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/746",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -10388,10 +10684,7 @@
     "closed_at": "2019-01-10T00:17:08Z",
     "author_association": "CONTRIBUTOR",
     "body": "https://httpwg.org/http-extensions/draft-ietf-httpbis-header-structure.html#token defines a structured-header token as something different from an [HTTP token](https://tools.ietf.org/html/rfc7230#section-3.2.6). Formally, this is fine, since SH defines `sh-token`, while HTTP defines `token`, but I almost missed the difference as a reader. It'd be nice if the text mentioned it."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/741",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -11877,7 +12170,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "<sup>(@mnot requested a new issue during Thursday's httpbis meeting at IETF 103)</sup>\r\n\r\n#549 suggests the idea of an algorithm to to key the cache on a cookie by name. \r\n\r\nOne consideration in this specification should be the use case where some value in a cookie can override server Accept behaviours. As a known use case, websites that offer multiple languages may allow a user to set a cookie which determines which language. When that value is not present in a cookie, the server falls back to using Accept-Language or some other alternate.\r\n\r\nI think this specification should perhaps make some clarity over Cookies doing this kind of override, even if it may fit into the Vary section (as servers implementing this probably are using `Vary: Cookie`)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/716",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -12175,10 +12471,7 @@
     "closed_at": "2019-04-25T19:40:02Z",
     "author_association": "CONTRIBUTOR",
     "body": "The specification says that there are two flags but only one is defined.\r\n\r\n~~~\r\nThe CERTIFICATE frame defines two flags:\r\n\r\nTO_BE_CONTINUED (0x01):\r\n    Indicates that the exported authenticator spans more than one frame.\r\n\r\n  0                   1                   2                   3\r\n  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1\r\n +-------------------------------+-------------------------------+\r\n |          Cert-ID (16)         |   Authenticator Fragment (*)...\r\n +---------------------------------------------------------------+\r\n\r\nFigure 11: CERTIFICATE frame payload\r\n~~~\r\n\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/711",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -13659,7 +13952,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "See https://github.com/w3c/preload/issues/114.\r\n\r\nIt seems like Early Hints could potentially violate policies. Or perhaps 1xx responses need to be recommended to also include CSP policies?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/686",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -13933,10 +14229,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/682.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/681",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -15321,7 +15614,10 @@
     "closed_at": "2018-08-19T05:57:05Z",
     "author_association": "MEMBER",
     "body": "SH should specify how two headers should be combined by parsers (acknowledging that upstream may have already combined them, in a different fashion)."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/656",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -15622,10 +15918,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/652.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/651",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -17406,7 +17699,10 @@
     "closed_at": "2018-06-05T11:54:58Z",
     "author_association": "MEMBER",
     "body": "I've started sketching out a feature that intends to deliver a structured header as part of an HTTP request, and I find myself doing a little more hand-waving than I'd like in step 6 of https://mikewest.github.io/sec-metadata/#abstract-opdef-set-the-sec-metadata-header-for-a-request.\r\n\r\nThe end of https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-04#section-1 suggests that:\r\n\r\n>   Those abstract types can be serialised into textual headers - such as those used in HTTP/1 and HTTP/2 - using the algorithms described in Section 3.\r\n\r\nSection 3, however, seems to be the opposite: parsing a string into a Structured Header. I don't actually see a serialization algorithm in the document. Each type hints at how it might be serialized, but it would be nice to have an algorithm to point to."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/626",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -17756,10 +18052,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/622.patch"
     },
     "body": "As discussed on the list."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/621",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -19327,7 +19620,10 @@
     "closed_at": "2018-06-28T07:17:20Z",
     "author_association": "MEMBER",
     "body": "The prose defines precise ranges for numbers (explicitly for integers, implicitly for floats), yet the algorithm doesn't yet enforce them."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/596",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -19601,10 +19897,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/592.patch"
     },
     "body": "According to RFC 7231, Section 8.3.1.\r\n\r\nI didn't include anything here about Vary because I wanted to discuss that first and these seemed uncontroversial.  It seems OK to say that Vary is permitted here because we expressly talk about varied reactions based on the presence of Early-Data.  If that's right, I will amend this with a second commit.  (I'm jetlagged, so being a little cautious.)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/591",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -21183,7 +21476,10 @@
     "closed_at": "2018-04-11T23:39:30Z",
     "author_association": "MEMBER",
     "body": "Explain the pitfalls of OPTIONS."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/566",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -21480,10 +21776,7 @@
     "closed_at": "2018-04-13T17:14:43Z",
     "author_association": "CONTRIBUTOR",
     "body": "5 paragraphs is probably too much.  We should check to see if anything needs to be salvaged and then shorten to:\r\n\r\nA use of TLS exported authenticators is described that enables HTTP/2 clients and servers to offer additional certificate-based credentials after the connection is established.  The means by which these credentials are use with requests is defined."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/561",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -22955,7 +23248,10 @@
     "closed_at": "2018-04-02T05:57:00Z",
     "author_association": "CONTRIBUTOR",
     "body": "I noticed the structured headers proposal strictly ignores UTF-8, because it's not used much. The recommendation is to use the binary format instead.\r\n\r\nI thought that [RFC8187](https://tools.ietf.org/html/rfc8187) was fairly good for this.\r\n\r\nI can see structured-headers to be a super useful generic way to describe new standard and proprietary headers, but ignoring UTF-8 means we're limited in what categories of data probably unsafe for the purpose of a header.\r\n\r\nIs there a possibility to merge the syntax of RFC8187? It's true that it might not be used as much in practice, but it might expand the potential use-cases. Furthermore, as an implementor I don't have to worry about what someone might encode. The binary format doesn't quite cut it, because it doens't provide a hint as to how a generic client might decode it.  "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/536",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -23230,10 +23526,7 @@
     "closed_at": "2018-04-02T05:12:50Z",
     "author_association": "MEMBER",
     "body": "one thing that came up at the WHATWG Bar BoF was the possibility of referencing Fetch as one way to specify how a client should behave."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/531",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -24872,7 +25165,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/507.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/506",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -25236,10 +25532,7 @@
     "closed_at": "2018-03-29T23:57:00Z",
     "author_association": "MEMBER",
     "body": "- multiple implementations\r\n- multiple instances\r\n- multiple versions\r\n\r\nall co-existing"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/501",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -26768,7 +27061,10 @@
     "closed_at": "2018-04-02T06:32:28Z",
     "author_association": "MEMBER",
     "body": "In particular, the relationship between 2119 requirements, ABNF and algorithms."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/476",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -27057,10 +27353,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/472.patch"
     },
     "body": "The counts forgot to include the initial required member.\r\n\r\nThe parsing algorithm also doesn't enforce any bounds on the number of items, but I haven't fixed that here."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/471",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -28684,7 +28977,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/447.patch"
     },
     "body": "Fixes #445."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/446",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -29016,10 +29312,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/442.patch"
     },
     "body": "In response to review by @vasilvv."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/441",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -30882,7 +31175,10 @@
     "closed_at": "2018-02-26T21:16:01Z",
     "author_association": "NONE",
     "body": "From an operational perspective, site operators need to be able to distinguish if Expect-CT failure  caused access to the site to be denied. In any organisation of non-trivial size it's likely that there will be a mixture of sites with report-only and enforcing policies. Thus, not all reports are equal. A failure of enforcing Expect-CT needs to be treated with urgency and perhaps an immediate action. Failures of report-only policies are not urgent and can be reviewed from time to time during normal working hours."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/416",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -31246,10 +31542,7 @@
     "closed_at": "2018-01-30T00:38:53Z",
     "author_association": "MEMBER",
     "body": "Should we allow splitting common structure data over multiple headers ?\r\n\r\nPro:\r\n\r\nAvoids size restrictions, easier on-the-fly editing\r\n\r\nContra:\r\n\r\nCannot act on any such header until all headers have been received.\r\n\r\nWe must define where headers can be split (between identifier and dictionary ?, in the middle of\r\ndictionaries ?)\r\n\r\nMost on-the-fly editing is hackish at best.\r\n\r\n_from the draft_"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/411",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -32935,7 +33228,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/387.patch"
     },
     "body": "...not just the wildcard ones."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/386",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -33330,10 +33626,7 @@
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "body": "https://lists.w3.org/Archives/Public/ietf-http-wg/2017JulSep/0263.html\r\n\r\nSome editorial feedback:\r\n\r\n1) ABNF list rule reference has wrong section \r\n(https://github.com/httpwg/http-extensions/pull/376)\r\n\r\n2) Throughout s/header/header field/\r\n\r\n3) \r\n<https://www.greenbytes.de/tech/webdav/draft-ietf-httpbis-cache-digest-02.html#rfc.section.5.p.4>:\r\n\r\n\"TODO: discuss how effective the suggested mitigations actually would be.\"\r\n\r\n4) Please avoid lowercase BCP 14 keywords such as \"may\", or invoke \r\n<https://tools.ietf.org/html/rfc8174>\r\n\r\nBest regards, Julian"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/381",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -34996,7 +35289,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/357.patch"
     },
     "body": "This is a PR that essentially rebases the change proposed in #319.\r\n\r\nTo me the change proposed by @royfielding is a clear improvement. I believe that we should merge this."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/356",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -35289,10 +35585,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/352.patch"
     },
     "body": "The header needs to be registered if it's going to appear in an RFC.\r\n\r\nLooking at 7540, I think the frame type needs to be registered as well, since \"Experimental Use\" is private / local only."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/351",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -37247,7 +37540,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/327.patch"
     },
     "body": "This changes Expect-CT to be a comma-separated list of directives (which may be\r\nname=value pairs), and adds some examples.\r\n\r\nAlso allows the server to send multiple header fields so that they can be\r\ncombined, as per\r\nhttps://github.com/httpwg/http-extensions/issues/318#issuecomment-294369176\r\n\r\nFixes issue #318, #321 "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/326",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -37520,10 +37816,7 @@
     "closed_at": "2017-04-14T21:50:51Z",
     "author_association": "NONE",
     "body": "Should the `Expect CT` header also have a `includeSubDomains` directive?\r\n\r\nIn the same way that [Strict-Transport-Security](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security) and [Public-Key-Pins](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Public-Key-Pins) has this feature."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/321",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39051,7 +39344,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/297.patch"
     },
     "body": "For git tracking purposes, even though I'm uploading directly to Datatracker as well."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/296",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -39414,10 +39710,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/292.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/291",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -40923,7 +41216,10 @@
     "closed_at": "2017-03-03T04:09:29Z",
     "author_association": "MEMBER",
     "body": "In working on RFC5988bis, I'm referring to this spec, and finding it's difficult to talk about the concepts, because so much has been pared back.\r\n\r\nIn particular:\r\n\r\n* [ ] There isn't any prose reference to the \"*\" form of the attribute name; it only occurs in examples. One would assume that this is the normative way to invoke this encoding, but it isn't specified.\r\n* [ ] A distinct name for the encoding would help; right now, the best I can do is \"the encoding specified in RFC5987bis\".\r\n* [ ] The examples of how to use this in header specifications needs to be deeper."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/266",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -41212,10 +41508,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/262.patch"
     },
     "body": "I tried to make this work, but @mcmanus is right: this is entirely a transport decision and given that our best option was to violate a MUST in RFC 7230, that's too hard.  This just says that HTTP/1.1 is no good because we can't include the scheme (because RFC 7230 says we can't).  I almost made this h2-specific, but then remembered that there might be another protocol that has favourable properties."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/261",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -42764,7 +43057,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/237.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/236",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -43039,10 +43335,7 @@
     "closed_at": "2018-04-03T23:40:25Z",
     "author_association": "MEMBER",
     "body": "Some sort of syntax to denote that if a match is made, stop processing, to allow control over permutations.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/231",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -44737,7 +45030,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/207.patch"
     },
     "body": "This probably isn't the end of this issue though.  We require that an opportunistic upgrade uses the same hostname.  The text I added here lifts the requirement regarding port numbers, but should it also say that the hostname needs to remain the same?\n\nI've left this open here, but I think that we probably should leave the hostname requirement in place.  That way, we still retain some of the aspects of http:// authority.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/206",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -45076,10 +45372,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/202.patch"
     },
     "body": "Updates based on Magnus Westerlund's review.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/201",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -46501,7 +46794,10 @@
     "closed_at": "2016-10-11T05:51:08Z",
     "author_association": "CONTRIBUTOR",
     "body": "During the discussion of the Secondary Certs work, Nick S. raised the point that it would be interesting to be able to inform the client about dependent domains which are also served by this server as the server returns content that references it.  In order to do this incrementally, an ORIGIN frame would need to be additive -- each successive frame augmenting the client's list of allowed domains.  However, we still need to support the original case, scoping it down.\n\nI'd suggest changing the semantics to be additive and defining a flag whose presence/absence means that the existing list (initially inferred from the certificate) be discarded before processing this frame.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/176",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -46774,10 +47070,7 @@
     "closed_at": "2016-05-10T06:02:15Z",
     "author_association": "CONTRIBUTOR",
     "body": "Unless there are security problems with hash collisions, it would be better to use a non-cryptographic hash.  Not only is this much faster, but it removes a need to migrate when SHA256 becomes weak and needs to be retired.  If we stick with SHA256 due to security properties, a crypto hash negotiation scheme may be required in the frame.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/171",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -48176,7 +48469,10 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/147.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/146",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -48448,10 +48744,7 @@
       "patch_url": "https://github.com/httpwg/http-extensions/pull/142.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/141",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -49898,7 +50191,10 @@
     "closed_at": "2015-11-09T17:15:39Z",
     "author_association": "NONE",
     "body": "https://tools.ietf.org/html/draft-ietf-httpbis-alt-svc-08#section-3.1\n\n```\nFor example, a response:\n\n HTTP/1.1 200 OK\n Content-Type: text/html\n Cache-Control: 600\n Age: 30\n Alt-Svc: h2c=\":8000\"; ma=60\n```\n\nMissing `max-age=` in `Cache-Control` header?\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/116",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -50197,10 +50493,7 @@
     "closed_at": "2015-11-11T04:48:40Z",
     "author_association": "MEMBER",
     "body": "See:\n  https://github.com/mnot/I-D/issues/138\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/111",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -51687,7 +51980,10 @@
     "closed_at": "2015-09-02T07:21:24Z",
     "author_association": "CONTRIBUTOR",
     "body": "Should we say what an alt-svc header field means when received over HTTP/2? Does it mean anything? Does it override a previously received alt-svc frame?\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/86",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -52004,10 +52300,7 @@
     "closed_at": "2015-06-29T02:24:09Z",
     "author_association": "MEMBER",
     "body": "Is 451 cacheable by default? I suspect so.\n\nSee:\n  http://httpwg.github.io/specs/rfc7231.html#overview.of.status.codes\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/81",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -53565,7 +53858,10 @@
     "closed_at": "2015-04-27T16:12:16Z",
     "author_association": "CONTRIBUTOR",
     "body": "Apparently, this is confusing.  Picking a new name might help.\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/56",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -53907,10 +54203,7 @@
     "closed_at": "2015-04-30T15:09:59Z",
     "author_association": "CONTRIBUTOR",
     "body": "The spec currently doesn't use BCP14 which MAY or MAY NOT confuse people.\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/51",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -55400,7 +55693,10 @@
     "closed_at": "2014-08-19T18:31:54Z",
     "author_association": "MEMBER",
     "body": "Section 3 third para ends:\n\n> For instance, a client could examine the certificate to see if it has changed over time.\n\nThis implies that certs SHOULD NOT change over time; as it is, though, they can't rely upon that, so this text is highly speculative. I think we should either firm it up or take it out (probably the latter).\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/26",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
@@ -55696,10 +55992,7 @@
     "closed_at": "2014-12-16T00:17:38Z",
     "author_association": "CONTRIBUTOR",
     "body": "HTTP-TLS creates a commitment to use an authenticated connection.  We need to make it clear that changes to Alt-Svc, even on that connection cannot change the fact that the origin needs to be authenticated for the duration of the commitment.\n\nOne potential attack here is for a MitM to advertise a different Alt-Svc, perhaps overriding the advertisement for the secured endpoint.  A naive implementation might update the set of available Alt-Svc advertisements and then continue.  What should happen here is that the service becomes unreachable. \n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/21",
     "repository_url": "https://api.github.com/repos/httpwg/http-extensions",
