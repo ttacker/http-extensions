@@ -134,11 +134,10 @@ Internet-Draft               Digest Headers               September 2019
      10.1.  Normative References . . . . . . . . . . . . . . . . . .  19
      10.2.  Informative References . . . . . . . . . . . . . . . . .  21
      10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  21
-   Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  22
-   Appendix B.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  22
+   Appendix A.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  22
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  23
    Changes . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  23
-     D.1.  Since draft-ietf-httpbis-digest-headers-00  . . . . . . .  23
+     C.1.  Since draft-ietf-httpbis-digest-headers-00  . . . . . . .  23
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  23
 
 1.  Introduction
@@ -162,6 +161,7 @@ Internet-Draft               Digest Headers               September 2019
 
    o  provide additional protection against failures or attack (see
       [SRI]).
+
 
 
 
@@ -1180,11 +1180,7 @@ Internet-Draft               Digest Headers               September 2019
 
    [9] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
-Appendix A.  Change Log
-
-   RFC EDITOR PLEASE DELETE THIS SECTION.
-
-Appendix B.  FAQ
+Appendix A.  FAQ
 
    1.  Why remove all references to content-md5?
 
@@ -1227,14 +1223,16 @@ Appendix B.  FAQ
        This RFC seems to me completely unrelated to Digest
        Authentication but for the word "Digest".
 
+   6.  What changes in "Want-Digest"?
+
+
+
 
 
 Polli & Pardue           Expires March 25, 2020                [Page 22]
 
 Internet-Draft               Digest Headers               September 2019
 
-
-   6.  What changes in "Want-Digest"?
 
        We allow to use the "Want-Digest" in responses to advertise the
        supported digest-algorithms and the inability to accept requests
@@ -1259,7 +1257,7 @@ Changes
 
    _RFC Editor: Please remove this section before publication._
 
-D.1.  Since draft-ietf-httpbis-digest-headers-00
+C.1.  Since draft-ietf-httpbis-digest-headers-00
 
    o  Align title with document name
 
@@ -1281,6 +1279,8 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
+
+
 
 
 
