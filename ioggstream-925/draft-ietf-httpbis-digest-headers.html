@@ -435,7 +435,7 @@ Response:
 
   iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
 
-</pre></div></div></section><section id="digest-in-both-request-and-response-representation-data-is-not-contained-in-the-response-payload"><h4 id="rfc.section.7.1.5"><a href="#rfc.section.7.1.5">7.1.5.</a> <a href="#digest-in-both-request-and-response-representation-data-is-not-contained-in-the-response-payload">Digest in both Request and Response. Representation data is not contained in the response payload</a></h4><div id="rfc.section.7.1.5.p.1"><p>Returned <span class="tt">Digest</span> value depends on the representation metadata header fields, even when the response does not contain a payload body.</p></div><div id="rfc.section.7.1.5.p.2" class="avoidbreakafter"><p>Request:</p></div><div id="rfc.figure.u.18"><div><pre>
+</pre></div></div></section><section id="digest-in-both-request-and-response-representation-data-is-not-contained-in-the-response-payload"><h4 id="rfc.section.7.1.5"><a href="#rfc.section.7.1.5">7.1.5.</a> <a href="#digest-in-both-request-and-response-representation-data-is-not-contained-in-the-response-payload">Digest in both Request and Response. Representation data is not contained in the response payload</a></h4><div id="rfc.section.7.1.5.p.1"><p>Request <span class="tt">Digest</span> value is calculated on the enclosed payload. Returned <span class="tt">Digest</span> value depends on the representation metadata header fields, even when the response does not contain a payload body.</p></div><div id="rfc.section.7.1.5.p.2" class="avoidbreakafter"><p>Request:</p></div><div id="rfc.figure.u.18"><div><pre>
   PUT /items/123
   Content-Type: application/json
   Content-Encoding: identity
@@ -443,13 +443,11 @@ Response:
   Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
   {"hello": "world"}
-
 </pre></div></div><div id="rfc.section.7.1.5.p.3" class="avoidbreakafter"><p>Response:</p></div><div id="rfc.figure.u.19"><div><pre>
   HTTP/1.1 204 No Content
   Content-Type: application/json
   Content-Encoding: br
   Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
-
 </pre></div></div></section><section id="digest-in-both-request-and-response-response-uses-id-sha-256"><h4 id="rfc.section.7.1.6"><a href="#rfc.section.7.1.6">7.1.6.</a> <a href="#digest-in-both-request-and-response-response-uses-id-sha-256">Digest in both Request and Response. Response uses id-sha-256.</a></h4><div id="rfc.section.7.1.6.p.1" class="avoidbreakafter"><p>The response contains two digest values:</p></div><div id="rfc.section.7.1.6.p.2"><ul><li>one with no content coding applied, which in this case accidentally matches the unencoded digest-value sent in the request;</li><li>one taking into account the <span class="tt">Content-Encoding</span>.</li></ul></div><div id="rfc.figure.u.20"><div><pre>
 Request:
 
