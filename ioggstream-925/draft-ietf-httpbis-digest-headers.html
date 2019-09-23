@@ -419,7 +419,6 @@ Response:
 </pre></div></div></section><section id="digest-in-both-request-and-response-returned-value-depends-on-representation-metadata"><h4 id="rfc.section.7.1.4"><a href="#rfc.section.7.1.4">7.1.4.</a> <a href="#digest-in-both-request-and-response-returned-value-depends-on-representation-metadata">Digest in both Request and Response. Returned value depends on representation metadata</a></h4><div id="rfc.section.7.1.4.p.1"><p>Digest can be used in requests too. Returned value depends on the representation metadata header fields.</p></div><div id="rfc.figure.u.17"><div><pre>
 Request:
 
-
   PUT /items/123
   Content-Type: application/json
   Content-Encoding: identity
@@ -427,7 +426,6 @@ Request:
   Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
   {"hello": "world"}
-
 
 Response:
 

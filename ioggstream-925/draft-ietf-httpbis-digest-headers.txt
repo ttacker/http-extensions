@@ -98,7 +98,7 @@ Table of Contents
        7.1.4.  Digest in both Request and Response. Returned value
                depends on representation metadata  . . . . . . . . .  13
        7.1.5.  Digest in both Request and Response. Representation
-               data is not contained in the response payload . . . .  14
+               data is not contained in the response payload . . . .  13
        7.1.6.  Digest in both Request and Response. Response uses
                id-sha-256. . . . . . . . . . . . . . . . . . . . . .  14
      7.2.  Want-Digest solicited digest responses  . . . . . . . . .  15
@@ -114,30 +114,30 @@ Polli & Pardue           Expires March 26, 2020                 [Page 2]
 Internet-Draft               Digest Headers               September 2019
 
 
-               MAY reply with a 400  . . . . . . . . . . . . . . . .  16
+               MAY reply with a 400  . . . . . . . . . . . . . . . .  15
    8.  Security Considerations . . . . . . . . . . . . . . . . . . .  16
      8.1.  Digest does not protect the full HTTP message . . . . . .  16
-     8.2.  Broken cryptographic algorithms . . . . . . . . . . . . .  17
-     8.3.  Digest for end-to-end integrity . . . . . . . . . . . . .  17
+     8.2.  Broken cryptographic algorithms . . . . . . . . . . . . .  16
+     8.3.  Digest for end-to-end integrity . . . . . . . . . . . . .  16
      8.4.  Usage in signatures . . . . . . . . . . . . . . . . . . .  17
-     8.5.  Message Truncation  . . . . . . . . . . . . . . . . . . .  18
-     8.6.  Algorithm Agility . . . . . . . . . . . . . . . . . . . .  18
-   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  18
-     9.1.  Establish the HTTP Digest Algorithm Values  . . . . . . .  18
-     9.2.  The "status" field in the HTTP Digest Algorithm Values  .  18
+     8.5.  Message Truncation  . . . . . . . . . . . . . . . . . . .  17
+     8.6.  Algorithm Agility . . . . . . . . . . . . . . . . . . . .  17
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  17
+     9.1.  Establish the HTTP Digest Algorithm Values  . . . . . . .  17
+     9.2.  The "status" field in the HTTP Digest Algorithm Values  .  17
      9.3.  Deprecate "MD5" Digest Algorithm  . . . . . . . . . . . .  18
      9.4.  Obsolete "SHA" Digest Algorithm . . . . . . . . . . . . .  18
-     9.5.  The "ID-SHA-256" Digest Algorithm . . . . . . . . . . . .  19
-     9.6.  The "ID-SHA-512" Digest Algorithm . . . . . . . . . . . .  19
+     9.5.  The "ID-SHA-256" Digest Algorithm . . . . . . . . . . . .  18
+     9.6.  The "ID-SHA-512" Digest Algorithm . . . . . . . . . . . .  18
      9.7.  Changes compared to RFC5843 . . . . . . . . . . . . . . .  19
      9.8.  Want-Digest Header Field Registration . . . . . . . . . .  19
-     9.9.  Digest Header Field Registration  . . . . . . . . . . . .  20
-   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  20
+     9.9.  Digest Header Field Registration  . . . . . . . . . . . .  19
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
      10.1.  Normative References . . . . . . . . . . . . . . . . . .  20
      10.2.  Informative References . . . . . . . . . . . . . . . . .  22
      10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  22
-   Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  23
-   Appendix B.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  23
+   Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  22
+   Appendix B.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  22
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  24
    Changes . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  24
      D.1.  Since draft-ietf-httpbis-digest-headers-00  . . . . . . .  24
@@ -698,7 +698,6 @@ Internet-Draft               Digest Headers               September 2019
 
    Request:
 
-
      PUT /items/123
      Content-Type: application/json
      Content-Encoding: identity
@@ -706,7 +705,6 @@ Internet-Draft               Digest Headers               September 2019
      Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
      {"hello": "world"}
-
 
    Response:
 
@@ -717,19 +715,6 @@ Internet-Draft               Digest Headers               September 2019
      iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
 
 
-
-
-
-
-
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 13]
-
-Internet-Draft               Digest Headers               September 2019
-
-
 7.1.5.  Digest in both Request and Response.  Representation data is not
         contained in the response payload
 
@@ -737,6 +722,13 @@ Internet-Draft               Digest Headers               September 2019
    fields, even when the response does not contain a payload body.
 
    Request:
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 13]
+
+Internet-Draft               Digest Headers               September 2019
+
 
      PUT /items/123
      Content-Type: application/json
@@ -765,27 +757,6 @@ Internet-Draft               Digest Headers               September 2019
 
    o  one taking into account the "Content-Encoding".
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 14]
-
-Internet-Draft               Digest Headers               September 2019
-
-
 Request:
 
   PUT /items/123
@@ -803,6 +774,16 @@ Response:
   Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=, id-sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
   iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
+
+
+
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 14]
+
+Internet-Draft               Digest Headers               September 2019
 
 
 7.2.  Want-Digest solicited digest responses
@@ -832,16 +813,6 @@ Response:
    The client requests a sha digest only.  The server is currently free
    to reply with a Digest containing an unsupported algorithm
 
-
-
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 15]
-
-Internet-Draft               Digest Headers               September 2019
-
-
 Request:
 
   GET /items/123
@@ -861,6 +832,15 @@ Response:
 
    The client requests a sha Digest, the server advises for sha-256 and
    sha-512
+
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 15]
+
+Internet-Draft               Digest Headers               September 2019
+
 
    Request:
 
@@ -887,17 +867,6 @@ Response:
    "Digest" together with a transport-layer security mechanism and
    digital signatures.
 
-
-
-
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 16]
-
-Internet-Draft               Digest Headers               September 2019
-
-
 8.2.  Broken cryptographic algorithms
 
    Cryptogrphic alorithms are intended to provide a proof of integrity
@@ -921,6 +890,14 @@ Internet-Draft               Digest Headers               September 2019
    allow piecing together a resource from different sources (e.g.
    different servers that perhaps apply different content codings)
    enabling the user-agent to detect that the application-layer tasks
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 16]
+
+Internet-Draft               Digest Headers               September 2019
+
+
    completed properly, before handing off to say the HTML parser, video
    player etc.
 
@@ -942,17 +919,6 @@ Internet-Draft               Digest Headers               September 2019
 
    A "Digest" header field using NOT RECOMMENDED digest-algorithms
    SHOULD NOT be used in signatures.
-
-
-
-
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 17]
-
-Internet-Draft               Digest Headers               September 2019
-
 
 8.5.  Message Truncation
 
@@ -979,6 +945,15 @@ Internet-Draft               Digest Headers               September 2019
       or "deprecated" according to the type and status of the primary
       document in which the algorithm is defined.
 
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 17]
+
+Internet-Draft               Digest Headers               September 2019
+
+
 9.3.  Deprecate "MD5" Digest Algorithm
 
    This memo updates the "MD5" digest algorithm in the HTTP Digest
@@ -1001,15 +976,6 @@ Internet-Draft               Digest Headers               September 2019
 
    o  Status: As specified in Section 3.
 
-
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 18]
-
-Internet-Draft               Digest Headers               September 2019
-
-
 9.5.  The "ID-SHA-256" Digest Algorithm
 
    This memo registers the "ID-SHA-256" digest algorithm in the HTTP
@@ -1031,6 +997,18 @@ Internet-Draft               Digest Headers               September 2019
    o  Description: As specified in Section 3.
 
    o  Status: As specified in Section 3.
+
+
+
+
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 18]
+
+Internet-Draft               Digest Headers               September 2019
+
 
 9.7.  Changes compared to RFC5843
 
@@ -1058,14 +1036,6 @@ Internet-Draft               Digest Headers               September 2019
 
    Author/Change controller: IETF
 
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 19]
-
-Internet-Draft               Digest Headers               September 2019
-
-
    Specification document(s): Section 4.1 of this document
 
 9.9.  Digest Header Field Registration
@@ -1084,6 +1054,17 @@ Internet-Draft               Digest Headers               September 2019
    Specification document(s): Section 4.2 of this document
 
 10.  References
+
+
+
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 19]
+
+Internet-Draft               Digest Headers               September 2019
+
 
 10.1.  Normative References
 
@@ -1113,15 +1094,6 @@ Internet-Draft               Digest Headers               September 2019
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
-
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 20]
-
-Internet-Draft               Digest Headers               September 2019
-
-
    [RFC3174]  Eastlake 3rd, D. and P. Jones, "US Secure Hash Algorithm 1
               (SHA1)", RFC 3174, DOI 10.17487/RFC3174, September 2001,
               <https://www.rfc-editor.org/info/rfc3174>.
@@ -1138,6 +1110,17 @@ Internet-Draft               Digest Headers               September 2019
    [RFC4648]  Josefsson, S., "The Base16, Base32, and Base64 Data
               Encodings", RFC 4648, DOI 10.17487/RFC4648, October 2006,
               <https://www.rfc-editor.org/info/rfc4648>.
+
+
+
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 20]
+
+Internet-Draft               Digest Headers               September 2019
+
 
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
@@ -1167,17 +1150,6 @@ Internet-Draft               Digest Headers               September 2019
               DOI 10.17487/RFC7231, June 2014,
               <https://www.rfc-editor.org/info/rfc7231>.
 
-
-
-
-
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 21]
-
-Internet-Draft               Digest Headers               September 2019
-
-
    [RFC7233]  Fielding, R., Ed., Lafon, Y., Ed., and J. Reschke, Ed.,
               "Hypertext Transfer Protocol (HTTP/1.1): Range Requests",
               RFC 7233, DOI 10.17487/RFC7233, June 2014,
@@ -1193,6 +1165,18 @@ Internet-Draft               Digest Headers               September 2019
 
    [UNIX]     The Open Group, "The Single UNIX Specification, Version 2
               - 6 Vol Set for UNIX 98", February 1997.
+
+
+
+
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 21]
+
+Internet-Draft               Digest Headers               September 2019
+
 
 10.2.  Informative References
 
@@ -1227,13 +1211,6 @@ Internet-Draft               Digest Headers               September 2019
 
    [8] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 22]
-
-Internet-Draft               Digest Headers               September 2019
-
-
    [9] https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml
 
 Appendix A.  Change Log
@@ -1247,6 +1224,15 @@ Appendix B.  FAQ
        Those were unnecessary to understanding and using this spec.
 
    2.  Why remove references to instance manipulation?
+
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 22]
+
+Internet-Draft               Digest Headers               September 2019
+
 
        Those were unnecessary for correctly using and applying the spec.
        An example with Range Request is more than enough.  This doc uses
@@ -1283,13 +1269,6 @@ Appendix B.  FAQ
        This RFC seems to me completely unrelated to Digest
        Authentication but for the word "Digest".
 
-
-
-Polli & Pardue           Expires March 26, 2020                [Page 23]
-
-Internet-Draft               Digest Headers               September 2019
-
-
    6.  What changes in "Want-Digest"?
 
        We allow to use the "Want-Digest" in responses to advertise the
@@ -1302,6 +1281,14 @@ Internet-Draft               Digest Headers               September 2019
        algorithms updates, and adds two more algorithms: ID-SHA-256 and
        ID-SHA-512 which allows to send a checksum of a resource
        representation with no content codings applied.
+
+
+
+
+Polli & Pardue           Expires March 26, 2020                [Page 23]
+
+Internet-Draft               Digest Headers               September 2019
+
 
 Acknowledgements
 
@@ -1337,6 +1324,19 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
