@@ -531,7 +531,7 @@ Internet-Draft         Structured Headers for HTTP        September 2019
 3.6.  Strings
 
    Strings are zero or more printable ASCII [RFC0020] characters (i.e.,
-   the range 0x20 to 0x7E).  Note that this excludes tabs, newlines,
+   the range %x20 to %x7E).  Note that this excludes tabs, newlines,
    carriage returns, etc.
 
    The ABNF for strings in textual HTTP headers is:
@@ -899,8 +899,8 @@ Internet-Draft         Structured Headers for HTTP        September 2019
 
 
    1.  If input_string is not a sequence of characters, or contains
-       characters outside the range %x00-1f or %x7f (i.e., is not in
-       VCHAR or SP), fail serialisation.
+       characters in the range %x00-1f or %x7f (i.e., is not in VCHAR or
+       SP), fail serialisation.
 
    2.  Let output be an empty string.
 
@@ -1723,13 +1723,13 @@ D.1.  Since draft-ietf-httpbis-header-structure-13
    o  Define "structured header name" and "structured header value"
       terms (#908).
 
+   o  Corrected text about valid characters in strings (#931).
+
 D.2.  Since draft-ietf-httpbis-header-structure-12
 
    o  Editorial improvements.
 
    o  Reworked float serialisation (#896).
-
-   o  Don't add a trailing space in inner-list (#904).
 
 
 
@@ -1737,6 +1737,8 @@ Nottingham & Kamp        Expires March 26, 2020                [Page 31]
 
 Internet-Draft         Structured Headers for HTTP        September 2019
 
+
+   o  Don't add a trailing space in inner-list (#904).
 
 D.3.  Since draft-ietf-httpbis-header-structure-11
 
@@ -1785,14 +1787,14 @@ D.6.  Since draft-ietf-httpbis-header-structure-08
 
    o  Use "?" instead of "!" to indicate a Boolean (#719).
 
-   o  Added "Intentionally Strict Processing" (#684).
-
 
 
 Nottingham & Kamp        Expires March 26, 2020                [Page 32]
 
 Internet-Draft         Structured Headers for HTTP        September 2019
 
+
+   o  Added "Intentionally Strict Processing" (#684).
 
    o  Gave better names for referring specs to use in Parameterised
       Lists (#720).
@@ -1839,8 +1841,6 @@ D.9.  Since draft-ietf-httpbis-header-structure-05
 
    o  Define serialisation algorithms.
 
-   o  Refine relationship between ABNF, parsing and serialisation
-      algorithms.
 
 
 
@@ -1849,6 +1849,9 @@ Nottingham & Kamp        Expires March 26, 2020                [Page 33]
 
 Internet-Draft         Structured Headers for HTTP        September 2019
 
+
+   o  Refine relationship between ABNF, parsing and serialisation
+      algorithms.
 
 D.10.  Since draft-ietf-httpbis-header-structure-04
 
@@ -1894,9 +1897,6 @@ D.14.  Since draft-ietf-httpbis-header-structure-00
       unicode-string.
 
    o  Change h1_blob delimiter to ":" since "'" is valid t_char
-
-
-
 
 
 
