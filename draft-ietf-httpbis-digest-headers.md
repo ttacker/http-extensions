@@ -29,7 +29,6 @@ normative:
   RFC3174:
   RFC3230:
   RFC2119:
-  RFC5789:
   RFC5843:
   RFC4648:
   RFC5234:
@@ -511,6 +510,109 @@ to collision attacks [CMU-836068].
 The SHA algorithm is NOT RECOMMENDED as it's now vulnerable
 to collision attacks [IACR-2019-459].
 
+# Use of Digest when acting on resources {#acting-on-resources}
+
+POST and PATCH requests may appear to convey partial representations
+but are semantically acting on resources.
+The enclosed representation, including its metadata refers to that action.
+
+In these cases the representation digest MUST be computed on
+the representation-data of that action.
+
+This is the only possible choice because representation digest
+requires complete representation metadata (see {{representation-digest}}).
+
+The response to such requests MAY convey the representation digest either:
+
+- of the primary resource created in case of `201 Created`
+- or of the modified resource
+
+according to the resource's own semantics.
+
+In those cases, the resource MUST be identified by
+the `Location` or `Content-Location` header field.
+
+
+## Digest and POST
+
+A POST request processes the enclosed representation according to
+the resource's specific semantic.
+
+As described in {{acting-on-resources}}, the representation digest is then computed:
+ 
+- for the request, on the enclosed representation;
+- for the response, on the primary resource created or modified, which
+  is referenced by the `Location`
+  or `Content-Location` header field value. 
+
+Request:
+
+~~~
+POST /books HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: identity
+Digest: sha-256=bWopGGNiZtbVgHsG+I4knzfEJpmmmQHf7RHDXA3o1hQ=
+
+{"title": "New Title"}
+~~~
+
+
+Response
+
+~~~
+HTTP/1.1 201 Created
+Content-Type: application/json
+Digest: id-sha-256=BZlF2v0IzjuxN01RQ97EUXriaNNLhtI8Chx8Eq+XYSc=
+Location: /books/123
+
+{"id": "123", "title": "New Title"}
+~~~
+
+
+## Digest and PATCH
+
+In a PATCH request, the representation metadata refers
+to the patch document and not to the target resource (see Section 2 of {{?RFC5789}}).
+
+This makes `Digest` usage with PATCH very similar to the POST one,
+where the resource's own semantic is partly implied by the method and by the patch document.
+
+The following example shows a PATCH request:
+
+- using an appropriate content-type defined in {{?RFC7396}};
+- with the representation digest of the enclosing payload.
+
+The response contains the representation digest
+of the patched resource together with the complete
+resource representation.
+
+Request:
+
+~~~
+PATCH /books/123 HTTP/1.1
+Content-Type: application/merge-patch+json
+Accept: application/json
+Accept-Encoding: identity
+Digest: sha-256=bWopGGNiZtbVgHsG+I4knzfEJpmmmQHf7RHDXA3o1hQ=
+
+{"title": "New Title"}
+~~~
+
+
+Response
+
+~~~
+HTTP/1.1 200 OK
+Content-Type: application/json
+Digest: id-sha-256=BZlF2v0IzjuxN01RQ97EUXriaNNLhtI8Chx8Eq+XYSc=
+
+{"id": "123", "title": "New Title"}
+~~~
+
+Note that a `202 No Content` response without a payload body but with the same `Digest` header
+field value would have been legitimate too.
+
 # Examples
 
 
@@ -795,7 +897,6 @@ integrity at transport layer that protects HTTP header fields.
 
 A `Digest` header field using NOT RECOMMENDED digest-algorithms SHOULD NOT be used in signatures.
 
-
 ## Message Truncation
 
 ...
@@ -931,15 +1032,7 @@ Specification document(s):  {{digest-header}} of this document
 
 3. How to use `Digest` with `PATCH` method?
 
-   The PATCH verb brings some complexities (eg. about representation metadata header fields, patch document format, ...),
-
-   - PATCH entity-headers apply to the patch document and MUST NOT be applied to the target resource,
-     see [RFC5789], Section 2.
-   - servers shouldn't assume PATCH semantics for generic media types like "application/json" but should
-     instead use a proper content-type, eg [RFC7396]
-   - a `200 OK` response to a PATCH request would contain the digest of the patched item, and the etag of the new object.
-     This behavior - tighly coupled to the application logic - gives the client low probability of guessing the actual
-     outcome of this operation (eg. concurrent changes, ...)
+   See {{acting-on-resources}}.
 
 4. Why remove references to delta-encoding?
 
@@ -961,6 +1054,29 @@ Specification document(s):  {{digest-header}} of this document
    This RFC updates [RFC5843] which is still delegated for all algorithms updates,
    and adds two more algorithms: ID-SHA-256 and ID-SHA-512 which allows to
    send a checksum of a resource representation with no content codings applied.
+
+8. How can I test digest output? Use the following python3 function.
+
+~~~
+# python3 function
+import base64, json, hashlib, brotli
+
+def digest(item, encoding=lambda x:x, algorithm=hashlib.sha256):
+    return base64.encodebytes(algorithm(encoding(json.dumps(item).encode())).digest()).strip()
+
+item = {"hello": "world"}
+print("Identity encoding, sha256", digest(item))
+
+# Out: Identity encoding, sha256 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
+
+print("Brotli encoding, sha256", digest(item, encoding=brotli.compress))
+
+# Out: Brotli encoding, sha256 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
+
+print("Identity encoding, sha512", digest(dict(hello='world'), algorithm=hashlib.sha512)
+
+# Out: Identity encoding, sha512 b'WZDPaVn/7XgHaAy8pmojAkGWoRx2UFChF41A2svX+TaPm+AbwAgBWnrIiYllu7BNNyealdVLvRwE\nmTHWXvJwew==\n'
+~~~
 
 # Acknowledgements
 {:numbered="false"}
