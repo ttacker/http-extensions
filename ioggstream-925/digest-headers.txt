@@ -720,8 +720,8 @@ Internet-Draft               Digest Headers               September 2019
 
    Request "Digest" value is calculated on the enclosed payload.
    Response "Digest" value depends on the representation metadata header
-   fields, even when the response does not contain a payload body.
-
+   fields, including "Content-Encoding: br" even when the response does
+   not contain a payload body.
 
 
 
