@@ -747,6 +747,7 @@ Internet-Draft               Digest Headers               September 2019
      Content-Encoding: br
      Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
 
+
 7.1.6.  Digest in both Request and Response.  Response uses id-sha-256.
 
    The response contains two digest values:
@@ -774,7 +775,6 @@ Response:
   Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=, id-sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
   iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
-
 
 
 

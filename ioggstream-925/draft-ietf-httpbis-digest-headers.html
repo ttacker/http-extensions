@@ -448,6 +448,7 @@ Response:
   Content-Type: application/json
   Content-Encoding: br
   Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
+
 </pre></div></div></section><section id="digest-in-both-request-and-response-response-uses-id-sha-256"><h4 id="rfc.section.7.1.6"><a href="#rfc.section.7.1.6">7.1.6.</a> <a href="#digest-in-both-request-and-response-response-uses-id-sha-256">Digest in both Request and Response. Response uses id-sha-256.</a></h4><div id="rfc.section.7.1.6.p.1" class="avoidbreakafter"><p>The response contains two digest values:</p></div><div id="rfc.section.7.1.6.p.2"><ul><li>one with no content coding applied, which in this case accidentally matches the unencoded digest-value sent in the request;</li><li>one taking into account the <span class="tt">Content-Encoding</span>.</li></ul></div><div id="rfc.figure.u.20"><div><pre>
 Request:
 
