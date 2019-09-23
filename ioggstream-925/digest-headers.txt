@@ -735,6 +735,7 @@ Internet-Draft               Digest Headers               September 2019
      PUT /items/123
      Content-Type: application/json
      Content-Encoding: identity
+     Content-Length: 18
      Accept-Encoding: br
      Digest: sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
@@ -775,7 +776,6 @@ Response:
   Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=, id-sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
   iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
-
 
 
 
