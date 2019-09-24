@@ -581,7 +581,7 @@ where the resource's own semantic is partly implied by the method and by the pat
 The following example shows a PATCH request:
 
 - using an appropriate content-type defined in {{?RFC7396}};
-- with the representation digest of the enclosing payload.
+- with the representation digest of the enclosed payload.
 
 The response contains the representation digest
 of the patched resource together with the complete
