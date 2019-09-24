@@ -301,7 +301,7 @@ Content-Type: application/json
 Response:
 
 ~~~
-HTTP/1.1 201 OK
+HTTP/1.1 201 Created
 Content-Type: application/json
 Content-Location: /books/123
 
