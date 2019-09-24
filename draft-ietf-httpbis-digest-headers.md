@@ -213,10 +213,10 @@ should decouple the checksum calculation:
 
 - from the payload body - which may be altered by mechanism like Range Requests [RFC7233] or the method (eg. HEAD);
 
-- and from the message body - which depends on `Transfer-Encoding` and whatever tranformations
+- and from the message body - which depends on `Transfer-Encoding` and whatever transformations
 the intermediaries may apply.
 
-The following examples show how representation metadata, payload tranformations and method
+The following examples show how representation metadata, payload transformations and method
 impacts on the message and payload body.
 
 Here is a gzip-compressed json object
@@ -284,6 +284,29 @@ Content-Encoding: gzip
 
 ~~~
 
+Finally the HTTP semantics may decouple the request target
+from the enclosed representation in a response - in this
+case via the `Content-Location` metadata header field.
+
+Request:
+
+~~~
+POST /books/ HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{"author": "Camilleri"}
+~~~
+
+Response:
+
+~~~
+HTTP/1.1 201 OK
+Content-Type: application/json
+Content-Location: /books/123
+
+{"id": "123", "author": "Camilleri"}
+~~~
 
 # Digest Algorithm values {#algorithms}
 
@@ -469,7 +492,9 @@ The Digest header field provides a digest of the representation data.
 - or not at all contained in the message body.
 
 The resource is specified by the effective
-Request-URI and any cache-validator contained in the message.
+Request-URI,
+the HTTP semantics of the message
+and any cache-validator contained in the message.
 
 For example, in a response to a HEAD request, the digest is calculated using  the
 representation data that would have been enclosed in the payload body
