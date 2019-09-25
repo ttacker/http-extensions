@@ -284,9 +284,12 @@ Content-Encoding: gzip
 
 ~~~
 
-Finally the HTTP semantics may decouple the request target
-from the enclosed representation in a response - in this
-case via the `Content-Location` metadata header field.
+Finally the semantics of an HTTP response may decouple
+the effective request URI
+from the enclosed representation.
+In the example below, the `Content-Location` metadata header field
+explicits that the representation enclosed in the response
+refers to the resource available at `/books/123`.
 
 Request:
 
@@ -304,6 +307,7 @@ Response:
 HTTP/1.1 201 Created
 Content-Type: application/json
 Content-Location: /books/123
+Location: /books/123
 
 {"id": "123", "author": "Camilleri"}
 ~~~
@@ -450,8 +454,8 @@ The following headers are defined
 ## Want-Digest {#want-digest-header}
 
 The Want-Digest message header field indicates the sender's desire to
-receive a representation digest on messages associated with the Request-
-URI and representation metadata.
+receive a representation digest on messages associated with
+the request URI and representation metadata.
 
 ~~~
    Want-Digest = "Want-Digest" ":" OWS 1#want-digest-value
@@ -491,10 +495,10 @@ The Digest header field provides a digest of the representation data.
 - partially-contained in the message body,
 - or not at all contained in the message body.
 
-The resource is specified by the effective
-Request-URI,
-the HTTP semantics of the message
-and any cache-validator contained in the message.
+The resource is specified by
+the effective request URI,
+the HTTP semantics
+and any cache validator contained in the message.
 
 For example, in a response to a HEAD request, the digest is calculated using  the
 representation data that would have been enclosed in the payload body
