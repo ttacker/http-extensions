@@ -809,15 +809,28 @@ before handing off to say the HTML parser, video player etc.
 
 Even a simple mechanism for end-to-end validation is thus valuable.
 
-## Usage in signatures
+## Digest and Content-Location in responses {#digest-and-content-location}
+
+When a state-changing method returns the `Content-Location` metadata header field,
+the enclosed representation refers to the resource identified by its value
+and `Digest` is computed accordingly.
+
+It's important to note though that this claim cannot be trusted
+unless it can be verified by other means (see Section 3.1.4.1 and 3.1.4.2 of [RFC7231]).
+A malicious intermediary may add a `Content-Location` header field referencing an external resource
+thus asserting that the enclosed representation and its `Digest` refers to it.
+
+## Usage in signatures {#usage-in-signatures}
 
 Digital signatures are widely used together with checksums to provide
 the certain identification of the origin of a message [NIST800-32].
 
 It's important to note that, being the `Digest` header field an hash of a resource representation,
 signing only the `Digest` header field, without all the `representation metatada` (eg.
-the values of `Content-Type` and `Content-Encoding`) may expose the communication
+the values of `Content-Type`, `Content-Encoding` and `Content-Location`) may expose the communication
 to tampering.
+
+See also {{digest-and-content-location}}.
 
 `Digest` SHOULD always be used over a connection which provides
 integrity at transport layer that protects HTTP header fields.
