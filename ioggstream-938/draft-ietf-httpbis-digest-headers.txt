@@ -1300,13 +1300,12 @@ Code samples
    How can I generate and validate the Digest values shown in the
    examples throughout this document?
 
-   The following python3 script can be used to generate digests for json
+   The following python3 code can be used to generate digests for json
    objects using SHA algorithms for a range of encodings.  Note that
    these are formatted as base64.  This function could be adapted to
    other algorithms and should take into account their specific
    formatting rules.
 
-# python3 function
 import base64, json, hashlib, brotli
 
 
@@ -1338,6 +1337,7 @@ D.1.  Since draft-ietf-httpbis-digest-headers-00
 
    o  Add id-sha-* algorithm examples
 
+   o  Reference [RFC6234] and [RFC3174] instead of FIPS-1
 
 
 
@@ -1345,8 +1345,6 @@ Polli & Pardue           Expires March 28, 2020                [Page 24]
 
 Internet-Draft               Digest Headers               September 2019
 
-
-   o  Reference [RFC6234] and [RFC3174] instead of FIPS-1
 
    o  Deprecate MD5
 
@@ -1362,6 +1360,8 @@ Authors' Addresses
    Cloudflare
 
    Email: lucaspardue.24.7@gmail.com
+
+
 
 
 
