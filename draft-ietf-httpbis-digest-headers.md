@@ -495,20 +495,7 @@ Two examples of its use are
    Digest: id-sha-512=WZDPaVn/7XgHaAy8pmojAkGWoRx2UFChF41A2svX+TaPm+AbwAgBWnrIiYllu7BNNyealdVLvRwE\nmTHWXvJwew==
    Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=, id-sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 ~~~
-...
 
-# Deprecate Negotiation of Content-MD5
-
-This RFC deprecates the negotiation of Content-MD5 as
-it has been obsoleted by [RFC7231]
-
-# Broken cryptographic algorithms
-
-The MD5 algorithm MUST NOT be used as it's now vulnerable
-to collision attacks [CMU-836068].
-
-The SHA algorithm is NOT RECOMMENDED as it's now vulnerable
-to collision attacks [IACR-2019-459].
 
 # Use of Digest when acting on resources {#acting-on-resources}
 
@@ -516,59 +503,21 @@ POST and PATCH requests may appear to convey partial representations
 but are semantically acting on resources.
 The enclosed representation, including its metadata refers to that action.
 
-In these cases the representation digest MUST be computed on
+In these requests the representation digest MUST be computed on
 the representation-data of that action.
 
 This is the only possible choice because representation digest
 requires complete representation metadata (see {{representation-digest}}).
 
-The response to such requests MAY convey the representation digest either:
+In responses,
 
-- of the primary resource created in case of `201 Created`
-- or of the modified resource
-
-according to the resource's own semantics.
-
-In those cases, the resource MUST be identified by
-the `Location` or `Content-Location` header field.
-
-
-## Digest and POST
-
-A POST request processes the enclosed representation according to
-the resource's specific semantic.
-
-As described in {{acting-on-resources}}, the representation digest is then computed:
- 
-- for the request, on the enclosed representation;
-- for the response, on the primary resource created or modified, which
-  is referenced by the `Location`
-  or `Content-Location` header field value. 
-
-Request:
-
-~~~
-POST /books HTTP/1.1
-Content-Type: application/json
-Accept: application/json
-Accept-Encoding: identity
-Digest: sha-256=bWopGGNiZtbVgHsG+I4knzfEJpmmmQHf7RHDXA3o1hQ=
-
-{"title": "New Title"}
-~~~
-
-
-Response
-
-~~~
-HTTP/1.1 201 Created
-Content-Type: application/json
-Digest: id-sha-256=BZlF2v0IzjuxN01RQ97EUXriaNNLhtI8Chx8Eq+XYSc=
-Location: /books/123
-
-{"id": "123", "title": "New Title"}
-~~~
-
+- if the representation describes the status of the request,
+  `Digest` MUST be computed on the enclosed representation;
+- if the referenced resource target is different from the effective request URI
+  `Digest` MUST be computed on the referenced resource.
+  
+The latter case might be done accordingly to the HTTP semantics of the given method,
+for example using the `Content-Location` or the `Location` header fields.
 
 ## Digest and PATCH
 
@@ -600,7 +549,7 @@ Digest: sha-256=bWopGGNiZtbVgHsG+I4knzfEJpmmmQHf7RHDXA3o1hQ=
 ~~~
 
 
-Response
+Response:
 
 ~~~
 HTTP/1.1 200 OK
@@ -612,6 +561,20 @@ Digest: id-sha-256=BZlF2v0IzjuxN01RQ97EUXriaNNLhtI8Chx8Eq+XYSc=
 
 Note that a `202 No Content` response without a payload body but with the same `Digest` header
 field value would have been legitimate too.
+
+
+# Deprecate Negotiation of Content-MD5
+
+This RFC deprecates the negotiation of Content-MD5 as
+it has been obsoleted by [RFC7231]
+
+# Broken cryptographic algorithms
+
+The MD5 algorithm MUST NOT be used as it's now vulnerable
+to collision attacks [CMU-836068].
+
+The SHA algorithm is NOT RECOMMENDED as it's now vulnerable
+to collision attacks [IACR-2019-459].
 
 # Examples
 
@@ -770,6 +733,75 @@ Content-Encoding: br
 Digest: sha-256=4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=, id-sha-256=X48E9qOokqqrvdts8nOJRJN3OWDUoyWxBf7kbu9DBPE=
 
 iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
+~~~
+
+### Digest with POST referencing a resource different from the request URI
+
+As described in {{acting-on-resources}}, the request representation digest is computed
+on the enclosed representation.
+
+If a response references a resource different from the request URI
+then the `Digest` MUST be computed on the referenced resource.
+
+In the example, the payload is a representation of the resource identified by `Content-Location`
+(see [RFC7231] Section 3.1.4.2 and Section 3.1.4.1 point 4),
+but other cases might apply (eg. `303 See Other` + `Location`).
+ 
+Request:
+
+~~~
+POST /books HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: identity
+Digest: sha-256=bWopGGNiZtbVgHsG+I4knzfEJpmmmQHf7RHDXA3o1hQ=
+
+{"title": "New Title"}
+~~~
+
+
+Response
+
+~~~
+HTTP/1.1 201 Created
+Content-Type: application/json
+Digest: id-sha-256=BZlF2v0IzjuxN01RQ97EUXriaNNLhtI8Chx8Eq+XYSc=
+Content-Location: /books/123
+
+{"id": "123", "title": "New Title"}
+~~~
+
+
+### Digest with POST
+
+As described in {{acting-on-resources}}, the request representation digest is computed
+on the enclosed representation.
+
+If the representation in the response describes the status of the request,
+it MUST be computed on the enclosed representation.
+
+Request:
+
+~~~
+POST /books HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Accept-Encoding: identity
+Digest: sha-256=bWopGGNiZtbVgHsG+I4knzfEJpmmmQHf7RHDXA3o1hQ=
+
+{"title": "New Title"}
+~~~
+
+
+Response
+
+~~~
+HTTP/1.1 201 Created
+Content-Type: application/json
+Digest: id-sha-256=R8PhjDKAFrO9NhE3HmepgjE6mHPdtUg5+/0EFhtHuX4=
+Location: /books/123
+
+{"status": "created", "id": "123", "ts": 1569327729}
 ~~~
 
 ## Want-Digest solicited digest responses
@@ -1055,26 +1087,39 @@ Specification document(s):  {{digest-header}} of this document
    and adds two more algorithms: ID-SHA-256 and ID-SHA-512 which allows to
    send a checksum of a resource representation with no content codings applied.
 
-8. How can I test digest output? Use the following python3 function.
+# Generating and validating Digest values
+{:numbered="false"}
+
+_RFC Editor: Please remove this section before publication._
+
+How can I generate and validate the Digest values shown in the examples
+throughout this document?
+
+The following python3 script can be used to generate digests for json objects
+using SHA algorithms for a range of encodings.
+Note that these are formatted as base64.
+This function could be adapted to other algorithms
+and should take into account their specific formatting rules.
 
 ~~~
 # python3 function
 import base64, json, hashlib, brotli
 
-def digest(item, encoding=lambda x:x, algorithm=hashlib.sha256):
-    return base64.encodebytes(algorithm(encoding(json.dumps(item).encode())).digest()).strip()
+def digest(item, encoding=lambda x: x, algorithm=hashlib.sha256):
+    json_bytes = json.dumps(item).encode()
+    content_encoded = encoding(json_bytes)
+    checksum_bytes = algorithm(content_encoded).digest()
+    return base64.encodebytes(checksum_bytes).strip()
 
 item = {"hello": "world"}
-print("Identity encoding, sha256", digest(item))
 
+print("Identity encoding, sha256", digest(item))
 # Out: Identity encoding, sha256 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
 
 print("Brotli encoding, sha256", digest(item, encoding=brotli.compress))
-
 # Out: Brotli encoding, sha256 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
 
-print("Identity encoding, sha512", digest(dict(hello='world'), algorithm=hashlib.sha512)
-
+print("Identity encoding, sha512", digest(item, algorithm=hashlib.sha512))
 # Out: Identity encoding, sha512 b'WZDPaVn/7XgHaAy8pmojAkGWoRx2UFChF41A2svX+TaPm+AbwAgBWnrIiYllu7BNNyealdVLvRwE\nmTHWXvJwew==\n'
 ~~~
 
