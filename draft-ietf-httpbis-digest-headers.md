@@ -469,7 +469,7 @@ The Digest header field provides a digest of the representation data.
 - or not at all contained in the message body.
 
 The resource is specified by the effective
-Request-URI and any cache-validator contained in the message.
+Request-URI and any validator (see Section 7.2 of [RFC7231]) contained in the message.
 
 For example, in a response to a HEAD request, the digest is calculated using  the
 representation data that would have been enclosed in the payload body
