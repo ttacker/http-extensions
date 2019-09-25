@@ -1087,42 +1087,6 @@ Specification document(s):  {{digest-header}} of this document
    and adds two more algorithms: ID-SHA-256 and ID-SHA-512 which allows to
    send a checksum of a resource representation with no content codings applied.
 
-# Generating and validating Digest values
-{:numbered="false"}
-
-_RFC Editor: Please remove this section before publication._
-
-How can I generate and validate the Digest values shown in the examples
-throughout this document?
-
-The following python3 script can be used to generate digests for json objects
-using SHA algorithms for a range of encodings.
-Note that these are formatted as base64.
-This function could be adapted to other algorithms
-and should take into account their specific formatting rules.
-
-~~~
-# python3 function
-import base64, json, hashlib, brotli
-
-def digest(item, encoding=lambda x: x, algorithm=hashlib.sha256):
-    json_bytes = json.dumps(item).encode()
-    content_encoded = encoding(json_bytes)
-    checksum_bytes = algorithm(content_encoded).digest()
-    return base64.encodebytes(checksum_bytes).strip()
-
-item = {"hello": "world"}
-
-print("Identity encoding, sha256", digest(item))
-# Out: Identity encoding, sha256 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
-
-print("Brotli encoding, sha256", digest(item, encoding=brotli.compress))
-# Out: Brotli encoding, sha256 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
-
-print("Identity encoding, sha512", digest(item, algorithm=hashlib.sha512))
-# Out: Identity encoding, sha512 b'WZDPaVn/7XgHaAy8pmojAkGWoRx2UFChF41A2svX+TaPm+AbwAgBWnrIiYllu7BNNyealdVLvRwE\nmTHWXvJwew==\n'
-~~~
-
 # Acknowledgements
 {:numbered="false"}
 The vast majority of this document is inherited from [RFC3230], so thanks
