@@ -513,11 +513,13 @@ In responses,
 
 - if the representation describes the status of the request,
   `Digest` MUST be computed on the enclosed representation;
+
 - if the referenced resource target is different from the effective request URI
+  or the response does not reference the target resource
   `Digest` MUST be computed on the referenced resource.
-  
+
 The latter case might be done accordingly to the HTTP semantics of the given method,
-for example using the `Content-Location` or the `Location` header fields.
+for example using the `Content-Location` header field.
 
 ## Digest and PATCH
 
@@ -740,7 +742,7 @@ iwiAeyJoZWxsbyI6ICJ3b3JsZCJ9Aw==
 As described in {{acting-on-resources}}, the request representation digest is computed
 on the enclosed representation.
 
-If a response references a resource different from the request URI
+If the response does not reference the target resource
 then the `Digest` MUST be computed on the referenced resource.
 
 In the example, the payload is a representation of the resource identified by `Content-Location`
