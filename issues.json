@@ -50,7 +50,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-09-25T12:02:10Z",
-    "updated_at": "2019-09-25T12:02:10Z",
+    "updated_at": "2019-09-25T12:07:08Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -159,7 +159,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-09-24T16:15:32Z",
-    "updated_at": "2019-09-24T20:00:37Z",
+    "updated_at": "2019-09-25T22:34:06Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
@@ -168,7 +168,7 @@
       "diff_url": "https://github.com/httpwg/http-extensions/pull/937.diff",
       "patch_url": "https://github.com/httpwg/http-extensions/pull/937.patch"
     },
-    "body": "## This PR\r\n\r\nClarifies that the representation in the response may not be \r\nrelated to the target resource.\r\n\r\nThe typical example is when Content-Location is used."
+    "body": "## This PR\r\n\r\nClarifies that the representation in the response may not be \r\nrelated to the target resource.\r\n\r\nThe typical example is when Content-Location, which is representation metadata, is used."
   },
   {
     "url": "https://api.github.com/repos/httpwg/http-extensions/issues/936",
@@ -948,7 +948,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-09-06T09:47:28Z",
-    "updated_at": "2019-09-25T11:47:20Z",
+    "updated_at": "2019-09-25T12:37:48Z",
     "closed_at": null,
     "author_association": "CONTRIBUTOR",
     "pull_request": {
