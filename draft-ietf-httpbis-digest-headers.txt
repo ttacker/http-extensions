@@ -138,9 +138,10 @@ Internet-Draft               Digest Headers               September 2019
      10.3.  URIs . . . . . . . . . . . . . . . . . . . . . . . . . .  22
    Appendix A.  FAQ  . . . . . . . . . . . . . . . . . . . . . . . .  22
    Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  23
+   Code samples  . . . . . . . . . . . . . . . . . . . . . . . . . .  24
    Changes . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  24
-     C.1.  Since draft-ietf-httpbis-digest-headers-00  . . . . . . .  24
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
+     D.1.  Since draft-ietf-httpbis-digest-headers-00  . . . . . . .  24
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  25
 
 1.  Introduction
 
@@ -160,7 +161,6 @@ Internet-Draft               Digest Headers               September 2019
 
    o  implement signature mechanisms that cover the desired parts of an
       HTTP exchange;
-
 
 
 
@@ -1293,17 +1293,58 @@ Internet-Draft               Digest Headers               September 2019
    discussion with M.  Nottingham, J.  Yasskin and M.  Thomson when
    reviewing the MICE content coding.
 
+Code samples
+
+   _RFC Editor: Please remove this section before publication._
+
+   How can I generate and validate the Digest values shown in the
+   examples throughout this document?
+
+   The following python3 code can be used to generate digests for json
+   objects using SHA algorithms for a range of encodings.  Note that
+   these are formatted as base64.  This function could be adapted to
+   other algorithms and should take into account their specific
+   formatting rules.
+
+import base64, json, hashlib, brotli
+
+
+def digest(item, encoding=lambda x: x, algorithm=hashlib.sha256):
+    json_bytes = json.dumps(item).encode()
+    content_encoded = encoding(json_bytes)
+    checksum_bytes = algorithm(content_encoded).digest()
+    return base64.encodebytes(checksum_bytes).strip()
+
+
+item = {"hello": "world"}
+
+print("Identity encoding, sha256", digest(item))
+# Out: Identity encoding, sha256 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
+
+print("Brotli encoding, sha256", digest(item, encoding=brotli.compress))
+# Out: Brotli encoding, sha256 4REjxQ4yrqUVicfSKYNO/cF9zNj5ANbzgDZt3/h3Qxo=
+
+print("Identity encoding, sha512", digest(item, algorithm=hashlib.sha512))
+# Out: Identity encoding, sha512 b'WZDPaVn/7XgHaAy8pmojAkGWoRx2UFChF41A2svX+TaPm+AbwAgBWnrIiYllu7BNNyealdVLvRwE\nmTHWXvJwew==\n'
+
 Changes
 
    _RFC Editor: Please remove this section before publication._
 
-C.1.  Since draft-ietf-httpbis-digest-headers-00
+D.1.  Since draft-ietf-httpbis-digest-headers-00
 
    o  Align title with document name
 
    o  Add id-sha-* algorithm examples
 
    o  Reference [RFC6234] and [RFC3174] instead of FIPS-1
+
+
+
+Polli & Pardue           Expires March 30, 2020                [Page 24]
+
+Internet-Draft               Digest Headers               September 2019
+
 
    o  Deprecate MD5
 
@@ -1341,4 +1382,19 @@ Authors' Addresses
 
 
 
-Polli & Pardue           Expires March 30, 2020                [Page 24]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Polli & Pardue           Expires March 30, 2020                [Page 25]
