@@ -479,7 +479,9 @@ token             = <token, defined in [RFC7230], Section 3.2.6>
 
 cookie-av         = expires-av / max-age-av / domain-av /
                     path-av / secure-av / httponly-av /
-                    samesite-av / extension-av
+                    samesite-av / category-av / purpose-av /
+                    exempt-av / third-party-av / policy-av /
+                    extension-av
 expires-av        = "Expires=" sane-cookie-date
 sane-cookie-date  =
     <IMF-fixdate, defined in [RFC7231], Section 7.1.1.1>
@@ -499,6 +501,17 @@ secure-av         = "Secure"
 httponly-av       = "HttpOnly"
 samesite-av       = "SameSite=" samesite-value
 samesite-value    = "Strict" / "Lax" / "None"
+category-av       = "Category=" category-value *( "," category-value)
+category-value    = "Necessary" / "Preference" / "Analytical" /
+                    "Marketing" / "Other"
+purpose-av        = "Purpose=" purpose-value
+purpose-value     = DQUOTE VCHAR *( SP VCHAR ) DQUOTE
+exempt-av         = "Exempt"
+third-party-av    = "ThirdParty"
+policy-av         = "Policy=" policy-value
+policy-value      = DQUOTE ( <http-URI> / <https-URI> ) DQUOTE
+                      ; http-URI defined in [RFC7230], Section 2.7.1
+                      ; https-URI defined in [RFC7230], Section 2.7.2
 extension-av      = *av-octet
 av-octet          = %x20-3A / %x3C-7E
                       ; any CHAR except CTLs or ";"
