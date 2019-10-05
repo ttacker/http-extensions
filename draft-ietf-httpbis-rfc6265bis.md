@@ -512,6 +512,9 @@ policy-av         = "Policy=" policy-value
 policy-value      = DQUOTE ( <http-URI> / <https-URI> ) DQUOTE
                       ; http-URI defined in [RFC7230], Section 2.7.1
                       ; https-URI defined in [RFC7230], Section 2.7.2
+consent-av        = "Consent=" consent-value
+consent-value     = <IMF-fixdate>
+                      ; IMF-fixdate defined in [RFC7231], Section 7.1.1.1
 extension-av      = *av-octet
 av-octet          = %x20-3A / %x3C-7E
                       ; any CHAR except CTLs or ";"
