@@ -564,16 +564,27 @@ This section describes simplified semantics of the Set-Cookie header. These
 semantics are detailed enough to be useful for understanding the most common
 uses of cookies by servers. The full semantics are described in {{ua-requirements}}.
 
-When the user agent receives a Set-Cookie header, the user agent stores the
-cookie together with its attributes. Subsequently, when the user agent makes
-an HTTP request, the user agent includes the applicable, non-expired cookies
-in the Cookie header.
+When the user agent receives a Set-Cookie header, the user agent provides the
+information in the category, purpose, and policy attributes to the user; and if the
+third-party attribute is set, the user agent indicates to the user the cookie is a
+third-party cookie. If the exempt attribute is set, the user agent stores the cookie
+together with its attributes. If the exempt attribute is not set, and the consent
+attribute is set, the user agent stores the cookie together with its attributes. If
+the exempt attribute is not set, and the consent attribute is not set, the user
+agent requests the user's consent, if not already provided by the user via settings
+or another manner. If the user's consent is obtained, the user agent sets the consent
+attribute and stores the cookie together with its attributes. Subsequently, when the
+user agent makes an HTTP request, the user agent includes the applicable, non-expired
+cookies in the Cookie header.
 
 If the user agent receives a new cookie with the same cookie-name,
 domain-value, and path-value as a cookie that it has already stored, the
 existing cookie is evicted and replaced with the new cookie. Notice that
 servers can delete cookies by sending the user agent a new cookie with an
-Expires attribute with a value in the past.
+Expires attribute with a value in the past. Servers can revoke consent
+by sending the user agent a new cookie without the consent attribute set,
+and user agents can revoke consent by including the applicable cookie
+without the consent attribute set.
 
 Unless the cookie's attributes indicate otherwise, the cookie is returned only
 to the origin server (and not, for example, to any subdomains), and it expires
@@ -686,6 +697,63 @@ described in {{strict-lax}}. If the value is "None", the cookie will be sent
 with same-site and cross-site requests. If the "SameSite" attribute's value is
 something other than these three known keywords, the attribute's value will be
 treated as "None".
+
+#### The Category Attribute
+
+The Category attribute specifies the categories to which the cookie belongs.
+Valid values are "Necessary", "Preference", "Analytical", "Marketing", and
+"Other". Cookies can belong to one more than one categories, indicated by
+a comma seperated list, without spaces, in the Categories attribute.
+
+Necessary cookies enable basic functions, such as navigation or access; and
+these cookies are strictly necesssary, because the application can not
+function properly without the storage of these cookies by the user agent.
+Preference cookies allow for persistence of user customization of
+application appearance or behavior, such as color schemes, region, or
+preferred language. Analytical cookies assist application administrators
+understand how users interact with application, are used to agregate and
+report information in an anonymous manner. Marketing cookies track users
+across applications, usually for the purpose of displaying targeted
+advertising. Other cookies are cookies that belong to a category other than
+any of the categories listed here.
+
+The Category attribute enables user agents to allow users to consent to
+storage of all cookies in a category, rather than individually.
+
+#### The Purpose Attribute
+
+The Purpose attribute describes the purpose of the cookie, and enables
+user agents to provide the user with this information before requesting
+the user's informed consent for the user agent to store the cookie.
+
+#### The Exempt Attribute
+
+The Exempt attribute informs the user agent if the user's consent must be
+obtained prior to storing the cookie. If this attribute is set, the user
+agent is advised that consent must be obtained. If this attribute is not
+set, the user agent is advised that consent isn't necessary.
+
+#### The Third-Party Attribute
+
+The Third-Party attribute enables the user agent to indicate to the user
+if the cookie is a third-party cookie. If this attribute is set, the user
+agent is advised that the cookie is a third-party cookie. If this
+attribute is not set, the use agent is advised that the cookie is a
+first-party cookie, and not a third-party cookie.
+
+#### The Policy Attribute
+
+The Policy attribute is used to provide a URL that points to the
+relevent cookie policy; and it enables user agents to either provide
+the link to users or to locate, retrieve, and provide the policy content
+to the user directly.
+
+#### The Consent Attribute
+
+The Consent attribute is used to specify the time at which the user
+provided consent for the user agent to store the cookie. If the Exempt
+attribute is not set, and this attribute is not set, the user has not
+provided consent, or the user has revoked their consent.
 
 ### Cookie Name Prefixes
 
